@@ -22,6 +22,19 @@ final class RelicController extends AbstractController
         ]);
     }
 
+    #[Route('/my-relics', name: 'app_my_relics', methods: ['GET'])]
+    public function myRelics(RelicRepository $relicRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+
+        return $this->render('relic/index.html.twig', [
+            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'title' => 'My Relics'
+        ]);
+    }
+
     #[Route('/new', name: 'app_relic_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
