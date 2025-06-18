@@ -7,11 +7,11 @@
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
   {% block stylesheets %}
   {% endblock %}
-  
+
   {% block javascripts %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
   {% endblock %}
-  
+
   <style>
       .bd-placeholder-img {
           font-size: 1.125rem;
@@ -101,7 +101,7 @@
             <use xlink:href="#bootstrap"/>
           </svg>
         </a>
-        
+
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
           <li>
             <a href="#" class="nav-link text-secondary">
@@ -152,10 +152,10 @@
       <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
-      
+
       <div class="text-end">
-        <button type="button" class="btn btn-light text-dark me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <a href="{{ path('app_login') }}" class="btn btn-light text-dark me-2">Login</a>
+        <a href="{{ path('app_register') }}" class="btn btn-primary">Sign-up</a>
       </div>
     </div>
   </div>
