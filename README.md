@@ -60,7 +60,7 @@ http://localhost:8080
 * [x] Make the relic form look great
 * [x] Fix create relic error
 * [x] Make the relic view look great
-* [ ] Display the Saints listing
+* [X] Display the Saints listing
 * [ ] Add a home page sn remove the home link
 * [ ] Figure out a logo
 * [ ] Import Saints

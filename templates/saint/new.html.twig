@@ -3,9 +3,13 @@
 {% block title %}New Saint{% endblock %}
 
 {% block body %}
-    <h1>Create new Saint</h1>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">Create New Saint</h1>
 
-    {{ include('saint/_form.html.twig') }}
-
-    <a href="{{ path('app_saint_index') }}">back to list</a>
+            {{ include('saint/_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

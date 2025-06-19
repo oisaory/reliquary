@@ -22,9 +22,24 @@ final class SaintController extends AbstractController
         ]);
     }
 
+    #[Route('/my-saints', name: 'app_my_saints', methods: ['GET'])]
+    public function mySaints(SaintRepository $saintRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+
+        return $this->render('saint/index.html.twig', [
+            'saints' => $saintRepository->findBy(['creator' => $user]),
+            'title' => 'My Saints'
+        ]);
+    }
+
     #[Route('/new', name: 'app_saint_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $saint = new Saint();
         $form = $this->createForm(SaintType::class, $saint);
         $form->handleRequest($request);
@@ -53,6 +68,8 @@ final class SaintController extends AbstractController
     #[Route('/{id}/edit', name: 'app_saint_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Saint $saint, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $form = $this->createForm(SaintType::class, $saint);
         $form->handleRequest($request);
 
@@ -71,6 +88,8 @@ final class SaintController extends AbstractController
     #[Route('/{id}', name: 'app_saint_delete', methods: ['POST'])]
     public function delete(Request $request, Saint $saint, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         if ($this->isCsrfTokenValid('delete'.$saint->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($saint);
             $entityManager->flush();
