@@ -3,24 +3,47 @@
 {% block title %}Relic{% endblock %}
 
 {% block body %}
-    <h1>Relic</h1>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">Relic Details</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ relic.id }}</td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>{{ relic.location }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_relic_index') }}">back to list</a>
-
-    <a href="{{ path('app_relic_edit', {'id': relic.id}) }}">edit</a>
-
-    {{ include('relic/_delete_form.html.twig') }}
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Relic Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p><strong>ID:</strong> {{ relic.id }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Location:</strong> {{ relic.location }}</p>
+                        </div>
+                    </div>
+                    {% if relic.saint %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><strong>Saint:</strong> {{ relic.saint }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to list
+                        </a>
+                        <div>
+                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-primary">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            {{ include('relic/_delete_form.html.twig', {'form_class': '', 'button_class': 'ms-2'}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
