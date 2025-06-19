@@ -60,11 +60,13 @@ http://localhost:8080
 * [x] Make the relic form look great
 * [x] Fix create relic error
 * [x] Make the relic view look great
-* [X] Display the Saints listing
-* [ ] Add a home page sn remove the home link
+* [x] Display the Saints listing
+* [x] Add a home page and remove the home link
 * [ ] Figure out a logo
 * [ ] Import Saints
 * [ ] Add geolocation and address to relics
 * [ ] Add a map interface to add relic position
 * [ ] Add an auto-completing address translated into geolocation
 * [ ] Add a map interface to see relics around me
+* [ ] Add option to add a Saint image
+* [ ] Implement a map in the home and use geo to display location
