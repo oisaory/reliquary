@@ -54,3 +54,15 @@ http://localhost:8080
 - PHP configuration can be modified in `docker/php/php.ini`
 - Nginx configuration can be modified in `docker/nginx/default.conf`
 - Database configuration can be modified in `.env` file or by setting environment variables
+
+
+### To do
+* [ ] Make the relic form look great
+* [ ] Display the Saints listing
+* [ ] Add a home page sn remove the home link
+* [ ] Figure out a logo
+* [ ] Import Saints
+* [ ] Add geolocation and address to relics
+* [ ] Add a map interface to add relic position
+* [ ] Add an auto-completing address translated into geolocation
+* [ ] Add a map interface to see relics around me
