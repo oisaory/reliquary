@@ -1,4 +1,33 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Relic Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_row(form.location) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.saint) }}
+                </div>
+            </div>
+
+            {% if form.vars.errors|length > 0 %}
+                <div class="alert alert-danger">
+                    {{ form_errors(form) }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to list
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> {{ button_label|default('Save') }}
+                </button>
+            </div>
+        </div>
+    </div>
 {{ form_end(form) }}

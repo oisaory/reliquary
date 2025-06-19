@@ -57,7 +57,8 @@ http://localhost:8080
 
 
 ### To do
-* [ ] Make the relic form look great
+* [x] Make the relic form look great
+* [ ] Fix create relic error
 * [ ] Display the Saints listing
 * [ ] Add a home page sn remove the home link
 * [ ] Figure out a logo
