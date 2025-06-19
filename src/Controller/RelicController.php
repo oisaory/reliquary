@@ -38,6 +38,8 @@ final class RelicController extends AbstractController
     #[Route('/new', name: 'app_relic_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $relic = new Relic();
         $form = $this->createForm(RelicType::class, $relic);
         $form->handleRequest($request);
@@ -66,6 +68,8 @@ final class RelicController extends AbstractController
     #[Route('/{id}/edit', name: 'app_relic_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Relic $relic, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $form = $this->createForm(RelicType::class, $relic);
         $form->handleRequest($request);
 
@@ -84,6 +88,8 @@ final class RelicController extends AbstractController
     #[Route('/{id}', name: 'app_relic_delete', methods: ['POST'])]
     public function delete(Request $request, Relic $relic, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         if ($this->isCsrfTokenValid('delete'.$relic->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($relic);
             $entityManager->flush();
