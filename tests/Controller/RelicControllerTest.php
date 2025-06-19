@@ -2,9 +2,9 @@
 
 namespace App\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Tests\TestCase\ExtendedWebTestCase;
 
-class RelicControllerTest extends WebTestCase
+class RelicControllerTest extends ExtendedWebTestCase
 {
     public function testIndex(): void
     {
