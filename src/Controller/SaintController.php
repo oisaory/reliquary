@@ -6,6 +6,7 @@ use App\Entity\Saint;
 use App\Form\SaintType;
 use App\Repository\SaintRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,22 +16,42 @@ use Symfony\Component\Routing\Attribute\Route;
 final class SaintController extends AbstractController
 {
     #[Route(name: 'app_saint_index', methods: ['GET'])]
-    public function index(SaintRepository $saintRepository): Response
+    public function index(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
+        $query = $saintRepository->createQueryBuilder('s')
+            ->getQuery();
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1), // Current page
+            10 // Items per page
+        );
+
         return $this->render('saint/index.html.twig', [
-            'saints' => $saintRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 
     #[Route('/my-saints', name: 'app_my_saints', methods: ['GET'])]
-    public function mySaints(SaintRepository $saintRepository): Response
+    public function mySaints(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $user = $this->getUser();
 
+        $query = $saintRepository->createQueryBuilder('s')
+            ->where('s.creator = :user')
+            ->setParameter('user', $user)
+            ->getQuery();
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1), // Current page
+            10 // Items per page
+        );
+
         return $this->render('saint/index.html.twig', [
-            'saints' => $saintRepository->findBy(['creator' => $user]),
+            'pagination' => $pagination,
             'title' => 'My Saints'
         ]);
     }

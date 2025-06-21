@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {% for saint in saints %}
+                    {% for saint in pagination %}
                         <tr>
                             <td>{{ saint.id }}</td>
                             <td>{{ saint.name }}</td>
@@ -64,6 +64,10 @@
                     {% endfor %}
                     </tbody>
                 </table>
+            </div>
+
+            <div class="navigation d-flex justify-content-center mt-4">
+                {{ knp_pagination_render(pagination) }}
             </div>
         </div>
     </div>
