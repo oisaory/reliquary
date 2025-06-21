@@ -10,6 +10,60 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.url) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.file) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.canonical_status) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.canonization_date) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.canonizing_pope) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.saint_phrase) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.abstract) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.biography) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_row(form.image_link) }}
+                </div>
+            </div>
+
             {% if form.vars.errors|length > 0 %}
                 <div class="alert alert-danger">
                     {{ form_errors(form) }}

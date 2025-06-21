@@ -62,11 +62,14 @@ http://localhost:8080
 * [x] Make the relic view look great
 * [x] Display the Saints listing
 * [x] Add a home page and remove the home link
+* [x] Import Saints
+* [x] Create New Saint does not match Create New Relic standard
 * [ ] Figure out a logo
-* [ ] Import Saints
 * [ ] Add geolocation and address to relics
 * [ ] Add a map interface to add relic position
 * [ ] Add an auto-completing address translated into geolocation
 * [ ] Add a map interface to see relics around me
 * [ ] Add option to add a Saint image
 * [ ] Implement a map in the home and use geo to display location
+* [ ] Only admin can access creation
+* [ ] Implement a user profile

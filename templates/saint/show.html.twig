@@ -21,6 +21,83 @@
                             <p><strong>Name:</strong> {{ saint.name }}</p>
                         </div>
                     </div>
+
+                    {% if saint.url %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>URL:</strong> <a href="{{ saint.url }}" target="_blank">{{ saint.url }}</a></p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if saint.file %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>File:</strong> {{ saint.file }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="row mb-3">
+                        {% if saint.canonicalStatus %}
+                        <div class="col-md-6">
+                            <p><strong>Canonical Status:</strong> {{ saint.canonicalStatus }}</p>
+                        </div>
+                        {% endif %}
+
+                        {% if saint.canonizationDate %}
+                        <div class="col-md-6">
+                            <p><strong>Canonization Date:</strong> {{ saint.canonizationDate|date('Y-m-d') }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% if saint.canonizingPope %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>Canonizing Pope:</strong> {{ saint.canonizingPope }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if saint.saintPhrase %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>Saint Phrase:</strong></p>
+                            <blockquote class="blockquote">
+                                <p class="mb-0">{{ saint.saintPhrase }}</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if saint.abstract %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>Abstract:</strong></p>
+                            <p>{{ saint.abstract }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if saint.biography %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>Biography:</strong></p>
+                            <p>{{ saint.biography|nl2br }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if saint.imageLink %}
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p><strong>Image:</strong></p>
+                            <img src="{{ saint.imageLink }}" alt="{{ saint.name }}" class="img-fluid mb-3" style="max-height: 300px;">
+                        </div>
+                    </div>
+                    {% endif %}
+
                     {% if saint.relics is defined and saint.relics|length > 0 %}
                     <div class="row">
                         <div class="col-md-12">
