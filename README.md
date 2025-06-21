@@ -66,14 +66,14 @@ http://localhost:8080
 * [x] Create New Saint does not match Create New Relic standard
 * [x] Add pagination
 * [x] Make pagination look good
-* [ ] Is there a way to make pagination more configurable and less declarative?
+* [x] Is there a way to make pagination more configurable and less declarative?
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
   * [ ] Burger menu 
 * [ ] Figure out a logo
-* [ ] Add geolocation and address to relics
-* [ ] Add a map interface to add relic position
+* [ ] Add geolocation to relics
 * [ ] Add an auto-completing address translated into geolocation
+* [ ] Add a map interface to add relic position
 * [ ] Add a map interface to see relics around me
 * [ ] Add option to add a Saint image
 * [ ] Implement a map in the home and use geo to display location

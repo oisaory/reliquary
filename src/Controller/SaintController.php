@@ -18,13 +18,9 @@ final class SaintController extends AbstractController
     #[Route(name: 'app_saint_index', methods: ['GET'])]
     public function index(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
-        $query = $saintRepository->createQueryBuilder('s')
-            ->getQuery();
-
         $pagination = $paginator->paginate(
-            $query,
-            $request->query->getInt('page', 1), // Current page
-            10 // Items per page
+            $saintRepository->findAllQuery(),
+            $request->query->getInt('page', 1),
         );
 
         return $this->render('saint/index.html.twig', [
@@ -39,15 +35,9 @@ final class SaintController extends AbstractController
 
         $user = $this->getUser();
 
-        $query = $saintRepository->createQueryBuilder('s')
-            ->where('s.creator = :user')
-            ->setParameter('user', $user)
-            ->getQuery();
-
         $pagination = $paginator->paginate(
-            $query,
+            $saintRepository->findByCreatorQuery($user),
             $request->query->getInt('page', 1), // Current page
-            10 // Items per page
         );
 
         return $this->render('saint/index.html.twig', [

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Saint;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -40,4 +41,29 @@ class SaintRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    /**
+     * Find all saints query
+     * 
+     * @return Query The query object
+     */
+    public function findAllQuery(): Query
+    {
+        return $this->createQueryBuilder('s')
+            ->getQuery();
+    }
+
+    /**
+     * Find saints created by a specific user
+     * 
+     * @param object $user The user who created the saints
+     * @return Query The query object
+     */
+    public function findByCreatorQuery($user): Query
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.creator = :user')
+            ->setParameter('user', $user)
+            ->getQuery();
+    }
 }
