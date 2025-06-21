@@ -64,6 +64,12 @@ http://localhost:8080
 * [x] Add a home page and remove the home link
 * [x] Import Saints
 * [x] Create New Saint does not match Create New Relic standard
+* [x] Add pagination
+* [ ] Make pagination look good
+* [ ] Is there a way to make pagination more configurable and less declarative?
+* [ ] Use turbo frames to increase responsiveness
+* [ ] Phone UI
+  * [ ] Burger menu 
 * [ ] Figure out a logo
 * [ ] Add geolocation and address to relics
 * [ ] Add a map interface to add relic position
