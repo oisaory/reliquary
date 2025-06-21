@@ -113,7 +113,7 @@ class RelicTest extends TestCase
     public function testGettersAndSetters(): void
     {
         $relic = new Relic();
-        
+
         $location = 'Vatican City';
         $relic->setLocation($location);
         $this->assertEquals($location, $relic->getLocation());
@@ -205,3 +205,11 @@ The project follows the standard Symfony directory structure:
 - Keep controllers thin
 - Use Symfony forms for handling form submissions
 - Use Symfony validators for validation
+
+### Database Management
+
+- Use `doctrine:schema:update --force` instead of migrations for schema updates:
+  ```bash
+  php bin/console doctrine:schema:update --force
+  ```
+- This approach is simpler for development and ensures the database schema always matches your entity definitions
