@@ -66,8 +66,14 @@
                 </table>
             </div>
 
-            <div class="navigation d-flex justify-content-center mt-4">
-                {{ knp_pagination_render(pagination) }}
+            <div class="d-flex justify-content-between align-items-center mt-4 px-2">
+                <div class="text-muted small">
+                    Showing {{ pagination.getCurrentPageNumber() }} of {{ pagination.getTotalItemCount > 0 ? pagination.getPageCount() : 1 }} pages
+                    ({{ pagination.getTotalItemCount }} total items)
+                </div>
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
             </div>
         </div>
     </div>

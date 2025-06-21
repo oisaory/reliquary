@@ -65,7 +65,7 @@ http://localhost:8080
 * [x] Import Saints
 * [x] Create New Saint does not match Create New Relic standard
 * [x] Add pagination
-* [ ] Make pagination look good
+* [x] Make pagination look good
 * [ ] Is there a way to make pagination more configurable and less declarative?
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
