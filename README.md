@@ -67,15 +67,16 @@ http://localhost:8080
 * [x] Add pagination
 * [x] Make pagination look good
 * [x] Is there a way to make pagination more configurable and less declarative?
-* [ ] Use turbo frames to increase responsiveness
-* [ ] Phone UI
-  * [ ] Burger menu 
-* [ ] Figure out a logo
 * [ ] Add geolocation to relics
 * [ ] Add an auto-completing address translated into geolocation
 * [ ] Add a map interface to add relic position
 * [ ] Add a map interface to see relics around me
-* [ ] Add option to add a Saint image
 * [ ] Implement a map in the home and use geo to display location
+* [ ] Use turbo frames to increase responsiveness
+* [ ] Phone UI
+  * [ ] Burger menu
+* [ ] Figure out a logo
+* [ ] Add option to add a Saint image
 * [ ] Only admin can access creation
 * [ ] Implement a user profile
+* [ ] Workflow for relic approval

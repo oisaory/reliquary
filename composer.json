@@ -26,6 +26,7 @@
         "symfony/runtime": "^7.1.2",
         "symfony/security-bundle": "7.1.*",
         "symfony/twig-bundle": "7.1.*",
+        "symfony/ux-autocomplete": "^2.26",
         "symfony/ux-turbo": "^2.20",
         "symfony/validator": "7.1.*",
         "symfony/yaml": "7.1.*",
