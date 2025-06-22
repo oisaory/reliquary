@@ -27,7 +27,6 @@ class RelicType extends AbstractType
             ])
             ->add('saint', SaintAutocompleteField::class, [
                 'label' => 'Saint',
-                'attr' => ['class' => 'form-control'],
                 'help' => 'Select the saint associated with this relic',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
