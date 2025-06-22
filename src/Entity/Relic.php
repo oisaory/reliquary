@@ -21,6 +21,9 @@ class Relic
     #[ORM\Column(length: 255)]
     private ?string $location = null;
 
+    #[ORM\Column(length: 1024, nullable: true)]
+    private ?string $address = null;
+
     #[ORM\ManyToOne(inversedBy: 'relics')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $creator = null;
@@ -50,6 +53,18 @@ class Relic
     public function setLocation(string $location): static
     {
         $this->location = $location;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): static
+    {
+        $this->address = $address;
 
         return $this;
     }

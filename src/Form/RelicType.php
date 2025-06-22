@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Relic;
 use App\Entity\Saint;
 use App\Form\SaintAutocompleteField;
+use App\Form\AddressAutocompleteType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,13 +16,19 @@ class RelicType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('address', AddressAutocompleteType::class, [
+                'label' => 'Address',
+                'help' => 'The general address where this relic is located',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+            ])
             ->add('location', null, [
-                'label' => 'Location',
+                'label' => 'Specific Location',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter the location of the relic',
+                    'placeholder' => 'Enter the specific location within the address',
                 ],
-                'help' => 'Where is this relic currently located?',
+                'help' => 'Where specifically within the address is this relic located? (e.g., "North Chapel", "Main Altar", etc.)',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])

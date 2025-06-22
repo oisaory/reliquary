@@ -31,7 +31,7 @@
                             {% set left = ((loop.index * 13) % 80) + 10 %}
                             {% set top = ((loop.index * 17) % 80) + 10 %}
                             <div class="position-absolute" style="left: {{ left }}%; top: {{ top }}%;">
-                                <span class="badge bg-danger" data-controller="tooltip" data-bs-toggle="tooltip" title="{{ relic.saint.name }} - {{ relic.location }}">
+                                <span class="badge bg-danger" data-controller="tooltip" data-bs-toggle="tooltip" title="{{ relic.saint.name }} - {{ relic.address }} ({{ relic.location }})">
                                     <svg class="bi" width="16" height="16" fill="currentColor">
                                         <use href="#geo-alt-fill"></use>
                                     </svg>
@@ -57,7 +57,8 @@
                                 <thead>
                                     <tr>
                                         <th>Saint</th>
-                                        <th>Location</th>
+                                        <th>Address</th>
+                                        <th>Specific Location</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,7 @@
                                     {% for relic in relics %}
                                         <tr>
                                             <td>{{ relic.saint.name }}</td>
+                                            <td>{{ relic.address }}</td>
                                             <td>{{ relic.location }}</td>
                                             <td>
                                                 <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-outline-primary">
