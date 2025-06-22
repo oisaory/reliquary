@@ -35,6 +35,15 @@ return [
         'version' => '5.3.3',
         'type' => 'css',
     ],
+    '@orchidjs/sifter' => [
+        'version' => '2.4.3',
+    ],
+    '@orchidjs/unicode-variants' => [
+        'version' => '2.4.3',
+    ],
+    'tom-select' => [
+        'version' => '2.4.3',
+    ],
     'tom-select/dist/css/tom-select.default.css' => [
         'version' => '2.4.3',
         'type' => 'css',

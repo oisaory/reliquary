@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Relic;
 use App\Entity\Saint;
+use App\Form\SaintAutocompleteField;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,15 +25,12 @@ class RelicType extends AbstractType
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
-            ->add('saint', EntityType::class, [
-                'class' => Saint::class,
-                'choice_label' => 'name',
+            ->add('saint', SaintAutocompleteField::class, [
                 'label' => 'Saint',
-                'attr' => ['class' => 'form-select'],
+                'attr' => ['class' => 'form-control'],
                 'help' => 'Select the saint associated with this relic',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
-                'placeholder' => 'Choose a saint',
             ])
         ;
     }
