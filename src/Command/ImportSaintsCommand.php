@@ -35,7 +35,7 @@ class ImportSaintsCommand extends Command
                 'f',
                 InputOption::VALUE_OPTIONAL,
                 'Path to the YAML file containing saint information',
-                __DIR__ . '/../../temp/saints_info.yaml'
+                __DIR__ . '/../../data/saints_info.yaml'
             )
             ->addOption(
                 'limit',
