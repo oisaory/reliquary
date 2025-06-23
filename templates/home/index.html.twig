@@ -11,33 +11,22 @@
                     <h2 class="mb-0">Relics Near Me ({{ radius }}km)</h2>
                 </div>
                 <div class="card-body">
-                    <!-- Placeholder Map -->
-                    <div class="bg-light p-3 mb-4" style="height: 400px; position: relative;">
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <div class="text-center">
-                                <svg class="bi" width="48" height="48" fill="currentColor">
-                                    <use href="#map"></use>
-                                </svg>
-                                <h4 class="mt-2">Map Placeholder</h4>
-                                <p class="text-muted">Interactive map will be available in a future update</p>
-                                <div class="mt-3">
-                                    <span class="badge bg-primary rounded-pill">Your Location</span>
-                                    <span class="badge bg-secondary rounded-pill">{{ radius }}km Radius</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Placeholder for map markers -->
-                        {% for relic in relics %}
-                            {% set left = ((loop.index * 13) % 80) + 10 %}
-                            {% set top = ((loop.index * 17) % 80) + 10 %}
-                            <div class="position-absolute" style="left: {{ left }}%; top: {{ top }}%;">
-                                <span class="badge bg-danger" data-controller="tooltip" data-bs-toggle="tooltip" title="{{ relic.saint.name }} - {{ relic.address }} ({{ relic.location }})">
-                                    <svg class="bi" width="16" height="16" fill="currentColor">
-                                        <use href="#geo-alt-fill"></use>
-                                    </svg>
-                                </span>
-                            </div>
-                        {% endfor %}
+                    <!-- OpenStreetMap -->
+                    <div 
+                        class="mb-4" 
+                        style="height: 400px; position: relative;" 
+                        data-controller="map" 
+                        data-map-target="container"
+                        data-map-relics-value="{{ relics|map(relic => {
+                                'id': relic.id,
+                                'saint': relic.saint.name,
+                                'address': relic.address,
+                                'location': relic.location,
+                                'latitude': relic.latitude,
+                                'longitude': relic.longitude
+                            })|json_encode }}"
+                        data-map-radius-value="{{ radius }}"
+                    >
                     </div>
                 </div>
             </div>
