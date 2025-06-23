@@ -24,6 +24,12 @@ class Relic
     #[ORM\Column(length: 1024, nullable: true)]
     private ?string $address = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $latitude = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $longitude = null;
+
     #[ORM\ManyToOne(inversedBy: 'relics')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $creator = null;
@@ -77,6 +83,30 @@ class Relic
     public function setCreator(?User $creator): static
     {
         $this->creator = $creator;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?float $latitude): static
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?float $longitude): static
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }
