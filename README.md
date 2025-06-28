@@ -69,8 +69,9 @@ http://localhost:8080
 * [x] Is there a way to make pagination more configurable and less declarative?
 * [x] Add geolocation to relics
 * [x] Add an auto-completing address translated into geolocation
+* [x] Add a map interface to see relics around the world
+* [x] Ask for location data and if granted center the map on the person 
 * [ ] Add a map interface to add relic position
-* [ ] Add a map interface to see relics around me
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
   * [ ] Burger menu

@@ -26,6 +26,9 @@ export default class extends Controller {
 
         // Initialize the map
         this.initializeMap();
+
+        // Request user location
+        this.requestUserLocation();
     }
 
     initializeMap() {
@@ -74,7 +77,7 @@ export default class extends Controller {
         // Add markers for each relic
         relicsWithCoords.forEach(relic => {
             const marker = L.marker([relic.latitude, relic.longitude]).addTo(this.map);
-            
+
             // Add popup with relic info
             marker.bindPopup(`
                 <strong>${relic.saint}</strong><br>
@@ -82,7 +85,7 @@ export default class extends Controller {
                 ${relic.location || ''}<br>
                 <a href="/relic/${relic.id}" class="btn btn-sm btn-primary mt-2">View Details</a>
             `);
-            
+
             // Extend bounds to include this marker
             bounds.extend([relic.latitude, relic.longitude]);
         });
@@ -90,7 +93,7 @@ export default class extends Controller {
         // Fit the map to show all markers
         if (bounds.isValid()) {
             this.map.fitBounds(bounds);
-            
+
             // Add a circle to show the search radius around the center of the bounds
             const center = bounds.getCenter();
             L.circle(center, {
@@ -100,5 +103,49 @@ export default class extends Controller {
                 fillOpacity: 0.1
             }).addTo(this.map);
         }
+    }
+
+    requestUserLocation() {
+        // Check if geolocation is available in the browser
+        if (!navigator.geolocation) {
+            console.log('Geolocation is not supported by your browser');
+            return;
+        }
+
+        // Request the user's location
+        navigator.geolocation.getCurrentPosition(
+            // Success callback
+            (position) => {
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
+
+                // Center the map on the user's location
+                this.map.setView([userLat, userLng], 13);
+            },
+            // Error callback
+            (error) => {
+                console.log('Unable to retrieve your location');
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        console.log('User denied the request for Geolocation');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        console.log('Location information is unavailable');
+                        break;
+                    case error.TIMEOUT:
+                        console.log('The request to get user location timed out');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        console.log('An unknown error occurred');
+                        break;
+                }
+            },
+            // Options
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            }
+        );
     }
 }
