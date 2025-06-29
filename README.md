@@ -75,7 +75,7 @@ http://localhost:8080
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
   * [ ] Burger menu
-* [ ] Figure out a logo
+* [x] Figure out a logo
 * [ ] Add option to add a Saint image
 * [ ] Only admin can access saint creation
 * [ ] Implement a user profile
