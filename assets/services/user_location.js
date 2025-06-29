@@ -36,6 +36,10 @@ export default class UserLocationService {
             navigator.geolocation.getCurrentPosition(
                 // Success callback
                 (position) => {
+                    // Store the geolocation in the backend
+                    this.storeGeolocation(position.coords.latitude, position.coords.longitude)
+                        .catch(error => console.error('Failed to store geolocation:', error));
+
                     if (onSuccess) onSuccess(position);
                     resolve(position);
                 },
@@ -67,5 +71,31 @@ export default class UserLocationService {
                 geolocationOptions
             );
         });
-    }cfcc
+    }
+
+    /**
+     * Store the user's geolocation in the backend
+     * 
+     * @param {number} latitude - The user's latitude
+     * @param {number} longitude - The user's longitude
+     * @returns {Promise} - A promise that resolves when the geolocation is stored
+     */
+    static storeGeolocation(latitude, longitude) {
+        return fetch('/api/geolocation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                latitude,
+                longitude
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to store geolocation');
+            }
+            return response.json();
+        });
+    }
 }

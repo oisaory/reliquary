@@ -16,6 +16,62 @@ class RelicRepository extends ServiceEntityRepository
         parent::__construct($registry, Relic::class);
     }
 
+    /**
+     * Find relics within a specified radius of a given location
+     * 
+     * @param float $latitude The latitude of the center point
+     * @param float $longitude The longitude of the center point
+     * @param float $radiusKm The radius in kilometers
+     * @return Relic[] Returns an array of Relic objects
+     */
+    public function findWithinRadius(float $latitude, float $longitude, float $radiusKm): array
+    {
+        // Use a simple bounding box approach to filter relics
+        // This avoids using trigonometric functions that might not be available in PostgreSQL
+
+        // Approximate degrees to km conversion factors
+        // These values are approximate and work best near the equator
+        $kmPerLatDegree = 111.0; // 1 degree of latitude is approximately 111 km
+        $kmPerLngDegree = 111.0 * cos(deg2rad($latitude)); // Longitude degrees vary with latitude
+
+        // Calculate the latitude and longitude ranges for the bounding box
+        $latRange = $radiusKm / $kmPerLatDegree;
+        $lngRange = $radiusKm / $kmPerLngDegree;
+
+        $minLat = $latitude - $latRange;
+        $maxLat = $latitude + $latRange;
+        $minLng = $longitude - $lngRange;
+        $maxLng = $longitude + $lngRange;
+
+        // First, get relics within the bounding box
+        $qb = $this->createQueryBuilder('r')
+            ->andWhere('r.latitude IS NOT NULL')
+            ->andWhere('r.longitude IS NOT NULL')
+            ->andWhere('r.latitude BETWEEN :minLat AND :maxLat')
+            ->andWhere('r.longitude BETWEEN :minLng AND :maxLng')
+            ->setParameter('minLat', $minLat)
+            ->setParameter('maxLat', $maxLat)
+            ->setParameter('minLng', $minLng)
+            ->setParameter('maxLng', $maxLng);
+
+        $relics = $qb->getQuery()->getResult();
+
+        // Then, filter the results to get only those within the actual radius
+        // This is done in PHP to avoid complex SQL calculations
+        return array_filter($relics, function($relic) use ($latitude, $longitude, $radiusKm, $kmPerLatDegree, $kmPerLngDegree) {
+            $latDiff = abs($relic->getLatitude() - $latitude);
+            $lngDiff = abs($relic->getLongitude() - $longitude);
+
+            // Approximate distance calculation using the Pythagorean theorem
+            // This is not perfectly accurate for large distances but works well for small ones
+            $latDistKm = $latDiff * $kmPerLatDegree;
+            $lngDistKm = $lngDiff * $kmPerLngDegree;
+            $distanceKm = sqrt($latDistKm * $latDistKm + $lngDistKm * $lngDistKm);
+
+            return $distanceKm <= $radiusKm;
+        });
+    }
+
 //    /**
 //     * @return Relic[] Returns an array of Relic objects
 //     */

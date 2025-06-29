@@ -42,6 +42,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private bool $isVerified = false;
 
+    #[ORM\Column(type: 'float', nullable: true)]
+    private ?float $latitude = null;
+
+    #[ORM\Column(type: 'float', nullable: true)]
+    private ?float $longitude = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $geolocationTimestamp = null;
+
     /**
      * @var Collection<int, Relic>
      */
@@ -178,6 +187,58 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $relic->setCreator(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?float $latitude): static
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?float $longitude): static
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getGeolocationTimestamp(): ?\DateTimeInterface
+    {
+        return $this->geolocationTimestamp;
+    }
+
+    public function setGeolocationTimestamp(?\DateTimeInterface $geolocationTimestamp): static
+    {
+        $this->geolocationTimestamp = $geolocationTimestamp;
+
+        return $this;
+    }
+
+    /**
+     * Set the user's geolocation data
+     *
+     * @param float $latitude
+     * @param float $longitude
+     * @return $this
+     */
+    public function setGeolocation(float $latitude, float $longitude): static
+    {
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->geolocationTimestamp = new \DateTime();
 
         return $this;
     }
