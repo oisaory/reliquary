@@ -1,5 +1,6 @@
 import { Controller } from '@hotwired/stimulus';
 import L from 'leaflet';
+import UserLocationService from '../services/user_location.js';
 
 export default class extends Controller {
     static targets = ['container'];
@@ -106,14 +107,8 @@ export default class extends Controller {
     }
 
     requestUserLocation() {
-        // Check if geolocation is available in the browser
-        if (!navigator.geolocation) {
-            console.log('Geolocation is not supported by your browser');
-            return;
-        }
-
-        // Request the user's location
-        navigator.geolocation.getCurrentPosition(
+        // Use the UserLocationService to get the user's location
+        UserLocationService.getCurrentPosition(
             // Success callback
             (position) => {
                 const userLat = position.coords.latitude;
@@ -122,30 +117,17 @@ export default class extends Controller {
                 // Center the map on the user's location
                 this.map.setView([userLat, userLng], 13);
             },
-            // Error callback
-            (error) => {
-                console.log('Unable to retrieve your location');
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        console.log('User denied the request for Geolocation');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        console.log('Location information is unavailable');
-                        break;
-                    case error.TIMEOUT:
-                        console.log('The request to get user location timed out');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        console.log('An unknown error occurred');
-                        break;
-                }
-            },
+            // Error callback is handled by the service
+            null,
             // Options
             {
                 enableHighAccuracy: true,
                 timeout: 5000,
                 maximumAge: 0
             }
-        );
+        ).catch(error => {
+            // Additional error handling if needed
+            console.log('Error getting user location:', error);
+        });
     }
 }
