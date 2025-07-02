@@ -28,7 +28,7 @@ WORKDIR /var/www
 COPY composer.json composer.lock ./
 
 # Install dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Production stage
 FROM php:8.2-fpm AS production
