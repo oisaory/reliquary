@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   php:
     image: ${DOCKER_REGISTRY:-localhost}/reliquary-php:${IMAGE_TAG:-latest}

@@ -213,3 +213,107 @@ The project follows the standard Symfony directory structure:
   php bin/console doctrine:schema:update --force
   ```
 - This approach is simpler for development and ensures the database schema always matches your entity definitions
+
+## Production Configuration
+
+### Docker Production Setup
+
+The project uses Docker for production deployment with the following services:
+
+- PHP 8.2 FPM (production-optimized image)
+- Nginx web server with SSL support
+- PostgreSQL database
+
+#### Production Environment Variables
+
+Create a `.env.prod` file with the following variables:
+
+```
+DOCKER_REGISTRY=ghcr.io/your-github-username
+IMAGE_TAG=latest
+APP_SECRET=your-app-secret
+POSTGRES_DB=reliquary
+POSTGRES_USER=app
+POSTGRES_PASSWORD=your-secure-password
+NGINX_SSL_PORT=443
+```
+
+#### Deployment Commands
+
+```bash
+# Pull the latest images and start the containers
+docker compose -f compose.prod.yaml --env-file .env.prod pull
+docker compose -f compose.prod.yaml --env-file .env.prod up -d
+```
+
+#### Production Configuration Details
+
+- The production setup uses pre-built Docker images from a registry
+- APP_ENV is set to 'prod' for optimized performance
+- Nginx is configured to serve HTTPS on port 443
+- Database data is persisted using Docker volumes
+
+### SSL/TLS Configuration
+
+The Nginx container is configured to serve HTTPS with SSL/TLS support. For production:
+
+1. **Replace Self-Signed Certificates**
+   - Mount your SSL certificates into the container:
+     ```yaml
+     volumes:
+       - ./ssl/your-cert.crt:/etc/nginx/ssl/nginx.crt
+       - ./ssl/your-key.key:/etc/nginx/ssl/nginx.key
+     ```
+
+2. **Consider Let's Encrypt** for automatic certificate management
+
+## CI Workflow
+
+The project includes a GitHub Actions workflow for continuous integration and deployment:
+
+### Workflow Triggers
+
+The CI workflow is triggered on:
+- Pushes to the main branch
+- Pull requests to the main branch
+
+### CI Process
+
+1. **Build and Test**
+   - Builds the PHP and Nginx Docker images
+   - Uses Docker Buildx for efficient builds
+   - Utilizes GitHub Actions cache for faster builds
+
+2. **Docker Image Publishing**
+   - Pushes images to GitHub Container Registry (ghcr.io)
+   - Images are tagged with:
+     - Branch name
+     - PR number (for pull requests)
+     - Semantic version (when tagged)
+     - Short SHA
+
+3. **Deployment**
+   - Images are available at `ghcr.io/your-github-username/reliquary-php` and `ghcr.io/your-github-username/reliquary-nginx`
+   - Manual deployment is required on the production server
+
+### Maintenance
+
+#### Updating the Application
+
+```bash
+# Pull the latest images
+docker compose -f compose.prod.yaml --env-file .env.prod pull
+
+# Restart the containers
+docker compose -f compose.prod.yaml --env-file .env.prod up -d
+```
+
+#### Monitoring and Troubleshooting
+
+```bash
+# View logs for all services
+docker compose -f compose.prod.yaml logs
+
+# View logs for a specific service
+docker compose -f compose.prod.yaml logs php
+```

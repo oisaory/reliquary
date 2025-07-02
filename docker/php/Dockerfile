@@ -28,7 +28,7 @@ WORKDIR /var/www
 COPY composer.json composer.lock ./
 
 # Install dependencies
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader
 
 # Production stage
 FROM php:8.2-fpm AS production
@@ -67,6 +67,10 @@ COPY . .
 
 # Copy vendor directory from build stage
 COPY --from=build /var/www/vendor ./vendor
+
+# Clear and warm up cache for production
+RUN APP_ENV=prod php bin/console cache:clear --no-warmup
+RUN APP_ENV=prod php bin/console cache:warmup
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www \
