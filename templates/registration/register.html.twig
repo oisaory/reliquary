@@ -25,7 +25,14 @@
                             </div>
 
                             <div class="mb-3">
-                                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_help(registrationForm.email) }}
+                                {{ form_errors(registrationForm.email) }}
+                            </div>
+
+                        <div class="mb-3">
+                        {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
                                 {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_help(registrationForm.plainPassword) }}
                                 {{ form_errors(registrationForm.plainPassword) }}
@@ -44,7 +51,7 @@
                             <div class="mt-3 text-center">
                                 <p>Already have an account? <a href="{{ path('app_login') }}">Sign in</a></p>
                             </div>
-                        {{ form_end(registrationForm, {'render_rest': false}) }}
+                        {{ form_end(registrationForm) }}
                     </div>
                 </div>
             </div>
