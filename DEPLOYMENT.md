@@ -55,6 +55,10 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    # Pull the latest images and start the containers
    docker compose --env-file .env.prod pull
    docker compose --env-file .env.prod up -d
+
+   # Update database schema and import saints data
+   docker compose --env-file .env.prod exec apache php bin/console doctrine:schema:update --force
+   docker compose --env-file .env.prod exec apache php bin/console app:import-saints
    ```
 
 ### Option 2: Manual Deployment
@@ -79,7 +83,7 @@ If you prefer to build and deploy manually:
 
 3. **Deploy on Your Server**
 
-   Follow the same steps as in Option 1, step 3.
+   Follow the same steps as in Option 1, step 3, including running the database schema update and saints import commands.
 
 ## Production Configuration
 
@@ -151,6 +155,10 @@ docker compose --env-file .env.prod pull
 
 # Restart the containers
 docker compose --env-file .env.prod up -d
+
+# Update database schema and import saints data
+docker compose --env-file .env.prod exec apache php bin/console doctrine:schema:update --force
+docker compose --env-file .env.prod exec apache php bin/console app:import-saints
 ```
 
 ### Monitoring
