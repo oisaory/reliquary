@@ -1,0 +1,54 @@
+FROM php:8.2-apache
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libpq-dev \
+    libicu-dev \
+    libzip-dev
+
+# Install PHP extensions
+RUN docker-php-ext-install \
+    pdo \
+    pdo_pgsql \
+    intl \
+    zip \
+    ctype \
+    iconv
+
+# Enable Apache modules
+RUN a2enmod rewrite ssl headers
+
+# Configure PHP for development
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
+    && echo "memory_limit=256M" >> "$PHP_INI_DIR/php.ini" \
+    && echo "post_max_size=100M" >> "$PHP_INI_DIR/php.ini" \
+    && echo "upload_max_filesize=20M" >> "$PHP_INI_DIR/php.ini" \
+    && echo "date.timezone=UTC" >> "$PHP_INI_DIR/php.ini"
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Create directory for SSL certificates
+RUN mkdir -p /etc/apache2/ssl
+
+# Generate self-signed SSL certificate
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt \
+    -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
+
+# Configure Apache virtual hosts
+COPY docker/apache/apache-dev.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/apache/apache-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+
+# Enable SSL site
+RUN a2ensite default-ssl
+
+# Set working directory
+WORKDIR /var/www
+
+# Expose ports
+EXPOSE 80 443
+
+CMD ["apache2-foreground"]

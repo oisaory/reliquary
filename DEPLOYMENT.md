@@ -28,8 +28,8 @@ The project includes a GitHub Actions workflow that automatically builds and pus
 2. **Push Changes to Main Branch**
 
    When you push changes to the main branch, the GitHub Actions workflow will automatically:
-   - Build the PHP and Nginx Docker images
-   - Push them to GitHub Container Registry with appropriate tags
+   - Build the Apache+PHP Docker image
+   - Push it to GitHub Container Registry with appropriate tags
 
 3. **Deploy on Your Server**
 
@@ -44,7 +44,7 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    POSTGRES_DB=reliquary
    POSTGRES_USER=app
    POSTGRES_PASSWORD=your-secure-password
-   NGINX_SSL_PORT=443
+   APACHE_SSL_PORT=443
    EOL
 
    # Pull the latest images and start the containers
@@ -59,8 +59,7 @@ If you prefer to build and deploy manually:
 1. **Build the Images Locally**
 
    ```bash
-   docker build -t ghcr.io/your-github-username/reliquary-php:latest -f docker/php/Dockerfile --target production .
-   docker build -t ghcr.io/your-github-username/reliquary-nginx:latest -f docker/nginx/Dockerfile ./docker/nginx
+   docker build -t ghcr.io/your-github-username/reliquary:latest -f docker/apache/Dockerfile.prod .
    ```
 
 2. **Push to Your Registry**
@@ -69,9 +68,8 @@ If you prefer to build and deploy manually:
    # Login to GitHub Container Registry
    echo $GITHUB_TOKEN | docker login ghcr.io -u your-github-username --password-stdin
 
-   # Push the images
-   docker push ghcr.io/your-github-username/reliquary-php:latest
-   docker push ghcr.io/your-github-username/reliquary-nginx:latest
+   # Push the image
+   docker push ghcr.io/your-github-username/reliquary:latest
    ```
 
 3. **Deploy on Your Server**
@@ -91,7 +89,7 @@ APP_SECRET=your-app-secret
 POSTGRES_DB=reliquary
 POSTGRES_USER=app
 POSTGRES_PASSWORD=your-secure-password
-NGINX_SSL_PORT=443
+APACHE_SSL_PORT=443
 ```
 
 ### Database Management
@@ -113,7 +111,7 @@ For production, consider:
 
 ### SSL/TLS Configuration
 
-The Nginx container in this project is now configured to serve HTTPS on port 443 with SSL/TLS support. The container generates a self-signed SSL certificate during build time, which is suitable for development and testing.
+The Apache container in this project is configured to serve HTTPS on port 443 with SSL/TLS support. The container generates a self-signed SSL certificate during build time, which is suitable for development and testing.
 
 For production use:
 
@@ -124,8 +122,8 @@ For production use:
    - Mount your SSL certificates into the container:
      ```yaml
      volumes:
-       - ./ssl/your-cert.crt:/etc/nginx/ssl/nginx.crt
-       - ./ssl/your-key.key:/etc/nginx/ssl/nginx.key
+       - ./ssl/your-cert.crt:/etc/apache2/ssl/apache.crt
+       - ./ssl/your-key.key:/etc/apache2/ssl/apache.key
      ```
 
 2. **Let's Encrypt Integration**
@@ -134,7 +132,7 @@ For production use:
 
    - Set up a volume for Let's Encrypt certificates
    - Configure a renewal process (e.g., using certbot in a separate container)
-   - Mount the certificates into the Nginx container
+   - Mount the certificates into the Apache container
 
 ## Maintenance
 
@@ -164,7 +162,7 @@ For higher traffic loads:
 
 1. **Horizontal Scaling**
 
-   Deploy multiple instances of the PHP and Nginx containers behind a load balancer.
+   Deploy multiple instances of the Apache container behind a load balancer.
 
 2. **Vertical Scaling**
 
@@ -179,7 +177,7 @@ For higher traffic loads:
 docker compose -f compose.prod.yaml logs
 
 # View logs for a specific service
-docker compose -f compose.prod.yaml logs php
+docker compose -f compose.prod.yaml logs apache
 ```
 
 ### Common Issues

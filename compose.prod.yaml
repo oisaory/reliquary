@@ -1,28 +1,18 @@
 services:
-  php:
-    image: ${DOCKER_REGISTRY:-localhost}/reliquary-php:${IMAGE_TAG:-latest}
+  apache:
+    image: ${DOCKER_REGISTRY:-localhost}/reliquary:${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:
       APP_ENV: prod
       APP_SECRET: ${APP_SECRET}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?serverVersion=15&charset=utf8
+    ports:
+      - "80:80"
+      - "${APACHE_SSL_PORT:-443}:443"
     volumes:
-      - php_socket:/var/run/php
-      - ./public:/srv/app/public:ro
-      - ./var:/srv/app/var:rw
+      - ./public:/var/www/public:ro
     depends_on:
       - database
-
-  nginx:
-    image: ${DOCKER_REGISTRY:-localhost}/reliquary-nginx:${IMAGE_TAG:-latest}
-    restart: unless-stopped
-    depends_on:
-      - php
-    ports:
-      - "${NGINX_SSL_PORT:-443}:443"
-    volumes:
-      - php_socket:/var/run/php
-      - ./public:/srv/app/public:ro
 
   database:
     image: postgres:15-alpine
@@ -35,5 +25,4 @@ services:
       - database_data:/var/lib/postgresql/data:rw
 
 volumes:
-  php_socket:
   database_data:

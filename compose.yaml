@@ -1,26 +1,17 @@
 
 services:
-  php:
+  apache:
     build:
       context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: docker/apache/Dockerfile.dev
     volumes:
       - .:/var/www
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/app.ini
-    depends_on:
-      - database
-    restart: unless-stopped
-
-  nginx:
-    build:
-      context: ./docker/nginx
-      dockerfile: Dockerfile
-    volumes:
-      - .:/var/www
     ports:
       - "8080:80"
+      - "8443:443"
     depends_on:
-      - php
+      - database
     restart: unless-stopped
 
 ###> doctrine/doctrine-bundle ###

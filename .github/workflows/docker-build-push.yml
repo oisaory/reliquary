@@ -28,47 +28,24 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata for PHP image
-        id: meta-php
+      - name: Extract metadata for Apache+PHP image
+        id: meta-apache
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/${{ github.repository_owner }}/reliquary-php
+          images: ghcr.io/${{ github.repository_owner }}/reliquary
           tags: |
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=sha,format=short
 
-      - name: Build and push PHP image
+      - name: Build and push Apache+PHP image
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/php/Dockerfile
+          file: ./docker/apache/Dockerfile.prod
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-php.outputs.tags }}
-          labels: ${{ steps.meta-php.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          target: production
-
-      - name: Extract metadata for Nginx image
-        id: meta-nginx
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/${{ github.repository_owner }}/reliquary-nginx
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=sha,format=short
-
-      - name: Build and push Nginx image
-        uses: docker/build-push-action@v4
-        with:
-          context: ./docker/nginx
-          file: ./docker/nginx/Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-nginx.outputs.tags }}
-          labels: ${{ steps.meta-nginx.outputs.labels }}
+          tags: ${{ steps.meta-apache.outputs.tags }}
+          labels: ${{ steps.meta-apache.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
