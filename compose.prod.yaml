@@ -9,8 +9,6 @@ services:
     ports:
       - "80:80"
       - "${APACHE_SSL_PORT:-443}:443"
-    volumes:
-      - ./public:/var/www/public:ro
     depends_on:
       - database
 

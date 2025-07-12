@@ -36,6 +36,11 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    On your production server:
 
    ```bash
+   # Get the production compose file from the repository
+   curl -O https://raw.githubusercontent.com/cesarscur/reliquary/main/compose.prod.yaml
+   mv compose.prod.yaml compose.yaml
+   ```
+   ```bash
    # Create a .env.prod file with your production settings
    cat > .env.prod << EOL
    DOCKER_REGISTRY=ghcr.io/your-github-username
@@ -48,8 +53,8 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    EOL
 
    # Pull the latest images and start the containers
-   docker compose -f compose.prod.yaml --env-file .env.prod pull
-   docker compose -f compose.prod.yaml --env-file .env.prod up -d
+   docker compose --env-file .env.prod pull
+   docker compose --env-file .env.prod up -d
    ```
 
 ### Option 2: Manual Deployment
@@ -106,7 +111,7 @@ For production, consider:
 
    ```bash
    # Example backup script
-   docker compose -f compose.prod.yaml exec database pg_dump -U app reliquary > backup_$(date +%Y%m%d).sql
+   docker compose exec database pg_dump -U app reliquary > backup_$(date +%Y%m%d).sql
    ```
 
 ### SSL/TLS Configuration
@@ -142,10 +147,10 @@ To update the application:
 
 ```bash
 # Pull the latest images
-docker compose -f compose.prod.yaml --env-file .env.prod pull
+docker compose --env-file .env.prod pull
 
 # Restart the containers
-docker compose -f compose.prod.yaml --env-file .env.prod up -d
+docker compose --env-file .env.prod up -d
 ```
 
 ### Monitoring
@@ -174,10 +179,10 @@ For higher traffic loads:
 
 ```bash
 # View logs for all services
-docker compose -f compose.prod.yaml logs
+docker compose logs
 
 # View logs for a specific service
-docker compose -f compose.prod.yaml logs apache
+docker compose logs apache
 ```
 
 ### Common Issues
