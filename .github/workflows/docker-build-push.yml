@@ -23,22 +23,20 @@ jobs:
         id: semantic-release
         uses: cycjimmy/semantic-release-action@v4
         with:
-          semantic_version: 19
-          branches: |
-            [
-              'main'
-            ]
+          semantic_version: 21
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
+            @semantic-release/npm
+            @semantic-release/exec
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create VERSION file
+      - name: Create VERSION file (fallback)
+        if: steps.semantic-release.outputs.new_release_version == ''
         run: |
-          VERSION="${{ steps.semantic-release.outputs.new_release_version || '0.0.0-dev' }}"
-          echo "Using version: $VERSION"
-          echo "$VERSION" > VERSION
+          echo "No new version released, using default version"
+          echo "0.0.0-dev" > VERSION
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
