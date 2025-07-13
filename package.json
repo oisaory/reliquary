@@ -12,6 +12,13 @@
   },
   "author": "CesarScur",
   "license": "proprietary",
+  "devDependencies": {
+    "semantic-release": "^21.0.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/npm": "^10.0.0",
+    "@semantic-release/exec": "^6.0.0"
+  },
   "release": {
     "branches": ["main"],
     "plugins": [

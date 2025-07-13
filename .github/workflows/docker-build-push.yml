@@ -19,6 +19,15 @@ jobs:
         with:
           fetch-depth: 0  # Important for conventional commits analysis
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Semantic Release
         id: semantic-release
         uses: cycjimmy/semantic-release-action@v4
@@ -37,6 +46,11 @@ jobs:
         run: |
           echo "No new version released, using default version"
           echo "0.0.0-dev" > VERSION
+
+      - name: Display VERSION file content
+        run: |
+          echo "VERSION file content:"
+          cat VERSION
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
