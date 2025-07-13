@@ -1,6 +1,9 @@
 # Build stage
 FROM php:8.2-apache AS build
 
+# Add version argument
+ARG APP_VERSION=0.0.0-dev
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -35,6 +38,9 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Production stage
 FROM php:8.2-apache AS production
+
+# Add version argument
+ARG APP_VERSION=0.0.0-dev
 
 # Install system dependencies (only what's needed for runtime)
 RUN apt-get update && apt-get install -y \
@@ -83,8 +89,14 @@ RUN a2ensite default-ssl
 # Set working directory
 WORKDIR /var/www
 
+# Set version environment variable
+ENV APP_VERSION=${APP_VERSION}
+
 # Copy application files
 COPY . .
+
+# Copy VERSION file
+COPY VERSION /var/www/VERSION
 
 # Copy vendor directory from build stage
 COPY --from=build /var/www/vendor ./vendor
