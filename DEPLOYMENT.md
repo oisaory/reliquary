@@ -41,8 +41,8 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    mv compose.prod.yaml compose.yaml
    ```
    ```bash
-   # Create a .env.prod file with your production settings
-   cat > .env.prod << EOL
+   # Create a .env file with your production settings
+   cat > .env << EOL
    DOCKER_REGISTRY=ghcr.io/your-github-username
    IMAGE_TAG=latest
    APP_SECRET=your-app-secret
@@ -54,12 +54,12 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    EOL
 
    # Pull the latest images and start the containers
-   docker compose --env-file .env.prod pull
-   docker compose --env-file .env.prod up -d
+   docker compose pull
+   docker compose up -d
 
    # Update database schema and import saints data
-   docker compose --env-file .env.prod exec apache php bin/console doctrine:schema:update --force
-   docker compose --env-file .env.prod exec apache php bin/console app:import-saints
+   docker compose exec apache php bin/console doctrine:schema:update --force
+   docker compose exec apache php bin/console app:import-saints
    ```
 
 ### Option 2: Manual Deployment
@@ -90,7 +90,7 @@ If you prefer to build and deploy manually:
 
 ### Environment Variables
 
-Create a `.env.prod` file with the following variables:
+Create a `.env` file with the following variables:
 
 ```
 DOCKER_REGISTRY=ghcr.io/your-github-username
@@ -157,14 +157,14 @@ To update the application:
 
 ```bash
 # Pull the latest images
-docker compose --env-file .env.prod pull
+docker compose pull
 
 # Restart the containers
-docker compose --env-file .env.prod up -d
+docker compose up -d
 
 # Update database schema and import saints data
-docker compose --env-file .env.prod exec apache php bin/console doctrine:schema:update --force
-docker compose --env-file .env.prod exec apache php bin/console app:import-saints
+docker compose exec apache php bin/console doctrine:schema:update --force
+docker compose exec apache php bin/console app:import-saints
 ```
 
 ### Monitoring
