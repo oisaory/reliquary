@@ -20,3 +20,4 @@
 /.phpunit.cache/
 ###< phpunit/phpunit ###
 /temp/
+/node_modules/
