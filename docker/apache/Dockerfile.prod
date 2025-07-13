@@ -105,6 +105,7 @@ COPY --from=build /var/www/vendor ./vendor
 RUN APP_ENV=prod php bin/console cache:clear --no-warmup
 RUN APP_ENV=prod php bin/console cache:warmup
 RUN APP_ENV=prod php bin/console importmap:install
+RUN APP_ENV=prod php bin/console asset-map:compile
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www \
