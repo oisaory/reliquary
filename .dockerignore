@@ -1,0 +1,31 @@
+# Exclude version control files
+.git/
+.gitignore
+.gitattributes
+
+# Exclude development files
+.idea/
+.vscode/
+*.log
+*.md
+*.yml
+*.yaml
+!compose.yaml
+!compose.prod.yaml
+!compose.override.yaml
+
+# Exclude test files
+tests/
+phpunit.xml
+.phpunit.cache/
+
+# Exclude temporary files
+temp/
+var/cache/
+var/log/
+
+# Exclude node modules (we don't need them in the production image)
+node_modules/
+
+# DO NOT exclude the public/assets directory
+# public/assets/
