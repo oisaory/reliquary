@@ -1,0 +1,9 @@
+# 1.0.0 (2025-07-13)
+
+
+### Features
+
+* **ci:** enhance GitHub Actions workflow with Node.js setup and semantic release dependencies ([70582f1](https://github.com/CesarScur/reliquary/commit/70582f14059bfb059b5197b73c0a3435cab52445))
+* **docker:** add asset map compilation step to production Dockerfile ([1d4b791](https://github.com/CesarScur/reliquary/commit/1d4b79187b7125f22e10eaee5c410f8034447d3b))
+* **versioning:** implement semantic release configuration for automated versioning ([a807c0e](https://github.com/CesarScur/reliquary/commit/a807c0eabf0ad316e28ac32142938a5f7cb43721))
+* **versioning:** integrate dynamic versioning system across application ([96805f1](https://github.com/CesarScur/reliquary/commit/96805f118052e7bc93e4fc28d9a6cd88df677848))
