@@ -50,6 +50,7 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    POSTGRES_USER=app
    POSTGRES_PASSWORD=your-secure-password
    APACHE_SSL_PORT=443
+   MAILER_DSN=smtp://user:pass@smtp.example.com:25
    EOL
 
    # Pull the latest images and start the containers
@@ -99,6 +100,11 @@ POSTGRES_DB=reliquary
 POSTGRES_USER=app
 POSTGRES_PASSWORD=your-secure-password
 APACHE_SSL_PORT=443
+# Configure a production mail service (examples):
+# MAILER_DSN=smtp://user:pass@smtp.example.com:25
+# MAILER_DSN=mailgun://KEY:DOMAIN@default
+# MAILER_DSN=sendgrid://KEY@default
+MAILER_DSN=smtp://user:pass@smtp.example.com:25
 ```
 
 ### Database Management
