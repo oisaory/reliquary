@@ -44,8 +44,13 @@ jobs:
       - name: Create VERSION file (fallback)
         if: steps.semantic-release.outputs.new_release_version == ''
         run: |
-          echo "No new version released, using default version"
-          echo "0.0.0-dev" > VERSION
+          echo "No new version released, checking if VERSION file exists"
+          if [ ! -f VERSION ]; then
+            echo "VERSION file does not exist, creating with default version"
+            echo "0.0.0-dev" > VERSION
+          else
+            echo "VERSION file already exists, keeping current version"
+          fi
 
       - name: Display VERSION file content
         run: |
