@@ -55,6 +55,38 @@ http://localhost:8080
 - Nginx configuration can be modified in `docker/nginx/default.conf`
 - Database configuration can be modified in `.env` file or by setting environment variables
 
+## Production Setup
+
+The production environment uses Docker Compose with the following services:
+- Apache with PHP
+- PostgreSQL database
+- Watchtower for automatic container updates
+
+### Watchtower Configuration
+
+Watchtower is configured to:
+- Automatically update containers once a day at midnight
+- Only update containers with the label `com.centurylinklabs.watchtower.enable=true`
+- Expose an HTTP API for manual triggering of updates
+- Clean up old images after updating
+
+### Required Environment Variables
+
+Add these to your production environment:
+- `WATCHTOWER_HTTP_API_TOKEN`: Token for securing the Watchtower HTTP API
+
+### GitHub Actions CI/CD
+
+The CI/CD workflow automatically:
+- Builds and pushes Docker images to GitHub Container Registry
+- Triggers Watchtower to update containers on the production server
+
+#### Required GitHub Secrets
+
+Add these secrets to your GitHub repository:
+- `WATCHTOWER_HTTP_API_TOKEN`: Same token as configured in your production environment
+- `PRODUCTION_URL`: URL or IP address of your production server
+
 
 ### To do
 * [x] Make the relic form look great

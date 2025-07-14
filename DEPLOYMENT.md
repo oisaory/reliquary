@@ -14,9 +14,15 @@ This document provides instructions for deploying the Reliquary project to a pro
 
 The project includes a GitHub Actions workflow that automatically builds and pushes Docker images to GitHub Container Registry (GHCR) when changes are pushed to the main branch.
 
-1. **GitHub Token Configuration**
+1. **GitHub Secrets Configuration**
 
-   The workflow uses the `GITHUB_TOKEN` secret that GitHub automatically creates and provides for GitHub Actions workflows. No additional secrets need to be configured for the GitHub Container Registry authentication.
+   The workflow uses the following GitHub secrets:
+
+   - `GITHUB_TOKEN`: Automatically created and provided by GitHub for GitHub Actions workflows. Used for GitHub Container Registry authentication.
+
+   - `WATCHTOWER_HTTP_API_TOKEN`: Token for authenticating with the Watchtower HTTP API. Must match the token configured in your production environment.
+
+   - `PRODUCTION_URL`: URL or IP address of your production server where Watchtower is running.
 
    The workflow includes the necessary permissions for pushing to the GitHub Container Registry:
    ```yaml
@@ -30,6 +36,7 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    When you push changes to the main branch, the GitHub Actions workflow will automatically:
    - Build the Apache+PHP Docker image
    - Push it to GitHub Container Registry with appropriate tags
+   - Trigger Watchtower on your production server to update containers with the latest images
 
 3. **Deploy on Your Server**
 
@@ -51,6 +58,7 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    POSTGRES_PASSWORD=your-secure-password
    APACHE_SSL_PORT=443
    MAILER_DSN=smtp://user:pass@smtp.example.com:25
+   WATCHTOWER_HTTP_API_TOKEN=your-secure-token
    EOL
 
    # Pull the latest images and start the containers
@@ -105,6 +113,8 @@ APACHE_SSL_PORT=443
 # MAILER_DSN=mailgun://KEY:DOMAIN@default
 # MAILER_DSN=sendgrid://KEY@default
 MAILER_DSN=smtp://user:pass@smtp.example.com:25
+# Watchtower configuration
+WATCHTOWER_HTTP_API_TOKEN=your-secure-token
 ```
 
 ### Database Management
@@ -153,7 +163,28 @@ For production use:
 
 ### Updating the Application
 
-To update the application:
+#### Automatic Updates with Watchtower
+
+The production setup includes Watchtower, which automatically updates containers to the latest available image:
+
+- Watchtower checks for updates once a day at midnight
+- Only containers with the label `com.centurylinklabs.watchtower.enable=true` are updated
+- Watchtower exposes an HTTP API for manual triggering of updates
+- Old images are automatically cleaned up after updating
+
+Required environment variables for Watchtower:
+```
+WATCHTOWER_HTTP_API_TOKEN=your-secure-token
+```
+
+To manually trigger an update via the Watchtower API:
+```bash
+curl -H "Authorization: Bearer your-secure-token" -X POST http://your-server:8080/v1/update
+```
+
+#### Manual Updates
+
+If you prefer to update manually:
 
 ```bash
 # Pull the latest images

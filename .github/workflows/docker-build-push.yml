@@ -87,3 +87,9 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             APP_VERSION=${{ steps.semantic-release.outputs.new_release_version || '0.0.0-dev' }}
+
+      - name: Trigger Watchtower update
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}" \
+               -X POST ${{ secrets.PRODUCTION_URL }}:8080/v1/update
