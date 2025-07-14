@@ -103,6 +103,14 @@ Add these secrets to your GitHub repository:
 * [x] Add an auto-completing address translated into geolocation
 * [x] Add a map interface to see relics around the world
 * [x] Ask for location data and if granted center the map on the person 
+* [x] Configure CI/CD to ignore documentation changes
+* [x] Integrate Watchtower for automated production updates
+* [x] Add `.dockerignore` file for production image optimization
+* [x] Implement semantic release configuration for automated versioning
+* [x] Add asset map compilation step to production Dockerfile
+* [x] Integrate dynamic versioning system across application
+* [x] Add `app:create-user` command to create users via the CLI
+* [x] Simplify environment configuration and update Docker Compose commands
 * [ ] Add a map interface to add relic position
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
