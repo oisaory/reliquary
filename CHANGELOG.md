@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/CesarScur/reliquary/compare/v1.0.0...v1.1.0) (2025-07-14)
+
+
+### Features
+
+* **deployment:** integrate Watchtower for automated production updates ([6dd8613](https://github.com/CesarScur/reliquary/commit/6dd861306484d08e604b17466af3dabdd08ac342))
+
 # 1.0.0 (2025-07-13)
 
 
