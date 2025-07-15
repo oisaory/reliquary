@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/CesarScur/reliquary/compare/v1.1.1...v1.2.0) (2025-07-15)
+
+
+### Bug Fixes
+
+* **navbar:** hide search bar on small screens ([c5f8664](https://github.com/CesarScur/reliquary/commit/c5f86644549fd50b857e91e3537b53860e41a989))
+
+
+### Features
+
+* **navbar:** improve mobile responsiveness and accessibility ([2d027d7](https://github.com/CesarScur/reliquary/commit/2d027d73765a99f2f4f5d55624c5d0f9c26f6042))
+
 ## [1.1.1](https://github.com/CesarScur/reliquary/compare/v1.1.0...v1.1.1) (2025-07-15)
 
 
