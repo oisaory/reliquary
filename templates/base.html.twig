@@ -136,48 +136,55 @@
 
 <header class="p-3 mb-3 border-bottom bg-dark text-white">
   <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-      <div class="d-flex align-items-center">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-4">
+    <nav class="navbar navbar-expand-lg navbar-dark p-0">
+      <div class="container-fluid p-0">
+        <a href="/" class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src="{{ asset('/images/relic.png') }}" width="40" height="40" class="me-2" alt="Reliquary Logo">
           <span class="fs-4">Reliquary</span>
         </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">Relics</a></li>
-          <li><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">Saints</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-      </div>
+        <!-- Burger menu button for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="d-flex align-items-center">
-        <form class="me-3">
-          <input type="search" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="Search..." aria-label="Search">
-        </form>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">Relics</a></li>
+            <li class="nav-item"><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">Saints</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
+          </ul>
 
-        <div class="text-end">
-          {% if app.user %}
-            <div class="dropdown">
-              <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg class="bi me-2" width="24" height="24">
-                  <use href="#person"></use>
-                </svg>
-                {{ app.user.username }}
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                <li><a class="dropdown-item" href="{{ path('app_my_relics') }}">My Relics</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
-              </ul>
-            </div>
-          {% else %}
-            <a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">Login</a>
-            <a href="{{ path('app_register') }}" class="btn btn-primary">Sign-up</a>
-          {% endif %}
+          <form class="d-flex me-3 mt-3 mt-lg-0">
+            <input type="search" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="Search..." aria-label="Search">
+          </form>
+
+          <div class="text-end mt-3 mt-lg-0">
+            {% if app.user %}
+              <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg class="bi me-2" width="24" height="24">
+                    <use href="#person"></use>
+                  </svg>
+                  {{ app.user.username }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ path('app_my_relics') }}">My Relics</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                </ul>
+              </div>
+            {% else %}
+              <a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">Login</a>
+              <a href="{{ path('app_register') }}" class="btn btn-primary">Sign-up</a>
+            {% endif %}
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <main class="flex-grow-1">
