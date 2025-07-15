@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/CesarScur/reliquary/compare/v1.1.0...v1.1.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* **map:** adjust no relics message position to bottom left ([1fd5db5](https://github.com/CesarScur/reliquary/commit/1fd5db58702f2594f7a44d55194dbe2e4794515a))
+* **release:** adjust semantic-release order and enhance VERSION file management ([7ac8244](https://github.com/CesarScur/reliquary/commit/7ac8244e7319b00d7a854cd570ced6b1cb598f11))
+
 # [1.1.0](https://github.com/CesarScur/reliquary/compare/v1.0.0...v1.1.0) (2025-07-14)
 
 
