@@ -113,8 +113,9 @@ Add these secrets to your GitHub repository:
 * [x] Simplify environment configuration and update Docker Compose commands
 * [ ] Add a map interface to add relic position
 * [ ] Use turbo frames to increase responsiveness
-* [ ] Phone UI
+* [x] Phone UI
   * [x] Burger menu
+  * [x] Mobile-friendly relics display
 * [x] Figure out a logo
 * [ ] Add option to add a Saint image
 * [ ] Only admin can access saint creation

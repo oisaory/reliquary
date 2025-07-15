@@ -19,55 +19,104 @@
         </div>
     </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Specific Location</th>
-                            <th scope="col" class="text-end">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for relic in relics %}
-                        <tr>
-                            <td>{{ relic.id }}</td>
-                            <td>{{ relic.address }}</td>
-                            <td>{{ relic.location }}</td>
-                            <td class="text-end">
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-outline-primary">
-                                        <svg class="bi" width="16" height="16">
-                                            <use href="#eye"></use>
-                                        </svg>
-                                        View
-                                    </a>
-                                    <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary">
-                                        <svg class="bi" width="16" height="16">
-                                            <use href="#pencil"></use>
-                                        </svg>
-                                        Edit
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+    <!-- Desktop view with card container (hidden on mobile) -->
+    <div class="row d-none d-md-block">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="mb-0">{{ title ?? 'Relics' }}</h2>
+                </div>
+                <div class="card-body">
+                    {% if relics|length > 0 %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Saint</th>
+                                        <th>Address</th>
+                                        <th>Specific Location</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for relic in relics %}
+                                        <tr>
+                                            <td>{{ relic.saint.name }}</td>
+                                            <td>{{ relic.address }}</td>
+                                            <td>{{ relic.location }}</td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-outline-primary">
+                                                        <svg class="bi" width="16" height="16">
+                                                            <use href="#eye"></use>
+                                                        </svg>
+                                                        View
+                                                    </a>
+                                                    <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary">
+                                                        <svg class="bi" width="16" height="16">
+                                                            <use href="#pencil"></use>
+                                                        </svg>
+                                                        Edit
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     {% else %}
-                        <tr>
-                            <td colspan="4" class="text-center py-4 text-muted">
-                                <svg class="bi mb-2" width="32" height="32">
-                                    <use href="#exclamation-circle"></use>
-                                </svg>
-                                <p>No relics found. Click "Add New Relic" to create one.</p>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        <div class="alert alert-info">
+                            No relics found. Click "Add New Relic" to create one.
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Mobile view without card container (visible only on small screens) -->
+    <div class="d-md-none">
+        <h2 class="mb-3">{{ title ?? 'Relics' }}</h2>
+        {% if relics|length > 0 %}
+            <div class="list-group">
+                {% for relic in relics %}
+                    <div class="list-group-item p-0 {% if loop.first %}rounded-top{% elseif not loop.last %}border-bottom-0{% endif %} overflow-hidden">
+                        <div class="bg-light p-2 border-bottom">
+                            <h5 class="mb-0">{{ relic.saint.name }}</h5>
+                        </div>
+                        <div class="p-3">
+                            <div class="mb-2">
+                                <strong>Address:</strong><br>
+                                <span class="text-muted">{{ relic.address }}</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Specific Location:</strong><br>
+                                <span class="text-muted">{{ relic.location }}</span>
+                            </div>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-outline-primary">
+                                    <svg class="bi" width="16" height="16">
+                                        <use href="#eye"></use>
+                                    </svg>
+                                    View
+                                </a>
+                                <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary">
+                                    <svg class="bi" width="16" height="16">
+                                        <use href="#pencil"></use>
+                                    </svg>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                No relics found. Click "Add New Relic" to create one.
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
