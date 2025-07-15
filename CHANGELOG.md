@@ -1,3 +1,18 @@
+# [1.6.0](https://github.com/CesarScur/reliquary/compare/v1.5.0...v1.6.0) (2025-07-15)
+
+
+### Bug Fixes
+
+* **dev:** set default URI for development environment ([168e4cc](https://github.com/CesarScur/reliquary/commit/168e4cc30e0dbe0df6200ef209087052e34e6b40))
+
+
+### Features
+
+* **errors:** add custom error pages and debug error triggers ([796a4b1](https://github.com/CesarScur/reliquary/commit/796a4b10e3a90dcbd46f6a8658c27613d0a943f8))
+* **logging:** add admin log viewer interface ([94cc128](https://github.com/CesarScur/reliquary/commit/94cc128cceab32b5aefc381ce05cc267e472ddb7))
+* **logging:** integrate Monolog for enhanced logging capabilities ([29d55a0](https://github.com/CesarScur/reliquary/commit/29d55a02e23c48302db447ec4c51d44a7a44f72b))
+* **users:** add user management functionality for admins ([4f93b32](https://github.com/CesarScur/reliquary/commit/4f93b324331f45eac4ea4a3c76e827ca0ccf676b))
+
 # [1.5.0](https://github.com/CesarScur/reliquary/compare/v1.4.0...v1.5.0) (2025-07-15)
 
 
