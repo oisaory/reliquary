@@ -206,6 +206,12 @@ The project follows the standard Symfony directory structure:
 - Use Symfony forms for handling form submissions
 - Use Symfony validators for validation
 
+### Templates
+
+- Use the relics templates as the standard for new templates
+- Follow the same structure and styling conventions as found in the relic templates
+- Maintain consistency in UI components and layout across the application
+
 ### Database Management
 
 - Use `doctrine:schema:update --force` instead of migrations for schema updates:
