@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error Result: {{ type }}{% endblock %}
+
+{% block body %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-5 fw-bold">Error Result: {{ type }}</h1>
+            <p class="lead">The error has been triggered and logged successfully.</p>
+            <div class="alert alert-info">
+                <svg class="bi me-2" width="24" height="24"><use href="#journal-code"></use></svg>
+                <strong>Note:</strong> Check the application logs to see the full error details.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Error Message</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ message }}</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="card-title mb-0">Stack Trace</h5>
+                </div>
+                <div class="card-body">
+                    <pre class="mb-0"><code>{{ trace }}</code></pre>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('app_debug_error_index') }}" class="btn btn-primary">
+                    <svg class="bi me-2" width="16" height="16"><use href="#home"></use></svg>
+                    Back to Error Triggers
+                </a>
+                
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('app_admin_logs') }}" class="btn btn-secondary">
+                    <svg class="bi me-2" width="16" height="16"><use href="#exclamation-circle"></use></svg>
+                    View Logs
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
