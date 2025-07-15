@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/CesarScur/reliquary/compare/v1.6.0...v1.6.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* **logging:** optimize Monolog configuration and enhance log handling ([df8f689](https://github.com/CesarScur/reliquary/commit/df8f689b9017f16d28c191f49ff3e4451cc83ddc))
+
 # [1.6.0](https://github.com/CesarScur/reliquary/compare/v1.5.0...v1.6.0) (2025-07-15)
 
 
