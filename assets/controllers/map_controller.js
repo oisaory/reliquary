@@ -52,7 +52,7 @@ export default class extends Controller {
             this.addRelicMarkers();
         } else {
             // Add a message if no relics found
-            const noRelicsMessage = L.control({ position: 'bottomcenter' });
+            const noRelicsMessage = L.control({ position: 'bottomleft' });
             noRelicsMessage.onAdd = function() {
                 const div = L.DomUtil.create('div', 'no-relics-message');
                 div.innerHTML = '<div class="alert alert-info">No relics found within the search radius.</div>';
