@@ -123,3 +123,4 @@ Add these secrets to your GitHub repository:
 * [ ] Implement a user profile
 * [x] Create custom error pages (404, 403, 500)
 * [ ] Workflow for relic approval
+* [ ] Add logs change
