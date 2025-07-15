@@ -114,7 +114,7 @@ Add these secrets to your GitHub repository:
 * [ ] Add a map interface to add relic position
 * [ ] Use turbo frames to increase responsiveness
 * [ ] Phone UI
-  * [ ] Burger menu
+  * [x] Burger menu
 * [x] Figure out a logo
 * [ ] Add option to add a Saint image
 * [ ] Only admin can access saint creation
