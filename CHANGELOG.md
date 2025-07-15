@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/CesarScur/reliquary/compare/v1.4.0...v1.5.0) (2025-07-15)
+
+
+### Features
+
+* **apache:** configure domain and SSL for production ([3665f22](https://github.com/CesarScur/reliquary/commit/3665f22818d49e07d52ce433ca52b31821066c78))
+
 # [1.4.0](https://github.com/CesarScur/reliquary/compare/v1.3.0...v1.4.0) (2025-07-15)
 
 
