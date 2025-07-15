@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="{{ asset('/images/relic.png') }}" width="100" height="100" class="mb-4" alt="Reliquary Logo">
+            <h1 class="display-4 mb-4">500 - Server Error</h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p class="lead">Oops! Something went wrong on our end.</p>
+                    <p>We're experiencing some technical difficulties. Our team has been automatically notified and is working to fix the issue.</p>
+                    <p>Please try again later or contact support if the problem persists.</p>
+                </div>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="{{ path('app_home') }}" class="btn btn-primary btn-lg px-4 gap-3">
+                    <svg class="bi me-2" width="16" height="16"><use href="#home"></use></svg>
+                    Return Home
+                </a>
+                <button onclick="window.location.reload()" class="btn btn-outline-secondary btn-lg px-4">
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

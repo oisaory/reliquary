@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="{{ asset('/images/relic.png') }}" width="100" height="100" class="mb-4" alt="Reliquary Logo">
+            <h1 class="display-4 mb-4">Oops! An Error Occurred</h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p class="lead">The server returned a "{{ status_code }} {{ status_text }}".</p>
+                    <p>Something is broken. We've been notified and will fix it as soon as possible.</p>
+                    <p>Please try again later or contact the administrator if the problem persists.</p>
+                </div>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="{{ path('app_home') }}" class="btn btn-primary btn-lg px-4 gap-3">
+                    <svg class="bi me-2" width="16" height="16"><use href="#home"></use></svg>
+                    Return Home
+                </a>
+                <a href="javascript:history.back()" class="btn btn-outline-secondary btn-lg px-4">
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

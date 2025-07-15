@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="{{ asset('/images/relic.png') }}" width="100" height="100" class="mb-4" alt="Reliquary Logo">
+            <h1 class="display-4 mb-4">404 - Page Not Found</h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p class="lead">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+                    <p>Please check the URL or try one of the links below:</p>
+                </div>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="{{ path('app_home') }}" class="btn btn-primary btn-lg px-4 gap-3">
+                    <svg class="bi me-2" width="16" height="16"><use href="#home"></use></svg>
+                    Return Home
+                </a>
+                <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary btn-lg px-4">
+                    View Relics
+                </a>
+                <a href="{{ path('app_saint_index') }}" class="btn btn-outline-secondary btn-lg px-4">
+                    View Saints
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
