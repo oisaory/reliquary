@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/CesarScur/reliquary/compare/v1.3.0...v1.4.0) (2025-07-15)
+
+
+### Features
+
+* **security:** enforce HTTPS and secure cookies ([46a3063](https://github.com/CesarScur/reliquary/commit/46a306385a9f733a38b24a553f8cb3298fcba0f0))
+
 # [1.3.0](https://github.com/CesarScur/reliquary/compare/v1.2.0...v1.3.0) (2025-07-15)
 
 
