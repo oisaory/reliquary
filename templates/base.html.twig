@@ -154,6 +154,9 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">Relics</a></li>
             <li class="nav-item"><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">Saints</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item"><a href="{{ path('app_admin_users_index') }}" class="nav-link px-2 text-white">Users</a></li>
+            {% endif %}
             <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
           </ul>
 
@@ -173,6 +176,13 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                   <li><a class="dropdown-item" href="#">My Profile</a></li>
                   <li><a class="dropdown-item" href="{{ path('app_my_relics') }}">My Relics</a></li>
+                  {% if is_granted('ROLE_ADMIN') %}
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ path('app_admin_users_index') }}">
+                    <svg class="bi me-2" width="16" height="16"><use href="#people-circle"></use></svg>
+                    User Management
+                  </a></li>
+                  {% endif %}
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
                 </ul>

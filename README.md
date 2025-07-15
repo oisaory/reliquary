@@ -119,5 +119,6 @@ Add these secrets to your GitHub repository:
 * [x] Figure out a logo
 * [ ] Add option to add a Saint image
 * [ ] Only admin can access saint creation
+* [x] Add user management panel for admins
 * [ ] Implement a user profile
 * [ ] Workflow for relic approval
