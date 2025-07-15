@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/CesarScur/reliquary/compare/v1.2.0...v1.3.0) (2025-07-15)
+
+
+### Features
+
+* **home:** optimize layout for mobile and desktop views ([df6e8f1](https://github.com/CesarScur/reliquary/commit/df6e8f1ade129e4195a096abaa94451775070249))
+* **relics:** redesign relics page for responsiveness ([5c597c7](https://github.com/CesarScur/reliquary/commit/5c597c70336782581d0abc2e6ac559ece2447ba2))
+
 # [1.2.0](https://github.com/CesarScur/reliquary/compare/v1.1.1...v1.2.0) (2025-07-15)
 
 
