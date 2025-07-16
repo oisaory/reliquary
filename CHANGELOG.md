@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/CesarScur/reliquary/compare/v1.6.2...v1.7.0) (2025-07-16)
+
+
+### Features
+
+* **mailer:** add Mailtrap integration and update dependencies ([5b82904](https://github.com/CesarScur/reliquary/commit/5b82904a4c3fc2d155ac1a3cb6958e353bc7a30f))
+
 ## [1.6.2](https://github.com/CesarScur/reliquary/compare/v1.6.1...v1.6.2) (2025-07-16)
 
 
