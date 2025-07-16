@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/CesarScur/reliquary/compare/v1.7.0...v1.8.0) (2025-07-16)
+
+
+### Features
+
+* **mailer:** Upgrade symfony to 7.2 and add mailtrap ([297ba3e](https://github.com/CesarScur/reliquary/commit/297ba3e38b219224e55592c0ae44a781ad0ffeef))
+
+
+### Reverts
+
+* Revert "feat(mailer): add Mailtrap integration and update dependencies" ([04845f4](https://github.com/CesarScur/reliquary/commit/04845f490fbab9442070da7a815516926d59f873))
+
 # [1.7.0](https://github.com/CesarScur/reliquary/compare/v1.6.2...v1.7.0) (2025-07-16)
 
 
