@@ -67,7 +67,7 @@ class CreateUserCommand extends Command
         $user->setUsername($username);
         $user->setEmail($email);
         $user->setPassword($this->passwordHasher->hashPassword($user, $plainPassword));
-        $user->setVerified($isVerified);
+        $user->setIsVerified($isVerified);
 
         // Set roles
         $roles = ['ROLE_USER'];

@@ -90,7 +90,7 @@ class GeolocationControllerTest extends ExtendedWebTestCase
         $testUser->setEmail('test@example.com');
         $testUser->setPassword('$2y$13$hK85CeXHFpSGKJg.HD7EOuuIm42ksj1lDjUVjQtQKJJOZKxJcL7rO'); // 'password'
         $testUser->setRoles(['ROLE_USER']);
-        $testUser->setVerified(true);
+        $testUser->setIsVerified(true);
 
         $entityManager->persist($testUser);
         $entityManager->flush();
