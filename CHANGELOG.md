@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/CesarScur/reliquary/compare/v1.6.1...v1.6.2) (2025-07-16)
+
+
+### Bug Fixes
+
+* **user:** rename `setVerified` to `setIsVerified` ([3656ec9](https://github.com/CesarScur/reliquary/commit/3656ec960176f7ca084c73379003ad1f174c0a40))
+
 ## [1.6.1](https://github.com/CesarScur/reliquary/compare/v1.6.0...v1.6.1) (2025-07-15)
 
 
