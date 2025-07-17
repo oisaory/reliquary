@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/CesarScur/reliquary/compare/v1.8.0...v1.9.0) (2025-07-17)
+
+
+### Bug Fixes
+
+* **mailer:** update email sender address in registration confirmation ([91b629b](https://github.com/CesarScur/reliquary/commit/91b629b3b4364bc9e048c6634e1caa00b453c142))
+
+
+### Features
+
+* **project:** update project metadata in composer.json ([4732c36](https://github.com/CesarScur/reliquary/commit/4732c36dfecefafb6af36e210f606f187f706d9f))
+* **twig:** add `LogFormatterExtension` for log formatting in templates ([8045599](https://github.com/CesarScur/reliquary/commit/8045599c41a15e99ec48e4c2ecb559cea65599db))
+
 # [1.8.0](https://github.com/CesarScur/reliquary/compare/v1.7.0...v1.8.0) (2025-07-16)
 
 
