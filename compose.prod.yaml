@@ -1,5 +1,5 @@
 services:
-  apache:
+  app:
     image: ${DOCKER_REGISTRY:-localhost}/reliquary:${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:

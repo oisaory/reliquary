@@ -1,12 +1,12 @@
 
 services:
-  apache:
+  app:
     build:
       context: .
-      dockerfile: docker/apache/Dockerfile.dev
+      dockerfile: docker/app/Dockerfile.dev
     volumes:
       - .:/var/www
-      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/app.ini
+      - ./docker/app/php.ini:/usr/local/etc/php/conf.d/app.ini
     ports:
       - "8080:80"
       - "8443:443"

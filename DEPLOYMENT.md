@@ -34,7 +34,7 @@ The project includes a GitHub Actions workflow that automatically builds and pus
 2. **Push Changes to Main Branch**
 
    When you push changes to the main branch, the GitHub Actions workflow will automatically:
-   - Build the Apache+PHP Docker image
+   - Build the App Docker image
    - Push it to GitHub Container Registry with appropriate tags
    - Trigger Watchtower on your production server to update containers with the latest images
 
@@ -66,8 +66,8 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    docker compose up -d
 
    # Update database schema and import saints data
-   docker compose exec apache php bin/console doctrine:schema:update --force
-   docker compose exec apache php bin/console app:import-saints
+   docker compose exec app php bin/console doctrine:schema:update --force
+   docker compose exec app php bin/console app:import-saints
    ```
 
 ### Option 2: Manual Deployment
@@ -77,7 +77,7 @@ If you prefer to build and deploy manually:
 1. **Build the Images Locally**
 
    ```bash
-   docker build -t ghcr.io/your-github-username/reliquary:latest -f docker/apache/Dockerfile.prod .
+   docker build -t ghcr.io/your-github-username/reliquary:latest -f docker/app/Dockerfile.prod .
    ```
 
 2. **Push to Your Registry**
@@ -136,7 +136,7 @@ For production, consider:
 
 ### SSL/TLS Configuration
 
-The Apache container in this project is configured to serve HTTPS on port 443 with SSL/TLS support. The container generates a self-signed SSL certificate during build time, which is suitable for development and testing.
+The App container in this project is configured to serve HTTPS on port 443 with SSL/TLS support. The container generates a self-signed SSL certificate during build time, which is suitable for development and testing.
 
 For production use:
 
@@ -157,7 +157,7 @@ For production use:
 
    - Set up a volume for Let's Encrypt certificates
    - Configure a renewal process (e.g., using certbot in a separate container)
-   - Mount the certificates into the Apache container
+   - Mount the certificates into the App container
 
 ## Maintenance
 
@@ -194,8 +194,8 @@ docker compose pull
 docker compose up -d
 
 # Update database schema and import saints data
-docker compose exec apache php bin/console doctrine:schema:update --force
-docker compose exec apache php bin/console app:import-saints
+docker compose exec app php bin/console doctrine:schema:update --force
+docker compose exec app php bin/console app:import-saints
 ```
 
 ### Monitoring
@@ -212,7 +212,7 @@ For higher traffic loads:
 
 1. **Horizontal Scaling**
 
-   Deploy multiple instances of the Apache container behind a load balancer.
+   Deploy multiple instances of the App container behind a load balancer.
 
 2. **Vertical Scaling**
 
@@ -227,7 +227,7 @@ For higher traffic loads:
 docker compose logs
 
 # View logs for a specific service
-docker compose logs apache
+docker compose logs app
 ```
 
 ### Common Issues

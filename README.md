@@ -4,8 +4,7 @@
 
 This project includes a Docker setup for local development. The setup includes:
 
-- PHP 8.2 FPM
-- Nginx web server
+- PHP 8.2 with Apache
 - PostgreSQL database
 - Mailpit for email testing
 
@@ -46,19 +45,18 @@ http://localhost:8080
 - Start the containers: `docker compose up -d`
 - Stop the containers: `docker compose down`
 - View logs: `docker compose logs -f`
-- Access PHP container: `docker compose exec php bash`
-- Run Symfony commands: `docker compose exec php bin/console <command>`
+- Access App container: `docker compose exec app bash`
+- Run Symfony commands: `docker compose exec app bin/console <command>`
 
 ### Configuration
 
-- PHP configuration can be modified in `docker/php/php.ini`
-- Nginx configuration can be modified in `docker/nginx/default.conf`
+- PHP configuration can be modified in `docker/app/php.ini`
 - Database configuration can be modified in `.env` file or by setting environment variables
 
 ## Production Setup
 
 The production environment uses Docker Compose with the following services:
-- Apache with PHP
+- App (PHP with Apache)
 - PostgreSQL database
 - Watchtower for automatic container updates
 

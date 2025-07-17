@@ -39,8 +39,8 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
 
 # Configure Apache virtual hosts
-COPY docker/apache/apache-dev.conf /etc/apache2/sites-available/000-default.conf
-COPY docker/apache/apache-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY docker/app/apache-dev.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/app/apache-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 # Enable SSL site
 RUN a2ensite default-ssl
