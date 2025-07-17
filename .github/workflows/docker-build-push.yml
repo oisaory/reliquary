@@ -84,7 +84,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/apache/Dockerfile.prod
+          file: ./docker/app/Dockerfile.prod
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-apache.outputs.tags }}
           labels: ${{ steps.meta-apache.outputs.labels }}
