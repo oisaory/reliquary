@@ -1,18 +1,15 @@
 <turbo-frame id="relics-list">
     <div class="card shadow-sm">
-        <div class="card-header bg-dark text-white">
-            <h2 class="mb-0">{{ title ?? 'Relics' }}</h2>
-        </div>
         <div class="card-body">
             {% if relics|length > 0 %}
                 <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-dark">
                             <tr>
                                 <th>Saint</th>
                                 <th>Address</th>
                                 <th>Specific Location</th>
-                                <th>Actions</th>
+                                <th scope="col" class="text-end">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -21,7 +18,7 @@
                                     <td>{{ relic.saint.name }}</td>
                                     <td>{{ relic.address }}</td>
                                     <td>{{ relic.location }}</td>
-                                    <td>
+                                    <td class="text-end">
                                         <div class="btn-group btn-group-sm" role="group">
                                             <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-outline-primary" data-turbo-frame="_top">
                                                 <svg class="bi" width="16" height="16">
@@ -43,9 +40,18 @@
                     </table>
                 </div>
             {% else %}
-                <div class="alert alert-info">
-                    No relics found. Click "Add New Relic" to create one.
-                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="text-center py-4 text-muted">
+                                <svg class="bi mb-2" width="32" height="32">
+                                    <use href="#exclamation-circle"></use>
+                                </svg>
+                                <p>No relics found. Click "Add New Relic" to create one.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             {% endif %}
         </div>
     </div>
