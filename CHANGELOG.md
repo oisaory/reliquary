@@ -1,3 +1,14 @@
+# [1.11.0](https://github.com/CesarScur/reliquary/compare/v1.10.0...v1.11.0) (2025-07-17)
+
+
+### Features
+
+* **docker:** refactor Docker setup to replace nginx with Apache ([8215497](https://github.com/CesarScur/reliquary/commit/8215497863b43f95f3b4441856955dfc81eb5df9))
+* **templates:** add responsive relic list with desktop and mobile views ([bda4c02](https://github.com/CesarScur/reliquary/commit/bda4c025ebdfcf043c419f0b132dc09532dbe549))
+* **templates:** enhance relic list design with improved table styling ([ae13a9b](https://github.com/CesarScur/reliquary/commit/ae13a9b41c5a81db0c76b37f8b9c784383bf299c))
+* **templates:** enhance Turbo integration for relic-related templates ([54199e5](https://github.com/CesarScur/reliquary/commit/54199e5393bfe78d5c5624e19ef5ecc15037ed0d))
+* **templates:** remove admin-only "Users" link from navigation menu ([da43056](https://github.com/CesarScur/reliquary/commit/da43056a64bd64488b645c170808a474a62e7e05))
+
 # [1.10.0](https://github.com/CesarScur/reliquary/compare/v1.9.0...v1.10.0) (2025-07-17)
 
 
