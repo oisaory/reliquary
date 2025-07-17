@@ -87,6 +87,10 @@ Add these secrets to your GitHub repository:
 - `WATCHTOWER_HTTP_API_TOKEN`: Same token as configured in your production environment
 - `PRODUCTION_URL`: URL or IP address of your production server
 
+## Latest Releases
+
+For a complete list of releases and changes, please see the [CHANGELOG.md](CHANGELOG.md) file.
+
 
 ### To do
 * [x] Make the relic form look great
@@ -123,4 +127,5 @@ Add these secrets to your GitHub repository:
 * [ ] Implement a user profile
 * [x] Create custom error pages (404, 403, 500)
 * [ ] Workflow for relic approval
-* [ ] Add logs change
+* [x] Add logs change
+* [x] Add link to CHANGELOG.md in README instead of listing all releases
