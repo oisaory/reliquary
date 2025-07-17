@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/CesarScur/reliquary/compare/v1.9.0...v1.10.0) (2025-07-17)
+
+
+### Features
+
+* **docker:** add new session volume to production compose file ([6647417](https://github.com/CesarScur/reliquary/commit/6647417a1375092ccad76d70f3e393d996479797))
+* **templates:** redesign email confirmation template with improved styling ([46bc268](https://github.com/CesarScur/reliquary/commit/46bc2687b767b79ac13ff20568c8f1f1f092fc27))
+* **templates:** redesign email confirmation template with improved styling ([5af510b](https://github.com/CesarScur/reliquary/commit/5af510bc64f5afecbde78deecdbaf8201014aee7))
+
 # [1.9.0](https://github.com/CesarScur/reliquary/compare/v1.8.0...v1.9.0) (2025-07-17)
 
 
