@@ -10,7 +10,8 @@ services:
     volumes:
       - /etc/letsencrypt/live/santasreliquias.com.br/fullchain.pem:/etc/apache2/ssl/apache.crt
       - /etc/letsencrypt/live/santasreliquias.com.br/privkey.pem:/etc/apache2/ssl/apache.key
-      - app_logs:/var/www/html/var/log
+      - app_logs:/var/www/var/log
+      - app_sessions:/var/www/var/cache/prod/sessions
     ports:
       - "80:80"
       - "${APACHE_SSL_PORT:-443}:443"
@@ -47,3 +48,4 @@ services:
 volumes:
   database_data:
   app_logs:
+  app_sessions:
