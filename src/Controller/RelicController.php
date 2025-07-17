@@ -22,6 +22,22 @@ final class RelicController extends AbstractController
         ]);
     }
 
+    #[Route('/desktop', name: 'app_relic_desktop', methods: ['GET'])]
+    public function desktopList(RelicRepository $relicRepository): Response
+    {
+        return $this->render('relic/_relic_list_desktop.html.twig', [
+            'relics' => $relicRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/mobile', name: 'app_relic_mobile', methods: ['GET'])]
+    public function mobileList(RelicRepository $relicRepository): Response
+    {
+        return $this->render('relic/_relic_list_mobile.html.twig', [
+            'relics' => $relicRepository->findAll(),
+        ]);
+    }
+
     #[Route('/my-relics', name: 'app_my_relics', methods: ['GET'])]
     public function myRelics(RelicRepository $relicRepository): Response
     {
@@ -30,6 +46,32 @@ final class RelicController extends AbstractController
         $user = $this->getUser();
 
         return $this->render('relic/index.html.twig', [
+            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'title' => 'My Relics'
+        ]);
+    }
+
+    #[Route('/my-relics/desktop', name: 'app_my_relics_desktop', methods: ['GET'])]
+    public function myRelicsDesktop(RelicRepository $relicRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+
+        return $this->render('relic/_relic_list_desktop.html.twig', [
+            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'title' => 'My Relics'
+        ]);
+    }
+
+    #[Route('/my-relics/mobile', name: 'app_my_relics_mobile', methods: ['GET'])]
+    public function myRelicsMobile(RelicRepository $relicRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+
+        return $this->render('relic/_relic_list_mobile.html.twig', [
             'relics' => $relicRepository->findBy(['creator' => $user]),
             'title' => 'My Relics'
         ]);

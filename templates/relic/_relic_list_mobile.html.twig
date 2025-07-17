@@ -1,0 +1,42 @@
+<turbo-frame id="relics-list">
+    <h2 class="mb-3">{{ title ?? 'Relics' }}</h2>
+    {% if relics|length > 0 %}
+        <div class="list-group">
+            {% for relic in relics %}
+                <div class="list-group-item p-0 {% if loop.first %}rounded-top{% elseif not loop.last %}border-bottom-0{% endif %} overflow-hidden">
+                    <div class="bg-light p-2 border-bottom">
+                        <h5 class="mb-0">{{ relic.saint.name }}</h5>
+                    </div>
+                    <div class="p-3">
+                        <div class="mb-2">
+                            <strong>Address:</strong><br>
+                            <span class="text-muted">{{ relic.address }}</span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>Specific Location:</strong><br>
+                            <span class="text-muted">{{ relic.location }}</span>
+                        </div>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-outline-primary" data-turbo-frame="_top">
+                                <svg class="bi" width="16" height="16">
+                                    <use href="#eye"></use>
+                                </svg>
+                                View
+                            </a>
+                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary" data-turbo-frame="_top">
+                                <svg class="bi" width="16" height="16">
+                                    <use href="#pencil"></use>
+                                </svg>
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            No relics found. Click "Add New Relic" to create one.
+        </div>
+    {% endif %}
+</turbo-frame>
