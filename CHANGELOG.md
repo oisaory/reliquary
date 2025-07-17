@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/CesarScur/reliquary/compare/v1.11.0...v1.11.1) (2025-07-17)
+
+
+### Bug Fixes
+
+* **docker:** update Dockerfile path for Apache build step ([75e7865](https://github.com/CesarScur/reliquary/commit/75e7865f8a3e11a3d4acdc1ac160ffc98e819df6))
+
 # [1.11.0](https://github.com/CesarScur/reliquary/compare/v1.10.0...v1.11.0) (2025-07-17)
 
 
