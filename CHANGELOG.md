@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/CesarScur/reliquary/compare/v1.11.1...v1.11.2) (2025-07-17)
+
+
+### Bug Fixes
+
+* **templates:** remove unused title header from relic list mobile view ([6d65e6e](https://github.com/CesarScur/reliquary/commit/6d65e6ef75f236ffbb1da617fa58c832bf7e2e0a))
+
 ## [1.11.1](https://github.com/CesarScur/reliquary/compare/v1.11.0...v1.11.1) (2025-07-17)
 
 
