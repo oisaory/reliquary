@@ -6,9 +6,9 @@
 <div class="container py-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="mb-4">Create New Relic</h1>
-
-            {{ include('relic/_form.html.twig') }}
+            <turbo-frame id="main-content" target="_top" data-turbo-action="advance">
+                {{ include('relic/_form.html.twig') }}
+            </turbo-frame>
         </div>
     </div>
 </div>

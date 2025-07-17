@@ -17,13 +17,13 @@
                             <span class="text-muted">{{ relic.location }}</span>
                         </div>
                         <div class="btn-group btn-group-sm" role="group">
-                            <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-outline-primary" data-turbo-frame="_top">
+                            <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-outline-primary" data-turbo-frame="main-content">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#eye"></use>
                                 </svg>
                                 View
                             </a>
-                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary" data-turbo-frame="_top">
+                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary" data-turbo-frame="main-content">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#pencil"></use>
                                 </svg>

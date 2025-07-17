@@ -10,7 +10,7 @@
             <p class="text-muted">Manage your sacred relics collection</p>
         </div>
         <div class="col-auto d-flex align-items-center">
-            <a href="{{ path('app_relic_new') }}" class="btn btn-primary">
+            <a href="{{ path('app_relic_new') }}" class="btn btn-primary" data-turbo-frame="main-content">
                 <svg class="bi me-2" width="16" height="16">
                     <use href="#plus-circle"></use>
                 </svg>
@@ -19,16 +19,22 @@
         </div>
     </div>
 
-    <!-- Single responsive turbo frame -->
+    <!-- Main content area -->
     <div class="row">
         <div class="col-12">
-            <turbo-frame id="relics-list" 
-                        data-controller="responsive-frame"
-                        data-responsive-frame-desktop-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_desktop') : path('app_relic_desktop') }}"
-                        data-responsive-frame-mobile-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_mobile') : path('app_relic_mobile') }}">
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+            <turbo-frame id="main-content" target="_top" data-turbo-action="advance">
+                <div class="row">
+                    <div class="col-12">
+                        <turbo-frame id="relics-list" 
+                                    data-controller="responsive-frame"
+                                    data-responsive-frame-desktop-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_desktop') : path('app_relic_desktop') }}"
+                                    data-responsive-frame-mobile-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_mobile') : path('app_relic_mobile') }}">
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </turbo-frame>
                     </div>
                 </div>
             </turbo-frame>
