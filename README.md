@@ -91,6 +91,7 @@ For a complete list of releases and changes, please see the [CHANGELOG.md](CHANG
 
 
 ### To do
+* [ ] Add translation file
 * [x] Make the relic form look great
 * [x] Fix create relic error
 * [x] Make the relic view look great
