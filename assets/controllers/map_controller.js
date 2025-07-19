@@ -2,6 +2,14 @@ import { Controller } from '@hotwired/stimulus';
 import L from 'leaflet';
 import UserLocationService from '../services/user_location.js';
 
+// Fix for marker icon issues
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+});
+
 export default class extends Controller {
     static targets = ['container'];
     static values = {
