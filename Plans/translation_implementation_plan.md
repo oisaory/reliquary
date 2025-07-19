@@ -2,6 +2,10 @@
 
 This document outlines the detailed plan for implementing translation functionality in the Reliquary application. The plan is organized by controller, with specific steps for each controller and its associated templates.
 
+The application will support two languages:
+- English (en): Fully implemented with complete translations
+- Portuguese Brazil (pt_BR): Initially stubbed with English text, to be translated in the future
+
 ## General Setup
 
 Before implementing translations for specific controllers, we need to set up the translation infrastructure:
@@ -13,8 +17,7 @@ Before implementing translations for specific controllers, we need to set up the
 
 2. **Create Base Translation Files**
    - Create `translations/messages.en.yaml` (English - default)
-   - Create `translations/messages.es.yaml` (Spanish)
-   - Create `translations/messages.fr.yaml` (French)
+   - Create `translations/messages.pt_BR.yaml` (Portuguese Brazil - stubbed)
 
 3. **Add Locale Switcher Component**
    - Create a reusable Twig partial: `templates/_locale_switcher.html.twig`
@@ -23,6 +26,7 @@ Before implementing translations for specific controllers, we need to set up the
 4. **Create Locale Controller**
    - Create `src/Controller/LocaleController.php` to handle locale switching
    - Add route for changing locale: `/change-locale/{locale}`
+   - Configure controller to support only English (en) and Portuguese Brazil (pt_BR)
 
 5. **Update Configuration**
    - Ensure `config/packages/translation.yaml` is properly configured
@@ -347,36 +351,48 @@ address:
 
 1. **Week 1: Setup and Core Controllers**
    - Set up translation infrastructure
-   - Implement translations for HomeController, SecurityController, and RegistrationController
+   - Implement English translations for HomeController, SecurityController, and RegistrationController
+   - Create stubbed Portuguese Brazil translations
 
 2. **Week 2: Main Feature Controllers**
-   - Implement translations for RelicController and SaintController
+   - Implement English translations for RelicController and SaintController
+   - Update stubbed Portuguese Brazil translations
 
 3. **Week 3: Administrative and Utility Controllers**
-   - Implement translations for UserController, LogController, GeolocationController, and AddressAutocompleteController
+   - Implement English translations for UserController, LogController, GeolocationController, and AddressAutocompleteController
+   - Complete stubbed Portuguese Brazil translations
 
 4. **Week 4: Testing and Refinement**
-   - Test all translations in multiple languages
+   - Test English translations thoroughly
+   - Verify that the stubbed Portuguese Brazil translations are complete
    - Refine translation keys and organization
    - Add any missing translations
 
 ## Testing Strategy
 
 1. **Manual Testing**
-   - Test each page in each supported language
-   - Verify all user-facing text is properly translated
-   - Test locale switching functionality
+   - Test each page in English to ensure all translations are working correctly
+   - Verify that the locale switcher correctly changes between English and Portuguese Brazil
+   - Confirm that the stubbed Portuguese Brazil translations appear correctly (even though they're in English)
+   - Test locale switching functionality and persistence across page loads
 
 2. **Automated Testing**
    - Update functional tests to work with translations
-   - Add specific tests for locale switching
+   - Add specific tests for locale switching between English and Portuguese Brazil
+   - Ensure tests pass regardless of the active locale
 
 ## Maintenance Considerations
 
 1. **Translation Management**
    - Consider using a translation management system for larger projects
    - Document the process for adding new translation keys
+   - Maintain a process for updating the stubbed Portuguese Brazil translations when actual translations become available
 
 2. **New Features**
    - Establish guidelines for adding translations when developing new features
    - Include translation requirements in code review process
+   - Ensure all new features include English translations and stubbed Portuguese Brazil translations
+
+3. **Future Language Support**
+   - Document the process for adding support for additional languages in the future
+   - Prioritize completing the Portuguese Brazil translations before adding new languages

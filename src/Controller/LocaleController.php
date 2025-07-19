@@ -23,19 +23,19 @@ final class LocaleController extends AbstractController
     public function changeLocale(string $locale, Request $request): Response
     {
         // Validate locale
-        if (!in_array($locale, ['en', 'es', 'fr'])) {
+        if (!in_array($locale, ['en', 'pt_BR'])) {
             $locale = 'en'; // Default to English if invalid locale
         }
-        
+
         // Store the locale in the session
         $request->getSession()->set('_locale', $locale);
-        
+
         // Get the referer URL or default to homepage
         $referer = $request->headers->get('referer');
         if (!$referer) {
             return $this->redirectToRoute('app_home');
         }
-        
+
         // Redirect back to the previous page
         return $this->redirect($referer);
     }
