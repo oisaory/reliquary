@@ -114,4 +114,9 @@ RUN chown -R www-data:www-data /var/www \
 # Expose ports
 EXPOSE 80 443
 
-CMD ["apache2-foreground"]
+# Copy entrypoint script
+COPY docker/app/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set entrypoint
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

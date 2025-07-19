@@ -65,9 +65,10 @@ The project includes a GitHub Actions workflow that automatically builds and pus
    docker compose pull
    docker compose up -d
 
-   # Update database schema and import saints data
-   docker compose exec app php bin/console doctrine:schema:update --force
+   # Import saints data
    docker compose exec app php bin/console app:import-saints
+
+   # Note: Database migrations will run automatically when the container starts
    ```
 
 ### Option 2: Manual Deployment
@@ -193,9 +194,10 @@ docker compose pull
 # Restart the containers
 docker compose up -d
 
-# Update database schema and import saints data
-docker compose exec app php bin/console doctrine:schema:update --force
+# Import saints data
 docker compose exec app php bin/console app:import-saints
+
+# Note: Database migrations will run automatically when the container restarts
 ```
 
 ### Monitoring
