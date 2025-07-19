@@ -1,3 +1,11 @@
+# [1.14.0](https://github.com/CesarScur/reliquary/compare/v1.13.0...v1.14.0) (2025-07-19)
+
+
+### Features
+
+* **admin:** add password reset button and modal in user management ([c5a9954](https://github.com/CesarScur/reliquary/commit/c5a9954546f067cf6af72b19b345c81c86a0a8ca))
+* **templates:** enhance password reset templates with improved UI styling ([fc0e3e8](https://github.com/CesarScur/reliquary/commit/fc0e3e8408528a4309162342ff7430dbbab75c84))
+
 # [1.13.0](https://github.com/CesarScur/reliquary/compare/v1.12.0...v1.13.0) (2025-07-19)
 
 
