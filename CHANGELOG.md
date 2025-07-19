@@ -1,3 +1,19 @@
+# [1.12.0](https://github.com/CesarScur/reliquary/compare/v1.11.2...v1.12.0) (2025-07-19)
+
+
+### Features
+
+* **admin:** add translation status viewer for missing translations ([65b80be](https://github.com/CesarScur/reliquary/commit/65b80bebbf3f4da6a3b90f7680da39eaa06cc091))
+* **i18n:** add locale switching and multi-language support ([5ec2b3c](https://github.com/CesarScur/reliquary/commit/5ec2b3c1a5b41a194ba4c0addc89064faac6b324))
+* **i18n:** replace Spanish and French with Portuguese Brazil support ([28fb1a9](https://github.com/CesarScur/reliquary/commit/28fb1a9b47c12e0054fa74e71059412bb87457b1))
+* **i18n:** restructure translations into domain-specific files ([46c6957](https://github.com/CesarScur/reliquary/commit/46c6957cf02c81c99c58dfc11651e619f9d9ba66))
+* **templates:** refactor relic templates to use shared header partial ([f7e3136](https://github.com/CesarScur/reliquary/commit/f7e3136be077e30efccc69dcc7bda447e2cd6224))
+
+
+### Reverts
+
+* Revert "feat(templates): enhance Turbo integration for relic-related templates" ([89c6896](https://github.com/CesarScur/reliquary/commit/89c6896c21a3de5d764ccdc16b7c0d9a9e75c584))
+
 ## [1.11.2](https://github.com/CesarScur/reliquary/compare/v1.11.1...v1.11.2) (2025-07-17)
 
 
