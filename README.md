@@ -144,4 +144,5 @@ For a complete list of releases and changes, please see the [CHANGELOG.md](CHANG
   * [ ] LogController translations
   * [ ] GeolocationController translations
   * [ ] AddressAutocompleteController translations
+  * [ ] Check for stray templates (email!)
   * [x] Add a missing translations visualizer
