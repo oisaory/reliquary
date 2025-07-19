@@ -1,0 +1,6 @@
+geolocation:
+  title: 'Relic Map'
+  description: 'View relics on a world map'
+  allow_location: 'Allow location access to center the map on your position'
+  denied_location: 'Location access denied. Using default map center.'
+  loading: 'Loading map...'

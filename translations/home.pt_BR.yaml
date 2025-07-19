@@ -1,9 +1,11 @@
+# This is a stubbed translation file for Portuguese Brazil
+# It will be populated with actual translations in the future
 home:
   title: 'Reliquary'
   welcome: 'Welcome to Reliquary'
   description: 'Manage your sacred relics collection'
   get_started: 'Get Started'
-  relics_near_me: 'Relics Near Me'
+  relics_near_me: 'Reliquias perto de mim'
   no_relics_found: 'No relics found within %radius%km of your location.'
   features:
     title: 'Features'

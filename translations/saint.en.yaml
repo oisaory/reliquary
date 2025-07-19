@@ -1,0 +1,26 @@
+saint:
+  title: 'Saints'
+  description: 'Browse and manage saints in the database'
+  add_new: 'Add New Saint'
+  no_saints: 'No saints found. Click "Add New Saint" to create one.'
+  edit_title: 'Edit Saint'
+  new_title: 'New Saint'
+  show_title: 'Saint Details'
+  table:
+    name: 'Name'
+    feast_day: 'Feast Day'
+    actions: 'Actions'
+  form:
+    name: 'Name'
+    feast_day: 'Feast Day'
+    description: 'Description'
+    submit: 'Save'
+  actions:
+    view: 'View'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back to list'
+  messages:
+    created: 'Saint created successfully'
+    updated: 'Saint updated successfully'
+    deleted: 'Saint deleted successfully'

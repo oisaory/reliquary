@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'home.title'|trans }} - {{ 'home.welcome'|trans }}{% endblock %}
+{% block title %}{{ 'home.title'|trans({}, 'home') }} - {{ 'home.welcome'|trans({}, 'home') }}{% endblock %}
 
 {% block body %}
 <div class="container mt-4">
@@ -8,7 +8,7 @@
         <div class="col-md-12 mb-4">
             <div class="card">
                 <div class="card-header bg-dark text-white">
-                    <h2 class="mb-0">{{ 'home.features.geolocation'|trans }}</h2>
+                    <h2 class="mb-0">{{ 'home.features.geolocation'|trans({}, 'home') }}</h2>
                 </div>
                 <div class="card-body">
                     <!-- OpenStreetMap -->
@@ -38,7 +38,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-dark text-white">
-                    <h2 class="mb-0">{{ 'home.relics_near_me'|trans }} ({{ radius }}km)</h2>
+                    <h2 class="mb-0">{{ 'home.relics_near_me'|trans({}, 'home') }} ({{ radius }}km)</h2>
                 </div>
                 <div class="card-body">
                     {% if relics|length > 0 %}
@@ -46,10 +46,10 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ 'home.table.saint'|trans }}</th>
-                                        <th>{{ 'home.table.address'|trans }}</th>
-                                        <th>{{ 'home.table.location'|trans }}</th>
-                                        <th>{{ 'home.table.actions'|trans }}</th>
+                                        <th>{{ 'home.table.saint'|trans({}, 'home') }}</th>
+                                        <th>{{ 'home.table.address'|trans({}, 'home') }}</th>
+                                        <th>{{ 'home.table.location'|trans({}, 'home') }}</th>
+                                        <th>{{ 'home.table.actions'|trans({}, 'home') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,7 +63,7 @@
                                                     <svg class="bi" width="16" height="16">
                                                         <use href="#eye"></use>
                                                     </svg>
-                                                    {{ 'home.table.view'|trans }}
+                                                    {{ 'home.table.view'|trans({}, 'home') }}
                                                 </a>
                                             </td>
                                         </tr>
@@ -73,7 +73,7 @@
                         </div>
                     {% else %}
                         <div class="alert alert-info">
-                            {{ 'home.no_relics_found'|trans({'%radius%': radius}) }}
+                            {{ 'home.no_relics_found'|trans({'%radius%': radius}, 'home') }}
                         </div>
                     {% endif %}
                 </div>
@@ -83,7 +83,7 @@
 
     <!-- Mobile view without card container (visible only on small screens) -->
     <div class="d-md-none">
-        <h2 class="mb-3">{{ 'home.relics_near_me'|trans }} ({{ radius }}km)</h2>
+        <h2 class="mb-3">{{ 'home.relics_near_me'|trans({}, 'home') }} ({{ radius }}km)</h2>
         {% if relics|length > 0 %}
             <div class="list-group">
                 {% for relic in relics %}
@@ -93,18 +93,18 @@
                         </div>
                         <div class="p-3">
                             <div class="mb-2">
-                                <strong>{{ 'home.mobile.address'|trans }}</strong><br>
+                                <strong>{{ 'home.mobile.address'|trans({}, 'home') }}</strong><br>
                                 <span class="text-muted">{{ relic.address }}</span>
                             </div>
                             <div class="mb-3">
-                                <strong>{{ 'home.mobile.location'|trans }}</strong><br>
+                                <strong>{{ 'home.mobile.location'|trans({}, 'home') }}</strong><br>
                                 <span class="text-muted">{{ relic.location }}</span>
                             </div>
                             <span class="btn btn-sm btn-outline-primary">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#eye"></use>
                                 </svg>
-                                {{ 'home.table.view'|trans }}
+                                {{ 'home.table.view'|trans({}, 'home') }}
                             </span>
                         </div>
                     </a>

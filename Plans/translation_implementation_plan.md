@@ -15,9 +15,17 @@ Before implementing translations for specific controllers, we need to set up the
    mkdir -p translations
    ```
 
-2. **Create Base Translation Files**
-   - Create `translations/messages.en.yaml` (English - default)
-   - Create `translations/messages.pt_BR.yaml` (Portuguese Brazil - stubbed)
+2. **Create Controller-Specific Translation Files**
+   - Create separate translation files for each controller:
+     - `translations/home.en.yaml` and `translations/home.pt_BR.yaml` for HomeController
+     - `translations/relic.en.yaml` and `translations/relic.pt_BR.yaml` for RelicController
+     - `translations/saint.en.yaml` and `translations/saint.pt_BR.yaml` for SaintController
+     - `translations/security.en.yaml` and `translations/security.pt_BR.yaml` for SecurityController
+     - `translations/registration.en.yaml` and `translations/registration.pt_BR.yaml` for RegistrationController
+     - `translations/user.en.yaml` and `translations/user.pt_BR.yaml` for UserController
+     - `translations/log.en.yaml` and `translations/log.pt_BR.yaml` for LogController
+     - `translations/geolocation.en.yaml` and `translations/geolocation.pt_BR.yaml` for GeolocationController
+     - `translations/address.en.yaml` and `translations/address.pt_BR.yaml` for AddressAutocompleteController
 
 3. **Add Locale Switcher Component**
    - Create a reusable Twig partial: `templates/_locale_switcher.html.twig`
@@ -381,12 +389,37 @@ address:
    - Add specific tests for locale switching between English and Portuguese Brazil
    - Ensure tests pass regardless of the active locale
 
+## Using Domain-Specific Translation Files
+
+When using translations in templates or controllers, you need to specify the domain (controller name) to use the correct translation file:
+
+1. **In Twig Templates**
+   ```twig
+   {# Using a translation from the home domain #}
+   {{ 'home.title'|trans({}, 'home') }}
+
+   {# Using a translation from the relic domain #}
+   {{ 'relic.table.saint'|trans({}, 'relic') }}
+   ```
+
+2. **In Controllers**
+   ```php
+   // Using a translation from the relic domain
+   $translator->trans('relic.messages.created', [], 'relic');
+   ```
+
+3. **For Flash Messages**
+   ```php
+   $this->addFlash('success', $translator->trans('relic.messages.created', [], 'relic'));
+   ```
+
 ## Maintenance Considerations
 
 1. **Translation Management**
    - Consider using a translation management system for larger projects
    - Document the process for adding new translation keys
    - Maintain a process for updating the stubbed Portuguese Brazil translations when actual translations become available
+   - When adding a new controller, create corresponding translation files for it
 
 2. **New Features**
    - Establish guidelines for adding translations when developing new features

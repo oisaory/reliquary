@@ -1,0 +1,28 @@
+relic:
+  title: 'Relics'
+  my_relics: 'My Relics'
+  description: 'Manage your sacred relics collection'
+  add_new: 'Add New Relic'
+  no_relics: 'No relics found. Click "Add New Relic" to create one.'
+  edit_title: 'Edit Relic'
+  new_title: 'New Relic'
+  show_title: 'Relic Details'
+  table:
+    saint: 'Saint'
+    address: 'Address'
+    location: 'Specific Location'
+    actions: 'Actions'
+  form:
+    saint: 'Saint'
+    address: 'Address'
+    location: 'Specific Location'
+    submit: 'Save'
+  actions:
+    view: 'View'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back to list'
+  messages:
+    created: 'Relic created successfully'
+    updated: 'Relic updated successfully'
+    deleted: 'Relic deleted successfully'

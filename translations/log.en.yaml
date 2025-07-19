@@ -1,0 +1,15 @@
+log:
+  title: 'Logs'
+  description: 'System activity logs'
+  no_logs: 'No logs found.'
+  show_title: 'Log Details'
+  table:
+    action: 'Action'
+    entity: 'Entity'
+    entity_id: 'Entity ID'
+    user: 'User'
+    timestamp: 'Timestamp'
+    actions: 'Actions'
+  actions:
+    view: 'View'
+    back: 'Back to list'

@@ -1,0 +1,27 @@
+user:
+  title: 'Users'
+  description: 'Manage users'
+  add_new: 'Add New User'
+  no_users: 'No users found.'
+  edit_title: 'Edit User'
+  new_title: 'New User'
+  show_title: 'User Details'
+  table:
+    email: 'Email'
+    roles: 'Roles'
+    verified: 'Verified'
+    actions: 'Actions'
+  form:
+    email: 'Email'
+    password: 'Password'
+    roles: 'Roles'
+    submit: 'Save'
+  actions:
+    view: 'View'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back to list'
+  messages:
+    created: 'User created successfully'
+    updated: 'User updated successfully'
+    deleted: 'User deleted successfully'
