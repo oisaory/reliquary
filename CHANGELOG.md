@@ -1,3 +1,12 @@
+# [1.13.0](https://github.com/CesarScur/reliquary/compare/v1.12.0...v1.13.0) (2025-07-19)
+
+
+### Features
+
+* **auth:** implement password reset functionality ([5963366](https://github.com/CesarScur/reliquary/commit/5963366fff5d9c1ac9aeb2d956f39bd85cfa25a3))
+* **deployment:** automate database migrations via container entrypoint ([be21e65](https://github.com/CesarScur/reliquary/commit/be21e653ed6cbb79124aff8f5d1b6f9e2dca8b87))
+* **i18n:** enhance translations and update templates for multilingual support ([9847718](https://github.com/CesarScur/reliquary/commit/9847718b050e55365e9a2e04926f3fcd05fa2858))
+
 # [1.12.0](https://github.com/CesarScur/reliquary/compare/v1.11.2...v1.12.0) (2025-07-19)
 
 
