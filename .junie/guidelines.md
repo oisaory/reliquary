@@ -206,6 +206,18 @@ The project follows the standard Symfony directory structure:
 - Use Symfony forms for handling form submissions
 - Use Symfony validators for validation
 
+### JavaScript Development
+
+- Use Stimulus for all JavaScript functionality
+- Do not use embedded JavaScript directly in templates
+- Create Stimulus controllers in the `assets/controllers/` directory
+- Follow the naming convention: `feature_controller.js` for controller files
+- Use data attributes to connect HTML elements to Stimulus controllers:
+  - `data-controller="feature"` to initialize a controller
+  - `data-feature-target="element"` to define targets
+  - `data-action="feature#method"` to bind actions
+- See existing controllers like `map_controller.js` and `responsive_frame_controller.js` as examples
+
 ### Templates
 
 - Use the relics templates as the standard for new templates

@@ -12,7 +12,27 @@
 
                         {{ form_start(resetForm) }}
                             <div class="mb-3">
-                                {{ form_row(resetForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(resetForm.plainPassword.first, 'New password', {'label_attr': {'class': 'form-label'}}) }}
+                                <div class="input-group mb-3" data-controller="password-toggle">
+                                    {{ form_widget(resetForm.plainPassword.first, {'attr': {'class': 'form-control', 'data-password-toggle-target': 'input'}}) }}
+                                    <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
+                                        <svg class="bi" width="16" height="16" data-password-toggle-target="icon">
+                                            <use href="#eye"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                {{ form_errors(resetForm.plainPassword.first) }}
+
+                                {{ form_label(resetForm.plainPassword.second, 'Repeat Password', {'label_attr': {'class': 'form-label'}}) }}
+                                <div class="input-group" data-controller="password-toggle">
+                                    {{ form_widget(resetForm.plainPassword.second, {'attr': {'class': 'form-control', 'data-password-toggle-target': 'input'}}) }}
+                                    <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
+                                        <svg class="bi" width="16" height="16" data-password-toggle-target="icon">
+                                            <use href="#eye"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                {{ form_errors(resetForm.plainPassword.second) }}
                             </div>
 
                             <div class="d-grid gap-2">
@@ -28,4 +48,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}

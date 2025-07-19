@@ -32,8 +32,15 @@
                             </div>
 
                         <div class="mb-3">
-                        {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
-                                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
+                                <div class="input-group" data-controller="password-toggle">
+                                    {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'data-password-toggle-target': 'input'}}) }}
+                                    <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
+                                        <svg class="bi" width="16" height="16" data-password-toggle-target="icon">
+                                            <use href="#eye"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 {{ form_help(registrationForm.plainPassword) }}
                                 {{ form_errors(registrationForm.plainPassword) }}
                             </div>
@@ -57,4 +64,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}

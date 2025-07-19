@@ -28,7 +28,14 @@
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                                <div class="input-group" data-controller="password-toggle">
+                                    <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required data-password-toggle-target="input">
+                                    <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
+                                        <svg class="bi" width="16" height="16" data-password-toggle-target="icon">
+                                            <use href="#eye"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
 
                             <input type="hidden" name="_csrf_token"
@@ -61,4 +68,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
