@@ -20,13 +20,13 @@
                                     <td>{{ relic.location }}</td>
                                     <td class="text-end">
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-outline-primary" data-turbo-frame="main-content">
+                                            <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-outline-primary" data-turbo-frame="_top">
                                                 <svg class="bi" width="16" height="16">
                                                     <use href="#eye"></use>
                                                 </svg>
                                                 View
                                             </a>
-                                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary" data-turbo-frame="main-content">
+                                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary" data-turbo-frame="_top">
                                                 <svg class="bi" width="16" height="16">
                                                     <use href="#pencil"></use>
                                                 </svg>

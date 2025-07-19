@@ -6,13 +6,13 @@
 <div class="container py-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <turbo-frame id="main-content" target="_top" data-turbo-action="advance">
-                {{ include('relic/_form.html.twig', {'button_label': 'Update'}) }}
+            <h1 class="mb-4">Edit Relic</h1>
 
-                <div class="d-flex justify-content-end">
-                    {{ include('relic/_delete_form.html.twig') }}
-                </div>
-            </turbo-frame>
+            {{ include('relic/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <div class="d-flex justify-content-end">
+                {{ include('relic/_delete_form.html.twig') }}
+            </div>
         </div>
     </div>
 </div>

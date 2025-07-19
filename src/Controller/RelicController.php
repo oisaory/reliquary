@@ -137,13 +137,6 @@ final class RelicController extends AbstractController
             $entityManager->flush();
         }
 
-        // For Turbo requests, use Turbo-Location header for proper navigation
-        if ($request->headers->has('Turbo-Frame') || $request->headers->has('X-Requested-With')) {
-            $response = new Response();
-            $response->headers->set('Turbo-Location', $this->generateUrl('app_relic_index'));
-            return $response;
-        }
-
         return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
     }
 }
