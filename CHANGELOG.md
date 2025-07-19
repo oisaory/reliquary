@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/CesarScur/reliquary/compare/v1.14.0...v1.15.0) (2025-07-19)
+
+
+### Features
+
+* **forms:** add password visibility toggle to forms ([67309a0](https://github.com/CesarScur/reliquary/commit/67309a0f4eb183a70345b6cfc07cfe49c969e13d))
+
 # [1.14.0](https://github.com/CesarScur/reliquary/compare/v1.13.0...v1.14.0) (2025-07-19)
 
 
