@@ -4,11 +4,10 @@
 
 {% block body %}
 <div class="container py-4">
+    {{ include('relic/_header.html.twig', {'title': 'Relic Details'}) }}
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h1 class="mb-4">Relic Details</h1>
-
-            <div class="card">
+        <div class="col-12">
+            <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">Relic Information</h5>
                 </div>

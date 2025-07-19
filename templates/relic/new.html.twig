@@ -4,10 +4,9 @@
 
 {% block body %}
 <div class="container py-4">
+    {{ include('relic/_header.html.twig', {'title': 'Create New Relic'}) }}
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h1 class="mb-4">Create New Relic</h1>
-
+        <div class="col-12">
             {{ include('relic/_form.html.twig') }}
         </div>
     </div>
