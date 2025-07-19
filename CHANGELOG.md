@@ -1,3 +1,12 @@
+# [1.16.0](https://github.com/CesarScur/reliquary/compare/v1.15.0...v1.16.0) (2025-07-19)
+
+
+### Features
+
+* **enum:** introduce `CanonicalStatus` enum and integrate with saints functionality ([2b30d71](https://github.com/CesarScur/reliquary/commit/2b30d716cb10ec2a2a0a3f1bacbf253dd41002b0))
+* **i18n:** enhance saint translations with new fields and improved descriptions ([e3803f6](https://github.com/CesarScur/reliquary/commit/e3803f68e3bfbea23e75676b2a2d8b58b520fdc6))
+* **templates:** add reusable header and enhance saint details template ([d7868e9](https://github.com/CesarScur/reliquary/commit/d7868e94dc882ab53a432bf7e70bbed6c6260007))
+
 # [1.15.0](https://github.com/CesarScur/reliquary/compare/v1.14.0...v1.15.0) (2025-07-19)
 
 
