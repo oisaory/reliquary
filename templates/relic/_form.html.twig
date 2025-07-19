@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Relic Information</h5>
+            <h5 class="mb-0">{{ 'relic.show_title'|trans({}, 'relic') }}</h5>
         </div>
         <div class="card-body">
             <div class="row mb-3">
@@ -27,10 +27,10 @@
         <div class="card-footer">
             <div class="d-flex justify-content-between">
                 <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary">
-                    <i class="bi bi-arrow-left"></i> Back to list
+                    <i class="bi bi-arrow-left"></i> {{ 'relic.actions.back'|trans({}, 'relic') }}
                 </a>
                 <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-save"></i> {{ button_label|default('Save') }}
+                    <i class="bi bi-save"></i> {{ button_label|default('relic.form.submit'|trans({}, 'relic')) }}
                 </button>
             </div>
         </div>

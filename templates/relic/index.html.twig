@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ title ?? 'Relic index' }}{% endblock %}
+{% block title %}{{ title ?? 'relic.title'|trans({}, 'relic') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
@@ -11,8 +11,8 @@
         <div class="col-12">
             <turbo-frame id="relics-list" 
                         data-controller="responsive-frame"
-                        data-responsive-frame-desktop-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_desktop') : path('app_relic_desktop') }}"
-                        data-responsive-frame-mobile-src-value="{{ title is defined and title == 'My Relics' ? path('app_my_relics_mobile') : path('app_relic_mobile') }}">
+                        data-responsive-frame-desktop-src-value="{{ title is defined and title == 'relic.my_relics'|trans({}, 'relic') ? path('app_my_relics_desktop') : path('app_relic_desktop') }}"
+                        data-responsive-frame-mobile-src-value="{{ title is defined and title == 'relic.my_relics'|trans({}, 'relic') ? path('app_my_relics_mobile') : path('app_relic_mobile') }}">
                 <div class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>

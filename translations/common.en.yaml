@@ -1,0 +1,23 @@
+common:
+  welcome: 'Welcome!'
+  navigation:
+    relics: 'Relics'
+    saints: 'Saints'
+    about: 'About'
+    search: 'Search...'
+  user:
+    profile: 'My Profile'
+    my_relics: 'My Relics'
+    logout: 'Logout'
+  admin:
+    user_management: 'User Management'
+    system_logs: 'System Logs'
+    translation_status: 'Translation Status'
+  auth:
+    login: 'Login'
+    signup: 'Sign-up'
+  footer:
+    view_on_github: 'View on GitHub'
+  languages:
+    english: 'English'
+    portuguese_brazil: 'Português (Brasil)'

@@ -24,6 +24,7 @@ relic:
     edit: 'Edit'
     delete: 'Delete'
     back: 'Back to list'
+    confirm_delete: 'Are you sure you want to delete this relic?'
   messages:
     created: 'Relic created successfully'
     updated: 'Relic updated successfully'

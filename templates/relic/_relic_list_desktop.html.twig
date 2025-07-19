@@ -6,10 +6,10 @@
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
                             <tr>
-                                <th>Saint</th>
-                                <th>Address</th>
-                                <th>Specific Location</th>
-                                <th scope="col" class="text-end">Actions</th>
+                                <th>{{ 'relic.table.saint'|trans({}, 'relic') }}</th>
+                                <th>{{ 'relic.table.address'|trans({}, 'relic') }}</th>
+                                <th>{{ 'relic.table.location'|trans({}, 'relic') }}</th>
+                                <th scope="col" class="text-end">{{ 'relic.table.actions'|trans({}, 'relic') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,13 +24,13 @@
                                                 <svg class="bi" width="16" height="16">
                                                     <use href="#eye"></use>
                                                 </svg>
-                                                View
+                                                {{ 'relic.actions.view'|trans({}, 'relic') }}
                                             </a>
                                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary" data-turbo-frame="_top">
                                                 <svg class="bi" width="16" height="16">
                                                     <use href="#pencil"></use>
                                                 </svg>
-                                                Edit
+                                                {{ 'relic.actions.edit'|trans({}, 'relic') }}
                                             </a>
                                         </div>
                                     </td>
@@ -47,7 +47,7 @@
                                 <svg class="bi mb-2" width="32" height="32">
                                     <use href="#exclamation-circle"></use>
                                 </svg>
-                                <p>No relics found. Click "Add New Relic" to create one.</p>
+                                <p>{{ 'relic.no_relics'|trans({}, 'relic') }}</p>
                             </td>
                         </tr>
                     </tbody>

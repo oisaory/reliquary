@@ -3,7 +3,7 @@
         {{ app.request.locale|upper }}
     </button>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="localeDropdown">
-        <li><a class="dropdown-item {% if app.request.locale == 'en' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'en'}) }}">English</a></li>
-        <li><a class="dropdown-item {% if app.request.locale == 'pt_BR' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'pt_BR'}) }}">Português (Brasil)</a></li>
+        <li><a class="dropdown-item {% if app.request.locale == 'en' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'en'}) }}">{{ 'common.languages.english'|trans({}, 'common') }}</a></li>
+        <li><a class="dropdown-item {% if app.request.locale == 'pt_BR' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'pt_BR'}) }}">{{ 'common.languages.portuguese_brazil'|trans({}, 'common') }}</a></li>
     </ul>
 </div>

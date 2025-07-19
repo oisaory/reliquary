@@ -1,6 +1,6 @@
-<form method="post" action="{{ path('app_relic_delete', {'id': relic.id}) }}" onsubmit="return confirm('Are you sure you want to delete this relic?');" class="d-inline {{ form_class|default('mt-3') }}">
+<form method="post" action="{{ path('app_relic_delete', {'id': relic.id}) }}" onsubmit="return confirm('{{ 'relic.actions.confirm_delete'|trans({}, 'relic') }}');" class="d-inline {{ form_class|default('mt-3') }}">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ relic.id) }}">
     <button type="submit" class="btn btn-danger {{ button_class|default('') }}">
-        <i class="bi bi-trash"></i> Delete
+        <i class="bi bi-trash"></i> {{ 'relic.actions.delete'|trans({}, 'relic') }}
     </button>
 </form>

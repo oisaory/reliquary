@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Relic{% endblock %}
+{% block title %}{{ 'relic.new_title'|trans({}, 'relic') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
-    {{ include('relic/_header.html.twig', {'title': 'Create New Relic'}) }}
+    {{ include('relic/_header.html.twig', {'title': 'relic.add_new'|trans({}, 'relic')}) }}
     <div class="row">
         <div class="col-12">
             {{ include('relic/_form.html.twig') }}

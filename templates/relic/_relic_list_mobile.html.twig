@@ -8,11 +8,11 @@
                     </div>
                     <div class="p-3">
                         <div class="mb-2">
-                            <strong>Address:</strong><br>
+                            <strong>{{ 'relic.table.address'|trans({}, 'relic') }}:</strong><br>
                             <span class="text-muted">{{ relic.address }}</span>
                         </div>
                         <div class="mb-3">
-                            <strong>Specific Location:</strong><br>
+                            <strong>{{ 'relic.table.location'|trans({}, 'relic') }}:</strong><br>
                             <span class="text-muted">{{ relic.location }}</span>
                         </div>
                         <div class="btn-group btn-group-sm" role="group">
@@ -20,13 +20,13 @@
                                 <svg class="bi" width="16" height="16">
                                     <use href="#eye"></use>
                                 </svg>
-                                View
+                                {{ 'relic.actions.view'|trans({}, 'relic') }}
                             </a>
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary" data-turbo-frame="_top">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#pencil"></use>
                                 </svg>
-                                Edit
+                                {{ 'relic.actions.edit'|trans({}, 'relic') }}
                             </a>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
         </div>
     {% else %}
         <div class="alert alert-info">
-            No relics found. Click "Add New Relic" to create one.
+            {{ 'relic.no_relics'|trans({}, 'relic') }}
         </div>
     {% endif %}
 </turbo-frame>

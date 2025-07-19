@@ -1,14 +1,14 @@
 <div class="row mb-4">
     <div class="col">
-        <h1 class="display-5 fw-bold">{{ title ?? 'Relics' }}</h1>
-        <p class="text-muted">Manage your sacred relics collection</p>
+        <h1 class="display-5 fw-bold">{{ title ?? 'relic.title'|trans({}, 'relic') }}</h1>
+        <p class="text-muted">{{ 'relic.description'|trans({}, 'relic') }}</p>
     </div>
     <div class="col-auto d-flex align-items-center">
         <a href="{{ path('app_relic_new') }}" class="btn btn-primary">
             <svg class="bi me-2" width="16" height="16">
                 <use href="#plus-circle"></use>
             </svg>
-            Add New Relic
+            {{ 'relic.add_new'|trans({}, 'relic') }}
         </a>
     </div>
 </div>

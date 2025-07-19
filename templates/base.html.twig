@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Welcome!{% endblock %}</title>
+  <title>{% block title %}{{ 'common.welcome'|trans({}, 'common') }}{% endblock %}</title>
   <link rel="icon" href="{{ asset('/images/relic.png') }}">
   {% block stylesheets %}
   {% endblock %}
@@ -157,13 +157,13 @@
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">Relics</a></li>
-            <li class="nav-item"><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">Saints</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
+            <li class="nav-item"><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">{{ 'common.navigation.relics'|trans({}, 'common') }}</a></li>
+            <li class="nav-item"><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">{{ 'common.navigation.saints'|trans({}, 'common') }}</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">{{ 'common.navigation.about'|trans({}, 'common') }}</a></li>
           </ul>
 
           <form class="d-none d-lg-flex me-3 mt-3 mt-lg-0">
-            <input type="search" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="Search..." aria-label="Search">
+            <input type="search" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="{{ 'common.navigation.search'|trans({}, 'common') }}" aria-label="Search">
           </form>
 
           <div class="text-end mt-3 mt-lg-0 d-flex align-items-center">
@@ -179,30 +179,30 @@
                   {{ app.user.username }}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                  <li><a class="dropdown-item" href="#">My Profile</a></li>
-                  <li><a class="dropdown-item" href="{{ path('app_my_relics') }}">My Relics</a></li>
+                  <li><a class="dropdown-item" href="#">{{ 'common.user.profile'|trans({}, 'common') }}</a></li>
+                  <li><a class="dropdown-item" href="{{ path('app_my_relics') }}">{{ 'common.user.my_relics'|trans({}, 'common') }}</a></li>
                   {% if is_granted('ROLE_ADMIN') %}
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_users_index') }}">
                     <svg class="bi me-2" width="16" height="16"><use href="#people-circle"></use></svg>
-                    User Management
+                    {{ 'common.admin.user_management'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_logs') }}">
                     <svg class="bi me-2" width="16" height="16"><use href="#exclamation-circle"></use></svg>
-                    System Logs
+                    {{ 'common.admin.system_logs'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_translations_missing') }}">
                     <svg class="bi me-2" width="16" height="16"><use href="#journal-code"></use></svg>
-                    Translation Status
+                    {{ 'common.admin.translation_status'|trans({}, 'common') }}
                   </a></li>
                   {% endif %}
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                  <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'common.user.logout'|trans({}, 'common') }}</a></li>
                 </ul>
               </div>
             {% else %}
-              <a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">Login</a>
-              <a href="{{ path('app_register') }}" class="btn btn-primary">Sign-up</a>
+              <a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">{{ 'common.auth.login'|trans({}, 'common') }}</a>
+              <a href="{{ path('app_register') }}" class="btn btn-primary">{{ 'common.auth.signup'|trans({}, 'common') }}</a>
             {% endif %}
           </div>
         </div>
@@ -218,7 +218,7 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <span>&copy; {{ "now"|date("Y") }} Reliquary v{{ app_version }}</span>
-      <a href="https://github.com/CesarScur/reliquary" class="text-white" target="_blank">View on GitHub</a>
+      <a href="https://github.com/CesarScur/reliquary" class="text-white" target="_blank">{{ 'common.footer.view_on_github'|trans({}, 'common') }}</a>
     </div>
   </div>
 </footer>
