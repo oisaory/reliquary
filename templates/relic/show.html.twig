@@ -28,7 +28,7 @@
                     {% if relic.saint %}
                     <div class="row">
                         <div class="col-md-12">
-                            <p><strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong> {{ relic.saint }}</p>
+                            <p><strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong> <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}">{{ relic.saint }}</a></p>
                         </div>
                     </div>
                     {% endif %}

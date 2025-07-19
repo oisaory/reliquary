@@ -1,69 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Saint{% endblock %}
+{% block title %}{{ 'saint.show_title'|trans({}, 'saint') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
+    {{ include('saint/_header.html.twig', {'title': 'saint.show_title'|trans({}, 'saint')}) }}
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h1 class="mb-4">Saint Details</h1>
-
-            <div class="card">
+        <div class="col-12">
+            <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Saint Information</h5>
+                    <h5 class="mb-0">{{ 'saint.show_title'|trans({}, 'saint') }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
+{#                        <div class="col-md-6">#}
+{#                            <p><strong>ID:</strong> {{ saint.id }}</p>#}
+{#                        </div>#}
                         <div class="col-md-6">
-                            <p><strong>ID:</strong> {{ saint.id }}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Name:</strong> {{ saint.name }}</p>
+                            <p><strong>{{ 'saint.table.name'|trans({}, 'saint') }}:</strong> {{ saint.name }}</p>
                         </div>
                     </div>
 
                     {% if saint.url %}
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <p><strong>URL:</strong> <a href="{{ saint.url }}" target="_blank">{{ saint.url }}</a></p>
+                            <p><strong>{{ 'saint.table.url'|trans({}, 'saint') }}:</strong> <a href="{{ saint.url }}" target="_blank">{{ saint.url }}</a></p>
                         </div>
                     </div>
                     {% endif %}
 
-                    {% if saint.file %}
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>File:</strong> {{ saint.file }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
+{#                    {% if saint.file %}#}
+{#                    <div class="row mb-3">#}
+{#                        <div class="col-md-12">#}
+{#                            <p><strong>{{ 'saint.table.file'|trans({}, 'saint') }}:</strong> {{ saint.file }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endif %}#}
 
                     <div class="row mb-3">
                         {% if saint.canonicalStatus %}
                         <div class="col-md-6">
-                            <p><strong>Canonical Status:</strong> {{ saint.canonicalStatus }}</p>
+                            <p><strong>{{ 'saint.table.canonical_status'|trans({}, 'saint') }}:</strong> {{ saint.canonicalStatus }}</p>
                         </div>
                         {% endif %}
 
                         {% if saint.canonizationDate %}
                         <div class="col-md-6">
-                            <p><strong>Canonization Date:</strong> {{ saint.canonizationDate|date('Y-m-d') }}</p>
+                            <p><strong>{{ 'saint.table.canonization_date'|trans({}, 'saint') }}:</strong> {{ saint.canonizationDate|date('Y-m-d') }}</p>
                         </div>
                         {% endif %}
                     </div>
 
-                    {% if saint.canonizingPope %}
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>Canonizing Pope:</strong> {{ saint.canonizingPope }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
+{#                    {% if saint.canonizingPope %}#}
+{#                    <div class="row mb-3">#}
+{#                        <div class="col-md-12">#}
+{#                            <p><strong>{{ 'saint.table.canonizing_pope'|trans({}, 'saint') }}:</strong> {{ saint.canonizingPope }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endif %}#}
 
                     {% if saint.saintPhrase %}
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <p><strong>Saint Phrase:</strong></p>
+                            <p><strong>{{ 'saint.table.saint_phrase'|trans({}, 'saint') }}:</strong></p>
                             <blockquote class="blockquote">
                                 <p class="mb-0">{{ saint.saintPhrase }}</p>
                             </blockquote>
@@ -71,37 +70,48 @@
                     </div>
                     {% endif %}
 
-                    {% if saint.abstract %}
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>Abstract:</strong></p>
-                            <p>{{ saint.abstract }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
+{#                    {% if saint.abstract %}#}
+{#                    <div class="row mb-3">#}
+{#                        <div class="col-md-12">#}
+{#                            <p><strong>{{ 'saint.table.abstract'|trans({}, 'saint') }}:</strong></p>#}
+{#                            <p>{{ saint.abstract }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endif %}#}
 
-                    {% if saint.biography %}
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>Biography:</strong></p>
-                            <p>{{ saint.biography|nl2br }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
+{#                    {% if saint.biography %}#}
+{#                    <div class="row mb-3">#}
+{#                        <div class="col-md-12">#}
+{#                            <p><strong>{{ 'saint.table.biography'|trans({}, 'saint') }}:</strong></p>#}
+{#                            <p>{{ saint.biography|nl2br }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endif %}#}
 
                     {% if saint.imageLink %}
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <p><strong>Image:</strong></p>
+                            <p><strong>{{ 'saint.table.image_link'|trans({}, 'saint') }}:</strong></p>
                             <img src="{{ saint.imageLink }}" alt="{{ saint.name }}" class="img-fluid mb-3" style="max-height: 300px;">
                         </div>
                     </div>
                     {% endif %}
 
                     {% if saint.relics is defined and saint.relics|length > 0 %}
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-12">
-                            <p><strong>Relics:</strong> {{ saint.relics|length }}</p>
+                            <p><strong>{{ 'saint.table.relics'|trans({}, 'saint') }}:</strong></p>
+                            <!-- Single responsive turbo frame -->
+                            <turbo-frame id="relics-list"
+                                        data-controller="responsive-frame"
+                                        data-responsive-frame-desktop-src-value="{{ path('app_saint_relics_desktop', {'id': saint.id}) }}"
+                                        data-responsive-frame-mobile-src-value="{{ path('app_saint_relics_mobile', {'id': saint.id}) }}">
+                                <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </turbo-frame>
                         </div>
                     </div>
                     {% endif %}
@@ -109,11 +119,11 @@
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
                         <a href="{{ path('app_saint_index') }}" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> Back to list
+                            <i class="bi bi-arrow-left"></i> {{ 'saint.actions.back'|trans({}, 'saint') }}
                         </a>
                         <div>
                             <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-primary">
-                                <i class="bi bi-pencil"></i> Edit
+                                <i class="bi bi-pencil"></i> {{ 'saint.actions.edit'|trans({}, 'saint') }}
                             </a>
                             {{ include('saint/_delete_form.html.twig', {'form_class': '', 'button_class': 'ms-2'}) }}
                         </div>

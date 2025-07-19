@@ -139,4 +139,20 @@ final class RelicController extends AbstractController
 
         return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/saint/{id}/desktop', name: 'app_saint_relics_desktop', methods: ['GET'])]
+    public function saintRelicsDesktop(int $id, RelicRepository $relicRepository): Response
+    {
+        return $this->render('relic/_relic_list_desktop.html.twig', [
+            'relics' => $relicRepository->findBy(['saint' => $id]),
+        ]);
+    }
+
+    #[Route('/saint/{id}/mobile', name: 'app_saint_relics_mobile', methods: ['GET'])]
+    public function saintRelicsMobile(int $id, RelicRepository $relicRepository): Response
+    {
+        return $this->render('relic/_relic_list_mobile.html.twig', [
+            'relics' => $relicRepository->findBy(['saint' => $id]),
+        ]);
+    }
 }

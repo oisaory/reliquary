@@ -1,0 +1,14 @@
+<div class="row mb-4">
+    <div class="col">
+        <h1 class="display-5 fw-bold">{{ title ?? 'saint.title'|trans({}, 'saint') }}</h1>
+        <p class="text-muted">{{ 'saint.description'|trans({}, 'saint') }}</p>
+    </div>
+    <div class="col-auto d-flex align-items-center">
+        <a href="{{ path('app_saint_new') }}" class="btn btn-primary">
+            <svg class="bi me-2" width="16" height="16">
+                <use href="#plus-circle"></use>
+            </svg>
+            {{ 'saint.add_new'|trans({}, 'saint') }}
+        </a>
+    </div>
+</div>
