@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Entity\Saint;
+use App\Enum\CanonicalStatus;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -151,7 +152,11 @@ class ImportSaintsCommand extends Command
                     }
 
                     if (isset($saintData['canonical_status'])) {
-                        $saint->setCanonicalStatus($saintData['canonical_status']);
+                        try {
+                            $saint->setCanonicalStatusFromString($saintData['canonical_status']);
+                        } catch (\ValueError $e) {
+                            $io->warning(sprintf('Invalid canonical status for %s: %s', $name, $e->getMessage()));
+                        }
                     }
 
                     if (isset($saintData['canonization_date'])) {

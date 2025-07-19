@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\CanonicalStatus;
 use App\Repository\SaintRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -24,8 +25,8 @@ class Saint
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $file = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $canonical_status = null;
+    #[ORM\Column(type: 'string', enumType: CanonicalStatus::class, length: 255, nullable: true)]
+    private ?CanonicalStatus $canonical_status = null;
 
     #[ORM\Column(type: "date", nullable: true)]
     private ?\DateTimeInterface $canonization_date = null;
@@ -127,14 +128,21 @@ class Saint
         return $this;
     }
 
-    public function getCanonicalStatus(): ?string
+    public function getCanonicalStatus(): ?CanonicalStatus
     {
         return $this->canonical_status;
     }
 
-    public function setCanonicalStatus(?string $canonical_status): static
+    public function setCanonicalStatus(?CanonicalStatus $canonical_status): static
     {
         $this->canonical_status = $canonical_status;
+
+        return $this;
+    }
+
+    public function setCanonicalStatusFromString(?string $canonical_status): static
+    {
+        $this->canonical_status = $canonical_status ? CanonicalStatus::fromString($canonical_status) : null;
 
         return $this;
     }

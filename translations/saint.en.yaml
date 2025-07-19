@@ -7,6 +7,11 @@ saint:
   edit_title: 'Edit Saint'
   new_title: 'New Saint'
   show_title: 'Saint Details'
+  canonical_status_titles:
+    canonization: 'Saint'
+    beatification: 'Blessed'
+    veneration: 'Venerable'
+    servant_of_god: 'Servant of God'
   table:
     name: 'Name'
     url: 'URL'

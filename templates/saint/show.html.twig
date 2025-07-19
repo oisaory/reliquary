@@ -17,7 +17,7 @@
 {#                            <p><strong>ID:</strong> {{ saint.id }}</p>#}
 {#                        </div>#}
                         <div class="col-md-6">
-                            <p><strong>{{ 'saint.table.name'|trans({}, 'saint') }}:</strong> {{ saint.name }}</p>
+                            <p><strong>{{ 'saint.table.name'|trans({}, 'saint') }}:</strong> {{ saint|format_saint_name }}</p>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                     <div class="row mb-3">
                         {% if saint.canonicalStatus %}
                         <div class="col-md-6">
-                            <p><strong>{{ 'saint.table.canonical_status'|trans({}, 'saint') }}:</strong> {{ saint.canonicalStatus }}</p>
+                            <p><strong>{{ 'saint.table.canonical_status'|trans({}, 'saint') }}:</strong> {{ saint.canonicalStatus.getLabel() }} ({{ saint.canonicalStatus.getTitleTransKey()|trans({}, 'saint') }})</p>
                         </div>
                         {% endif %}
 

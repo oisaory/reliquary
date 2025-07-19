@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Saint;
+use App\Enum\CanonicalStatus;
 use Doctrine\DBAL\Types\StringType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -45,15 +47,17 @@ class SaintType extends AbstractType
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
-            ->add('canonical_status', null, [
+            ->add('canonical_status', EnumType::class, [
                 'label' => 'Canonical Status',
+                'class' => CanonicalStatus::class,
+                'choice_label' => fn(CanonicalStatus $status) => $status->getLabel(),
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter the canonical status',
                 ],
-                'help' => 'Current canonical status (e.g., Beatificazione)',
+                'help' => 'Current canonical status (e.g., Canonization, Beatification)',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
+                'required' => false,
             ])
             ->add('canonization_date', DateType::class, [
                 'label' => 'Canonization Date',
