@@ -1,0 +1,21 @@
+home:
+  title: 'Reliquary'
+  welcome: 'Welcome to Reliquary'
+  description: 'Manage your sacred relics collection'
+  get_started: 'Get Started'
+  relics_near_me: 'Relics Near Me'
+  no_relics_found: 'No relics found within %radius%km of your location.'
+  features:
+    title: 'Features'
+    relic_management: 'Relic Management'
+    saint_database: 'Saint Database'
+    geolocation: 'Geolocation'
+  table:
+    saint: 'Saint'
+    address: 'Address'
+    location: 'Specific Location'
+    actions: 'Actions'
+    view: 'View'
+  mobile:
+    address: 'Address:'
+    location: 'Specific Location:'

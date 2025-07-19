@@ -1,0 +1,21 @@
+home:
+  title: 'Reliquaire'
+  welcome: 'Bienvenue à Reliquaire'
+  description: 'Gérez votre collection de reliques sacrées'
+  get_started: 'Commencer'
+  relics_near_me: 'Reliques à Proximité'
+  no_relics_found: 'Aucune relique trouvée dans un rayon de %radius%km de votre position.'
+  features:
+    title: 'Fonctionnalités'
+    relic_management: 'Gestion des Reliques'
+    saint_database: 'Base de Données des Saints'
+    geolocation: 'Géolocalisation'
+  table:
+    saint: 'Saint'
+    address: 'Adresse'
+    location: 'Emplacement Spécifique'
+    actions: 'Actions'
+    view: 'Voir'
+  mobile:
+    address: 'Adresse:'
+    location: 'Emplacement Spécifique:'

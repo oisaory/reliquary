@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ app.request.locale|upper }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="localeDropdown">
+        <li><a class="dropdown-item {% if app.request.locale == 'en' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'en'}) }}">English</a></li>
+        <li><a class="dropdown-item {% if app.request.locale == 'es' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'es'}) }}">Español</a></li>
+        <li><a class="dropdown-item {% if app.request.locale == 'fr' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'fr'}) }}">Français</a></li>
+    </ul>
+</div>
