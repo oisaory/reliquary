@@ -128,3 +128,20 @@ For a complete list of releases and changes, please see the [CHANGELOG.md](CHANG
 * [ ] Workflow for relic approval
 * [x] Add logs change
 * [x] Add link to CHANGELOG.md in README instead of listing all releases
+* [x] Implement translations
+  * [ ] General translation setup
+    * [x] Create translation directory structure
+    * [ ] Create base translation files
+    * [x] Add locale switcher component
+    * [x] Create locale controller
+    * [x] Update configuration
+  * [x] HomeController translations
+  * [ ] RelicController translations
+  * [ ] SaintController translations
+  * [ ] SecurityController translations
+  * [ ] RegistrationController translations
+  * [ ] UserController translations
+  * [ ] LogController translations
+  * [ ] GeolocationController translations
+  * [ ] AddressAutocompleteController translations
+  * [x] Add a missing translations visualizer
