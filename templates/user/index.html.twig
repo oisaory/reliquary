@@ -62,6 +62,10 @@
                                         <svg class="bi" width="16" height="16"><use href="#pencil"></use></svg>
                                         Edit
                                     </a>
+                                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#resetPasswordModal{{ user.id }}">
+                                        <svg class="bi" width="16" height="16"><use href="#key"></use></svg>
+                                        Reset Password
+                                    </button>
                                     {% if app.user != user %}
                                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ user.id }}">
                                             <svg class="bi" width="16" height="16"><use href="#exclamation-circle"></use></svg>
@@ -87,6 +91,28 @@
                                                 <form method="post" action="{{ path('app_admin_users_delete', {'id': user.id}) }}">
                                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Reset Password Modal -->
+                                <div class="modal fade" id="resetPasswordModal{{ user.id }}" tabindex="-1" aria-labelledby="resetPasswordModalLabel{{ user.id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="resetPasswordModalLabel{{ user.id }}">Confirm Password Reset</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to send a password reset email to <strong>{{ user.email }}</strong>?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <form method="post" action="{{ path('app_admin_users_reset_password', {'id': user.id}) }}">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token('reset-password' ~ user.id) }}">
+                                                    <button type="submit" class="btn btn-warning">Send Reset Email</button>
                                                 </form>
                                             </div>
                                         </div>
