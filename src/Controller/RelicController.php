@@ -126,6 +126,20 @@ final class RelicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Handle image removal
+            $imagesToRemove = $request->request->all('remove_images');
+            if (!empty($imagesToRemove)) {
+                foreach ($imagesToRemove as $imageId) {
+                    $image = $entityManager->getRepository(\App\Entity\Image::class)->find($imageId);
+                    if ($image && $image->getOwner() === $relic) {
+                        $imageService->deleteImage($image);
+                        $relic->removeImage($image);
+                        $entityManager->remove($image);
+                    }
+                }
+            }
+
+            // Handle new image upload
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
