@@ -7,6 +7,7 @@ parameters:
     app.version: '%env(default:app_version_default:file:resolve:APP_VERSION_FILE)%'
     app_version_default: '0.0.0-dev'
     env(APP_VERSION_FILE): '%kernel.project_dir%/VERSION'
+    image_upload_directory: '%kernel.project_dir%/public/uploads/images'
 
 services:
     # default configuration for services in *this* file
@@ -29,3 +30,7 @@ services:
     App\Twig\AppExtension:
         arguments:
             $appVersion: '%app.version%'
+
+    App\Service\ImageService:
+        arguments:
+            $uploadDir: '%image_upload_directory%'

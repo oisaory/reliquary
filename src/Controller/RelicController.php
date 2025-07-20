@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Relic;
 use App\Form\RelicType;
 use App\Repository\RelicRepository;
+use App\Service\ImageService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -78,7 +79,7 @@ final class RelicController extends AbstractController
     }
 
     #[Route('/new', name: 'app_relic_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
@@ -87,6 +88,15 @@ final class RelicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $relic->setCreator($this->getUser());
+
+            $imageFile = $form->get('imageFile')->getData();
+
+            if ($imageFile) {
+                $image = $imageService->createFromUploadedFile($imageFile, $relic, 'relic');
+                $relic->addImage($image);
+            }
+
             $entityManager->persist($relic);
             $entityManager->flush();
 
@@ -108,7 +118,7 @@ final class RelicController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_relic_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Relic $relic, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Relic $relic, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
@@ -116,6 +126,13 @@ final class RelicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('imageFile')->getData();
+
+            if ($imageFile) {
+                $image = $imageService->createFromUploadedFile($imageFile, $relic, 'relic');
+                $relic->addImage($image);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);

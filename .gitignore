@@ -15,6 +15,10 @@
 ###< symfony/asset-mapper ###
 /.idea/*
 
+###> public uploads ###
+/public/uploads/
+###< public uploads ###
+
 ###> phpunit/phpunit ###
 /phpunit.xml
 /.phpunit.cache/

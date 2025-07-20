@@ -8,8 +8,10 @@ use App\Form\SaintAutocompleteField;
 use App\Form\AddressAutocompleteType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class RelicType extends AbstractType
 {
@@ -35,6 +37,28 @@ class RelicType extends AbstractType
             ->add('saint', SaintAutocompleteField::class, [
                 'label' => 'Saint',
                 'help' => 'Select the saint associated with this relic',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+            ])
+            ->add('imageFile', FileType::class, [
+                'label' => 'Relic Image',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image (JPEG, PNG, WEBP)',
+                    ])
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'help' => 'Upload an image of the relic (max size: 2MB)',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
