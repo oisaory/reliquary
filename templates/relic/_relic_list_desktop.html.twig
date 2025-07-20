@@ -22,6 +22,11 @@
                                                  alt="Thumbnail" 
                                                  class="img-thumbnail" 
                                                  style="width: 80px; height: 80px; object-fit: cover;">
+                                        {% else %}
+                                            <img src="{{ asset('/images/relic.png') }}" 
+                                                 alt="No image available" 
+                                                 class="img-thumbnail opacity-25" 
+                                                 style="width: 80px; height: 80px; object-fit: contain; filter: grayscale(100%);">
                                         {% endif %}
                                     </td>
                                     <td>{{ relic.saint|format_saint_name }}</td>

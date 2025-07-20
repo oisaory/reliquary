@@ -12,18 +12,26 @@
                     <h5 class="mb-0">{{ 'relic.show_title'|trans({}, 'relic') }}</h5>
                 </div>
                 <div class="card-body">
-                    {% if relic.images|length > 0 %}
                     <div class="row mb-4">
-                        {% for image in relic.images %}
+                        {% if relic.images|length > 0 %}
+                            {% for image in relic.images %}
+                                <div class="col-md-4 mb-3">
+                                    <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
+                                         alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
+                                         class="img-fluid rounded shadow-sm">
+                                    <p class="small text-muted mt-1">{{ image.originalFilename }}</p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
                             <div class="col-md-4 mb-3">
-                                <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
-                                     alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
-                                     class="img-fluid rounded shadow-sm">
-                                <p class="small text-muted mt-1">{{ image.originalFilename }}</p>
+                                <img src="{{ asset('/images/relic.png') }}" 
+                                     alt="No image available" 
+                                     class="img-fluid rounded shadow-sm opacity-25"
+                                     style="filter: grayscale(100%);">
+                                <p class="small text-muted mt-1">No image available</p>
                             </div>
-                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% endif %}
 
                     <div class="row mb-3">
                         <div class="col-md-12">
