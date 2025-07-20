@@ -6,6 +6,7 @@
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
                             <tr>
+                                <th style="width: 90px;"></th>
                                 <th>{{ 'relic.table.saint'|trans({}, 'relic') }}</th>
                                 <th>{{ 'relic.table.address'|trans({}, 'relic') }}</th>
                                 <th>{{ 'relic.table.location'|trans({}, 'relic') }}</th>
@@ -15,6 +16,14 @@
                         <tbody>
                             {% for relic in relics %}
                                 <tr>
+                                    <td>
+                                        {% if relic.images|length > 0 %}
+                                            <img src="{{ asset('uploads/images/' ~ relic.images[0].filename) }}" 
+                                                 alt="Thumbnail" 
+                                                 class="img-thumbnail" 
+                                                 style="width: 80px; height: 80px; object-fit: cover;">
+                                        {% endif %}
+                                    </td>
                                     <td>{{ relic.saint|format_saint_name }}</td>
                                     <td>{{ relic.address }}</td>
                                     <td>{{ relic.location }}</td>

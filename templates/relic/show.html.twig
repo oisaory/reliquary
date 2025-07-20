@@ -12,11 +12,21 @@
                     <h5 class="mb-0">{{ 'relic.show_title'|trans({}, 'relic') }}</h5>
                 </div>
                 <div class="card-body">
+                    {% if relic.images|length > 0 %}
+                    <div class="row mb-4">
+                        {% for image in relic.images %}
+                            <div class="col-md-4 mb-3">
+                                <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
+                                     alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
+                                     class="img-fluid rounded shadow-sm">
+                                <p class="small text-muted mt-1">{{ image.originalFilename }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
                     <div class="row mb-3">
-                        <div class="col-md-6">
-                            <p><strong>ID:</strong> {{ relic.id }}</p>
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <p><strong>{{ 'relic.table.address'|trans({}, 'relic') }}:</strong> {{ relic.address }}</p>
                         </div>
                     </div>
@@ -30,24 +40,6 @@
                         <div class="col-md-12">
                             <p><strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong> <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}">{{ relic.saint }}</a></p>
                         </div>
-                    </div>
-                    {% endif %}
-
-                    {% if relic.images|length > 0 %}
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Images</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        {% for image in relic.images %}
-                            <div class="col-md-4 mb-3">
-                                <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
-                                     alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
-                                     class="img-fluid rounded shadow-sm">
-                                <p class="small text-muted mt-1">{{ image.originalFilename }}</p>
-                            </div>
-                        {% endfor %}
                     </div>
                     {% endif %}
                 </div>
