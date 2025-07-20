@@ -34,12 +34,14 @@
                                 </svg>
                                 {{ 'relic.actions.view'|trans({}, 'relic') }}
                             </a>
+                            {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-sm btn-outline-secondary" data-turbo-frame="_top">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#pencil"></use>
                                 </svg>
                                 {{ 'relic.actions.edit'|trans({}, 'relic') }}
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
