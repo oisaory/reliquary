@@ -1,3 +1,12 @@
+# [1.18.0](https://github.com/CesarScur/reliquary/compare/v1.17.0...v1.18.0) (2025-07-21)
+
+
+### Features
+
+* **forms:** enhance password validation rules for registration and change password forms ([73482fe](https://github.com/CesarScur/reliquary/commit/73482fe588d4d7a9765c94cf139dee61678a6b40))
+* **relic:** introduce relic degree classification and enhance entity management ([acfe0e1](https://github.com/CesarScur/reliquary/commit/acfe0e1ff2af96474ffd912a844b5ee68f4d0127))
+* **templates:** enhance relic details layout and image presentation ([587dec9](https://github.com/CesarScur/reliquary/commit/587dec92ab0757891d0ef31c619c1fce36ae2ccd))
+
 # [1.17.0](https://github.com/CesarScur/reliquary/compare/v1.16.0...v1.17.0) (2025-07-21)
 
 
