@@ -18,25 +18,46 @@ use Symfony\Bundle\SecurityBundle\Security;
  */
 final class HomeController extends AbstractController
 {
-    /**
-     * Default radius in kilometers for filtering relics by distance
-     */
     private const DEFAULT_RADIUS_KM = 45;
 
-    /**
-     * Renders the home page with relics filtered by geolocation if available
-     * 
-     * @param RelicRepository $relicRepository Repository for accessing relic data
-     * @param Request $request The current request
-     * @param Security $security The security service for accessing the current user
-     * @return Response The rendered home page
-     */
     #[Route('/', name: 'app_home')]
     public function index(RelicRepository $relicRepository, Request $request, Security $security): Response
+    {
+        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+
+        return $this->render('home/index.html.twig', [
+            'relics' => $result['relics'],
+            'radius' => $result['radius'],
+            'locationAvailable' => $result['locationAvailable'],
+        ]);
+    }
+
+    #[Route('/home/desktop', name: 'app_home_relics_desktop', methods: ['GET'])]
+    public function homeRelicsDesktop(RelicRepository $relicRepository, Request $request, Security $security): Response
+    {
+        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+
+        return $this->render('relic/_relic_list_desktop.html.twig', [
+            'relics' => $result['relics'],
+        ]);
+    }
+
+    #[Route('/home/mobile', name: 'app_home_relics_mobile', methods: ['GET'])]
+    public function homeRelicsMobile(RelicRepository $relicRepository, Request $request, Security $security): Response
+    {
+        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+
+        return $this->render('relic/_relic_list_mobile.html.twig', [
+            'relics' => $result['relics'],
+        ]);
+    }
+
+    private function getFilteredRelics(RelicRepository $relicRepository, Request $request, Security $security): array
     {
         $radius = self::DEFAULT_RADIUS_KM;
         $user = $security->getUser();
         $userLocation = null;
+        $locationAvailable = false;
 
         // Check if user is authenticated and has geolocation
         if ($user && $user->getLatitude() && $user->getLongitude()) {
@@ -67,13 +88,12 @@ final class HomeController extends AbstractController
         } else {
             // Fall back to all relics if no geolocation is available
             $relics = $relicRepository->findAll();
-            $locationAvailable = false;
         }
 
-        return $this->render('home/index.html.twig', [
+        return [
             'relics' => $relics,
             'radius' => $radius,
             'locationAvailable' => $locationAvailable,
-        ]);
+        ];
     }
 }
