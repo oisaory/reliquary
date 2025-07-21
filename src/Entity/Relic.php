@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\RelicDegree;
 use App\Repository\RelicRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,6 +36,9 @@ class Relic implements ImageOwnerInterface
     #[ORM\ManyToOne(inversedBy: 'relics')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $creator = null;
+
+    #[ORM\Column(length: 255, nullable: false, enumType: RelicDegree::class,  options: ['default' => RelicDegree::UNKNOWN])]
+    private RelicDegree $degree = RelicDegree::UNKNOWN;
 
     /**
      * @var Collection<int, Image>
@@ -120,6 +124,18 @@ class Relic implements ImageOwnerInterface
     public function setLongitude(?float $longitude): static
     {
         $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getDegree(): RelicDegree
+    {
+        return $this->degree;
+    }
+
+    public function setDegree(RelicDegree $degree): static
+    {
+        $this->degree = $degree;
 
         return $this;
     }

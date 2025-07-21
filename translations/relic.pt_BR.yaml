@@ -14,10 +14,23 @@ relic:
     address: 'Address'
     location: 'Specific Location'
     actions: 'Actions'
+    degree: 'Degree'
+  degree:
+    unknown: 'Unknown'
+    first_class: 'First-Class'
+    second_class: 'Second-Class'
+    third_class: 'Third-Class'
+    first_class_description: 'physical remains of a saint'
+    second_class_description: 'items owned or used by a saint'
+    third_class_description: 'items that have touched a first or second-class relic'
   form:
     saint: 'Saint'
     address: 'Address'
     location: 'Specific Location'
+    degree: 'Degree of Relic'
+    degree_help: 'First-class: physical remains of a saint. Second-class: items owned or used by a saint. Third-class: items that have touched a first or second-class relic.'
+    image: 'Relic Image'
+    image_help: 'Upload an image of the relic (max size: 2MB)'
     submit: 'Save'
   actions:
     view: 'View'

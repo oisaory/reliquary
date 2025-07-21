@@ -44,12 +44,27 @@
                         </div>
                     </div>
                     {% if relic.saint %}
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-12">
                             <p><strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong> <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}">{{ relic.saint }}</a></p>
                         </div>
                     </div>
                     {% endif %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><strong>{{ 'relic.table.degree'|trans({}, 'relic') }}:</strong> 
+                                {% if relic.degree == constant('App\\Enum\\RelicDegree::FIRST_CLASS') %}
+                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.first_class_description'|trans({}, 'relic') }})
+                                {% elseif relic.degree == constant('App\\Enum\\RelicDegree::SECOND_CLASS') %}
+                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.second_class_description'|trans({}, 'relic') }})
+                                {% elseif relic.degree == constant('App\\Enum\\RelicDegree::THIRD_CLASS') %}
+                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.third_class_description'|trans({}, 'relic') }})
+                                {% else %}
+                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">

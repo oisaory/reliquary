@@ -50,8 +50,8 @@ http://localhost:8080
 - Start the containers: `docker compose up -d`
 - Stop the containers: `docker compose down`
 - View logs: `docker compose logs -f`
-- Access PHP container: `docker compose exec php bash`
-- Run Symfony commands: `docker compose exec php bin/console <command>`
+- Access PHP container: `docker compose exec app bash`
+- Run Symfony commands: `docker compose exec app bin/console <command>`
 
 #### Configuration
 
@@ -155,14 +155,14 @@ For tests that require a database, you should:
 2. Create the test database schema:
 
 ```bash
-php bin/console doctrine:database:create --env=test
-php bin/console doctrine:schema:create --env=test
+docker compose exec app bin/console doctrine:database:create --env=test
+docker compose exec app bin/console doctrine:migrations:migrate --env=test
 ```
 
 3. Load fixtures if needed:
 
 ```bash
-php bin/console doctrine:fixtures:load --env=test
+docker compose exec app bin/console doctrine:fixtures:load --env=test
 ```
 
 ## Code Style and Development Practices
@@ -226,11 +226,16 @@ The project follows the standard Symfony directory structure:
 
 ### Database Management
 
-- Use `doctrine:schema:update --force` instead of migrations for schema updates:
+- Use migrations for schema updates:
   ```bash
-  php bin/console doctrine:schema:update --force
+  # Generate a migration
+  docker compose exec app bin/console make:migration
+
+  # Run migrations
+  docker compose exec app bin/console doctrine:migrations:migrate
   ```
-- This approach is simpler for development and ensures the database schema always matches your entity definitions
+- This approach is more robust and allows tracking of database changes over time
+- It also makes it easier to deploy changes to production environments
 
 ## Implementation Planning
 
