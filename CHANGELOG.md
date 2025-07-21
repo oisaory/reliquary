@@ -1,3 +1,21 @@
+# [1.17.0](https://github.com/CesarScur/reliquary/compare/v1.16.0...v1.17.0) (2025-07-21)
+
+
+### Bug Fixes
+
+* **map:** resolve marker icon issues in Leaflet setup ([03f5998](https://github.com/CesarScur/reliquary/commit/03f5998e061197742a1564794c9f6501d76c62ee))
+
+
+### Features
+
+* **images:** add image upload functionality for relics ([df23fa5](https://github.com/CesarScur/reliquary/commit/df23fa5d644d9b1503bd7aa5c20b5626844be5fd))
+* **images:** enable image removal for relics with visual feedback ([e721d27](https://github.com/CesarScur/reliquary/commit/e721d279dc0167bd4b7c80cafb710d9db21c065e))
+* **security:** restrict relic management actions to admin users ([a7c1886](https://github.com/CesarScur/reliquary/commit/a7c1886c532d521d8c7802114b96a91b2f543afd))
+* **templates:** add fallback image for relics with no associated images ([1e8ff68](https://github.com/CesarScur/reliquary/commit/1e8ff6835cb9df7c507339127bfefbc0a5633a99))
+* **templates:** display thumbnails for relics in lists and improve image presentation ([779e2fd](https://github.com/CesarScur/reliquary/commit/779e2fd4585861b33e1b2a6c0f6f271afd2348c0))
+* **templates:** improve relic list design and image presentation ([331e49c](https://github.com/CesarScur/reliquary/commit/331e49cbff294fc3631b090976b5630b5051c1fd))
+* **templates:** replace static relic list with responsive Turbo Frames ([e2b51bc](https://github.com/CesarScur/reliquary/commit/e2b51bc175a7bcd2be19b1cb4f5d96a28461b764))
+
 # [1.16.0](https://github.com/CesarScur/reliquary/compare/v1.15.0...v1.16.0) (2025-07-19)
 
 
