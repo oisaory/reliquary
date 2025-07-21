@@ -7,76 +7,118 @@
     {{ include('relic/_header.html.twig', {'title': 'relic.show_title'|trans({}, 'relic')}) }}
     <div class="row">
         <div class="col-12">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">{{ 'relic.show_title'|trans({}, 'relic') }}</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-4">
-                        {% if relic.images|length > 0 %}
-                            {% for image in relic.images %}
-                                <div class="col-md-4 mb-3">
-                                    <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
-                                         alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
-                                         class="img-fluid rounded shadow-sm">
-                                    <p class="small text-muted mt-1">{{ image.originalFilename }}</p>
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <div class="col-md-4 mb-3">
-                                <img src="{{ asset('/images/relic.png') }}" 
-                                     alt="No image available" 
-                                     class="img-fluid rounded shadow-sm opacity-25"
-                                     style="filter: grayscale(100%);">
-                                <p class="small text-muted mt-1">No image available</p>
+            <div class="card shadow border rounded overflow-hidden">
+                <div class="position-relative">
+                    {% if relic.images|length > 0 %}
+                        <div class="position-relative">
+                            <img src="{{ asset('uploads/images/' ~ relic.images[0].filename) }}" 
+                                 alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
+                                 class="w-100"
+                                 style="height: 280px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3">
+                                <h4 class="mb-0">{{ relic.saint ? relic.saint|format_saint_name : 'Unknown Saint' }}</h4>
                             </div>
-                        {% endif %}
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>{{ 'relic.table.address'|trans({}, 'relic') }}:</strong> {{ relic.address }}</p>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>{{ 'relic.table.location'|trans({}, 'relic') }}:</strong> {{ relic.location }}</p>
+                    {% else %}
+                        <div class="position-relative">
+                            <img src="{{ asset('/images/relic.png') }}" 
+                                 alt="No image available" 
+                                 class="w-100 opacity-25"
+                                 style="height: 280px; object-fit: contain; filter: grayscale(100%);">
+                            <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3">
+                                <h4 class="mb-0">{{ relic.saint ? relic.saint|format_saint_name : 'Unknown Saint' }}</h4>
+                            </div>
                         </div>
-                    </div>
-                    {% if relic.saint %}
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <p><strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong> <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}">{{ relic.saint }}</a></p>
-                        </div>
-                    </div>
                     {% endif %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p><strong>{{ 'relic.table.degree'|trans({}, 'relic') }}:</strong> 
-                                {% if relic.degree == constant('App\\Enum\\RelicDegree::FIRST_CLASS') %}
-                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.first_class_description'|trans({}, 'relic') }})
-                                {% elseif relic.degree == constant('App\\Enum\\RelicDegree::SECOND_CLASS') %}
-                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.second_class_description'|trans({}, 'relic') }})
-                                {% elseif relic.degree == constant('App\\Enum\\RelicDegree::THIRD_CLASS') %}
-                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} ({{ 'relic.degree.third_class_description'|trans({}, 'relic') }})
-                                {% else %}
-                                    {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }}
-                                {% endif %}
-                            </p>
+                </div>
+
+                <div class="card-body p-4">
+                    {% if relic.images|length > 1 %}
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="border-bottom pb-2 mb-3">{{ 'relic.additional_images'|trans({}, 'relic') }}</h5>
+                                <div class="row">
+                                    {% for image in relic.images|slice(1) %}
+                                        <div class="col-md-4 col-sm-6 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
+                                                     alt="Additional image" 
+                                                     class="card-img-top"
+                                                     style="height: 160px; object-fit: cover;">
+                                                <div class="card-body p-2">
+                                                    <p class="small text-muted mb-0">{{ image.originalFilename }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="mb-3">
+                                <strong>{{ 'relic.table.address'|trans({}, 'relic') }}:</strong><br>
+                                <span class="text-muted">{{ relic.address }}</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>{{ 'relic.table.location'|trans({}, 'relic') }}:</strong><br>
+                                <span class="text-muted">{{ relic.location }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            {% if relic.saint %}
+                            <div class="mb-3">
+                                <strong>{{ 'relic.table.saint'|trans({}, 'relic') }}:</strong><br>
+                                <span class="text-muted">
+                                    <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}" class="text-decoration-none">
+                                        {{ relic.saint }}
+                                    </a>
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <strong>{{ 'relic.table.degree'|trans({}, 'relic') }}:</strong><br>
+                                <span class="text-muted">
+                                    {% if relic.degree == constant('App\\Enum\\RelicDegree::FIRST_CLASS') %}
+                                        {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }} 
+                                        <span class="d-block small">{{ 'relic.degree.first_class_description'|trans({}, 'relic') }}</span>
+                                    {% elseif relic.degree == constant('App\\Enum\\RelicDegree::SECOND_CLASS') %}
+                                        {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }}
+                                        <span class="d-block small">{{ 'relic.degree.second_class_description'|trans({}, 'relic') }}</span>
+                                    {% elseif relic.degree == constant('App\\Enum\\RelicDegree::THIRD_CLASS') %}
+                                        {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }}
+                                        <span class="d-block small">{{ 'relic.degree.third_class_description'|trans({}, 'relic') }}</span>
+                                    {% else %}
+                                        {{ relic.degree.getTitleTransKey()|trans({}, 'relic') }}
+                                    {% endif %}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
+
+                <div class="card-footer bg-light p-3">
                     <div class="d-flex justify-content-between">
                         <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> {{ 'relic.actions.back'|trans({}, 'relic') }}
+                            <svg class="bi" width="16" height="16">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                            {{ 'relic.actions.back'|trans({}, 'relic') }}
                         </a>
                         <div>
                             {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-primary">
-                                <i class="bi bi-pencil"></i> {{ 'relic.actions.edit'|trans({}, 'relic') }}
+                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary me-2">
+                                <svg class="bi" width="16" height="16">
+                                    <use href="#pencil"></use>
+                                </svg>
+                                {{ 'relic.actions.edit'|trans({}, 'relic') }}
                             </a>
-                            {{ include('relic/_delete_form.html.twig', {'form_class': '', 'button_class': 'ms-2'}) }}
+                            {{ include('relic/_delete_form.html.twig', {'form_class': '', 'button_class': ''}) }}
                             {% endif %}
                         </div>
                     </div>

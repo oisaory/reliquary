@@ -7,6 +7,7 @@ relic:
   edit_title: 'Edit Relic'
   new_title: 'New Relic'
   show_title: 'Relic Details'
+  additional_images: 'Additional Images'
   table:
     saint: 'Saint'
     address: 'Address'
