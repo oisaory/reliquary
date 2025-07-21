@@ -17,8 +17,8 @@ export default class extends Controller {
         this.updateFrameSrc();
         
         // Update src when window is resized
-        this.resizeObserver = new ResizeObserver(this.updateFrameSrc.bind(this));
-        this.resizeObserver.observe(document.body);
+        // this.resizeObserver = new ResizeObserver(this.updateFrameSrc.bind(this));
+        // this.resizeObserver.observe(document.body);
     }
 
     disconnect() {
