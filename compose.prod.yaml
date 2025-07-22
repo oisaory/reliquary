@@ -12,6 +12,8 @@ services:
       - /etc/letsencrypt/live/santasreliquias.com.br/privkey.pem:/etc/apache2/ssl/apache.key
       - app_logs:/var/www/var/log
       - app_sessions:/var/www/var/cache/prod/sessions
+      - app_images:/var/www/public/uploads/images
+      - app_tmp:/tmp
     ports:
       - "80:80"
       - "${APACHE_SSL_PORT:-443}:443"
@@ -49,3 +51,5 @@ volumes:
   database_data:
   app_logs:
   app_sessions:
+  app_images:
+  app_tmp:
