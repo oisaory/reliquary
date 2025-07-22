@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/CesarScur/reliquary/compare/v1.20.0...v1.21.0) (2025-07-22)
+
+
+### Features
+
+* **compose:** add volumes for image uploads and temporary files ([7214dc0](https://github.com/CesarScur/reliquary/commit/7214dc0c78a9e05c8e9d455457d4c3620f36072c))
+
 # [1.20.0](https://github.com/CesarScur/reliquary/compare/v1.19.0...v1.20.0) (2025-07-22)
 
 
