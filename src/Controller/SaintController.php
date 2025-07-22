@@ -59,6 +59,7 @@ final class SaintController extends AbstractController
             $entityManager->persist($saint);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Saint created successfully');
             return $this->redirectToRoute('app_saint_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -87,6 +88,7 @@ final class SaintController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+            $this->addFlash('success', 'Saint updated successfully');
             return $this->redirectToRoute('app_saint_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -104,6 +106,7 @@ final class SaintController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$saint->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($saint);
             $entityManager->flush();
+            $this->addFlash('success', 'Saint deleted successfully');
         }
 
         return $this->redirectToRoute('app_saint_index', [], Response::HTTP_SEE_OTHER);
