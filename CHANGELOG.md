@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/CesarScur/reliquary/compare/v1.21.0...v1.22.0) (2025-07-22)
+
+
+### Features
+
+* **profile:** implement user profile management with image handling ([e9e1572](https://github.com/CesarScur/reliquary/commit/e9e15727cb3ac4dae19544de9b9965c28ba652b9))
+
 # [1.21.0](https://github.com/CesarScur/reliquary/compare/v1.20.0...v1.21.0) (2025-07-22)
 
 
