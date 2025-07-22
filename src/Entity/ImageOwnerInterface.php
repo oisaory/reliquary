@@ -8,6 +8,6 @@ interface ImageOwnerInterface
 {
     public function getId(): ?int;
     public function getImages(): Collection;
-    public function addImage(Image $image): self;
-    public function removeImage(Image $image): self;
+    public function addImage(AbstractImage $image): self;
+    public function removeImage(AbstractImage $image): self;
 }

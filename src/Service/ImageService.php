@@ -2,8 +2,11 @@
 
 namespace App\Service;
 
-use App\Entity\Image;
-use App\Entity\ImageOwnerInterface;
+use App\Entity\AbstractImage;
+use App\Entity\RelicImage;
+use App\Entity\UserImage;
+use App\Entity\Relic;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -18,35 +21,37 @@ class ImageService
         $this->slugger = $slugger;
     }
 
-    public function createFromUploadedFile(UploadedFile $file, ImageOwnerInterface $owner, string $ownerType): Image
+    public function createRelicImage(UploadedFile $file, Relic $relic): RelicImage
     {
-        $originalFilename = $file->getClientOriginalName();
-        $safeFilename = $this->slugger->slug(pathinfo($originalFilename, PATHINFO_FILENAME));
-        $newFilename = $safeFilename . '-' . uniqid() . '.' . $file->guessExtension();
+        $image = new RelicImage();
+        $image->setOriginalFilename($file->getClientOriginalName());
+        $image->setMimeType($file->getMimeType());
+        $image->setSize($file->getSize());
+        $image->setRelic($relic);
 
-        $subDir = $this->getUploadPath($file);
-        $fullDir = $this->uploadDir . '/' . $subDir;
+        $filename = $this->processUploadedFile($file);
 
-        if (!is_dir($fullDir)) {
-            mkdir($fullDir, 0777, true);
-        }
-
-        $size = $file->getSize();
-        $mimeType = $file->getMimeType();
-        $file->move($fullDir, $newFilename);
-
-        $image = new Image();
-        $image->setFilename($subDir . '/' . $newFilename);
-        $image->setOriginalFilename($originalFilename);
-        $image->setMimeType($mimeType);
-        $image->setSize($size);
-        $image->setOwner($owner);
-        $image->setOwnerType($ownerType);
+        $image->setFilename($filename);
 
         return $image;
     }
 
-    public function deleteImage(Image $image): void
+    public function createUserImage(UploadedFile $file, User $user): UserImage
+    {
+        $image = new UserImage();
+        $image->setOriginalFilename($file->getClientOriginalName());
+        $image->setMimeType($file->getMimeType());
+        $image->setSize($file->getSize());
+        $image->setUser($user);
+
+        $filename = $this->processUploadedFile($file);
+
+        $image->setFilename($filename);
+
+        return $image;
+    }
+
+    public function deleteImage(AbstractImage $image): void
     {
         $fullPath = $this->uploadDir . '/' . $image->getFilename();
 
@@ -59,6 +64,24 @@ class ImageService
         if (is_dir($dir) && count(scandir($dir)) <= 2) { // Only . and .. entries
             rmdir($dir);
         }
+    }
+
+    private function processUploadedFile(UploadedFile $file): string
+    {
+        $originalFilename = $file->getClientOriginalName();
+        $safeFilename = $this->slugger->slug(pathinfo($originalFilename, PATHINFO_FILENAME));
+        $newFilename = $safeFilename . '-' . uniqid() . '.' . $file->guessExtension();
+
+        $subDir = $this->getUploadPath($file);
+        $fullDir = $this->uploadDir . '/' . $subDir;
+
+        if (!is_dir($fullDir)) {
+            mkdir($fullDir, 0777, true);
+        }
+
+        $file->move($fullDir, $newFilename);
+
+        return $subDir . '/' . $newFilename;
     }
 
     private function getUploadPath(UploadedFile $file): string

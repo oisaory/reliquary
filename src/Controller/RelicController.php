@@ -93,7 +93,7 @@ final class RelicController extends AbstractController
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
-                $image = $imageService->createFromUploadedFile($imageFile, $relic, 'relic');
+                $image = $imageService->createRelicImage($imageFile, $relic);
                 $relic->addImage($image);
             }
 
@@ -131,8 +131,8 @@ final class RelicController extends AbstractController
             $imagesToRemove = $request->request->all('remove_images');
             if (!empty($imagesToRemove)) {
                 foreach ($imagesToRemove as $imageId) {
-                    $image = $entityManager->getRepository(\App\Entity\Image::class)->find($imageId);
-                    if ($image && $image->getOwner() === $relic) {
+                    $image = $entityManager->getRepository(\App\Entity\RelicImage::class)->find($imageId);
+                    if ($image && $image->getRelic() === $relic) {
                         $imageService->deleteImage($image);
                         $relic->removeImage($image);
                         $entityManager->remove($image);
@@ -144,7 +144,7 @@ final class RelicController extends AbstractController
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
-                $image = $imageService->createFromUploadedFile($imageFile, $relic, 'relic');
+                $image = $imageService->createRelicImage($imageFile, $relic);
                 $relic->addImage($image);
             }
 

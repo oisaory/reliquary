@@ -44,9 +44,9 @@ class Relic implements ImageOwnerInterface
     private RelicDegree $degree = RelicDegree::UNKNOWN;
 
     /**
-     * @var Collection<int, Image>
+     * @var Collection<int, RelicImage>
      */
-    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'owner', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: RelicImage::class, mappedBy: 'relic', cascade: ['persist', 'remove'])]
     private Collection $images;
 
     public function __construct()
@@ -156,30 +156,33 @@ class Relic implements ImageOwnerInterface
     }
 
     /**
-     * @return Collection<int, Image>
+     * @return Collection<int, RelicImage>
      */
     public function getImages(): Collection
     {
         return $this->images;
     }
 
-    public function addImage(Image $image): self
+    public function addImage(AbstractImage $image): self
     {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setOwner($this);
-            $image->setOwnerType('relic');
+        if ($image instanceof RelicImage) {
+            if (!$this->images->contains($image)) {
+                $this->images->add($image);
+                $image->setRelic($this);
+            }
         }
 
         return $this;
     }
 
-    public function removeImage(Image $image): self
+    public function removeImage(AbstractImage $image): self
     {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getOwner() === $this) {
-                $image->setOwner(null);
+        if ($image instanceof RelicImage) {
+            if ($this->images->removeElement($image)) {
+                // set the owning side to null (unless already changed)
+                if ($image->getRelic() === $this) {
+                    // Can't set to null as it's non-nullable
+                }
             }
         }
 

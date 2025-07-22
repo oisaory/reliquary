@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'edit_title'|trans({}, 'profile') }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ 'edit_title'|trans({}, 'profile') }}</h1>
+
+        {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        {% set user = form.vars.data %}
+                        {% if user.profileImage %}
+                            <img src="{{ asset('uploads/images/' ~ user.profileImage.filename) }}" 
+                                 alt="Profile Image" 
+                                 class="img-fluid rounded-circle mb-3" 
+                                 style="width: 150px; height: 150px; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center mb-3" 
+                                 style="width: 150px; height: 150px;">
+                                <i class="bi bi-person" style="font-size: 4rem;"></i>
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            {{ form_label(form.profileImage) }}
+                            {{ form_widget(form.profileImage) }}
+                            {{ form_help(form.profileImage) }}
+                            {{ form_errors(form.profileImage) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ 'information'|trans({}, 'profile') }}</h5>
+
+                        <div class="mb-3">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username) }}
+                            {{ form_errors(form.username) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ path('app_profile_show') }}" class="btn btn-secondary me-md-2">
+                                {{ 'cancel'|trans({}, 'profile') }}
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                {{ 'save'|trans({}, 'profile') }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

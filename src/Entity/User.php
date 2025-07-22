@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, ImageOwnerInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -57,9 +57,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Relic::class, mappedBy: 'creator')]
     private Collection $relics;
 
+    /**
+     * @var Collection<int, UserImage>
+     */
+    #[ORM\OneToMany(targetEntity: UserImage::class, mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private Collection $images;
+
     public function __construct()
     {
         $this->relics = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -241,5 +248,44 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->geolocationTimestamp = new \DateTime();
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, UserImage>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(AbstractImage $image): self
+    {
+        if ($image instanceof UserImage) {
+            if (!$this->images->contains($image)) {
+                $this->images->add($image);
+                $image->setUser($this);
+            }
+        }
+
+        return $this;
+    }
+
+    public function removeImage(AbstractImage $image): self
+    {
+        if ($image instanceof UserImage) {
+            if ($this->images->removeElement($image)) {
+                // set the owning side to null (unless already changed)
+                if ($image->getUser() === $this) {
+                    // Can't set to null as it's non-nullable
+                }
+            }
+        }
+
+        return $this;
+    }
+
+    public function getProfileImage(): ?UserImage
+    {
+        return $this->images->isEmpty() ? null : $this->images->first();
     }
 }

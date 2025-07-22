@@ -1,0 +1,14 @@
+# Profile translations
+title: 'My Profile'
+edit_title: 'Edit Profile'
+edit: 'Edit Profile'
+information: 'Profile Information'
+username: 'Username'
+email: 'Email'
+verified: 'Email Verified'
+image:
+  label: 'Profile Image'
+  help: 'Upload a profile image (JPEG, PNG or WEBP, max 2MB)'
+save: 'Save'
+cancel: 'Cancel'
+success: 'Profile updated successfully'

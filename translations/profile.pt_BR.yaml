@@ -1,0 +1,14 @@
+# Traduções do perfil
+title: 'Meu Perfil'
+edit_title: 'Editar Perfil'
+edit: 'Editar Perfil'
+information: 'Informações do Perfil'
+username: 'Nome de Usuário'
+email: 'E-mail'
+verified: 'E-mail Verificado'
+image:
+  label: 'Imagem de Perfil'
+  help: 'Envie uma imagem de perfil (JPEG, PNG ou WEBP, máx 2MB)'
+save: 'Salvar'
+cancel: 'Cancelar'
+success: 'Perfil atualizado com sucesso'
