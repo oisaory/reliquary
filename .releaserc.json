@@ -3,6 +3,12 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    ["@semantic-release/github", {
+      "assets": [],
+      "successComment": "This ${issue.pull_request ? 'PR is included' : 'issue has been resolved'} in version ${nextRelease.version}",
+      "failTitle": "The automated release failed",
+      "failComment": "The automated release failed. Please check the logs for details."
+    }],
     "@semantic-release/changelog",
     "@semantic-release/npm",
     ["@semantic-release/exec", {
