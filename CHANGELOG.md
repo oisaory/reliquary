@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/CesarScur/reliquary/compare/v1.18.0...v1.19.0) (2025-07-22)
+
+
+### Features
+
+* **controllers:** add success flash messages for CRUD operations ([e88af3e](https://github.com/CesarScur/reliquary/commit/e88af3e1d92c2515d73475337155f60c1513f374))
+* **relic:** add description field with autocomplete support ([eb18797](https://github.com/CesarScur/reliquary/commit/eb18797692de29a549f059e182de4f750e90de69))
+
 # [1.18.0](https://github.com/CesarScur/reliquary/compare/v1.17.0...v1.18.0) (2025-07-21)
 
 
