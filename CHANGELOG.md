@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/CesarScur/reliquary/compare/v1.19.0...v1.20.0) (2025-07-22)
+
+
+### Features
+
+* **semantic-release:** integrate GitHub plugin for enhanced release automation ([13bb07b](https://github.com/CesarScur/reliquary/commit/13bb07b3f71aa728ca8ad74db5b8dfb617179158))
+
 # [1.19.0](https://github.com/CesarScur/reliquary/compare/v1.18.0...v1.19.0) (2025-07-22)
 
 
