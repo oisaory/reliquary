@@ -30,7 +30,7 @@ docker compose up -d
 3. Install Composer dependencies:
 
 ```bash
-docker compose exec php composer install
+docker compose exec app composer install
 ```
 
 4. Access the application in your browser:
