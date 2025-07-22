@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class AddressAutocompleteType extends AbstractType
+class RelicDescriptionAutocompleteType extends AbstractType
 {
     private UrlGeneratorInterface $urlGenerator;
     private TranslatorInterface $translator;
@@ -22,11 +22,11 @@ class AddressAutocompleteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'placeholder' => $this->translator->trans('relic.form.address_placeholder', [], 'relic'),
+            'placeholder' => $this->translator->trans('relic.form.description_placeholder', [], 'relic'),
             'autocomplete' => true,
-            'autocomplete_url' => $this->urlGenerator->generate('api_address_autocomplete'),
+            'autocomplete_url' => $this->urlGenerator->generate('api_relic_description_autocomplete'),
             'tom_select_options' => [
-                'create' => false,
+                'create' => true,
                 'maxItems' => 1,
             ],
             'attr' => [

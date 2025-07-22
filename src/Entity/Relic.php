@@ -27,6 +27,9 @@ class Relic implements ImageOwnerInterface
     #[ORM\Column(length: 1024, nullable: true)]
     private ?string $address = null;
 
+    #[ORM\Column(length: 1024, nullable: true)]
+    private ?string $description = null;
+
     #[ORM\Column(nullable: true)]
     private ?float $latitude = null;
 
@@ -88,6 +91,18 @@ class Relic implements ImageOwnerInterface
     public function setAddress(?string $address): static
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }

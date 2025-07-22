@@ -24,10 +24,16 @@
                         <strong>{{ 'relic.table.address'|trans({}, 'relic') }}:</strong><br>
                         <span class="text-muted">{{ relic.address }}</span>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <strong>{{ 'relic.table.location'|trans({}, 'relic') }}:</strong><br>
                         <span class="text-muted">{{ relic.location }}</span>
                     </div>
+                    {% if relic.description %}
+                    <div class="mb-3">
+                        <strong>{{ 'relic.form.description'|trans({}, 'relic') }}:</strong><br>
+                        <span class="text-muted">{{ relic.description }}</span>
+                    </div>
+                    {% endif %}
                     <div class="d-flex">
                         <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-primary me-2"
                            data-turbo-frame="_top">

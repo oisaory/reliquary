@@ -7,6 +7,7 @@ use App\Entity\Saint;
 use App\Enum\RelicDegree;
 use App\Form\SaintAutocompleteField;
 use App\Form\AddressAutocompleteType;
+use App\Form\RelicDescriptionAutocompleteType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,7 +32,7 @@ class RelicType extends AbstractType
             ->add('address', AddressAutocompleteType::class, [
                 'label' => 'relic.form.address',
                 'translation_domain' => 'relic',
-                'help' => 'The general address where this relic is located',
+                'help' => 'relic.form.address_help',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
@@ -40,16 +41,24 @@ class RelicType extends AbstractType
                 'translation_domain' => 'relic',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter the specific location within the address',
+                    'placeholder' => 'relic.form.location_placeholder',
                 ],
-                'help' => 'Where specifically within the address is this relic located? (e.g., "North Chapel", "Main Altar", etc.)',
+                'help' => 'relic.form.location_help',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
+            ])
+            ->add('description', RelicDescriptionAutocompleteType::class, [
+                'label' => 'relic.form.description',
+                'translation_domain' => 'relic',
+                'help' => 'relic.form.description_help',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+                'required' => false,
             ])
             ->add('saint', SaintAutocompleteField::class, [
                 'label' => 'relic.form.saint',
                 'translation_domain' => 'relic',
-                'help' => 'Select the saint associated with this relic',
+                'help' => 'relic.form.saint_help',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
