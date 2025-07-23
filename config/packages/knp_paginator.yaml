@@ -10,5 +10,5 @@ knp_paginator:
         default_limit: 8              # Default number of items per page
     template:
         pagination: 'pagination/bootstrap_v5_pagination.html.twig'     # Custom pagination template
-        sortable: '@KnpPaginator/Pagination/bootstrap_v5_bi_sortable_link.html.twig' # Sortable template
+        sortable: 'pagination/bootstrap_v5_fa_sortable_link.html.twig' # Custom Font Awesome 5 sortable template
         filtration: '@KnpPaginator/Pagination/bootstrap_v5_filtration.html.twig'  # Filtration template

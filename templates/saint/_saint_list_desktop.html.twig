@@ -7,9 +7,9 @@
                         <thead class="table-dark">
                         <tr>
                             <th style="width: 150px;"></th>
-                            <th>{{ 'saint.table.name'|trans({}, 'saint') }}</th>
-                            <th>{{ 'saint.table.canonization_date'|trans({}, 'saint') }}</th>
-                            <th>{{ 'saint.table.canonical_status'|trans({}, 'saint') }}</th>
+                            <th>{{ knp_pagination_sortable(pagination, 'saint.table.name'|trans({}, 'saint'), 's.name') }}</th>
+                            <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonization_date'|trans({}, 'saint'), 's.canonization_date') }}</th>
+                            <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonical_status'|trans({}, 'saint'), 's.canonical_status') }}</th>
                             <th scope="col" class="text-end">{{ 'saint.table.actions'|trans({}, 'saint') }}</th>
                         </tr>
                         </thead>

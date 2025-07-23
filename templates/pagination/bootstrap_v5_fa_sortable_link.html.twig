@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Bootstrap v5 with Font Awesome 5 Sorting control implementation.
+ */
+#}
+<a{% for attr, value in options %} {{ attr }}="{{ value }}"{% endfor %}>
+    <span class="float-end">
+        {% if sorted %}
+            {% if direction == 'desc' %}
+                <i class="fas fa-sort-down"></i>
+            {% else %}
+                <i class="fas fa-sort-up"></i>
+            {% endif %}
+        {% else %}
+            <i class="fas fa-sort"></i>
+        {% endif %}
+    </span>
+    {{- title -}}
+</a>
