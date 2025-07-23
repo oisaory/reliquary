@@ -7,7 +7,7 @@ knp_paginator:
         distinct: true                 # Ensure distinct results
         filter_field_name: filterField # Filter field name
         filter_value_name: filterValue # Filter value parameter name
-        default_limit: 18              # Default number of items per page
+        default_limit: 8              # Default number of items per page
     template:
         pagination: 'pagination/bootstrap_v5_pagination.html.twig'     # Custom pagination template
         sortable: '@KnpPaginator/Pagination/bootstrap_v5_bi_sortable_link.html.twig' # Sortable template

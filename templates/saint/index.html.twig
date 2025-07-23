@@ -3,7 +3,7 @@
 {% block title %}{{ title ?? 'Saint index' }}{% endblock %}
 
 {% block body %}
-<div class="container py-4">
+<div class="container py-4" data-controller="filter-toggle">
     {{ include('saint/_header.html.twig') }}
 
     <!-- Single responsive turbo frame -->
