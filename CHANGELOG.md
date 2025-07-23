@@ -1,3 +1,16 @@
+# [1.24.0](https://github.com/CesarScur/reliquary/compare/v1.23.0...v1.24.0) (2025-07-23)
+
+
+### Bug Fixes
+
+* **enum:** update translation for VENERATION in CanonicalStatus ([c0c653e](https://github.com/CesarScur/reliquary/commit/c0c653e01454766e3c69759bf247b5c0915f4f5f))
+
+
+### Features
+
+* **admin:** manage incomplete saints in admin panel ([601d7bd](https://github.com/CesarScur/reliquary/commit/601d7bde3004679bfff69d1a8724fd985f5a77e8))
+* **filter:** add canonical status filter for saints listing ([2a05a06](https://github.com/CesarScur/reliquary/commit/2a05a06c6421ef519f35c9e63df5e69fa1fb3936))
+
 # [1.23.0](https://github.com/CesarScur/reliquary/compare/v1.22.0...v1.23.0) (2025-07-23)
 
 
