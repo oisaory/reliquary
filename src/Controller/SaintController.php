@@ -18,13 +18,17 @@ final class SaintController extends AbstractController
     #[Route(name: 'app_saint_index', methods: ['GET'])]
     public function index(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
+        $filter = $request->query->get('filter');
+
         $pagination = $paginator->paginate(
-            $saintRepository->findAllQuery(),
+            $saintRepository->findAllQuery($filter),
             $request->query->getInt('page', 1),
         );
 
         return $this->render('saint/index.html.twig', [
             'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
         ]);
     }
 
@@ -34,14 +38,17 @@ final class SaintController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $user = $this->getUser();
+        $filter = $request->query->get('filter');
 
         $pagination = $paginator->paginate(
-            $saintRepository->findByCreatorQuery($user),
+            $saintRepository->findByCreatorQuery($user, $filter),
             $request->query->getInt('page', 1), // Current page
         );
 
         return $this->render('saint/index.html.twig', [
             'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
             'title' => 'My Saints'
         ]);
     }

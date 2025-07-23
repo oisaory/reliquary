@@ -43,27 +43,43 @@ class SaintRepository extends ServiceEntityRepository
     //    }
 
     /**
-     * Find all saints query
+     * Find all saints query with optional canonical status filter
      * 
+     * @param string|null $canonicalStatus The canonical status to filter by
      * @return Query The query object
      */
-    public function findAllQuery(): Query
+    public function findAllQuery(?string $canonicalStatus = null): Query
     {
-        return $this->createQueryBuilder('s')
-            ->getQuery();
+        $queryBuilder = $this->createQueryBuilder('s');
+
+        if ($canonicalStatus) {
+            $queryBuilder
+                ->andWhere('s.canonical_status = :canonicalStatus')
+                ->setParameter('canonicalStatus', $canonicalStatus);
+        }
+
+        return $queryBuilder->getQuery();
     }
 
     /**
-     * Find saints created by a specific user
+     * Find saints created by a specific user with optional canonical status filter
      * 
      * @param object $user The user who created the saints
+     * @param string|null $canonicalStatus The canonical status to filter by
      * @return Query The query object
      */
-    public function findByCreatorQuery($user): Query
+    public function findByCreatorQuery($user, ?string $canonicalStatus = null): Query
     {
-        return $this->createQueryBuilder('s')
+        $queryBuilder = $this->createQueryBuilder('s')
             ->where('s.creator = :user')
-            ->setParameter('user', $user)
-            ->getQuery();
+            ->setParameter('user', $user);
+
+        if ($canonicalStatus) {
+            $queryBuilder
+                ->andWhere('s.canonical_status = :canonicalStatus')
+                ->setParameter('canonicalStatus', $canonicalStatus);
+        }
+
+        return $queryBuilder->getQuery();
     }
 }
