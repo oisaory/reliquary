@@ -3,17 +3,19 @@
 namespace App\Form;
 
 use App\Entity\Relic;
-use App\Entity\Saint;
 use App\Enum\RelicDegree;
+use App\EventListener\SaintFormListener;
 use App\Form\SaintAutocompleteField;
 use App\Form\AddressAutocompleteType;
 use App\Form\RelicDescriptionAutocompleteType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -21,14 +23,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RelicType extends AbstractType
 {
     private TranslatorInterface $translator;
+    private SaintFormListener $saintFormListener;
 
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, SaintFormListener $saintFormListener)
     {
         $this->translator = $translator;
+        $this->saintFormListener = $saintFormListener;
     }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->addEventListener(FormEvents::PRE_SUBMIT, [$this->saintFormListener, 'onPreSubmit'])
             ->add('address', AddressAutocompleteType::class, [
                 'label' => 'relic.form.address',
                 'translation_domain' => 'relic',

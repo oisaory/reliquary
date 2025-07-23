@@ -55,15 +55,6 @@ class RelicDescriptionAutocompleteController extends AbstractController
                 ];
             }
         }
-
-        // Add the query itself as an option if it doesn't match any predefined option
-        if (empty($results)) {
-            $results[] = [
-                'value' => $query,
-                'text' => $query,
-            ];
-        }
-
         return $this->json(['results' => $results]);
     }
 }

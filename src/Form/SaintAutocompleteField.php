@@ -28,6 +28,10 @@ class SaintAutocompleteField extends AbstractType
             'choice_label' => 'name',
             'searchable_fields' => ['name'],
             'security' => false,
+            'tom_select_options' => [
+                'create' => true,
+                'maxItems' => 1,
+            ],
         ]);
     }
 
