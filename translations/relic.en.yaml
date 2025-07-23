@@ -8,12 +8,14 @@ relic:
   new_title: 'New Relic'
   show_title: 'Relic Details'
   additional_images: 'Additional Images'
+  image_uploaded_by: 'Uploaded by'
   table:
     saint: 'Saint'
     address: 'Address'
     location: 'Specific Location'
     actions: 'Actions'
     degree: 'Degree'
+    added_by: 'Added by'
   degree:
     unknown: 'Unknown'
     first_class: 'First-Class'

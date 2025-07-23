@@ -24,6 +24,10 @@ abstract class AbstractImage
     #[ORM\Column]
     protected int $size;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: true)]
+    protected ?User $uploader = null;
+
     // Getters and setters
     public function getId(): ?int
     {
@@ -71,6 +75,17 @@ abstract class AbstractImage
     public function setSize(int $size): self
     {
         $this->size = $size;
+        return $this;
+    }
+
+    public function getUploader(): ?User
+    {
+        return $this->uploader;
+    }
+
+    public function setUploader(?User $uploader): self
+    {
+        $this->uploader = $uploader;
         return $this;
     }
 }

@@ -54,7 +54,7 @@ class ProfileController extends AbstractController
                 }
 
                 // Create new UserImage entity using the ImageService
-                $image = $imageService->createUserImage($profileImageFile, $user);
+                $image = $imageService->createUserImage($profileImageFile, $user, $this->getUser());
                 $user->addImage($image);
             }
 

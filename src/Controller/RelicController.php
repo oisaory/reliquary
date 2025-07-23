@@ -93,7 +93,7 @@ final class RelicController extends AbstractController
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
-                $image = $imageService->createRelicImage($imageFile, $relic);
+                $image = $imageService->createRelicImage($imageFile, $relic, $this->getUser());
                 $relic->addImage($image);
             }
 
@@ -144,7 +144,7 @@ final class RelicController extends AbstractController
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
-                $image = $imageService->createRelicImage($imageFile, $relic);
+                $image = $imageService->createRelicImage($imageFile, $relic, $this->getUser());
                 $relic->addImage($image);
             }
 

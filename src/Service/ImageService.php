@@ -21,13 +21,20 @@ class ImageService
         $this->slugger = $slugger;
     }
 
-    public function createRelicImage(UploadedFile $file, Relic $relic): RelicImage
+    public function createRelicImage(UploadedFile $file, Relic $relic, User $uploader = null): RelicImage
     {
         $image = new RelicImage();
         $image->setOriginalFilename($file->getClientOriginalName());
         $image->setMimeType($file->getMimeType());
         $image->setSize($file->getSize());
         $image->setRelic($relic);
+
+        // Set the uploader if provided, otherwise use the relic creator
+        if ($uploader) {
+            $image->setUploader($uploader);
+        } else {
+            $image->setUploader($relic->getCreator());
+        }
 
         $filename = $this->processUploadedFile($file);
 
@@ -36,13 +43,20 @@ class ImageService
         return $image;
     }
 
-    public function createUserImage(UploadedFile $file, User $user): UserImage
+    public function createUserImage(UploadedFile $file, User $user, User $uploader = null): UserImage
     {
         $image = new UserImage();
         $image->setOriginalFilename($file->getClientOriginalName());
         $image->setMimeType($file->getMimeType());
         $image->setSize($file->getSize());
         $image->setUser($user);
+
+        // Set the uploader if provided, otherwise use the user themselves
+        if ($uploader) {
+            $image->setUploader($uploader);
+        } else {
+            $image->setUploader($user);
+        }
 
         $filename = $this->processUploadedFile($file);
 
