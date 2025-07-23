@@ -9,6 +9,8 @@ saint:
   edit_title: 'Edit Saint'
   new_title: 'New Saint'
   show_title: 'Saint Details'
+  autocomplete:
+    placeholder: 'Start typing to search for a saint...'
   canonical_status_titles:
     canonization: 'Saint'
     beatification: 'Blessed'
