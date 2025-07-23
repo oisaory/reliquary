@@ -6,7 +6,7 @@ enum CanonicalStatus: string
 {
     case CANONIZATION = 'Canonizzazione';
     case BEATIFICATION = 'Beatificazione';
-    case VENERATION = 'Venerazione';
+    case VENERATION = 'Venerabilità';
     case SERVANT_OF_GOD = 'Servo di Dio';
 
     public function getLabel(): string
