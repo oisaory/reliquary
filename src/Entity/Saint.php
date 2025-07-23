@@ -46,6 +46,9 @@ class Saint
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image_link = null;
 
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $is_incomplete = false;
+
     /**
      * @var Collection<int, Relic>
      */
@@ -215,6 +218,18 @@ class Saint
     public function setImageLink(?string $image_link): static
     {
         $this->image_link = $image_link;
+
+        return $this;
+    }
+
+    public function isIncomplete(): bool
+    {
+        return $this->is_incomplete;
+    }
+
+    public function setIsIncomplete(bool $is_incomplete): static
+    {
+        $this->is_incomplete = $is_incomplete;
 
         return $this;
     }

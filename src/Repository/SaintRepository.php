@@ -46,11 +46,18 @@ class SaintRepository extends ServiceEntityRepository
      * Find all saints query with optional canonical status filter
      * 
      * @param string|null $canonicalStatus The canonical status to filter by
+     * @param bool $includeIncomplete Whether to include incomplete saints
      * @return Query The query object
      */
-    public function findAllQuery(?string $canonicalStatus = null): Query
+    public function findAllQuery(?string $canonicalStatus = null, bool $includeIncomplete = false): Query
     {
         $queryBuilder = $this->createQueryBuilder('s');
+
+        if (!$includeIncomplete) {
+            $queryBuilder
+                ->andWhere('s.is_incomplete = :incomplete')
+                ->setParameter('incomplete', false);
+        }
 
         if ($canonicalStatus) {
             $queryBuilder
@@ -66,19 +73,41 @@ class SaintRepository extends ServiceEntityRepository
      * 
      * @param object $user The user who created the saints
      * @param string|null $canonicalStatus The canonical status to filter by
+     * @param bool $includeIncomplete Whether to include incomplete saints
      * @return Query The query object
      */
-    public function findByCreatorQuery($user, ?string $canonicalStatus = null): Query
+    public function findByCreatorQuery($user, ?string $canonicalStatus = null, bool $includeIncomplete = false): Query
     {
         $queryBuilder = $this->createQueryBuilder('s')
             ->where('s.creator = :user')
             ->setParameter('user', $user);
+
+        if (!$includeIncomplete) {
+            $queryBuilder
+                ->andWhere('s.is_incomplete = :incomplete')
+                ->setParameter('incomplete', false);
+        }
 
         if ($canonicalStatus) {
             $queryBuilder
                 ->andWhere('s.canonical_status = :canonicalStatus')
                 ->setParameter('canonicalStatus', $canonicalStatus);
         }
+
+        return $queryBuilder->getQuery();
+    }
+
+    /**
+     * Find all incomplete saints query
+     * 
+     * @return Query The query object
+     */
+    public function findIncompleteQuery(): Query
+    {
+        $queryBuilder = $this->createQueryBuilder('s')
+            ->andWhere('s.is_incomplete = :incomplete')
+            ->setParameter('incomplete', true)
+            ->orderBy('s.id', 'DESC');
 
         return $queryBuilder->getQuery();
     }

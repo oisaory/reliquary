@@ -25,6 +25,7 @@ class SaintFormListener
             // Create a new Saint entity with the name
             $saint = new Saint();
             $saint->setName($data['saint']);
+            $saint->setIsIncomplete(true);
 
             // Persist and flush the new Saint entity
             $this->entityManager->persist($saint);
