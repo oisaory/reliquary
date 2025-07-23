@@ -31,6 +31,7 @@
         "symfony/ux-autocomplete": "^2.26",
         "symfony/ux-turbo": "^2.20",
         "symfony/validator": "7.2.*",
+        "symfony/workflow": "7.2.*",
         "symfony/yaml": "7.2.*",
         "symfonycasts/reset-password-bundle": "^1.23",
         "symfonycasts/verify-email-bundle": "^1.17",

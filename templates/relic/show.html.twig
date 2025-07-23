@@ -145,6 +145,19 @@
                             </div>
 
                             <div class="mb-3">
+                                <strong>{{ 'relic.table.status'|trans({}, 'relic') }}:</strong><br>
+                                <span class="text-muted">
+                                    {% if relic.status == constant('App\\Enum\\RelicStatus::PENDING') %}
+                                        <span class="badge bg-warning">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
+                                    {% elseif relic.status == constant('App\\Enum\\RelicStatus::APPROVED') %}
+                                        <span class="badge bg-success">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
+                                    {% elseif relic.status == constant('App\\Enum\\RelicStatus::REJECTED') %}
+                                        <span class="badge bg-danger">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
                                 <strong>{{ 'relic.table.added_by'|trans({}, 'relic') }}:</strong><br>
                                 <div class="d-flex align-items-center mt-1">
                                     {% if relic.creator.profileImage %}

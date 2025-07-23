@@ -1,0 +1,26 @@
+framework:
+    workflows:
+        relic_approval:
+            type: 'state_machine'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\Relic
+            initial_marking: pending
+            places:
+                - pending
+                - approved
+                - rejected
+            transitions:
+                approve:
+                    from: pending
+                    to: approved
+                reject:
+                    from: pending
+                    to: rejected
+                resubmit:
+                    from: rejected
+                    to: pending

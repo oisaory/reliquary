@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Relic;
+use App\Enum\RelicStatus;
 use App\Form\RelicType;
 use App\Repository\RelicRepository;
 use App\Service\ImageService;
@@ -90,6 +91,13 @@ final class RelicController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $relic->setCreator($this->getUser());
 
+            // Set status based on user role
+            if ($this->isGranted('ROLE_ADMIN')) {
+                $relic->setStatus(RelicStatus::APPROVED);
+            } else {
+                $relic->setStatus(RelicStatus::PENDING);
+            }
+
             $imageFile = $form->get('imageFile')->getData();
 
             if ($imageFile) {
@@ -100,7 +108,10 @@ final class RelicController extends AbstractController
             $entityManager->persist($relic);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Relic created successfully');
+            $this->addFlash('success', $this->isGranted('ROLE_ADMIN') 
+                ? 'Relic created and approved successfully' 
+                : 'Relic submitted successfully and awaiting approval');
+
             return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -189,4 +200,5 @@ final class RelicController extends AbstractController
             'relics' => $relicRepository->findBy(['saint' => $id]),
         ]);
     }
+
 }

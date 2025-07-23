@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Approve Relic{% endblock %}
+
+{% block body %}
+    <h1>Approve Relic</h1>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>{{ relic.saint.name }}</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Location:</strong> {{ relic.location }}</p>
+            <p><strong>Address:</strong> {{ relic.address }}</p>
+            <p><strong>Description:</strong> {{ relic.description }}</p>
+            <p><strong>Degree:</strong> {{ relic.degree.label }}</p>
+            <p><strong>Creator:</strong> {{ relic.creator.username }}</p>
+            <p><strong>Status:</strong> {{ relic.status.label }}</p>
+            
+            {% if relic.images|length > 0 %}
+                <h3>Images</h3>
+                <div class="row">
+                    {% for image in relic.images %}
+                        <div class="col-md-4 mb-3">
+                            <img src="{{ asset('uploads/images/' ~ image.filename) }}" class="img-fluid" alt="Relic image">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            {% if can_approve %}
+                <form method="post" action="{{ path('app_relic_approve', {'id': relic.id}) }}" class="d-inline">
+                    <input type="hidden" name="_token" value="{{ csrf_token('approve' ~ relic.id) }}">
+                    <button class="btn btn-success">Approve</button>
+                </form>
+            {% endif %}
+            
+            {% if can_reject %}
+                <form method="post" action="{{ path('app_relic_reject', {'id': relic.id}) }}" class="d-inline">
+                    <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ relic.id) }}">
+                    <button class="btn btn-danger">Reject</button>
+                </form>
+            {% endif %}
+            
+            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ path('app_pending_relics') }}" class="btn btn-secondary">Back to list</a>
+        </div>
+    </div>
+{% endblock %}

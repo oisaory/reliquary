@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pending Relics{% endblock %}
+
+{% block body %}
+    <h1>Pending Relics</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Saint</th>
+                <th>Location</th>
+                <th>Creator</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for relic in relics %}
+            <tr>
+                <td>{{ relic.id }}</td>
+                <td>{{ relic.saint.name }}</td>
+                <td>{{ relic.location }}</td>
+                <td>{{ relic.creator.username }}</td>
+                <td>{{ relic.status.label }}</td>
+                <td>
+                    <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-sm btn-info">Show</a>
+                    <a href="{{ path('app_relic_approve', {'id': relic.id}) }}" class="btn btn-sm btn-success">Review</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No pending relics found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_relic_index') }}" class="btn btn-secondary">Back to list</a>
+{% endblock %}

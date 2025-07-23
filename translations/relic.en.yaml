@@ -16,6 +16,7 @@ relic:
     actions: 'Actions'
     degree: 'Degree'
     added_by: 'Added by'
+    status: 'Status'
   degree:
     unknown: 'Unknown'
     first_class: 'First-Class'
@@ -55,6 +56,10 @@ relic:
     blood: 'Blood'
     personal_item: 'Personal item'
     clothing: 'Clothing'
+  status:
+    pending: 'Pending Approval'
+    approved: 'Approved'
+    rejected: 'Rejected'
   messages:
     created: 'Relic created successfully'
     updated: 'Relic updated successfully'

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\RelicDegree;
+use App\Enum\RelicStatus;
 use App\Repository\RelicRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -42,6 +43,9 @@ class Relic implements ImageOwnerInterface
 
     #[ORM\Column(length: 255, nullable: false, enumType: RelicDegree::class,  options: ['default' => RelicDegree::UNKNOWN])]
     private RelicDegree $degree = RelicDegree::UNKNOWN;
+
+    #[ORM\Column(length: 255, nullable: false, enumType: RelicStatus::class, options: ['default' => RelicStatus::PENDING])]
+    private RelicStatus $status = RelicStatus::PENDING;
 
     /**
      * @var Collection<int, RelicImage>
@@ -151,6 +155,18 @@ class Relic implements ImageOwnerInterface
     public function setDegree(RelicDegree $degree): static
     {
         $this->degree = $degree;
+
+        return $this;
+    }
+
+    public function getStatus(): RelicStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(RelicStatus $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }

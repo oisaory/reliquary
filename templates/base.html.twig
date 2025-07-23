@@ -226,6 +226,10 @@
                     <svg class="bi me-2" width="16" height="16"><use href="#exclamation-triangle"></use></svg>
                     Incomplete Saints
                   </a></li>
+                  <li><a class="dropdown-item" href="{{ path('app_pending_relics') }}">
+                    <svg class="bi me-2" width="16" height="16"><use href="#exclamation-circle"></use></svg>
+                    Pending Relics
+                  </a></li>
                   {% endif %}
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'common.user.logout'|trans({}, 'common') }}</a></li>

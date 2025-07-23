@@ -17,6 +17,21 @@ class RelicRepository extends ServiceEntityRepository
     }
 
     /**
+     * Find relics by status
+     * 
+     * @param \App\Enum\RelicStatus $status The status to filter by
+     * @return Relic[] Returns an array of Relic objects
+     */
+    public function findByStatus(\App\Enum\RelicStatus $status): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.status = :status')
+            ->setParameter('status', $status->value, \Doctrine\DBAL\ParameterType::STRING)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * Find relics within a specified radius of a given location
      * 
      * @param float $latitude The latitude of the center point
