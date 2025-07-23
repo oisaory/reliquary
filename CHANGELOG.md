@@ -1,3 +1,13 @@
+# [1.26.0](https://github.com/CesarScur/reliquary/compare/v1.25.0...v1.26.0) (2025-07-23)
+
+
+### Features
+
+* **filter:** add toggle for filter visibility in saint listing ([86a3a26](https://github.com/CesarScur/reliquary/commit/86a3a26ab6f8dbab4a356c1b6d65696923d68f3e))
+* **ui:** add responsive saint listing for desktop and mobile views ([ad7973c](https://github.com/CesarScur/reliquary/commit/ad7973c72df7c6164d74d1bc3b4ebade1779098e))
+* **ui:** enhance saint listing with new fields and translations ([15cbfcc](https://github.com/CesarScur/reliquary/commit/15cbfccc7cf4dc9b307639e314119e3bc9a263da))
+* **ui:** enhance saint listing with sortable table columns ([6b39e25](https://github.com/CesarScur/reliquary/commit/6b39e2538c3bc895c5b192af7e21608d55c41722))
+
 # [1.25.0](https://github.com/CesarScur/reliquary/compare/v1.24.0...v1.25.0) (2025-07-23)
 
 
