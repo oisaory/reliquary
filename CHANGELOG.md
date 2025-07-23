@@ -1,3 +1,12 @@
+# [1.23.0](https://github.com/CesarScur/reliquary/compare/v1.22.0...v1.23.0) (2025-07-23)
+
+
+### Features
+
+* **form:** add dynamic saint creation in Relic form ([b2aa1c3](https://github.com/CesarScur/reliquary/commit/b2aa1c3897adfd042191b4c256bc11c1d0b50190))
+* **form:** translate saint autocomplete placeholder text ([3d7e945](https://github.com/CesarScur/reliquary/commit/3d7e945e7ffe88dac12f2c1413dffcf68d778039))
+* **images:** add uploader tracking for relic and user images ([67c1c11](https://github.com/CesarScur/reliquary/commit/67c1c11c7295dc40edccba972cb8e569efd7685a))
+
 # [1.22.0](https://github.com/CesarScur/reliquary/compare/v1.21.0...v1.22.0) (2025-07-22)
 
 
