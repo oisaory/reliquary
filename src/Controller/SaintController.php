@@ -32,6 +32,40 @@ final class SaintController extends AbstractController
         ]);
     }
 
+    #[Route('/desktop', name: 'app_saint_desktop', methods: ['GET'])]
+    public function desktopList(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
+    {
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $saintRepository->findAllQuery($filter),
+            $request->query->getInt('page', 1),
+        );
+
+        return $this->render('saint/_saint_list_desktop.html.twig', [
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
+        ]);
+    }
+
+    #[Route('/mobile', name: 'app_saint_mobile', methods: ['GET'])]
+    public function mobileList(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
+    {
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $saintRepository->findAllQuery($filter),
+            $request->query->getInt('page', 1),
+        );
+
+        return $this->render('saint/_saint_list_mobile.html.twig', [
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
+        ]);
+    }
+
     #[Route('/my-saints', name: 'app_my_saints', methods: ['GET'])]
     public function mySaints(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
@@ -46,6 +80,48 @@ final class SaintController extends AbstractController
         );
 
         return $this->render('saint/index.html.twig', [
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
+            'title' => 'My Saints'
+        ]);
+    }
+
+    #[Route('/my-saints/desktop', name: 'app_my_saints_desktop', methods: ['GET'])]
+    public function mySaintsDesktop(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $saintRepository->findByCreatorQuery($user, $filter),
+            $request->query->getInt('page', 1), // Current page
+        );
+
+        return $this->render('saint/_saint_list_desktop.html.twig', [
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
+            'title' => 'My Saints'
+        ]);
+    }
+
+    #[Route('/my-saints/mobile', name: 'app_my_saints_mobile', methods: ['GET'])]
+    public function mySaintsMobile(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $user = $this->getUser();
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $saintRepository->findByCreatorQuery($user, $filter),
+            $request->query->getInt('page', 1), // Current page
+        );
+
+        return $this->render('saint/_saint_list_mobile.html.twig', [
             'pagination' => $pagination,
             'filter' => $filter,
             'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),

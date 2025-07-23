@@ -1,0 +1,68 @@
+<turbo-frame id="saints-list">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            {% if pagination.items|length > 0 %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for saint in pagination %}
+                            <tr>
+                                <td>{{ saint.id }}</td>
+                                <td>{{ saint|format_saint_name }}</td>
+                                <td class="text-end">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <a href="{{ path('app_saint_show', {'id': saint.id}) }}"
+                                           class="btn btn-outline-primary" data-turbo-frame="_top">
+                                            <svg class="bi" width="16" height="16">
+                                                <use href="#eye"></use>
+                                            </svg>
+                                            View
+                                        </a>
+                                        <a href="{{ path('app_saint_edit', {'id': saint.id}) }}"
+                                           class="btn btn-outline-secondary" data-turbo-frame="_top">
+                                            <svg class="bi" width="16" height="16">
+                                                <use href="#pencil"></use>
+                                            </svg>
+                                            Edit
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center mt-4 px-2">
+                    <div class="text-muted small">
+                        Showing {{ pagination.getCurrentPageNumber() }} of {{ pagination.getTotalItemCount > 0 ? pagination.getPageCount() : 1 }} pages
+                        ({{ pagination.getTotalItemCount }} total items)
+                    </div>
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+            {% else %}
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td colspan="3" class="text-center py-4 text-muted">
+                            <svg class="bi mb-2" width="32" height="32">
+                                <use href="#exclamation-circle"></use>
+                            </svg>
+                            <p>No saints found. Click "Add New Saint" to create one.</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</turbo-frame>

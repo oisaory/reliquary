@@ -12,3 +12,29 @@
         </a>
     </div>
 </div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <form method="get" class="d-flex">
+            <div class="input-group">
+                <label class="input-group-text" for="filter">Filter by Status</label>
+                <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
+                    <option value="">All Saints</option>
+                    {% for status in canonical_statuses %}
+                        <option value="{{ status.value }}" {% if filter == status.value %}selected{% endif %}>
+                            {{ status.title }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% if filter %}
+                <a href="{{ app.request.get('_route') == 'app_my_saints' ? path('app_my_saints') : path('app_saint_index') }}" class="btn btn-outline-secondary ms-2">
+                    <svg class="bi" width="16" height="16">
+                        <use href="#x-circle"></use>
+                    </svg>
+                    Clear
+                </a>
+            {% endif %}
+        </form>
+    </div>
+</div>

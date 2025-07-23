@@ -1,0 +1,51 @@
+<turbo-frame id="saints-list">
+    {% if pagination.items|length > 0 %}
+        <div class="list-group">
+        {% for saint in pagination %}
+            <div class="list-group-item p-0 mb-3 border rounded overflow-hidden">
+                <div class="position-relative">
+                    <div class="bg-dark text-white p-3">
+                        <h5 class="mb-0">{{ saint|format_saint_name }}</h5>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="mb-2">
+                        <strong>ID:</strong>
+                        <span class="text-muted">{{ saint.id }}</span>
+                    </div>
+                    <div class="d-flex">
+                        <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="btn btn-primary me-2"
+                           data-turbo-frame="_top">
+                            <svg class="bi" width="16" height="16">
+                                <use href="#eye"></use>
+                            </svg>
+                            View
+                        </a>
+                        <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-outline-secondary"
+                           data-turbo-frame="_top">
+                            <svg class="bi" width="16" height="16">
+                                <use href="#pencil"></use>
+                            </svg>
+                            Edit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center mt-4 px-2">
+            <div class="text-muted small">
+                Showing {{ pagination.getCurrentPageNumber() }} of {{ pagination.getTotalItemCount > 0 ? pagination.getPageCount() : 1 }} pages
+                ({{ pagination.getTotalItemCount }} total items)
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            No saints found. Click "Add New Saint" to create one.
+        </div>
+    {% endif %}
+</turbo-frame>
