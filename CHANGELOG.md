@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/CesarScur/reliquary/compare/v1.28.0...v1.29.0) (2025-07-24)
+
+
+### Features
+
+* **translation:** translation of the registration to pt-BR ([d9056f6](https://github.com/CesarScur/reliquary/commit/d9056f6a709df7db93d4e8ef8ea5f84ad01be199))
+
 # [1.28.0](https://github.com/CesarScur/reliquary/compare/v1.27.0...v1.28.0) (2025-07-24)
 
 
