@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/CesarScur/reliquary/compare/v1.29.0...v1.30.0) (2025-07-24)
+
+
+### Features
+
+* **relic:** add pagination and degree filter to relic listing ([aa40cec](https://github.com/CesarScur/reliquary/commit/aa40cec7586c7080da455c600edf218cd760aaf3))
+
 # [1.29.0](https://github.com/CesarScur/reliquary/compare/v1.28.0...v1.29.0) (2025-07-24)
 
 
