@@ -25,7 +25,7 @@ export default class extends Controller {
         const button = event.currentTarget;
         button.classList.remove('btn-danger');
         button.classList.add('btn-secondary');
-        button.innerHTML = '<svg class="bi" width="16" height="16"><use href="#arrow-counterclockwise"></use></svg>';
+        button.innerHTML = '<i class="fas fa-arrow-rotate-left"></i>';
 
         // Update the action to undo
         button.setAttribute('data-action', 'image-removal#undoRemoval');
@@ -48,7 +48,7 @@ export default class extends Controller {
         const button = event.currentTarget;
         button.classList.remove('btn-secondary');
         button.classList.add('btn-danger');
-        button.innerHTML = '<svg class="bi" width="16" height="16"><use href="#x-circle"></use></svg>';
+        button.innerHTML = '<i class="fas fa-circle-xmark"></i>';
 
         // Update the action back to mark for removal
         button.setAttribute('data-action', 'image-removal#markForRemoval');

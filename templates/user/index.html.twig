@@ -46,21 +46,21 @@
                             </td>
                             <td class="text-end">
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <a href="{{ path('app_admin_users_show', {'id': user.id}) }}" class="btn btn-outline-primary">
-                                        <svg class="bi" width="16" height="16"><use href="#eye"></use></svg>
+                                    <a href="{{ path('app_admin_users_show', {'id': user.id}) }}"
+                                       class="btn btn-outline-primary">
+                                        <i class="fas fa-eye"></i>
                                         View
                                     </a>
-                                    <a href="{{ path('app_admin_users_edit', {'id': user.id}) }}" class="btn btn-outline-secondary">
-                                        <svg class="bi" width="16" height="16"><use href="#pencil"></use></svg>
+                                    <a href="{{ path('app_admin_users_edit', {'id': user.id}) }}"
+                                       class="btn btn-outline-secondary">
+                                        <i class="fas fa-pencil"></i>
                                         Edit
                                     </a>
-                                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#resetPasswordModal{{ user.id }}">
-                                        <svg class="bi" width="16" height="16"><use href="#key"></use></svg>
-                                        Reset Password
-                                    </button>
+                                    <button type="button" class="btn btn-outline-green" data-bs-toggle="modal"
                                     {% if app.user != user %}
-                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ user.id }}">
-                                            <svg class="bi" width="16" height="16"><use href="#exclamation-circle"></use></svg>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal{{ user.id }}">
+                                            <i class="fas fa-trash"></i>
                                             Delete
                                         </button>
                                     {% endif %}
@@ -115,9 +115,7 @@
                     {% else %}
                         <tr>
                             <td colspan="6" class="text-center py-4 text-muted">
-                                <svg class="bi mb-2" width="32" height="32">
-                                    <use href="#exclamation-circle"></use>
-                                </svg>
+                                <i class="fas fa-circle-exclamation fa-2x mb-2"></i>
                                 <p>No users found.</p>
                             </td>
                         </tr>

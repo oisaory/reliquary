@@ -37,17 +37,13 @@
                     <div class="d-flex">
                         <a href="{{ path('app_relic_show', {'id': relic.id}) }}" class="btn btn-primary me-2"
                            data-turbo-frame="_top">
-                            <svg class="bi" width="16" height="16">
-                                <use href="#eye"></use>
-                            </svg>
+                            <i class="fas fa-eye"></i>
                             {{ 'relic.actions.view'|trans({}, 'relic') }}
                         </a>
                         {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary"
                                data-turbo-frame="_top">
-                                <svg class="bi" width="16" height="16">
-                                    <use href="#pencil"></use>
-                                </svg>
+                                <i class="fas fa-pencil"></i>
                                 {{ 'relic.actions.edit'|trans({}, 'relic') }}
                             </a>
                         {% endif %}

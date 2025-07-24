@@ -29,7 +29,7 @@
                                         {% else %}
                                             <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
                                                  style="width: 24px; height: 24px;">
-                                                <i class="bi bi-person text-dark" style="font-size: 0.8rem;"></i>
+                                                <i class="fa fa-user text-dark" style="font-size: 0.8rem;"></i>
                                             </div>
                                         {% endif %}
                                         <span>{{ relic.images[0].uploader.username }}</span>
@@ -78,7 +78,8 @@
                                                             {% else %}
                                                                 <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
                                                                      style="width: 24px; height: 24px;">
-                                                                    <i class="bi bi-person" style="font-size: 0.8rem;"></i>
+                                                                    <i class="fa fa-user"
+                                                                       style="font-size: 0.8rem;"></i>
                                                                 </div>
                                                             {% endif %}
                                                             <span class="small">{{ image.uploader.username }}</span>
@@ -168,7 +169,7 @@
                                     {% else %}
                                         <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
                                              style="width: 32px; height: 32px;">
-                                            <i class="bi bi-person" style="font-size: 1.2rem;"></i>
+                                            <i class="fa fa-user" style="font-size: 1.2rem;"></i>
                                         </div>
                                     {% endif %}
                                     <span class="text-muted">{{ relic.creator.username }}</span>
@@ -181,17 +182,13 @@
                 <div class="card-footer bg-light p-3">
                     <div class="d-flex justify-content-between">
                         <a href="{{ path('app_relic_index') }}" class="btn btn-outline-secondary">
-                            <svg class="bi" width="16" height="16">
-                                <use href="#arrow-left"></use>
-                            </svg>
+                            <i class="fa fa-arrow-left"></i>
                             {{ 'relic.actions.back'|trans({}, 'relic') }}
                         </a>
                         <div>
                             {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary me-2">
-                                <svg class="bi" width="16" height="16">
-                                    <use href="#pencil"></use>
-                                </svg>
+                                <i class="fas fa-pencil"></i>
                                 {{ 'relic.actions.edit'|trans({}, 'relic') }}
                             </a>
                             {{ include('relic/_delete_form.html.twig', {'form_class': '', 'button_class': ''}) }}

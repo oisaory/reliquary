@@ -23,11 +23,8 @@ export default class extends Controller {
         // Toggle the visibility of the filter section
         this.filterTarget.classList.toggle('d-none');
         
-        // Toggle the icon
-        const useElement = this.iconTarget.querySelector('use');
-        if (useElement) {
-            const currentIcon = useElement.getAttribute('href');
-            useElement.setAttribute('href', currentIcon === '#eye' ? '#eye-slash' : '#eye');
-        }
+        // Toggle the icon classes for Font Awesome
+        this.iconTarget.classList.toggle('fa-eye');
+        this.iconTarget.classList.toggle('fa-eye-slash');
     }
 }

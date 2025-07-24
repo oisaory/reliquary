@@ -22,11 +22,8 @@ export default class extends Controller {
         const type = this.inputTarget.getAttribute('type') === 'password' ? 'text' : 'password';
         this.inputTarget.setAttribute('type', type);
 
-        // Toggle the icon
-        const useElement = this.iconTarget.querySelector('use');
-        if (useElement) {
-            const currentIcon = useElement.getAttribute('href');
-            useElement.setAttribute('href', currentIcon === '#eye' ? '#eye-slash' : '#eye');
-        }
+        // Toggle the icon classes for Font Awesome
+        this.iconTarget.classList.toggle('fa-eye');
+        this.iconTarget.classList.toggle('fa-eye-slash');
     }
 }

@@ -15,9 +15,7 @@
         <div class="card-body">
             {% if pagination.items is empty %}
                 <div class="text-center py-4 text-muted">
-                    <svg class="bi mb-2" width="32" height="32">
-                        <use href="#check-circle"></use>
-                    </svg>
+                    <i class="fas fa-circle-check fa-2x mb-2"></i>
                     <p>No incomplete saints found.</p>
                 </div>
             {% else %}
@@ -48,10 +46,10 @@
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-pencil"></i> Edit
+                                            <i class="fas fa-pencil"></i> Edit
                                         </a>
                                         <a href="{{ path('app_admin_saints_mark_complete', {'id': saint.id}) }}" class="btn btn-sm btn-outline-success">
-                                            <i class="bi bi-check-circle"></i> Mark Complete
+                                            <i class="fas fa-circle-check"></i> Mark Complete
                                         </a>
                                     </div>
                                 </td>

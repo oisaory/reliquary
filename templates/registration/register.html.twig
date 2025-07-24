@@ -33,9 +33,7 @@
                                 <div class="input-group" data-controller="password-toggle">
                                     {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'data-password-toggle-target': 'input'}}) }}
                                     <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
-                                        <svg class="bi" width="16" height="16" data-password-toggle-target="icon">
-                                            <use href="#eye"></use>
-                                        </svg>
+                                        <i class="fas fa-eye" data-password-toggle-target="icon"></i>
                                     </button>
                                 </div>
                                 {{ form_help(registrationForm.plainPassword) }}

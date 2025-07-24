@@ -16,9 +16,7 @@
         <div class="card-body">
             {% if missingTranslations is empty and identicalTranslations is empty %}
                 <div class="text-center py-4 text-muted">
-                    <svg class="bi mb-2" width="32" height="32">
-                        <use href="#check-circle"></use>
-                    </svg>
+                    <i class="fas fa-circle-check fa-2x mb-2"></i>
                     <p>All translations are complete! No missing or untranslated entries found.</p>
                 </div>
             {% else %}

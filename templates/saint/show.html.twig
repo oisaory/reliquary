@@ -119,11 +119,11 @@
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
                         <a href="{{ path('app_saint_index') }}" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> {{ 'saint.actions.back'|trans({}, 'saint') }}
+                            <i class="fas fa-arrow-left"></i> {{ 'saint.actions.back'|trans({}, 'saint') }}
                         </a>
                         <div>
                             <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-primary">
-                                <i class="bi bi-pencil"></i> {{ 'saint.actions.edit'|trans({}, 'saint') }}
+                                <i class="fas fa-pencil"></i> {{ 'saint.actions.edit'|trans({}, 'saint') }}
                             </a>
                             {{ include('saint/_delete_form.html.twig', {'form_class': '', 'button_class': 'ms-2'}) }}
                         </div>

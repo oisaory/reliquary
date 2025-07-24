@@ -6,9 +6,7 @@
     <div class="col-auto d-flex align-items-center">
         {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('app_relic_new') }}" class="btn btn-primary">
-            <svg class="bi me-2" width="16" height="16">
-                <use href="#plus-circle"></use>
-            </svg>
+            <i class="fas fa-circle-plus me-2"></i>
             {{ 'relic.add_new'|trans({}, 'relic') }}
         </a>
         {% endif %}

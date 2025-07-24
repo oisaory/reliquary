@@ -22,9 +22,7 @@
                 </div>
                 {% if filter %}
                     <a href="{{ app.request.get('_route') == 'app_my_saints' ? path('app_my_saints') : path('app_saint_index') }}" class="btn btn-outline-secondary ms-2">
-                        <svg class="bi" width="16" height="16">
-                            <use href="#x-circle"></use>
-                        </svg>
+                        <i class="fas fa-circle-xmark"></i>
                         Clear
                     </a>
                 {% endif %}
