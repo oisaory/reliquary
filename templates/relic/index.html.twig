@@ -3,8 +3,32 @@
 {% block title %}{{ title ?? 'relic.title'|trans({}, 'relic') }}{% endblock %}
 
 {% block body %}
-<div class="container py-4">
+<div class="container py-4" data-controller="filter-toggle">
     {{ include('relic/_header.html.twig') }}
+
+    <div class="row mb-4 d-none" data-filter-toggle-target="filter">
+        <div class="col-md-6">
+            <form method="get" class="d-flex">
+                <div class="input-group">
+                    <label class="input-group-text" for="filter">Filter by Degree</label>
+                    <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
+                        <option value="">All Relics</option>
+                        {% for degree in relic_degrees %}
+                            <option value="{{ degree.value }}" {% if filter == degree.value %}selected{% endif %}>
+                                {{ degree.label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% if filter %}
+                    <a href="{{ app.request.get('_route') == 'app_my_relics' ? path('app_my_relics') : path('app_relic_index') }}" class="btn btn-outline-secondary ms-2">
+                        <i class="fas fa-circle-xmark"></i>
+                        Clear
+                    </a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
 
     <!-- Single responsive turbo frame -->
     <div class="row">

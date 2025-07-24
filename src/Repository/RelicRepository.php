@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Relic;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -85,6 +86,47 @@ class RelicRepository extends ServiceEntityRepository
 
             return $distanceKm <= $radiusKm;
         });
+    }
+
+    /**
+     * Find all relics query with optional degree filter
+     * 
+     * @param string|null $degree The degree to filter by
+     * @return Query The query object
+     */
+    public function findAllQuery(?string $degree = null): Query
+    {
+        $queryBuilder = $this->createQueryBuilder('r');
+
+        if ($degree) {
+            $queryBuilder
+                ->andWhere('r.degree = :degree')
+                ->setParameter('degree', $degree);
+        }
+
+        return $queryBuilder->getQuery();
+    }
+
+    /**
+     * Find relics created by a specific user with optional degree filter
+     * 
+     * @param object $user The user who created the relics
+     * @param string|null $degree The degree to filter by
+     * @return Query The query object
+     */
+    public function findByCreatorQuery($user, ?string $degree = null): Query
+    {
+        $queryBuilder = $this->createQueryBuilder('r')
+            ->where('r.creator = :user')
+            ->setParameter('user', $user);
+
+        if ($degree) {
+            $queryBuilder
+                ->andWhere('r.degree = :degree')
+                ->setParameter('degree', $degree);
+        }
+
+        return $queryBuilder->getQuery();
     }
 
 //    /**

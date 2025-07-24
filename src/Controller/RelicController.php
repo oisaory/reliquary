@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Relic;
+use App\Enum\RelicDegree;
 use App\Enum\RelicStatus;
 use App\Form\RelicType;
 use App\Repository\RelicRepository;
 use App\Service\ImageService;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,64 +19,115 @@ use Symfony\Component\Routing\Attribute\Route;
 final class RelicController extends AbstractController
 {
     #[Route(name: 'app_relic_index', methods: ['GET'])]
-    public function index(RelicRepository $relicRepository): Response
+    public function index(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findAllQuery($filter),
+            $request->query->getInt('page', 1),
+        );
+
         return $this->render('relic/index.html.twig', [
-            'relics' => $relicRepository->findAll(),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
         ]);
     }
 
     #[Route('/desktop', name: 'app_relic_desktop', methods: ['GET'])]
-    public function desktopList(RelicRepository $relicRepository): Response
+    public function desktopList(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findAllQuery($filter),
+            $request->query->getInt('page', 1),
+        );
+
         return $this->render('relic/_relic_list_desktop.html.twig', [
-            'relics' => $relicRepository->findAll(),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
         ]);
     }
 
     #[Route('/mobile', name: 'app_relic_mobile', methods: ['GET'])]
-    public function mobileList(RelicRepository $relicRepository): Response
+    public function mobileList(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findAllQuery($filter),
+            $request->query->getInt('page', 1),
+        );
+
         return $this->render('relic/_relic_list_mobile.html.twig', [
-            'relics' => $relicRepository->findAll(),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
         ]);
     }
 
     #[Route('/my-relics', name: 'app_my_relics', methods: ['GET'])]
-    public function myRelics(RelicRepository $relicRepository): Response
+    public function myRelics(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $user = $this->getUser();
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findByCreatorQuery($user, $filter),
+            $request->query->getInt('page', 1),
+        );
 
         return $this->render('relic/index.html.twig', [
-            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
             'title' => 'My Relics'
         ]);
     }
 
     #[Route('/my-relics/desktop', name: 'app_my_relics_desktop', methods: ['GET'])]
-    public function myRelicsDesktop(RelicRepository $relicRepository): Response
+    public function myRelicsDesktop(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $user = $this->getUser();
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findByCreatorQuery($user, $filter),
+            $request->query->getInt('page', 1),
+        );
 
         return $this->render('relic/_relic_list_desktop.html.twig', [
-            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
             'title' => 'My Relics'
         ]);
     }
 
     #[Route('/my-relics/mobile', name: 'app_my_relics_mobile', methods: ['GET'])]
-    public function myRelicsMobile(RelicRepository $relicRepository): Response
+    public function myRelicsMobile(Request $request, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $user = $this->getUser();
+        $filter = $request->query->get('filter');
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findByCreatorQuery($user, $filter),
+            $request->query->getInt('page', 1),
+        );
 
         return $this->render('relic/_relic_list_mobile.html.twig', [
-            'relics' => $relicRepository->findBy(['creator' => $user]),
+            'pagination' => $pagination,
+            'filter' => $filter,
+            'relic_degrees' => RelicDegree::cases(),
             'title' => 'My Relics'
         ]);
     }
