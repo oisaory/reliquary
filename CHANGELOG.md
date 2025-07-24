@@ -1,3 +1,11 @@
+# [1.28.0](https://github.com/CesarScur/reliquary/compare/v1.27.0...v1.28.0) (2025-07-24)
+
+
+### Features
+
+* **ui:** add expandable search bar with search type options ([c440f49](https://github.com/CesarScur/reliquary/commit/c440f492c5bc19a5ff0e69567929b43e7c557845))
+* **ui:** enhance user table with profile images and password reset actions ([b11867b](https://github.com/CesarScur/reliquary/commit/b11867b93c5836872641b5195abeddf16c831431))
+
 # [1.27.0](https://github.com/CesarScur/reliquary/compare/v1.26.0...v1.27.0) (2025-07-24)
 
 
