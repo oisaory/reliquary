@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/CesarScur/reliquary/compare/v1.26.0...v1.27.0) (2025-07-24)
+
+
+### Features
+
+* **transl:** translation of the the pt-br files ([7f38121](https://github.com/CesarScur/reliquary/commit/7f381218f4a3b2a413060aa6222347bd5c523036))
+
 # [1.26.0](https://github.com/CesarScur/reliquary/compare/v1.25.0...v1.26.0) (2025-07-23)
 
 
