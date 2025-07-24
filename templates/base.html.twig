@@ -18,7 +18,7 @@
       <div class="container-fluid p-0">
         <a href="/" class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src="{{ asset('/images/relic.png') }}" width="40" height="40" class="me-2" alt="Reliquary Logo">
-          <span class="fs-4">Reliquary</span>
+          <span class="fs-4">Santas Reliquias</span>
         </a>
 
         <!-- Burger menu button for mobile -->
@@ -45,7 +45,7 @@
                      aria-label="Search"
                      data-search-expansion-target="input"
                      data-action="click->search-expansion#toggle">
-              <span class="input-group-text bg-dark border-secondary">
+              <span class="input-group-text bg-dark border-secondary" data-action="click->search-expansion#handleIconClick">
                 <i class="fas fa-search text-white" data-search-expansion-target="icon"></i>
               </span>
             </div>
@@ -55,15 +55,17 @@
               <div class="d-flex flex-column gap-2">
                 <button class="btn btn-outline-light btn-sm text-start" 
                         data-action="search-expansion#selectOption"
-                        data-option="address">
-                  <i class="fas fa-map-marker-alt me-2"></i>
-                  Address
+                        data-option="saint"
+                        data-search-expansion-target="optionButton">
+                  <i class="fas fa-user me-2"></i>
+                  Saint
                 </button>
                 <button class="btn btn-outline-light btn-sm text-start" 
                         data-action="search-expansion#selectOption"
-                        data-option="saint">
-                  <i class="fas fa-user me-2"></i>
-                  Saint
+                        data-option="address"
+                        data-search-expansion-target="optionButton">
+                  <i class="fas fa-map-marker-alt me-2"></i>
+                  Address
                 </button>
               </div>
             </div>
