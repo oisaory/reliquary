@@ -2,6 +2,61 @@ body {
     background-color: skyblue;
 }
 
+/* Search Expansion Styles */
+[data-controller="search-expansion"] {
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+[data-controller="search-expansion"] .input-group {
+    transition: all 0.3s ease;
+}
+
+[data-controller="search-expansion"].search-expanded .input-group {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-controller="search-expansion"] input {
+    transition: all 0.3s ease;
+}
+
+[data-controller="search-expansion"].search-expanded input {
+    border-bottom-left-radius: 0;
+}
+
+[data-controller="search-expansion"] .input-group-text {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+[data-controller="search-expansion"].search-expanded .input-group-text {
+    border-bottom-right-radius: 0;
+}
+
+.search-options {
+    z-index: 1001;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.search-options:not(.d-none) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.search-options button {
+    transition: all 0.2s ease;
+}
+
+.search-options button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
 /* Mobile navigation styles */
 @media (max-width: 991.98px) {
     .navbar-collapse {

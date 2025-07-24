@@ -35,9 +35,39 @@
             <li class="nav-item"><a href="#" class="nav-link px-2 text-white">{{ 'common.navigation.about'|trans({}, 'common') }}</a></li>
           </ul>
 
-          <form class="d-none d-lg-flex me-3 mt-3 mt-lg-0">
-            <input type="search" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="{{ 'common.navigation.search'|trans({}, 'common') }}" aria-label="Search">
-          </form>
+          <div class="d-none d-lg-flex me-3 mt-3 mt-lg-0 position-relative" 
+               data-controller="search-expansion"
+               data-search-expansion-target="container">
+            <div class="input-group">
+              <input type="search" 
+                     class="form-control form-control-sm bg-dark text-white border-secondary" 
+                     placeholder="{{ 'common.navigation.search'|trans({}, 'common') }}" 
+                     aria-label="Search"
+                     data-search-expansion-target="input"
+                     data-action="click->search-expansion#toggle">
+              <span class="input-group-text bg-dark border-secondary">
+                <i class="fas fa-search text-white" data-search-expansion-target="icon"></i>
+              </span>
+            </div>
+            <div class="search-options position-absolute bg-dark border border-secondary rounded p-3 mt-1 w-100 shadow"
+                 data-search-expansion-target="options">
+              <h6 class="text-white mb-3">Search by:</h6>
+              <div class="d-flex flex-column gap-2">
+                <button class="btn btn-outline-light btn-sm text-start" 
+                        data-action="search-expansion#selectOption"
+                        data-option="address">
+                  <i class="fas fa-map-marker-alt me-2"></i>
+                  Address
+                </button>
+                <button class="btn btn-outline-light btn-sm text-start" 
+                        data-action="search-expansion#selectOption"
+                        data-option="saint">
+                  <i class="fas fa-user me-2"></i>
+                  Saint
+                </button>
+              </div>
+            </div>
+          </div>
 
           <div class="text-end mt-3 mt-lg-0 d-flex align-items-center">
             <div class="me-3">
