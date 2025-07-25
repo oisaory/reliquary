@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/CesarScur/reliquary/compare/v1.33.1...v1.34.0) (2025-07-25)
+
+
+### Features
+
+* **translations:** translation of filter to pt-BR ([85fcd5f](https://github.com/CesarScur/reliquary/commit/85fcd5fd9b88b3f483619e5f1ab3efaed3dbaa95))
+
 ## [1.33.1](https://github.com/CesarScur/reliquary/compare/v1.33.0...v1.33.1) (2025-07-25)
 
 
