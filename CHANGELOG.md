@@ -1,3 +1,17 @@
+# [1.31.0](https://github.com/CesarScur/reliquary/compare/v1.30.0...v1.31.0) (2025-07-25)
+
+
+### Bug Fixes
+
+* **ui:** pass query parameters across responsive frames for consistency ([5f7a2ba](https://github.com/CesarScur/reliquary/commit/5f7a2bae94b8a3e59c9865e492e0d8c5be3f6e86))
+
+
+### Features
+
+* **search:** integrate search functionality with term filtering ([19115de](https://github.com/CesarScur/reliquary/commit/19115deab8a42077301d510ee563365ed4ffb865))
+* **ui:** improve search bar with keyboard navigation and styling updates ([2300736](https://github.com/CesarScur/reliquary/commit/230073612b3b2cd579c58c770fac7ac0ec835359))
+* **ui:** modularize search bar template and enhance controller structure ([89aa6ec](https://github.com/CesarScur/reliquary/commit/89aa6ec7473d0bd6fb10df96c7eb414a7defbdca))
+
 # [1.30.0](https://github.com/CesarScur/reliquary/compare/v1.29.0...v1.30.0) (2025-07-24)
 
 
