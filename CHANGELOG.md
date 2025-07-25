@@ -1,3 +1,12 @@
+# [1.33.0](https://github.com/CesarScur/reliquary/compare/v1.32.0...v1.33.0) (2025-07-25)
+
+
+### Features
+
+* **admin:** add import saints admin interface with rich console output ([c1a7af5](https://github.com/CesarScur/reliquary/commit/c1a7af57c8a378fce063c4198d840dfc6c5a908b))
+* **saint:** add feast date field and display across views ([49357a3](https://github.com/CesarScur/reliquary/commit/49357a32d7420a4361e677182845b98d5dbeed6f))
+* **ui:** add about page with controller and template ([6d1bd4b](https://github.com/CesarScur/reliquary/commit/6d1bd4b1627ae0a124a79bd3daefb8793e828fde))
+
 # [1.32.0](https://github.com/CesarScur/reliquary/compare/v1.31.0...v1.32.0) (2025-07-25)
 
 
