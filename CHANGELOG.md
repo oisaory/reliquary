@@ -1,3 +1,10 @@
+## [1.33.1](https://github.com/CesarScur/reliquary/compare/v1.33.0...v1.33.1) (2025-07-25)
+
+
+### Bug Fixes
+
+* **home:** add pagination to relics listing for desktop and mobile views ([2a52517](https://github.com/CesarScur/reliquary/commit/2a525175ceebc018857ffba24b1672aee5c87518))
+
 # [1.33.0](https://github.com/CesarScur/reliquary/compare/v1.32.0...v1.33.0) (2025-07-25)
 
 
