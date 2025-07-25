@@ -51,3 +51,8 @@ saint:
     created: 'Saint created successfully'
     updated: 'Saint updated successfully'
     deleted: 'Saint deleted successfully'
+  filter:
+    filter: 'Filter'
+    status: 'Filter by Status'
+    allsaints: 'All Saints'
+    clear: 'Clear'

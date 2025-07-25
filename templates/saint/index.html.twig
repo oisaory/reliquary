@@ -10,12 +10,12 @@
         <div class="col-md-6">
             <form method="get" class="d-flex">
                 <div class="input-group">
-                    <label class="input-group-text" for="filter">Filter by Status</label>
+                    <label class="input-group-text" for="filter">{{ 'saint.filter.status'|trans({}, 'saint') }}</label>
                     <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
-                        <option value="">All Saints</option>
+                        <option value="">{{ 'saint.filter.allsaints'|trans({}, 'saint') }}</option>
                         {% for status in canonical_statuses %}
                             <option value="{{ status.value }}" {% if filter == status.value %}selected{% endif %}>
-                                {{ status.title }}
+                                {{  status.getTitleTransKey()|trans({}, 'relic') }}
                             </option>
                         {% endfor %}
                     </select>
@@ -23,7 +23,7 @@
                 {% if filter %}
                     <a href="{{ app.request.get('_route') == 'app_my_saints' ? path('app_my_saints') : path('app_saint_index') }}" class="btn btn-outline-secondary ms-2">
                         <i class="fas fa-circle-xmark"></i>
-                        Clear
+                        {{ 'saint.filter.clear'|trans({}, 'saint') }}
                     </a>
                 {% endif %}
             </form>
