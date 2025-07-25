@@ -1,3 +1,17 @@
+# [1.32.0](https://github.com/CesarScur/reliquary/compare/v1.31.0...v1.32.0) (2025-07-25)
+
+
+### Bug Fixes
+
+* **search:** ensure case-insensitive search in SaintRepository query ([cdf75aa](https://github.com/CesarScur/reliquary/commit/cdf75aab79478235b054c1a1d538f98a6359ccbf))
+* **ui:** adjust column width for actions in tables ([61d0e7f](https://github.com/CesarScur/reliquary/commit/61d0e7f796c133812af55c0c777d62f554d15096))
+* **ui:** disable autocomplete in search bar input field ([1ae3011](https://github.com/CesarScur/reliquary/commit/1ae3011d21f0bc8964ac8f866280fed6ef95aae6))
+
+
+### Features
+
+* **ui:** add degree column to relic listing for desktop and mobile ([28a932c](https://github.com/CesarScur/reliquary/commit/28a932ca5030d1671d1d00cad1e0629046e7d7e5))
+
 # [1.31.0](https://github.com/CesarScur/reliquary/compare/v1.30.0...v1.31.0) (2025-07-25)
 
 
