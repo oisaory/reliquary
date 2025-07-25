@@ -1,0 +1,182 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Import Saints - Admin{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .terminal-window {
+        background-color: #2b2b2b;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+    
+    .terminal-header {
+        background-color: #3c3c3c;
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+    
+    .terminal-buttons {
+        display: flex;
+        margin-right: 15px;
+    }
+    
+    .terminal-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    
+    .terminal-button-red {
+        background-color: #ff5f56;
+    }
+    
+    .terminal-button-yellow {
+        background-color: #ffbd2e;
+    }
+    
+    .terminal-button-green {
+        background-color: #27c93f;
+    }
+    
+    .terminal-title {
+        color: #ddd;
+        font-size: 14px;
+        font-family: 'Menlo', 'Monaco', monospace;
+    }
+    
+    .terminal-content {
+        padding: 15px;
+        color: #f8f8f8;
+        font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        max-height: 500px;
+        overflow-y: auto;
+    }
+    
+    .terminal-content pre {
+        margin: 0;
+        white-space: pre-wrap;
+        color: #f8f8f8;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Import Saints</h1>
+
+                <div class="alert alert-danger mb-4">
+                    {% if output is null %}
+                    <h4 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>WARNING: Proceed with
+                        Caution!</h4>
+                    <p class="mb-0">This import tool can make significant changes to the database that <strong>cannot be
+                            easily undone</strong>. Improper use may result in:</p>
+                    <ul class="mb-0 mt-2">
+                        <li>Data corruption</li>
+                        <li>Duplicate saints entries</li>
+                        <li>Loss of existing data</li>
+                        <li>Database sequence issues</li>
+                    </ul>
+                    <hr>
+                    <p class="mb-0"><strong>Only proceed if you fully understand the consequences of this
+                            operation.</strong> Consider using the "Dry Run" option first to preview changes.</p>
+                    {% else %}
+                        <h4 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>WARNING: Well, guess now is too late.</h4>
+                    {% endif %}
+                </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Import Options</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" data-turbo="false">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="limit" class="form-label">Limit</label>
+                                    <input type="number" id="limit" name="limit" class="form-control" 
+                                           value="{{ options.limit }}" min="1"
+                                           placeholder="Leave empty to import all saints">
+                                    <div class="form-text">Maximum number of saints to import (optional)</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="batch_size" class="form-label">Batch Size</label>
+                                    <input type="number" id="batch_size" name="batch_size" class="form-control" 
+                                           value="{{ options['batch-size'] }}" min="1" required>
+                                    <div class="form-text">Number of saints to process in each batch</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" id="reset_sequence" name="reset_sequence" class="form-check-input" 
+                                           {% if options['reset-sequence'] %}checked{% endif %}>
+                                    <label for="reset_sequence" class="form-check-label">Reset Sequence</label>
+                                    <div class="form-text">Reset the ID sequence before importing</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" id="dry_run" name="dry_run" class="form-check-input" 
+                                           {% if options['dry-run'] %}checked{% endif %}>
+                                    <label for="dry_run" class="form-check-label">Dry Run</label>
+                                    <div class="form-text">Run without making any actual changes to the database</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ path('app_admin_users_index') }}" class="btn btn-outline-secondary">Back to Admin</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-import me-2"></i>Import Saints
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            {% if output is not null and output|length > 0 %}
+{#                <div class="card mt-4">#}
+                    <div class="card-header d-flex justify-content-between align-items-center">
+{#                        <h5 class="mb-0">Console Output</h5>#}
+{#                        {% if success is not null %}#}
+{#                        <span class="badge bg-{{ success ? 'success' : 'danger' }}">#}
+{#                            {{ success ? 'Success' : 'Error' }}#}
+{#                        </span>#}
+{#                        {% endif %}#}
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="terminal-button terminal-button-red"></span>
+                                    <span class="terminal-button terminal-button-yellow"></span>
+                                    <span class="terminal-button terminal-button-green"></span>
+                                </div>
+                                <div class="terminal-title">Console Output</div>
+                            </div>
+                            <div class="terminal-content">
+                                <pre>{{ output|raw }}</pre>
+                            </div>
+                        </div>
+                    </div>
+{#                </div>#}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

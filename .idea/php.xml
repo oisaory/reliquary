@@ -145,6 +145,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mailtrap-mailer" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/workflow" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/ansi-to-html" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
