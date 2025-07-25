@@ -20,14 +20,9 @@ final class SaintController extends AbstractController
     {
         $filter = $request->query->get('filter');
 
-        $pagination = $paginator->paginate(
-            $saintRepository->findAllQuery($filter),
-            $request->query->getInt('page', 1),
-        );
-
         return $this->render('saint/index.html.twig', [
-            'pagination' => $pagination,
             'filter' => $filter,
+            'title' => isset($searchTerm) ? 'Search Results for "' . $searchTerm . '"' : null,
             'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
         ]);
     }
@@ -36,16 +31,16 @@ final class SaintController extends AbstractController
     public function desktopList(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
         $filter = $request->query->get('filter');
+        $searchTerm = $request->query->get('q');
 
         $pagination = $paginator->paginate(
-            $saintRepository->findAllQuery($filter),
+            $saintRepository->findAllQuery($filter, $searchTerm),
             $request->query->getInt('page', 1),
         );
 
         return $this->render('saint/_saint_list_desktop.html.twig', [
             'pagination' => $pagination,
             'filter' => $filter,
-            'canonical_statuses' => \App\Enum\CanonicalStatus::cases(),
         ]);
     }
 
@@ -53,9 +48,10 @@ final class SaintController extends AbstractController
     public function mobileList(Request $request, SaintRepository $saintRepository, PaginatorInterface $paginator): Response
     {
         $filter = $request->query->get('filter');
+        $searchTerm = $request->query->get('q');
 
         $pagination = $paginator->paginate(
-            $saintRepository->findAllQuery($filter),
+            $saintRepository->findAllQuery($filter, $searchTerm),
             $request->query->getInt('page', 1),
         );
 

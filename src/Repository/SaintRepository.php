@@ -49,9 +49,15 @@ class SaintRepository extends ServiceEntityRepository
      * @param bool $includeIncomplete Whether to include incomplete saints
      * @return Query The query object
      */
-    public function findAllQuery(?string $canonicalStatus = null, bool $includeIncomplete = false): Query
+    public function findAllQuery(?string $canonicalStatus = null, string $searchTerm = null, bool $includeIncomplete = false): Query
     {
         $queryBuilder = $this->createQueryBuilder('s');
+
+        if ($searchTerm !== null) {
+            $queryBuilder
+                ->andWhere('s.name LIKE :searchTerm')
+                ->setParameter('searchTerm', '%' . $searchTerm . '%');
+        }
 
         if (!$includeIncomplete) {
             $queryBuilder

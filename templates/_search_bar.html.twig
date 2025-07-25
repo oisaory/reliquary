@@ -1,17 +1,20 @@
 <div class="d-none d-lg-flex me-3 mt-3 mt-lg-0 position-relative" 
      data-controller="search-expansion"
      data-search-expansion-target="container">
-  <div class="input-group">
-    <input type="search" 
-           class="form-control form-control-sm bg-dark text-white border-secondary" 
-           placeholder="{{ 'common.navigation.search'|trans({}, 'common') }}" 
-           aria-label="Search"
-           data-search-expansion-target="input"
-           data-action="click->search-expansion#toggle">
-    <span class="input-group-text bg-dark border-secondary" data-action="click->search-expansion#handleIconClick">
-      <i class="fas fa-search text-white" data-search-expansion-target="icon"></i>
-    </span>
-  </div>
+  <form data-search-expansion-target="form" action="{{ path('app_saint_index') }}" method="get" data-search-type="saint">
+    <div class="input-group">
+      <input type="search" 
+             name="q"
+             class="form-control form-control-sm bg-dark text-white border-secondary" 
+             placeholder="{{ 'common.navigation.search'|trans({}, 'common') }}" 
+             aria-label="Search"
+             data-search-expansion-target="input"
+             data-action="click->search-expansion#toggle">
+      <button type="submit" class="input-group-text bg-dark border-secondary" data-action="click->search-expansion#handleIconClick">
+        <i class="fas fa-search text-white" data-search-expansion-target="icon"></i>
+      </button>
+    </div>
+  </form>
   <div class="d-none search-options position-absolute bg-dark border border-secondary rounded p-3 mt-1 w-100 shadow"
        data-search-expansion-target="options">
     <h6 class="text-white mb-3">Search by:</h6>

@@ -35,10 +35,10 @@
         <div class="col-12">
             <turbo-frame id="saints-list" 
                         data-controller="responsive-frame"
-                        data-responsive-frame-desktop-src-value="{{ title is defined and title == 'My Saints' ? path('app_my_saints_desktop') : path('app_saint_desktop') }}"
-                        data-responsive-frame-mobile-src-value="{{ title is defined and title == 'My Saints' ? path('app_my_saints_mobile') : path('app_saint_mobile') }}">
+                         data-responsive-frame-desktop-src-value="{{ title is defined and title == 'My Saints' ? path('app_my_saints_desktop', {'q': app.request.query.get('q')}) : path('app_saint_desktop', {'q': app.request.query.get('q')}) }}"
+                        data-responsive-frame-mobile-src-value="{{ title is defined and title == 'My Saints' ? path('app_my_saints_mobile', {'q': app.request.query.get('q')}) : path('app_saint_mobile') }}">
                 <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
+                    <div class="spinner-border" role="status"> 
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
