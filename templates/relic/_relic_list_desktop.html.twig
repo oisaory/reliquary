@@ -8,6 +8,7 @@
                         <tr>
                             <th style="width: 150px;"></th>
                             <th>{{ 'relic.table.saint'|trans({}, 'relic') }}</th>
+                            <th>{{ 'relic.table.degree'|trans({}, 'relic') }}</th>
                             <th>{{ 'relic.table.address'|trans({}, 'relic') }}</th>
                             <th>{{ 'relic.table.location'|trans({}, 'relic') }}</th>
                             <th scope="col" class="text-end">{{ 'relic.table.actions'|trans({}, 'relic') }}</th>
@@ -32,6 +33,7 @@
                                     </div>
                                 </td>
                                 <td>{{ relic.saint|format_saint_name }}</td>
+                                <td>{{ relic.degree.label }}</td>
                                 <td>{{ relic.address }}</td>
                                 <td>{{ relic.location }}</td>
                                 <td class="text-end">

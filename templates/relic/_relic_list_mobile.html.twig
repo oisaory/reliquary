@@ -28,6 +28,10 @@
                         <strong>{{ 'relic.table.location'|trans({}, 'relic') }}:</strong><br>
                         <span class="text-muted">{{ relic.location }}</span>
                     </div>
+                    <div class="mb-2">
+                        <strong>{{ 'relic.table.degree'|trans({}, 'relic') }}:</strong><br>
+                        <span class="text-muted">{{ relic.degree.label }}</span>
+                    </div>
                     {% if relic.description %}
                     <div class="mb-3">
                         <strong>{{ 'relic.form.description'|trans({}, 'relic') }}:</strong><br>
