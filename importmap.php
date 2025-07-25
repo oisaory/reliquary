@@ -70,4 +70,8 @@ return [
         'version' => '7.0.0',
         'type' => 'css',
     ],
+    '@fortawesome/fontawesome-free/css/brands.min.css' => [
+        'version' => '7.0.0',
+        'type' => 'css',
+    ],
 ];

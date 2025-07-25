@@ -32,7 +32,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a href="{{ path('app_relic_index') }}" class="nav-link px-2 text-white">{{ 'common.navigation.relics'|trans({}, 'common') }}</a></li>
             <li class="nav-item"><a href="{{ path('app_saint_index') }}" class="nav-link px-2 text-white">{{ 'common.navigation.saints'|trans({}, 'common') }}</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">{{ 'common.navigation.about'|trans({}, 'common') }}</a></li>
+            <li class="nav-item"><a href="{{ path('app_about') }}" class="nav-link px-2 text-white">{{ 'common.navigation.about'|trans({}, 'common') }}</a></li>
           </ul>
 
           {% include '_search_bar.html.twig' %}
@@ -105,7 +105,10 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <span>&copy; {{ "now"|date("Y") }} Reliquary v{{ app_version }}</span>
-      <a href="https://github.com/CesarScur/reliquary" class="text-white" target="_blank">{{ 'common.footer.view_on_github'|trans({}, 'common') }}</a>
+      <a href="https://github.com/CesarScur/reliquary" class="text-white" target="_blank">
+        <i class="fab fa-github me-2"></i>
+        {{ 'common.footer.view_on_github'|trans({}, 'common') }}
+      </a>
     </div>
   </div>
 </footer>

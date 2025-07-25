@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About Reliquary{% endblock %}
+
+{% block body %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-5 fw-bold">About Reliquary</h1>
+            <p class="text-muted">Explore the world of sacred artifacts and religious history</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 shadow border-0 rounded-3">
+                <div class="card-body p-4">
+                    <div class="d-flex float-lg-start">
+                        <img src="{{ asset('/images/relic.png') }}" alt="Reliquary Logo" class="img-fluid" style="max-width: 150px;">
+                    </div>
+                    <h2 class="card-title fw-bold mb-3">What is Reliquary?</h2>
+                    <p class="card-text lead">
+                        Reliquary is a platform dedicated to cataloging and exploring religious relics from around the world.
+                        Our mission is to document these sacred artifacts and make their information accessible to researchers,
+                        religious scholars, and interested individuals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4 shadow border-0 rounded-3">
+                <div class="card-body p-4">
+                    <h2 class="card-title fw-bold mb-3">Features</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="fas fa-database text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Comprehensive Database</h5>
+                                    <p class="mb-0 text-muted">Extensive collection of religious relics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="fas fa-user-friends text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Saint Information</h5>
+                                    <p class="mb-0 text-muted">Details about saints and their relics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Geolocation Search</h5>
+                                    <p class="mb-0 text-muted">Find relics near your location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="fas fa-users text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">User Contributions</h5>
+                                    <p class="mb-0 text-muted">Community-driven content expansion</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="fas fa-language text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Multilingual Support</h5>
+                                    <p class="mb-0 text-muted">Access content in multiple languages</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow border-0 rounded-3">
+                <div class="card-body p-4">
+                    <h2 class="card-title fw-bold mb-3">Contact</h2>
+                    <p class="card-text">
+                        For more information about the Reliquary project, please visit our
+                        <a href="https://github.com/CesarScur/reliquary" target="_blank" class="text-decoration-none">GitHub repository</a>.
+                    </p>
+                    <div class="mt-3">
+                        <a href="https://github.com/CesarScur/reliquary" target="_blank" class="btn btn-outline-primary">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
