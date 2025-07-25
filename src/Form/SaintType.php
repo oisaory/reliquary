@@ -70,6 +70,17 @@ class SaintType extends AbstractType
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
             ])
+            ->add('feast_date', DateType::class, [
+                'label' => 'Feast Date',
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'help' => 'Date when the saint is celebrated',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+                'required' => false,
+            ])
             ->add('canonizing_pope', null, [
                 'label' => 'Canonizing Pope',
                 'attr' => [

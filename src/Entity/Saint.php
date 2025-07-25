@@ -31,6 +31,9 @@ class Saint
     #[ORM\Column(type: "date", nullable: true)]
     private ?\DateTimeInterface $canonization_date = null;
 
+    #[ORM\Column(type: "date", nullable: true)]
+    private ?\DateTimeInterface $feast_date = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $canonizing_pope = null;
 
@@ -218,6 +221,18 @@ class Saint
     public function setImageLink(?string $image_link): static
     {
         $this->image_link = $image_link;
+
+        return $this;
+    }
+
+    public function getFeastDate(): ?\DateTimeInterface
+    {
+        return $this->feast_date;
+    }
+
+    public function setFeastDate(?\DateTimeInterface $feast_date): static
+    {
+        $this->feast_date = $feast_date;
 
         return $this;
     }

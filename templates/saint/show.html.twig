@@ -44,6 +44,14 @@
                         </div>
                         {% endif %}
 
+                        {% if saint.feastDate %}
+                        <div class="col-md-6">
+                            <p><strong>{{ 'saint.table.feast_date'|trans({}, 'saint') }}:</strong> {{ saint.feastDate|date('Y-m-d') }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row mb-3">
                         {% if saint.canonizationDate %}
                         <div class="col-md-6">
                             <p><strong>{{ 'saint.table.canonization_date'|trans({}, 'saint') }}:</strong> {{ saint.canonizationDate|date('Y-m-d') }}</p>

@@ -170,6 +170,18 @@ class ImportSaintsCommand extends Command
                             $io->warning(sprintf('Could not parse canonization date for %s: %s', $name, $e->getMessage()));
                         }
                     }
+                    
+                    if (isset($saintData['feast_day'])) {
+                        try {
+                            // Parse the feast day string
+                            $dateString = $saintData['feast_day'];
+                            // Try to parse the Italian date format (e.g., "6 gennaio")
+                            $date = $this->parseItalianDate($dateString);
+                            $saint->setFeastDate($date);
+                        } catch (\Exception $e) {
+                            $io->warning(sprintf('Could not parse feast date for %s: %s', $name, $e->getMessage()));
+                        }
+                    }
 
                     if (isset($saintData['canonizing_pope'])) {
                         $saint->setCanonizingPope($saintData['canonizing_pope']);
@@ -280,7 +292,7 @@ class ImportSaintsCommand extends Command
             'dicembre' => '12',
         ];
 
-        // Extract day, month, and year
+        // Try to extract day, month, and year (full date format)
         if (preg_match('/(\d{1,2})\s+(\w+)\s+(\d{4})/', $dateString, $matches)) {
             $day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
             $monthName = strtolower($matches[2]);
@@ -289,6 +301,20 @@ class ImportSaintsCommand extends Command
             if (isset($italianMonths[$monthName])) {
                 $month = $italianMonths[$monthName];
                 $formattedDate = sprintf('%s-%s-%s', $year, $month, $day);
+                return new \DateTime($formattedDate);
+            }
+        }
+        
+        // Try to extract just day and month (for feast days that don't include year)
+        if (preg_match('/(\d{1,2})\s+(\w+)/', $dateString, $matches)) {
+            $day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
+            $monthName = strtolower($matches[2]);
+            
+            if (isset($italianMonths[$monthName])) {
+                $month = $italianMonths[$monthName];
+                // Use current year as a placeholder, since we only care about month and day for feast dates
+                $currentYear = date('Y');
+                $formattedDate = sprintf('%s-%s-%s', $currentYear, $month, $day);
                 return new \DateTime($formattedDate);
             }
         }

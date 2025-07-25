@@ -13,6 +13,10 @@
                         <strong>ID:</strong>
                         <span class="text-muted">{{ saint.id }}</span>
                     </div>
+                    <div class="mb-2">
+                        <strong>{{ 'saint.table.feast_date'|trans({}, 'saint') }}:</strong>
+                        <span class="text-muted">{{ saint.feastDate ? saint.feastDate|date('M d') : 'N/A' }}</span>
+                    </div>
                     <div class="d-flex">
                         <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="btn btn-primary me-2"
                            data-turbo-frame="_top">

@@ -8,6 +8,7 @@
                         <tr>
                             <th style="width: 150px;"></th>
                             <th>{{ knp_pagination_sortable(pagination, 'saint.table.name'|trans({}, 'saint'), 's.name') }}</th>
+                            <th>{{ knp_pagination_sortable(pagination, 'saint.table.feast_date'|trans({}, 'saint'), 's.feast_date') }}</th>
                             <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonization_date'|trans({}, 'saint'), 's.canonization_date') }}</th>
                             <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonical_status'|trans({}, 'saint'), 's.canonical_status') }}</th>
                             <th style="width: 75px;" scope="col" class="text-end">{{ 'saint.table.actions'|trans({}, 'saint') }}</th>
@@ -25,6 +26,7 @@
                                     </div>
                                 </td>
                                 <td>{{ saint|format_saint_name }}</td>
+                                <td>{{ saint.feastDate ? saint.feastDate|date('M d') : 'N/A' }}</td>
                                 <td>{{ saint.canonizationDate ? saint.canonizationDate|date('M d') : 'N/A' }}</td>
                                 <td>{{ saint.canonicalStatus ? saint.canonicalStatus.title : 'N/A' }}</td>
                                 <td class="text-end">
