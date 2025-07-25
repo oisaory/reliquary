@@ -7,7 +7,7 @@
         {% if app.request.get('_route') == 'app_saint_index' %}
         <button type="button" class="btn btn-outline-secondary me-2" data-action="filter-toggle#toggle">
             <i class="fas fa-eye" data-filter-toggle-target="icon"></i>
-            Filter
+            {{ 'saint.filter.filter'|trans({}, 'saint') }}
         </button>
         {% endif %}
         <a href="{{ path('app_saint_new') }}" class="btn btn-primary">

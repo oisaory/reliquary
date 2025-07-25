@@ -51,3 +51,9 @@ saint:
     created: 'Santo criado com sucesso'
     updated: 'Santo atualizado com sucesso'
     deleted: 'Santo excluído com sucesso'
+  filter:
+    filter: 'Filtrar'
+    status: 'Filtrar por Status'
+    allsaints: 'Todos os Santos'
+    clear: 'Limpar'
+
