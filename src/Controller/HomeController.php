@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\SecurityBundle\Security;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * Controller for the home page that displays relics
@@ -33,22 +34,34 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/home/desktop', name: 'app_home_relics_desktop', methods: ['GET'])]
-    public function homeRelicsDesktop(RelicRepository $relicRepository, Request $request, Security $security): Response
+    public function homeRelicsDesktop(RelicRepository $relicRepository, Request $request, Security $security, PaginatorInterface $paginator): Response
     {
         $result = $this->getFilteredRelics($relicRepository, $request, $security);
 
+        $pagination = $paginator->paginate(
+            $result['relics'],
+            $request->query->getInt('page', 1),
+            10
+        );
+
         return $this->render('relic/_relic_list_desktop.html.twig', [
-            'relics' => $result['relics'],
+            'pagination' => $pagination,
         ]);
     }
 
     #[Route('/home/mobile', name: 'app_home_relics_mobile', methods: ['GET'])]
-    public function homeRelicsMobile(RelicRepository $relicRepository, Request $request, Security $security): Response
+    public function homeRelicsMobile(RelicRepository $relicRepository, Request $request, Security $security, PaginatorInterface $paginator): Response
     {
         $result = $this->getFilteredRelics($relicRepository, $request, $security);
 
+        $pagination = $paginator->paginate(
+            $result['relics'],
+            $request->query->getInt('page', 1),
+            10
+        );
+
         return $this->render('relic/_relic_list_mobile.html.twig', [
-            'relics' => $result['relics'],
+            'pagination' => $pagination,
         ]);
     }
 
