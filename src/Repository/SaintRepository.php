@@ -55,7 +55,7 @@ class SaintRepository extends ServiceEntityRepository
 
         if ($searchTerm !== null) {
             $queryBuilder
-                ->andWhere('s.name LIKE :searchTerm')
+                ->andWhere('LOWER(s.name) LIKE LOWER(:searchTerm)')
                 ->setParameter('searchTerm', '%' . $searchTerm . '%');
         }
 
