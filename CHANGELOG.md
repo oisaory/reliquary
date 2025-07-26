@@ -1,3 +1,19 @@
+# [1.35.0](https://github.com/CesarScur/reliquary/compare/v1.34.0...v1.35.0) (2025-07-26)
+
+
+### Bug Fixes
+
+* **i18n:** correct translation domain for saint filter options ([a5df7af](https://github.com/CesarScur/reliquary/commit/a5df7af0fb6fb96a020860dc9b5a254ce54ca032))
+* **ui:** update sortable links with consistent button styling ([516b23b](https://github.com/CesarScur/reliquary/commit/516b23b74a46f5ed893c69f54af29f92abaacac9))
+
+
+### Features
+
+* **i18n:** add translations for relic views and improve localization support ([67605cf](https://github.com/CesarScur/reliquary/commit/67605cf4e30e98ab885fd85553b6c221c3b34890))
+* **relic:** implement visibility restrictions and workflow support ([cb9f8bb](https://github.com/CesarScur/reliquary/commit/cb9f8bb4fa4ebe74233972a672fa05d0c806a7ec))
+* **ui:** enhance pending relics and approval views with improved styling and layout ([b8c5f55](https://github.com/CesarScur/reliquary/commit/b8c5f550fbde993048c1b11551de7dd92f0148c2))
+* **ui:** redesign approve relic view with improved layout and styling ([156c8cc](https://github.com/CesarScur/reliquary/commit/156c8cc4a72e534d2296a2186e099af868817003))
+
 # [1.34.0](https://github.com/CesarScur/reliquary/compare/v1.33.1...v1.34.0) (2025-07-25)
 
 
