@@ -1,3 +1,11 @@
+# [1.37.0](https://github.com/CesarScur/reliquary/compare/v1.36.0...v1.37.0) (2025-07-26)
+
+
+### Features
+
+* **translations:** add localized date formats and improve saint views i18n ([68542e4](https://github.com/CesarScur/reliquary/commit/68542e4edf451d4342800b62d4b8ecfee0363e48))
+* **translations:** add localized date formats and improve saint views i18n ([524aaf4](https://github.com/CesarScur/reliquary/commit/524aaf49d50348d70cfb160508ae8584c4da6568))
+
 # [1.36.0](https://github.com/CesarScur/reliquary/compare/v1.35.0...v1.36.0) (2025-07-26)
 
 
