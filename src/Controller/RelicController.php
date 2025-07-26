@@ -24,7 +24,7 @@ final class RelicController extends AbstractController
         $filter = $request->query->get('filter');
 
         $pagination = $paginator->paginate(
-            $relicRepository->findAllQuery($filter),
+            $relicRepository->findAllQuery($filter, $this->getUser()),
             $request->query->getInt('page', 1),
         );
 
@@ -41,7 +41,7 @@ final class RelicController extends AbstractController
         $filter = $request->query->get('filter');
 
         $pagination = $paginator->paginate(
-            $relicRepository->findAllQuery($filter),
+            $relicRepository->findAllQuery($filter, $this->getUser()),
             $request->query->getInt('page', 1),
         );
 
@@ -58,7 +58,7 @@ final class RelicController extends AbstractController
         $filter = $request->query->get('filter');
 
         $pagination = $paginator->paginate(
-            $relicRepository->findAllQuery($filter),
+            $relicRepository->findAllQuery($filter, $this->getUser()),
             $request->query->getInt('page', 1),
         );
 
@@ -135,7 +135,7 @@ final class RelicController extends AbstractController
     #[Route('/new', name: 'app_relic_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         $relic = new Relic();
         $form = $this->createForm(RelicType::class, $relic);
@@ -144,12 +144,8 @@ final class RelicController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $relic->setCreator($this->getUser());
 
-            // Set status based on user role
-            if ($this->isGranted('ROLE_ADMIN')) {
-                $relic->setStatus(RelicStatus::APPROVED);
-            } else {
-                $relic->setStatus(RelicStatus::PENDING);
-            }
+            // All relics start with PENDING status regardless of user role
+            $relic->setStatus(RelicStatus::PENDING);
 
             $imageFile = $form->get('imageFile')->getData();
 
@@ -161,9 +157,7 @@ final class RelicController extends AbstractController
             $entityManager->persist($relic);
             $entityManager->flush();
 
-            $this->addFlash('success', $this->isGranted('ROLE_ADMIN') 
-                ? 'Relic created and approved successfully' 
-                : 'Relic submitted successfully and awaiting approval');
+            $this->addFlash('success', 'Relic submitted successfully and awaiting approval');
 
             return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -175,8 +169,13 @@ final class RelicController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_relic_show', methods: ['GET'])]
-    public function show(Relic $relic): Response
+    public function show(Relic $relic, RelicRepository $relicRepository): Response
     {
+        // Check if the user has permission to view this relic
+        if (!$relicRepository->canViewRelic($relic, $this->getUser())) {
+            throw $this->createAccessDeniedException('You do not have permission to view this relic.');
+        }
+        
         return $this->render('relic/show.html.twig', [
             'relic' => $relic,
         ]);
@@ -242,7 +241,7 @@ final class RelicController extends AbstractController
     public function saintRelicsDesktop(int $id, RelicRepository $relicRepository): Response
     {
         return $this->render('relic/_relic_list_desktop.html.twig', [
-            'relics' => $relicRepository->findBy(['saint' => $id]),
+            'relics' => $relicRepository->findBySaintWithVisibility($id, $this->getUser()),
         ]);
     }
 
@@ -250,7 +249,7 @@ final class RelicController extends AbstractController
     public function saintRelicsMobile(int $id, RelicRepository $relicRepository): Response
     {
         return $this->render('relic/_relic_list_mobile.html.twig', [
-            'relics' => $relicRepository->findBy(['saint' => $id]),
+            'relics' => $relicRepository->findBySaintWithVisibility($id, $this->getUser()),
         ]);
     }
 

@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Relic;
+use App\Enum\RelicStatus;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\ParameterType;
 use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -16,18 +19,61 @@ class RelicRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Relic::class);
     }
+    
+    /**
+     * Check if a user has the ROLE_ADMIN role
+     * 
+     * @param object $user The user to check
+     * @return bool True if the user is an admin, false otherwise
+     */
+    private function isAdmin(?object $user): bool
+    {
+        if (!$user) {
+            return false;
+        }
+        
+        return method_exists($user, 'getRoles') && in_array('ROLE_ADMIN', $user->getRoles(), true);
+    }
+    
+    /**
+     * Check if a user can view a specific relic
+     * 
+     * @param Relic $relic The relic to check
+     * @param object|null $user The user to check
+     * @return bool True if the user can view the relic, false otherwise
+     */
+    public function canViewRelic(Relic $relic, ?object $user): bool
+    {
+        // Approved relics can be viewed by anyone
+        if ($relic->getStatus() === RelicStatus::APPROVED) {
+            return true;
+        }
+        
+        // Unapproved relics can only be viewed by admins and the creator
+        if ($user) {
+            if ($this->isAdmin($user)) {
+                return true;
+            }
+            
+            if ($relic->getCreator() && $relic->getCreator()->getId() === $user->getId()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 
     /**
      * Find relics by status
      * 
-     * @param \App\Enum\RelicStatus $status The status to filter by
+     * @param RelicStatus $status The status to filter by
      * @return Relic[] Returns an array of Relic objects
      */
-    public function findByStatus(\App\Enum\RelicStatus $status): array
+    public function findByStatus(RelicStatus $status): array
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.status = :status')
-            ->setParameter('status', $status->value, \Doctrine\DBAL\ParameterType::STRING)
+            ->setParameter('status', $status->value, ParameterType::STRING)
             ->getQuery()
             ->getResult();
     }
@@ -38,9 +84,10 @@ class RelicRepository extends ServiceEntityRepository
      * @param float $latitude The latitude of the center point
      * @param float $longitude The longitude of the center point
      * @param float $radiusKm The radius in kilometers
+     * @param object|null $user The current user
      * @return Relic[] Returns an array of Relic objects
      */
-    public function findWithinRadius(float $latitude, float $longitude, float $radiusKm): array
+    public function findWithinRadius(float $latitude, float $longitude, float $radiusKm, ?object $user = null): array
     {
         // Use a simple bounding box approach to filter relics
         // This avoids using trigonometric functions that might not be available in PostgreSQL
@@ -69,6 +116,8 @@ class RelicRepository extends ServiceEntityRepository
             ->setParameter('maxLat', $maxLat)
             ->setParameter('minLng', $minLng)
             ->setParameter('maxLng', $maxLng);
+            
+        $this->applyVisibilityRestrictions($user, $qb);
 
         $relics = $qb->getQuery()->getResult();
 
@@ -89,12 +138,13 @@ class RelicRepository extends ServiceEntityRepository
     }
 
     /**
-     * Find all relics query with optional degree filter
+     * Find all relics query with optional degree filter and visibility restrictions
      * 
      * @param string|null $degree The degree to filter by
+     * @param object|null $user The current user
      * @return Query The query object
      */
-    public function findAllQuery(?string $degree = null): Query
+    public function findAllQuery(?string $degree = null, ?object $user = null): Query
     {
         $queryBuilder = $this->createQueryBuilder('r');
 
@@ -103,6 +153,8 @@ class RelicRepository extends ServiceEntityRepository
                 ->andWhere('r.degree = :degree')
                 ->setParameter('degree', $degree);
         }
+
+        $this->applyUserFiltersToQuery($user, $queryBuilder);
 
         return $queryBuilder->getQuery();
     }
@@ -129,28 +181,86 @@ class RelicRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery();
     }
 
-//    /**
-//     * @return Relic[] Returns an array of Relic objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * Find all relics with visibility restrictions
+     * 
+     * @param object|null $user The current user
+     * @return Relic[] Returns an array of Relic objects
+     */
+    public function findAllWithVisibility(?object $user = null): array
+    {
+        $queryBuilder = $this->createQueryBuilder('r');
+        
+        // Apply visibility restrictions
+        $this->applyVisibilityRestrictions($user, $queryBuilder);
+        
+        return $queryBuilder->getQuery()->getResult();
+    }
+    
+    /**
+     * Find relics by saint with visibility restrictions
+     * 
+     * @param int $saintId The saint ID
+     * @param object|null $user The current user
+     * @return Relic[] Returns an array of Relic objects
+     */
+    public function findBySaintWithVisibility(int $saintId, ?object $user = null): array
+    {
+        $queryBuilder = $this->createQueryBuilder('r')
+            ->andWhere('r.saint = :saint')
+            ->setParameter('saint', $saintId);
+        $this->applyVisibilityRestrictions($user, $queryBuilder);
 
-//    public function findOneBySomeField($value): ?Relic
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * @param object|null $user
+     * @param QueryBuilder $queryBuilder
+     * @return void
+     */
+    public function applyVisibilityRestrictions(?object $user, QueryBuilder $queryBuilder): void
+    {
+        if ($user) {
+            // If user is not admin, filter unapproved relics
+            if (!$this->isAdmin($user)) {
+                $queryBuilder
+                    ->andWhere('(r.status = :approved_status OR (r.creator = :user AND (r.status = :pending_status OR r.status = :rejected_status)))')
+                    ->setParameter('approved_status', RelicStatus::APPROVED->value, ParameterType::STRING)
+                    ->setParameter('pending_status', RelicStatus::PENDING->value, ParameterType::STRING)
+                    ->setParameter('rejected_status', RelicStatus::REJECTED->value, ParameterType::STRING)
+                    ->setParameter('user', $user);
+            }
+        } else {
+            // For anonymous users, only show approved relics
+            $queryBuilder
+                ->andWhere('r.status = :approved_status')
+                ->setParameter('approved_status', RelicStatus::APPROVED->value, ParameterType::STRING);
+        }
+    }
+
+    /**
+     * @param object|null $user
+     * @param QueryBuilder $queryBuilder
+     * @return void
+     */
+    public function applyUserFiltersToQuery(?object $user, QueryBuilder $queryBuilder): void
+    {
+        if ($user) {
+            // If user is admin, show all relics
+            if (!$this->isAdmin($user)) {
+                $queryBuilder
+                    ->andWhere('(r.status = :approved_status OR (r.creator = :user AND (r.status = :pending_status OR r.status = :rejected_status)))')
+                    ->setParameter('approved_status', RelicStatus::APPROVED->value, ParameterType::STRING)
+                    ->setParameter('pending_status', RelicStatus::PENDING->value, ParameterType::STRING)
+                    ->setParameter('rejected_status', RelicStatus::REJECTED->value, ParameterType::STRING)
+                    ->setParameter('user', $user);
+            }
+        } else {
+            // For anonymous users, only show approved relics
+            $queryBuilder
+                ->andWhere('r.status = :approved_status')
+                ->setParameter('approved_status', RelicStatus::APPROVED->value, ParameterType::STRING);
+        }
+    }
 }

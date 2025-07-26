@@ -95,12 +95,13 @@ final class HomeController extends AbstractController
             $relics = $relicRepository->findWithinRadius(
                 $userLocation['latitude'],
                 $userLocation['longitude'],
-                $radius
+                $radius,
+                $user // Pass the current user for visibility restrictions
             );
             $locationAvailable = true;
         } else {
             // Fall back to all relics if no geolocation is available
-            $relics = $relicRepository->findAll();
+            $relics = $relicRepository->findAllWithVisibility($user); // Use the new method with visibility restrictions
         }
 
         return [

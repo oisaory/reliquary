@@ -6,7 +6,7 @@ framework:
                 enabled: true
             marking_store:
                 type: 'method'
-                property: 'status'
+                property: 'marking'
             supports:
                 - App\Entity\Relic
             initial_marking: pending

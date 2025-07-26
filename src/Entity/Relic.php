@@ -170,6 +170,24 @@ class Relic implements ImageOwnerInterface
 
         return $this;
     }
+    
+    /**
+     * Get the marking for the workflow
+     * This method is used by the workflow component
+     */
+    public function getMarking(): string
+    {
+        return $this->status->value;
+    }
+    
+    /**
+     * Set the marking from the workflow
+     * This method is used by the workflow component
+     */
+    public function setMarking(string $marking, array $context = []): void
+    {
+        $this->status = RelicStatus::from($marking);
+    }
 
     /**
      * @return Collection<int, RelicImage>
