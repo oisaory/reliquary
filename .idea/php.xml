@@ -147,6 +147,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/workflow" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/sensiolabs/ansi-to-html" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

@@ -27,9 +27,15 @@
                                     </div>
                                 </td>
                                 <td>{{ saint|format_saint_name }}</td>
-                                <td>{{ saint.feastDate ? saint.feastDate|date('M d') : 'N/A' }}</td>
-                                <td>{{ saint.canonizationDate ? saint.canonizationDate|date('M d') : 'N/A' }}</td>
-                                <td>{{ saint.canonicalStatus ? saint.canonicalStatus.title : 'N/A' }}</td>
+                                <td>{{ saint.feastDate
+                                    ? saint.feastDate|format_date('medium', pattern=('common.date_formats.feast_date'|trans({}, 'common')))
+                                    : 'common.not_available'|trans({}, 'common') }}</td>
+                                <td>{{ saint.canonizationDate
+                                    ? saint.canonizationDate|format_date('medium', pattern=('common.date_formats.canonization_date'|trans({}, 'common')))
+                                    : 'common.not_available'|trans({}, 'common') }}</td>
+                                <td>{{ saint.canonicalStatus
+                                    ? saint.canonicalStatus.title
+                                    : 'common.not_available'|trans({}, 'common') }}</td>
                                 <td class="text-end">
                                     <div class="btn-group btn-group-sm" role="group">
                                         <a href="{{ path('app_saint_show', {'id': saint.id}) }}"

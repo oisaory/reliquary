@@ -23,3 +23,7 @@ common:
   languages:
     english: 'Inglês'
     portuguese_brazil: 'Português (Brasil)'
+  not_available: 'N/D'
+  date_formats:
+    feast_date: d 'de' MMMM
+    canonization_date: d 'de' MMMM 'de' y
