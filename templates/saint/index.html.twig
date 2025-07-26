@@ -15,7 +15,7 @@
                         <option value="">{{ 'saint.filter.allsaints'|trans({}, 'saint') }}</option>
                         {% for status in canonical_statuses %}
                             <option value="{{ status.value }}" {% if filter == status.value %}selected{% endif %}>
-                                {{  status.getTitleTransKey()|trans({}, 'relic') }}
+                                {{  status.getTitleTransKey()|trans({}, 'saint') }}
                             </option>
                         {% endfor %}
                     </select>
