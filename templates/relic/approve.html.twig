@@ -4,48 +4,203 @@
 
 {% block body %}
 <div class="container py-4">
-    <h1 class="display-5 fw-bold mb-4">Approve Relic</h1>
-
-    <div class="card mb-4">
-        <div class="card-header">
-            <h2>{{ relic.saint.name }}</h2>
-        </div>
-        <div class="card-body">
-            <p><strong>Location:</strong> {{ relic.location }}</p>
-            <p><strong>Address:</strong> {{ relic.address }}</p>
-            <p><strong>Description:</strong> {{ relic.description }}</p>
-            <p><strong>Degree:</strong> {{ relic.degree.label }}</p>
-            <p><strong>Creator:</strong> {{ relic.creator.username }}</p>
-            <p><strong>Status:</strong> {{ relic.status.label }}</p>
-            
-            {% if relic.images|length > 0 %}
-                <h3>Images</h3>
-                <div class="row">
-                    {% for image in relic.images %}
-                        <div class="col-md-4 mb-3">
-                            <img src="{{ asset('uploads/images/' ~ image.filename) }}" class="img-fluid" alt="Relic image">
+    {{ include('relic/_header.html.twig', {'title': 'Approve Relic'}) }}
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow border rounded overflow-hidden">
+                <div class="position-relative">
+                    {% if relic.images|length > 0 %}
+                        <div class="position-relative">
+                            <img src="{{ asset('uploads/images/' ~ relic.images[0].filename) }}" 
+                                 alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
+                                 class="w-100"
+                                 style="height: 280px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="mb-0">{{ relic.saint ? relic.saint|format_saint_name : 'Unknown Saint' }}</h4>
+                                    {% if relic.images[0].uploader %}
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2">Uploaded by:</small>
+                                        {% if relic.images[0].uploader.profileImage %}
+                                            <img src="{{ asset('uploads/images/' ~ relic.images[0].uploader.profileImage.filename) }}" 
+                                                 alt="Profile Image" 
+                                                 class="rounded-circle me-2" 
+                                                 style="width: 24px; height: 24px; object-fit: cover;">
+                                        {% else %}
+                                            <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
+                                                 style="width: 24px; height: 24px;">
+                                                <i class="fa fa-user text-dark" style="font-size: 0.8rem;"></i>
+                                            </div>
+                                        {% endif %}
+                                        <span>{{ relic.images[0].uploader.username }}</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                    {% endfor %}
+                    {% else %}
+                        <div class="position-relative">
+                            <img src="{{ asset('/images/relic.png') }}" 
+                                 alt="No image available" 
+                                 class="w-100 opacity-25"
+                                 style="height: 280px; object-fit: contain; filter: grayscale(100%);">
+                            <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3">
+                                <h4 class="mb-0">{{ relic.saint ? relic.saint|format_saint_name : 'Unknown Saint' }}</h4>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-        </div>
-        <div class="card-footer">
-            {% if can_approve %}
-                <form method="post" action="{{ path('app_relic_approve', {'id': relic.id}) }}" class="d-inline">
-                    <input type="hidden" name="_token" value="{{ csrf_token('approve' ~ relic.id) }}">
-                    <button class="btn btn-success">Approve</button>
-                </form>
-            {% endif %}
-            
-            {% if can_reject %}
-                <form method="post" action="{{ path('app_relic_reject', {'id': relic.id}) }}" class="d-inline">
-                    <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ relic.id) }}">
-                    <button class="btn btn-danger">Reject</button>
-                </form>
-            {% endif %}
-            
-            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-primary">Edit</a>
-            <a href="{{ path('app_pending_relics') }}" class="btn btn-secondary">Back to list</a>
+
+                <div class="card-body p-4">
+                    {% if relic.images|length > 1 %}
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="border-bottom pb-2 mb-3">Additional Images</h5>
+                                <div class="row">
+                                    {% for image in relic.images|slice(1) %}
+                                        <div class="col-md-4 col-sm-6 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
+                                                     alt="Additional image" 
+                                                     class="card-img-top"
+                                                     style="height: 160px; object-fit: cover;">
+                                                <div class="card-body p-2">
+                                                    <p class="small text-muted mb-0">{{ image.originalFilename }}</p>
+                                                    {% if image.uploader %}
+                                                    <div class="mt-2">
+                                                        <small class="text-muted">Uploaded by:</small>
+                                                        <div class="d-flex align-items-center mt-1">
+                                                            {% if image.uploader.profileImage %}
+                                                                <img src="{{ asset('uploads/images/' ~ image.uploader.profileImage.filename) }}" 
+                                                                     alt="Profile Image" 
+                                                                     class="rounded-circle me-2" 
+                                                                     style="width: 24px; height: 24px; object-fit: cover;">
+                                                            {% else %}
+                                                                <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
+                                                                     style="width: 24px; height: 24px;">
+                                                                    <i class="fa fa-user"
+                                                                       style="font-size: 0.8rem;"></i>
+                                                                </div>
+                                                            {% endif %}
+                                                            <span class="small">{{ image.uploader.username }}</span>
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="mb-3">
+                                <strong>Address:</strong><br>
+                                <span class="text-muted">{{ relic.address }}</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Location:</strong><br>
+                                <span class="text-muted">{{ relic.location }}</span>
+                            </div>
+
+                            {% if relic.description %}
+                            <div class="mb-3">
+                                <strong>Description:</strong><br>
+                                <span class="text-muted">{{ relic.description }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            {% if relic.saint %}
+                            <div class="mb-3">
+                                <strong>Saint:</strong><br>
+                                <span class="text-muted">
+                                    <a href="{{ path('app_saint_show', {'id': relic.saint.id}) }}" class="text-decoration-none">
+                                        {{ relic.saint }}
+                                    </a>
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <strong>Degree:</strong><br>
+                                <span class="text-muted">{{ relic.degree.label }}</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Status:</strong><br>
+                                <span class="text-muted">
+                                    {% if relic.status == constant('App\\Enum\\RelicStatus::PENDING') %}
+                                        <span class="badge bg-warning">{{ relic.status.label }}</span>
+                                    {% elseif relic.status == constant('App\\Enum\\RelicStatus::APPROVED') %}
+                                        <span class="badge bg-success">{{ relic.status.label }}</span>
+                                    {% elseif relic.status == constant('App\\Enum\\RelicStatus::REJECTED') %}
+                                        <span class="badge bg-danger">{{ relic.status.label }}</span>
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Added by:</strong><br>
+                                <div class="d-flex align-items-center mt-1">
+                                    {% if relic.creator.profileImage %}
+                                        <img src="{{ asset('uploads/images/' ~ relic.creator.profileImage.filename) }}" 
+                                             alt="Profile Image" 
+                                             class="rounded-circle me-2" 
+                                             style="width: 32px; height: 32px; object-fit: cover;">
+                                    {% else %}
+                                        <div class="bg-light rounded-circle d-inline-flex justify-content-center align-items-center me-2" 
+                                             style="width: 32px; height: 32px;">
+                                            <i class="fa fa-user" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                    {% endif %}
+                                    <span class="text-muted">{{ relic.creator.username }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer bg-light p-3">
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ path('app_pending_relics') }}" class="btn btn-outline-secondary">
+                            <i class="fa fa-arrow-left"></i>
+                            Back to list
+                        </a>
+                        <div>
+                            {% if can_approve %}
+                                <form method="post" action="{{ path('app_relic_approve', {'id': relic.id}) }}" class="d-inline">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('approve' ~ relic.id) }}">
+                                    <button class="btn btn-success">
+                                        <i class="fas fa-check"></i>
+                                        Approve
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
+                            {% if can_reject %}
+                                <form method="post" action="{{ path('app_relic_reject', {'id': relic.id}) }}" class="d-inline ms-2">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ relic.id) }}">
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
+                            <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-pencil"></i>
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
