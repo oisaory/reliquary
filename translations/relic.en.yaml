@@ -9,6 +9,7 @@ relic:
   show_title: 'Relic Details'
   additional_images: 'Additional Images'
   image_uploaded_by: 'Uploaded by'
+  no_image: 'No image available'
   table:
     saint: 'Saint'
     address: 'Address'
@@ -48,6 +49,9 @@ relic:
     delete: 'Delete'
     back: 'Back to list'
     confirm_delete: 'Are you sure you want to delete this relic?'
+    approve: 'Approve'
+    reject: 'Reject'
+    review: 'Review'
   description_options:
     bone_fragment: 'Bone fragment'
     piece_of_cloth: 'Piece of cloth'

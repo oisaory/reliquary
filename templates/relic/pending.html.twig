@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pending Relics{% endblock %}
+{% block title %}{{ 'relic.status.pending'|trans({}, 'relic') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
     <div class="row mb-4">
         <div class="col">
-            <h1 class="display-5 fw-bold">Pending Relics</h1>
-            <p class="text-muted">Relics awaiting approval by administrators</p>
+            <h1 class="display-5 fw-bold">{{ 'relic.status.pending'|trans({}, 'relic') }}</h1>
+            <p class="text-muted">{{ 'relic.description'|trans({}, 'relic') }}</p>
         </div>
     </div>
 
@@ -19,11 +19,11 @@
                         <thead class="table-dark">
                             <tr>
                                 <th style="width: 150px;"></th>
-                                <th>Saint</th>
-                                <th>Location</th>
-                                <th>Creator</th>
-                                <th>Status</th>
-                                <th scope="col" class="text-end">Actions</th>
+                                <th>{{ 'relic.table.saint'|trans({}, 'relic') }}</th>
+                                <th>{{ 'relic.table.location'|trans({}, 'relic') }}</th>
+                                <th>{{ 'relic.table.added_by'|trans({}, 'relic') }}</th>
+                                <th>{{ 'relic.table.status'|trans({}, 'relic') }}</th>
+                                <th scope="col" class="text-end">{{ 'relic.table.actions'|trans({}, 'relic') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                                  style="width: 100px; height: 100px; object-fit: cover;">
                                         {% else %}
                                             <img src="{{ asset('/images/relic.png') }}"
-                                                 alt="No image available"
+                                                 alt="{{ 'relic.no_image'|trans({'default': 'No image available'}, 'relic') }}"
                                                  class="img-thumbnail opacity-25"
                                                  style="width: 100px; height: 100px; object-fit: contain; filter: grayscale(100%);">
                                         {% endif %}
@@ -47,18 +47,18 @@
                                 <td>{{ relic.saint.name }}</td>
                                 <td>{{ relic.location }}</td>
                                 <td>{{ relic.creator.username }}</td>
-                                <td>{{ relic.status.label }}</td>
+                                <td>{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</td>
                                 <td class="text-end">
                                     <div class="btn-group btn-group-sm" role="group">
                                         <a href="{{ path('app_relic_show', {'id': relic.id}) }}"
                                            class="btn btn-outline-primary" data-turbo-frame="_top">
                                             <i class="fas fa-eye"></i>
-                                            View
+                                            {{ 'relic.actions.view'|trans({}, 'relic') }}
                                         </a>
                                         <a href="{{ path('app_relic_approve', {'id': relic.id}) }}"
                                            class="btn btn-outline-success" data-turbo-frame="_top">
                                             <i class="fas fa-check"></i>
-                                            Review
+                                            {{ 'relic.actions.review'|trans({'default': 'Review'}, 'relic') }}
                                         </a>
                                     </div>
                                 </td>
@@ -73,7 +73,7 @@
                         <tr>
                             <td colspan="6" class="text-center py-4 text-muted">
                                 <i class="fas fa-circle-exclamation fa-2x mb-2"></i>
-                                <p>No pending relics found</p>
+                                <p>{{ 'relic.no_relics'|trans({}, 'relic') }}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -85,7 +85,7 @@
     <div class="mt-3">
         <a href="{{ path('app_relic_index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left me-2"></i>
-            Back to list
+            {{ 'relic.actions.back'|trans({}, 'relic') }}
         </a>
     </div>
 </div>
