@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/CesarScur/reliquary/compare/v1.35.0...v1.36.0) (2025-07-26)
+
+
+### Features
+
+* **controller:** accent inserted on reliquias ([f030f03](https://github.com/CesarScur/reliquary/commit/f030f03184642cd80f63744fa81e18b8772933c5))
+
 # [1.35.0](https://github.com/CesarScur/reliquary/compare/v1.34.0...v1.35.0) (2025-07-26)
 
 
