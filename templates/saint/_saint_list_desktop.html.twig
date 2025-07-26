@@ -11,7 +11,6 @@
                                 'btn btn-dark bold'}) }}</th>
                             <th>{{ knp_pagination_sortable(pagination, 'saint.table.feast_date'|trans({}, 'saint'), 's.feast_date') }}</th>
                             <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonization_date'|trans({}, 'saint'), 's.canonization_date') }}</th>
-                            <th>{{ knp_pagination_sortable(pagination, 'saint.table.canonical_status'|trans({}, 'saint'), 's.canonical_status') }}</th>
                             <th style="width: 75px;" scope="col" class="text-end"></th>
                         </tr>
                         </thead>
@@ -32,9 +31,6 @@
                                     : 'common.not_available'|trans({}, 'common') }}</td>
                                 <td>{{ saint.canonizationDate
                                     ? saint.canonizationDate|format_date('medium', pattern=('common.date_formats.canonization_date'|trans({}, 'common')))
-                                    : 'common.not_available'|trans({}, 'common') }}</td>
-                                <td>{{ saint.canonicalStatus
-                                    ? saint.canonicalStatus.title
                                     : 'common.not_available'|trans({}, 'common') }}</td>
                                 <td class="text-end">
                                     <div class="btn-group btn-group-sm" role="group">
