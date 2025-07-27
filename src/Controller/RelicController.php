@@ -170,12 +170,10 @@ final class RelicController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_relic_show', methods: ['GET'])]
-    public function show(Relic $relic, RelicRepository $relicRepository): Response
+    public function show(Relic $relic): Response
     {
         // Check if the user has permission to view this relic
-        if (!$relicRepository->canViewRelic($relic, $this->getUser())) {
-            throw $this->createAccessDeniedException('You do not have permission to view this relic.');
-        }
+        $this->denyAccessUnlessGranted('view', $relic);
         
         return $this->render('relic/show.html.twig', [
             'relic' => $relic,
@@ -185,7 +183,7 @@ final class RelicController extends AbstractController
     #[Route('/{id}/edit', name: 'app_relic_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Relic $relic, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('edit', $relic);
 
         $form = $this->createForm(RelicType::class, $relic);
         $form->handleRequest($request);
@@ -227,7 +225,7 @@ final class RelicController extends AbstractController
     #[Route('/{id}', name: 'app_relic_delete', methods: ['POST'])]
     public function delete(Request $request, Relic $relic, EntityManagerInterface $entityManager): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('delete', $relic);
 
         if ($this->isCsrfTokenValid('delete'.$relic->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($relic);

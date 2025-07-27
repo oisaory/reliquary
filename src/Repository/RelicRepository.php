@@ -22,31 +22,6 @@ class RelicRepository extends ServiceEntityRepository
     }
 
     /**
-     * Check if a user can view a specific relic
-     *
-     * @param Relic $relic The relic to check
-     * @param object|null $user The user to check
-     * @return bool True if the user can view the relic, false otherwise
-     */
-    public function canViewRelic(Relic $relic, ?object $user): bool
-    {
-        // Approved relics can be viewed by anyone
-        if ($relic->getStatus() === RelicStatus::APPROVED) {
-            return true;
-        }
-
-        if ($user->isAdmin()) {
-            return true;
-        }
-
-        if ($relic->getCreator() && $relic->getCreator()->getId() === $user->getId()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Find relics by status
      *
      * @param RelicStatus $status The status to filter by
