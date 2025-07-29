@@ -50,6 +50,9 @@ class Relic implements ImageOwnerInterface
     #[ORM\Column(length: 1024, nullable: true)]
     private ?string $rejectionReason = null;
 
+    #[ORM\Column(length: 1024, nullable: false)]
+    private string $provenance = '';
+
     /**
      * @var Collection<int, RelicImage>
      */
@@ -182,6 +185,18 @@ class Relic implements ImageOwnerInterface
     public function setRejectionReason(?string $rejectionReason): static
     {
         $this->rejectionReason = $rejectionReason;
+
+        return $this;
+    }
+
+    public function getProvenance(): string
+    {
+        return $this->provenance;
+    }
+
+    public function setProvenance(string $provenance): static
+    {
+        $this->provenance = $provenance;
 
         return $this;
     }

@@ -60,6 +60,18 @@ class RelicType extends AbstractType
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
             ])
+            ->add('provenance', null, [
+                'label' => 'relic.form.provenance',
+                'translation_domain' => 'relic',
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'relic.form.provenance_placeholder',
+                ],
+                'help' => 'relic.form.provenance_help',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+                'required' => true,
+            ])
             ->add('saint', SaintAutocompleteField::class, [
                 'label' => 'relic.form.saint',
                 'translation_domain' => 'relic',
