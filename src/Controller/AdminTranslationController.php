@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Service\TranslationAnalyzerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -15,6 +17,15 @@ use Symfony\Component\Yaml\Yaml;
 #[IsGranted('ROLE_ADMIN')]
 class AdminTranslationController extends AbstractController
 {
+    private TranslationAnalyzerService $translationAnalyzer;
+    
+    /**
+     * Constructor
+     */
+    public function __construct(TranslationAnalyzerService $translationAnalyzer)
+    {
+        $this->translationAnalyzer = $translationAnalyzer;
+    }
     /**
      * Shows missing translations compared to the English version
      */
@@ -159,5 +170,28 @@ class AdminTranslationController extends AbstractController
         }
 
         return $result;
+    }
+    
+    /**
+     * Scans templates for untranslated strings
+     */
+    #[Route('/scan', name: 'app_admin_translations_scan')]
+    public function scanTemplates(Request $request): Response
+    {
+        $directory = $request->query->get('directory');
+        
+        if ($directory) {
+            $results = $this->translationAnalyzer->scanDirectory($directory);
+            $title = sprintf('Untranslated Strings in "%s" Directory', $directory);
+        } else {
+            $results = $this->translationAnalyzer->getAllUntranslatedStrings();
+            $title = 'All Untranslated Strings';
+        }
+        
+        return $this->render('admin/translations/scan.html.twig', [
+            'title' => $title,
+            'results' => $results,
+            'directory' => $directory,
+        ]);
     }
 }

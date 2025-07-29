@@ -42,6 +42,9 @@ relic:
     degree_help: 'Primeira-classe: restos mortais de um santo. Segunda-classe: itens pertencidos ou usados por um santo. Terceira-classe: items que foram tocados por uma relíquia de primeira ou segunda-classe.'
     image: 'Imagem da Relíquia'
     image_help: 'Envie uma imagem da relíquia (tamanho máx: 2MB)'
+    provenance: 'Procedência'
+    provenance_placeholder: 'Informe a procedência da relíquia'
+    provenance_help: 'Descreva a origem e história da relíquia, incluindo como ela foi adquirida'
     submit: 'Salvar'
   description_options:
     bone_fragment: 'Fragmento de Osso'

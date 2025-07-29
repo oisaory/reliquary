@@ -34,3 +34,7 @@ services:
     App\Service\ImageService:
         arguments:
             $uploadDir: '%image_upload_directory%'
+            
+    App\Service\TranslationAnalyzerService:
+        arguments:
+            $projectDir: '%kernel.project_dir%'

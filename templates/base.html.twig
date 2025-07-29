@@ -71,6 +71,10 @@
                     <i class="fas fa-code me-2"></i>
                     {{ 'common.admin.translation_status'|trans({}, 'common') }}
                   </a></li>
+                  <li><a class="dropdown-item" href="{{ path('app_admin_translations_scan') }}">
+                    <i class="fas fa-search me-2"></i>
+                    Scan for Untranslated Strings
+                  </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_saints_incomplete') }}">
                     <i class="fas fa-triangle-exclamation me-2"></i>
                     Incomplete Saints
