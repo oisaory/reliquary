@@ -47,6 +47,9 @@ class Relic implements ImageOwnerInterface
     #[ORM\Column(length: 255, nullable: false, enumType: RelicStatus::class, options: ['default' => RelicStatus::PENDING])]
     private RelicStatus $status = RelicStatus::PENDING;
 
+    #[ORM\Column(length: 1024, nullable: true)]
+    private ?string $rejectionReason = null;
+
     /**
      * @var Collection<int, RelicImage>
      */
@@ -167,6 +170,18 @@ class Relic implements ImageOwnerInterface
     public function setStatus(RelicStatus $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRejectionReason(): ?string
+    {
+        return $this->rejectionReason;
+    }
+
+    public function setRejectionReason(?string $rejectionReason): static
+    {
+        $this->rejectionReason = $rejectionReason;
 
         return $this;
     }

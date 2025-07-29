@@ -67,9 +67,10 @@ final class RelicWorkflowController extends AbstractController
 
         if ($this->isCsrfTokenValid('reject'.$relic->getId(), $request->getPayload()->getString('_token'))) {
             try {
-                $workflowService->reject($relic);
+                $reason = $request->getPayload()->getString('rejection_reason');
+                $workflowService->reject($relic, $reason);
                 $entityManager->flush();
-                $this->addFlash('success', 'Relic rejected');
+                $this->addFlash('success', 'Relic not accepted');
             } catch (\RuntimeException $e) {
                 $this->addFlash('error', $e->getMessage());
             }

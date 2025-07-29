@@ -46,12 +46,13 @@ class RelicWorkflowService
         }
     }
 
-    public function reject(Relic $relic): void
+    public function reject(Relic $relic, ?string $reason = null): void
     {
         $workflow = $this->workflowRegistry->get($relic, 'relic_approval');
         
         try {
             $workflow->apply($relic, 'reject');
+            $relic->setRejectionReason($reason);
         } catch (LogicException $exception) {
             throw new \RuntimeException('Cannot reject this relic: ' . $exception->getMessage());
         }
@@ -63,6 +64,8 @@ class RelicWorkflowService
         
         try {
             $workflow->apply($relic, 'resubmit');
+            // Clear the rejection reason when resubmitting
+            $relic->setRejectionReason(null);
         } catch (LogicException $exception) {
             throw new \RuntimeException('Cannot resubmit this relic: ' . $exception->getMessage());
         }

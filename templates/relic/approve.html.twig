@@ -184,13 +184,36 @@
                             {% endif %}
                             
                             {% if can_reject %}
-                                <form method="post" action="{{ path('app_relic_reject', {'id': relic.id}) }}" class="d-inline ms-2">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ relic.id) }}">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-times"></i>
-                                        {{ 'relic.actions.reject'|trans({'default': 'Reject'}, 'relic') }}
-                                    </button>
-                                </form>
+                                <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#rejectModal">
+                                    <i class="fas fa-times"></i>
+                                    {{ 'relic.actions.reject'|trans({'default': 'Not Accept'}, 'relic') }}
+                                </button>
+                                
+                                <!-- Reject Modal -->
+                                <div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="rejectModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form method="post" action="{{ path('app_relic_reject', {'id': relic.id}) }}">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="rejectModalLabel">{{ 'relic.actions.reject'|trans({'default': 'Not Accept Relic'}, 'relic') }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="rejection_reason" class="form-label">{{ 'relic.form.rejection_reason'|trans({'default': 'Reason'}, 'relic') }}</label>
+                                                        <textarea class="form-control" id="rejection_reason" name="rejection_reason" rows="3" required></textarea>
+                                                        <div class="form-text">{{ 'relic.form.rejection_reason_help'|trans({'default': 'Please provide a reason why this relic is not being accepted. This will be shown to the creator.'}, 'relic') }}</div>
+                                                    </div>
+                                                    <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ relic.id) }}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'relic.actions.cancel'|trans({'default': 'Cancel'}, 'relic') }}</button>
+                                                    <button type="submit" class="btn btn-danger">{{ 'relic.actions.reject'|trans({'default': 'Not Accept'}, 'relic') }}</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             {% endif %}
                             
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary ms-2">

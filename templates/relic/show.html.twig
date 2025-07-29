@@ -153,9 +153,19 @@
                                     {% elseif relic.status == constant('App\\Enum\\RelicStatus::APPROVED') %}
                                         <span class="badge bg-success">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
                                     {% elseif relic.status == constant('App\\Enum\\RelicStatus::REJECTED') %}
-                                        <span class="badge bg-danger">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
+                                        {% if app.user and relic.creator and app.user.id == relic.creator.id %}
+                                            <span class="badge bg-danger">{{ 'relic.status.not_accepted'|trans({'default': 'Not Accepted'}, 'relic') }}</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">{{ relic.status.getTitleTransKey()|trans({}, 'relic') }}</span>
+                                        {% endif %}
                                     {% endif %}
                                 </span>
+                                {% if relic.status == constant('App\\Enum\\RelicStatus::REJECTED') and relic.rejectionReason and app.user and relic.creator and app.user.id == relic.creator.id %}
+                                    <div class="mt-2 p-2 border rounded bg-light">
+                                        <small class="d-block mb-1 fw-bold">{{ 'relic.rejection_reason'|trans({'default': 'Reason'}, 'relic') }}:</small>
+                                        <p class="mb-0 small">{{ relic.rejectionReason }}</p>
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="mb-3">
@@ -186,6 +196,16 @@
                             {{ 'relic.actions.back'|trans({}, 'relic') }}
                         </a>
                         <div>
+                            {% if relic.status == constant('App\\Enum\\RelicStatus::REJECTED') and app.user and relic.creator and app.user.id == relic.creator.id %}
+                                <form method="post" action="{{ path('app_relic_resubmit', {'id': relic.id}) }}" class="d-inline">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('resubmit' ~ relic.id) }}">
+                                    <button class="btn btn-primary me-2">
+                                        <i class="fas fa-redo"></i>
+                                        {{ 'relic.actions.resubmit'|trans({'default': 'Resubmit'}, 'relic') }}
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
                             {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('app_relic_edit', {'id': relic.id}) }}" class="btn btn-outline-secondary me-2">
                                 <i class="fas fa-pencil"></i>
