@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'relic.resubmit_title'|trans({'default': 'Resubmit Relic'}, 'relic') }}{% endblock %}
+
+{% block body %}
+<div class="container py-4">
+    {{ include('relic/_header.html.twig', {'title': 'relic.resubmit_title'|trans({'default': 'Resubmit Relic'}, 'relic')}) }}
+    
+    {% if relic.rejectionReason %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h5 class="alert-heading">{{ 'relic.rejection_reason'|trans({'default': 'Rejection Reason'}, 'relic') }}</h5>
+                <p class="mb-0">{{ relic.rejectionReason }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="row">
+        <div class="col-12">
+            {{ include('relic/_form.html.twig', {'button_label': 'relic.actions.resubmit'|trans({'default': 'Resubmit'}, 'relic')}) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -79,7 +79,7 @@ final class RelicWorkflowController extends AbstractController
         return $this->redirectToRoute('app_pending_relics', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/resubmit', name: 'app_relic_resubmit', methods: ['POST'])]
+    #[Route('/{id}/resubmit', name: 'app_relic_resubmit', methods: ['GET', 'POST'])]
     public function resubmit(
         Request $request, 
         Relic $relic, 
@@ -92,17 +92,41 @@ final class RelicWorkflowController extends AbstractController
         if (!$currentUser || $relic->getCreator()->getId() !== $currentUser->getId()) {
             throw $this->createAccessDeniedException('Only the creator of the relic can resubmit it.');
         }
+        
+        // Check if the workflow allows resubmission
+        if (!$workflowService->canResubmit($relic)) {
+            $this->addFlash('error', 'This relic cannot be resubmitted');
+            return $this->redirectToRoute('app_relic_show', ['id' => $relic->getId()], Response::HTTP_SEE_OTHER);
+        }
 
-        if ($this->isCsrfTokenValid('resubmit'.$relic->getId(), $request->getPayload()->getString('_token'))) {
+        // Create form for editing the relic
+        $form = $this->createForm(\App\Form\RelicType::class, $relic);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Handle image upload if provided
+            $imageFile = $form->get('imageFile')->getData();
+            if ($imageFile) {
+                $imageService = $this->container->get(\App\Service\ImageService::class);
+                $image = $imageService->createRelicImage($imageFile, $relic, $this->getUser());
+                $relic->addImage($image);
+            }
+            
+            // Apply the workflow transition
             try {
                 $workflowService->resubmit($relic);
                 $entityManager->flush();
-                $this->addFlash('success', 'Relic resubmitted for approval');
+                $this->addFlash('success', 'Relic updated and resubmitted for approval');
+                return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
             } catch (\RuntimeException $e) {
                 $this->addFlash('error', $e->getMessage());
             }
         }
 
-        return $this->redirectToRoute('app_relic_index', [], Response::HTTP_SEE_OTHER);
+        // Display the form for GET requests or if form submission failed
+        return $this->render('relic/resubmit.html.twig', [
+            'relic' => $relic,
+            'form' => $form,
+        ]);
     }
 }

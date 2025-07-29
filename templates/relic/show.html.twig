@@ -197,13 +197,10 @@
                         </a>
                         <div>
                             {% if relic.status == constant('App\\Enum\\RelicStatus::REJECTED') and app.user and relic.creator and app.user.id == relic.creator.id %}
-                                <form method="post" action="{{ path('app_relic_resubmit', {'id': relic.id}) }}" class="d-inline">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('resubmit' ~ relic.id) }}">
-                                    <button class="btn btn-primary me-2">
-                                        <i class="fas fa-redo"></i>
-                                        {{ 'relic.actions.resubmit'|trans({'default': 'Resubmit'}, 'relic') }}
-                                    </button>
-                                </form>
+                                <a href="{{ path('app_relic_resubmit', {'id': relic.id}) }}" class="btn btn-primary me-2">
+                                    <i class="fas fa-redo"></i>
+                                    {{ 'relic.actions.resubmit'|trans({'default': 'Resubmit'}, 'relic') }}
+                                </a>
                             {% endif %}
                             
                             {% if is_granted('ROLE_ADMIN') %}
