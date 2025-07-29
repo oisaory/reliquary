@@ -237,26 +237,36 @@ final class RelicController extends AbstractController
     }
 
     #[Route('/saint/{saint}/desktop', name: 'app_saint_relics_desktop', methods: ['GET'])]
-    public function saintRelicsDesktop(Saint $saint, RelicRepository $relicRepository): Response
+    public function saintRelicsDesktop(Request $request, Saint $saint, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
-        if (!$saint->isIncomplete()) {
+        if ($saint->isIncomplete()) {
             throw $this->createNotFoundException('Saint not found');
         }
 
+        $pagination = $paginator->paginate(
+            $relicRepository->findBySaintWithVisibility($saint->getId(), $this->getUser()),
+            $request->query->getInt('page', 1),
+        );
+
         return $this->render('relic/_relic_list_desktop.html.twig', [
-            'relics' => $relicRepository->findBySaintWithVisibility($saint->getId(), $this->getUser()),
+            'pagination' => $pagination,
         ]);
     }
 
     #[Route('/saint/{saint}/mobile', name: 'app_saint_relics_mobile', methods: ['GET'])]
-    public function saintRelicsMobile(Saint $saint, RelicRepository $relicRepository): Response
+    public function saintRelicsMobile(Request $request, Saint $saint, RelicRepository $relicRepository, PaginatorInterface $paginator): Response
     {
-        if (!$saint->isIncomplete()) {
+        if ($saint->isIncomplete()) {
             throw $this->createNotFoundException('Saint not found');
         }
-        
+
+        $pagination = $paginator->paginate(
+            $relicRepository->findBySaintWithVisibility($saint->getId(), $this->getUser()),
+            $request->query->getInt('page', 1),
+        );
+
         return $this->render('relic/_relic_list_mobile.html.twig', [
-            'relics' => $relicRepository->findBySaintWithVisibility($saint->getId(), $this->getUser()),
+            'pagination' => $pagination,
         ]);
     }
 
