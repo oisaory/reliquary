@@ -1,3 +1,18 @@
+# [1.40.0](https://github.com/CesarScur/reliquary/compare/v1.39.0...v1.40.0) (2025-07-29)
+
+
+### Bug Fixes
+
+* **security:** restrict relic resubmission to creator users ([dd4a9a1](https://github.com/CesarScur/reliquary/commit/dd4a9a1a81ae7e0c2f3aa1e5650cb4d4e5d96bb3))
+
+
+### Features
+
+* **relic:** add provenance field to relic entity with UI and migration support ([71f5da2](https://github.com/CesarScur/reliquary/commit/71f5da2c1fc51c92c6bc7f409f2685d7a25c497d))
+* **relic:** add rejection reason support with UI and workflow enhancements ([e30b268](https://github.com/CesarScur/reliquary/commit/e30b2689664bd847849d2a891eb5cfe01484715c))
+* **relic:** enhance resubmission flow with UI updates and GET method support ([efdb130](https://github.com/CesarScur/reliquary/commit/efdb130caab87f5a5dbe77902acf156576ea3f30))
+* **translations:** add untranslated strings scan feature and UI support ([19be153](https://github.com/CesarScur/reliquary/commit/19be1531fb1b1981fa89a6157ff73dc86fea18af))
+
 # [1.39.0](https://github.com/CesarScur/reliquary/compare/v1.38.0...v1.39.0) (2025-07-29)
 
 
