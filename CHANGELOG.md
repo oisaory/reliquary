@@ -1,3 +1,15 @@
+# [1.39.0](https://github.com/CesarScur/reliquary/compare/v1.38.0...v1.39.0) (2025-07-29)
+
+
+### Features
+
+* **security:** add `RelicVoter` for fine-grained relic access control ([b9cbb39](https://github.com/CesarScur/reliquary/commit/b9cbb392b99ce522eb6dc6833b76d0f411f84efa))
+* **security:** add `RelicVoter` for fine-grained relic access control ([36db204](https://github.com/CesarScur/reliquary/commit/36db2043d9ada9dbc9cbde0517ca5d882428ecf7))
+* **ui:** enhance relic list on mobile with clickable cards ([70f57d0](https://github.com/CesarScur/reliquary/commit/70f57d0d74f9a3434b9b095d6cde917fcb7ad1fb))
+* **ui:** improve saint listing and relics display with enhanced layout and logic ([3411bb9](https://github.com/CesarScur/reliquary/commit/3411bb9c6ad2e006ea0f538ae30fc507ba238d80))
+* **ui:** redesign pagination with Material Design and enhanced display logic ([d950318](https://github.com/CesarScur/reliquary/commit/d950318d1d5eee0c43d8f7efff41446fa04741e3))
+* **ui:** redesign saint details view with responsive and modern layout ([57ac736](https://github.com/CesarScur/reliquary/commit/57ac73644d27838035ffb694857ab7ceabfde124))
+
 # [1.38.0](https://github.com/CesarScur/reliquary/compare/v1.37.0...v1.38.0) (2025-07-26)
 
 
