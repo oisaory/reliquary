@@ -1,69 +1,53 @@
 {# bootstrap_v5_pagination.html.twig #}
-{# This template is based on Bootstrap 5 pagination component #}
-{# See: https://getbootstrap.com/docs/5.0/components/pagination/ #}
+{# This template is based on Material Design data tables pagination #}
+{# See: https://material.io/components/data-tables #}
 
 {% if pageCount > 1 %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination pagination-sm mb-0">
+    <nav aria-label="Page navigation" class="material-pagination">
+        <div class="d-flex align-items-center">
             {% if first is defined and current != first %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): first})) }}" aria-label="First">
-                        <span aria-hidden="true">&laquo;&laquo;</span>
-                    </a>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): first})) }}" class="btn btn-icon p-1 me-1" aria-label="First page">
+                    <i class="fas fa-angle-double-left"></i>
+                </a>
             {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link">&laquo;&laquo;</span>
-                </li>
+                <span class="btn btn-icon p-1 me-1 disabled" aria-label="First page">
+                    <i class="fas fa-angle-double-left text-muted"></i>
+                </span>
             {% endif %}
 
             {% if previous is defined %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): previous})) }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="btn btn-icon p-1 me-3" aria-label="Previous page">
+                    <i class="fas fa-angle-left"></i>
+                </a>
             {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link">&laquo;</span>
-                </li>
+                <span class="btn btn-icon p-1 me-3 disabled" aria-label="Previous page">
+                    <i class="fas fa-angle-left text-muted"></i>
+                </span>
             {% endif %}
 
-            {% for page in pagesInRange %}
-                {% if page != current %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
-                    </li>
-                {% else %}
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">{{ page }}</span>
-                    </li>
-                {% endif %}
-            {% endfor %}
+            <span class="text-muted small">
+                Page {{ current }} of {{ pageCount }}
+            </span>
 
             {% if next is defined %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): next})) }}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="btn btn-icon p-1 ms-3" aria-label="Next page">
+                    <i class="fas fa-angle-right"></i>
+                </a>
             {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link">&raquo;</span>
-                </li>
+                <span class="btn btn-icon p-1 ms-3 disabled" aria-label="Next page">
+                    <i class="fas fa-angle-right text-muted"></i>
+                </span>
             {% endif %}
 
             {% if last is defined and current != last %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): last})) }}" aria-label="Last">
-                        <span aria-hidden="true">&raquo;&raquo;</span>
-                    </a>
-                </li>
+                <a href="{{ path(route, query|merge({(pageParameterName): last})) }}" class="btn btn-icon p-1 ms-1" aria-label="Last page">
+                    <i class="fas fa-angle-double-right"></i>
+                </a>
             {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link">&raquo;&raquo;</span>
-                </li>
+                <span class="btn btn-icon p-1 ms-1 disabled" aria-label="Last page">
+                    <i class="fas fa-angle-double-right text-muted"></i>
+                </span>
             {% endif %}
-        </ul>
+        </div>
     </nav>
 {% endif %}

@@ -59,8 +59,13 @@
                     </table>
                 </div>
                 
-                <div class="navigation">
-                    {{ knp_pagination_render(pagination) }}
+                <div class="d-flex justify-content-between align-items-center mt-4 px-2">
+                    <div class="text-muted small">
+                        {{ ((pagination.getCurrentPageNumber() - 1) * pagination.getItemNumberPerPage() + 1) }}-{{ min(pagination.getCurrentPageNumber() * pagination.getItemNumberPerPage(), pagination.getTotalItemCount) }} of {{ pagination.getTotalItemCount }} items
+                    </div>
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
                 </div>
             {% endif %}
         </div>

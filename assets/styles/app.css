@@ -64,6 +64,45 @@ body {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
+/* Material Design Pagination Styles */
+.material-pagination {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.material-pagination .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    border: none;
+    background-color: transparent;
+}
+
+.material-pagination .btn-icon:hover:not([disabled]) {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.material-pagination .btn-icon:active:not([disabled]) {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.material-pagination .btn-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.material-pagination .btn-icon[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.material-pagination .text-muted {
+    font-size: 0.875rem;
+}
+
 /* Mobile navigation styles */
 @media (max-width: 991.98px) {
     .navbar-collapse {
