@@ -87,7 +87,11 @@ final class RelicWorkflowController extends AbstractController
         RelicWorkflowService $workflowService
     ): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        // Check if the current user is the creator of the relic
+        $currentUser = $this->getUser();
+        if (!$currentUser || $relic->getCreator()->getId() !== $currentUser->getId()) {
+            throw $this->createAccessDeniedException('Only the creator of the relic can resubmit it.');
+        }
 
         if ($this->isCsrfTokenValid('resubmit'.$relic->getId(), $request->getPayload()->getString('_token'))) {
             try {
