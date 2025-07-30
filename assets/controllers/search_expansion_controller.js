@@ -24,6 +24,18 @@ export default class extends Controller {
     }
     
     handleKeydown(event) {
+        // If options are hidden and Enter is pressed, submit the form if it's an address search with input
+        if (this.optionsTarget.classList.contains('d-none') && event.key === 'Enter') {
+            if (this.inputTarget.dataset.searchType === 'address' && this.inputTarget.value.trim() !== '') {
+                if (this.hasFormTarget) {
+                    event.preventDefault();
+                    this.formTarget.submit();
+                }
+            }
+            return;
+        }
+        
+        // If options are hidden, don't process other keys
         if (this.optionsTarget.classList.contains('d-none')) {
             return;
         }
@@ -115,6 +127,11 @@ export default class extends Controller {
 
         if (!this.optionsTarget.classList.contains('d-none')) {
             this.closeOptions();
+        } else if (this.inputTarget.dataset.searchType === 'address' && this.inputTarget.value.trim() !== '') {
+            // If address search is selected and there's text in the input, submit the form
+            if (this.hasFormTarget) {
+                this.formTarget.submit();
+            }
         } else {
             this.toggle(event);
         }
@@ -123,23 +140,18 @@ export default class extends Controller {
     selectOption(event) {
         const option = event.currentTarget.dataset.option;
         this.inputTarget.setAttribute('placeholder', 
-            option === 'address' ? 'Search by address...' : 'Search by saint...');
+            option === 'address' ? 'Search for location...' : 'Search by saint...');
         this.inputTarget.dataset.searchType = option;
         
         // Update form action based on selected option
         if (this.hasFormTarget) {
             if (option === 'address') {
-                // For address search, we would need a different route
-                // This is a placeholder - you would need to create this route
-                this.formTarget.setAttribute('action', '/relic');
+                this.formTarget.setAttribute('action', '/');
             } else {
-                // For saint search, use the route we created
                 this.formTarget.setAttribute('action', '/saint');
             }
-            this.formTarget.dataset.searchType = option;
-            
-            // Submit the form immediately after selecting an option
             this.formTarget.submit();
+            this.formTarget.dataset.searchType = option;
         }
         
         this.clearHighlights();

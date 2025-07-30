@@ -18,7 +18,8 @@ export default class UserLocationService {
         const defaultOptions = {
             enableHighAccuracy: true,
             timeout: 5000,
-            maximumAge: 0
+            maximumAge: 0,
+            skipStorage: false // Option to skip storage when location is already available from backend
         };
 
         // Merge provided options with defaults
@@ -36,9 +37,11 @@ export default class UserLocationService {
             navigator.geolocation.getCurrentPosition(
                 // Success callback
                 (position) => {
-                    // Store the geolocation in the backend
-                    this.storeGeolocation(position.coords.latitude, position.coords.longitude)
-                        .catch(error => console.error('Failed to store geolocation:', error));
+                    // Store the geolocation in the backend only if not skipped
+                    if (!options.skipStorage) {
+                        this.storeGeolocation(position.coords.latitude, position.coords.longitude)
+                            .catch(error => console.error('Failed to store geolocation:', error));
+                    }
 
                     if (onSuccess) onSuccess(position);
                     resolve(position);

@@ -19,3 +19,4 @@ home:
   mobile:
     address: 'Address:'
     location: 'Specific Location:'
+  search_results: 'Query: %query%'

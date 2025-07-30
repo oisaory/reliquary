@@ -22,11 +22,21 @@
                             'longitude': relic.longitude
                         })|json_encode }}"
                     data-map-radius-value="{{ radius }}"
+                    {% if userLocation %}
+                    data-map-user-location-value="{{ {
+                        'latitude': userLocation.latitude,
+                        'longitude': userLocation.longitude
+                    }|json_encode }}"
+                    {% endif %}
                 >
                 </div>
+                {% if searchQuery %}
                 <div class="card-body">
-                    <h2 class="mb-0">{{ 'home.features.geolocation'|trans({}, 'home') }}</h2>
+                        <h2 class="mb-0"><i class="fas fa-search me-2"></i>
+                            {{ 'home.search_results'|trans({'%query%': searchQuery}, 'home') }}
+                        </h2>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -34,13 +44,19 @@
     <!-- Relics list using responsive frame -->
     <div class="row">
         <div class="col-md-12">
-            <h2 class="bg-dark text-white p-3 rounded mb-3">{{ 'home.relics_near_me'|trans({}, 'home') }} ({{ radius }}km)</h2>
+            <h2 class="bg-dark text-white p-3 rounded mb-3">
+                {% if searchQuery %}
+                    {{ 'home.relics_near_address'|trans({'%address%': searchQuery}, 'home') }} ({{ radius }}km)
+                {% else %}
+                    {{ 'home.relics_near_me'|trans({}, 'home') }} ({{ radius }}km)
+                {% endif %}
+            </h2>
             {% if relics|length > 0 %}
                 <!-- Single responsive turbo frame -->
                 <turbo-frame id="relics-list"
                             data-controller="responsive-frame"
-                            data-responsive-frame-desktop-src-value="{{ path('app_home_relics_desktop') }}"
-                            data-responsive-frame-mobile-src-value="{{ path('app_home_relics_mobile') }}">
+                            data-responsive-frame-desktop-src-value="{{ path('app_home_relics_desktop', searchQuery ? {'q': searchQuery} : {}) }}"
+                            data-responsive-frame-mobile-src-value="{{ path('app_home_relics_mobile', searchQuery ? {'q': searchQuery} : {}) }}">
                     <div class="d-flex justify-content-center">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -49,7 +65,11 @@
                 </turbo-frame>
             {% else %}
                 <div class="alert alert-info">
-                    {{ 'home.no_relics_found'|trans({'%radius%': radius}, 'home') }}
+                    {% if searchQuery %}
+                        {{ 'home.no_relics_found_address'|trans({'%radius%': radius, '%address%': searchQuery}, 'home') }}
+                    {% else %}
+                        {{ 'home.no_relics_found'|trans({'%radius%': radius}, 'home') }}
+                    {% endif %}
                 </div>
             {% endif %}
         </div>

@@ -14,7 +14,8 @@ export default class extends Controller {
     static targets = ['container'];
     static values = {
         relics: Array,
-        radius: Number
+        radius: Number,
+        userLocation: { type: Object, default: null }
     };
 
     connect() {
@@ -36,8 +37,23 @@ export default class extends Controller {
         // Initialize the map
         this.initializeMap();
 
-        // Request user location
-        this.requestUserLocation();
+        // If we have user location from the backend, use it
+        if (this.hasUserLocationValue) {
+            this.centerMapOnLocation(
+                this.userLocationValue.latitude,
+                this.userLocationValue.longitude
+            );
+        } else {
+            // Only request browser geolocation if we don't have it from the backend
+            this.requestUserLocation();
+        }
+    }
+    
+    // Method to center map on a location
+    centerMapOnLocation(latitude, longitude) {
+        if (this.map) {
+            this.map.setView([latitude, longitude], 13);
+        }
     }
 
     initializeMap() {
@@ -103,8 +119,16 @@ export default class extends Controller {
         if (bounds.isValid()) {
             this.map.fitBounds(bounds);
 
-            // Add a circle to show the search radius around the center of the bounds
-            const center = bounds.getCenter();
+            // Use user location for the circle center if available, otherwise use bounds center
+            let center;
+            if (this.hasUserLocationValue) {
+                center = L.latLng(this.userLocationValue.latitude, this.userLocationValue.longitude);
+                // Don't center the map here, it's already done in connect()
+            } else {
+                center = bounds.getCenter();
+            }
+            
+            // Add a circle to show the search radius
             L.circle(center, {
                 radius: this.radiusValue * 1000, // Convert km to meters
                 color: 'blue',
@@ -131,7 +155,9 @@ export default class extends Controller {
             {
                 enableHighAccuracy: true,
                 timeout: 5000,
-                maximumAge: 0
+                maximumAge: 0,
+                // Skip storage if we already have location from the backend
+                skipStorage: this.hasUserLocationValue
             }
         ).catch(error => {
             // Additional error handling if needed

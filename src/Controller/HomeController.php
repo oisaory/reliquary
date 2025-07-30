@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\RelicRepository;
+use App\Service\LocationResolverService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,21 +23,47 @@ final class HomeController extends AbstractController
     private const DEFAULT_RADIUS_KM = 45;
 
     #[Route('/', name: 'app_home')]
-    public function index(RelicRepository $relicRepository, Request $request, Security $security): Response
+    public function index(RelicRepository $relicRepository, Request $request, Security $security, LocationResolverService $locationResolver): Response
     {
-        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+        // Check if there's a search query
+        $searchQuery = $request->query->get('q');
+        
+        // Define radius here instead of in getFilteredRelics
+        $radius = self::DEFAULT_RADIUS_KM;
+        
+        // Resolve location here
+        $locationData = $locationResolver->resolveLocation($request, $security, $searchQuery);
+        
+        $result = $this->getFilteredRelics($relicRepository, $security->getUser(), $locationData, $radius);
 
         return $this->render('home/index.html.twig', [
             'relics' => $result['relics'],
-            'radius' => $result['radius'],
-            'locationAvailable' => $result['locationAvailable'],
+            'radius' => $radius,
+            'locationAvailable' => $locationData['available'],
+            'searchQuery' => $searchQuery,
+            'userLocation' => $locationData['location'],
         ]);
     }
 
     #[Route('/home/desktop', name: 'app_home_relics_desktop', methods: ['GET'])]
-    public function homeRelicsDesktop(RelicRepository $relicRepository, Request $request, Security $security, PaginatorInterface $paginator): Response
+    public function homeRelicsDesktop(
+        RelicRepository $relicRepository, 
+        Request $request, 
+        Security $security, 
+        PaginatorInterface $paginator,
+        LocationResolverService $locationResolver
+    ): Response
     {
-        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+        // Define radius here
+        $radius = self::DEFAULT_RADIUS_KM;
+        
+        // Get search query if present
+        $searchQuery = $request->query->get('q');
+        
+        // Resolve location here with search query
+        $locationData = $locationResolver->resolveLocation($request, $security, $searchQuery);
+        
+        $result = $this->getFilteredRelics($relicRepository, $security->getUser(), $locationData, $radius);
 
         $pagination = $paginator->paginate(
             $result['relics'],
@@ -50,9 +77,24 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/home/mobile', name: 'app_home_relics_mobile', methods: ['GET'])]
-    public function homeRelicsMobile(RelicRepository $relicRepository, Request $request, Security $security, PaginatorInterface $paginator): Response
+    public function homeRelicsMobile(
+        RelicRepository $relicRepository, 
+        Request $request, 
+        Security $security, 
+        PaginatorInterface $paginator,
+        LocationResolverService $locationResolver
+    ): Response
     {
-        $result = $this->getFilteredRelics($relicRepository, $request, $security);
+        // Define radius here
+        $radius = self::DEFAULT_RADIUS_KM;
+        
+        // Get search query if present
+        $searchQuery = $request->query->get('q');
+        
+        // Resolve location here with search query
+        $locationData = $locationResolver->resolveLocation($request, $security, $searchQuery);
+        
+        $result = $this->getFilteredRelics($relicRepository, $security->getUser(), $locationData, $radius);
 
         $pagination = $paginator->paginate(
             $result['relics'],
@@ -65,30 +107,14 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    private function getFilteredRelics(RelicRepository $relicRepository, Request $request, Security $security): array
+    private function getFilteredRelics(
+        RelicRepository $relicRepository, 
+        ?object $user,
+        array $locationData,
+        float $radius
+    ): array
     {
-        $radius = self::DEFAULT_RADIUS_KM;
-        $user = $security->getUser();
-        $userLocation = null;
-        $locationAvailable = false;
-
-        // Check if user is authenticated and has geolocation
-        if ($user && $user->getLatitude() && $user->getLongitude()) {
-            $userLocation = [
-                'latitude' => $user->getLatitude(),
-                'longitude' => $user->getLongitude()
-            ];
-        } 
-        // Check if guest user has geolocation in session
-        elseif ($request->getSession()->has('user_geolocation')) {
-            $sessionGeo = $request->getSession()->get('user_geolocation');
-            if (isset($sessionGeo['latitude']) && isset($sessionGeo['longitude'])) {
-                $userLocation = [
-                    'latitude' => $sessionGeo['latitude'],
-                    'longitude' => $sessionGeo['longitude']
-                ];
-            }
-        }
+        $userLocation = $locationData['location'];
 
         // Filter relics by geolocation if available
         if ($userLocation) {
@@ -98,16 +124,13 @@ final class HomeController extends AbstractController
                 $radius,
                 $user // Pass the current user for visibility restrictions
             );
-            $locationAvailable = true;
         } else {
             // Fall back to all relics if no geolocation is available
-            $relics = $relicRepository->findAllWithVisibility($user); // Use the new method with visibility restrictions
+            $relics = $relicRepository->findAllWithVisibility($user);
         }
 
         return [
-            'relics' => $relics,
-            'radius' => $radius,
-            'locationAvailable' => $locationAvailable,
+            'relics' => $relics
         ];
     }
 }
