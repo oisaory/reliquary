@@ -1,3 +1,10 @@
+# [1.41.0](https://github.com/CesarScur/reliquary/compare/v1.40.0...v1.41.0) (2025-07-30)
+
+
+### Features
+
+* **location:** enhance location resolution and user experience ([0d6a6be](https://github.com/CesarScur/reliquary/commit/0d6a6bee209a4d3cf03ce2d08090cfa4ad9863c0))
+
 # [1.40.0](https://github.com/CesarScur/reliquary/compare/v1.39.0...v1.40.0) (2025-07-29)
 
 
