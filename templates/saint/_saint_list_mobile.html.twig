@@ -3,32 +3,44 @@
         <div class="list-group">
         {% for saint in pagination %}
             <div class="list-group-item p-0 mb-3 border rounded overflow-hidden">
-                <div class="position-relative">
-                    <div class="bg-dark text-white p-3">
-                        <h5 class="mb-0">{{ saint|format_saint_name }}</h5>
+                <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="text-decoration-none" data-turbo-frame="_top">
+                    <div class="position-relative">
+                        {% if saint.imageLink %}
+                            <img src="{{ saint.imageLink }}"
+                                 alt="{{ saint|format_saint_name }}"
+                                 class="w-100"
+                                 style="height: 180px; object-fit: cover;">
+                        {% else %}
+                            <img src="{{ asset('/images/relic.png') }}"
+                                 alt="No image available"
+                                 class="w-100 opacity-25"
+                                 style="height: 180px; object-fit: contain; filter: grayscale(100%);">
+                        {% endif %}
+                        <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">
+                            <h5 class="mb-0">{{ saint|format_saint_name }}</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="p-3">
                     <div class="mb-2">
-                        <strong>ID:</strong>
-                        <span class="text-muted">{{ saint.id }}</span>
-                    </div>
-                    <div class="mb-2">
-                        <strong>{{ 'saint.table.feast_date'|trans({}, 'saint') }}:</strong>
+                        <strong>{{ 'saint.table.feast_date'|trans({}, 'saint') }}:</strong><br>
                         <span class="text-muted">{{ saint.feastDate ? saint.feastDate|date('M d') : 'N/A' }}</span>
                     </div>
+                    {% if saint.canonicalStatus %}
+                    <div class="mb-2">
+                        <strong>{{ 'saint.table.canonical_status'|trans({}, 'saint') }}:</strong><br>
+                        <span class="text-muted">{{ saint.canonicalStatus.getLabel() }}</span>
+                    </div>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
                     <div class="d-flex">
-                        <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="btn btn-primary me-2"
-                           data-turbo-frame="_top">
-                            <i class="fas fa-eye"></i>
-                            View
-                        </a>
                         <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-outline-secondary"
                            data-turbo-frame="_top">
                             <i class="fas fa-pencil"></i>
-                            Edit
+                            {{ 'saint.actions.edit'|trans({}, 'saint') }}
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
@@ -44,7 +56,7 @@
         </div>
     {% else %}
         <div class="alert alert-info">
-            No saints found. Click "Add New Saint" to create one.
+            {{ 'saint.no_saints'|trans({}, 'saint') }}
         </div>
     {% endif %}
 </turbo-frame>
