@@ -1,3 +1,12 @@
+# [1.44.0](https://github.com/CesarScur/reliquary/compare/v1.43.0...v1.44.0) (2025-07-31)
+
+
+### Features
+
+* **saint:** add support for multiple images and improved image handling ([708d0da](https://github.com/CesarScur/reliquary/commit/708d0da07cc6e3655236d2f6c65259e5f9792648))
+* **saint:** restrict edit and delete actions to admin users ([7ae98d7](https://github.com/CesarScur/reliquary/commit/7ae98d761934a390c6083e6ec2f924325fe08393))
+* **translations:** add multilingual support for saints and import command ([e6b5f2c](https://github.com/CesarScur/reliquary/commit/e6b5f2c96fa4339da11d6c102ee31479e08e841e))
+
 # [1.43.0](https://github.com/CesarScur/reliquary/compare/v1.42.0...v1.43.0) (2025-07-31)
 
 
