@@ -107,11 +107,13 @@
                             {{ 'saint.actions.back'|trans({}, 'saint') }}
                         </a>
                         <div>
-                            <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-outline-secondary me-2">
-                                <i class="fas fa-pencil"></i>
-                                {{ 'saint.actions.edit'|trans({}, 'saint') }}
-                            </a>
-                            {{ include('saint/_delete_form.html.twig', {'form_class': '', 'button_class': ''}) }}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-outline-secondary me-2">
+                                    <i class="fas fa-pencil"></i>
+                                    {{ 'saint.actions.edit'|trans({}, 'saint') }}
+                                </a>
+                                {{ include('saint/_delete_form.html.twig', {'form_class': '', 'button_class': ''}) }}
+                            {% endif %}
                         </div>
                     </div>
                 </div>

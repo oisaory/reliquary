@@ -100,7 +100,7 @@ final class SaintController extends AbstractController
     #[Route('/{id}/edit', name: 'app_saint_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Saint $saint, EntityManagerInterface $entityManager): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $form = $this->createForm(SaintType::class, $saint);
         $form->handleRequest($request);
@@ -121,7 +121,7 @@ final class SaintController extends AbstractController
     #[Route('/{id}', name: 'app_saint_delete', methods: ['POST'])]
     public function delete(Request $request, Saint $saint, EntityManagerInterface $entityManager): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         if ($this->isCsrfTokenValid('delete'.$saint->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($saint);
