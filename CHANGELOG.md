@@ -1,3 +1,18 @@
+# [1.42.0](https://github.com/CesarScur/reliquary/compare/v1.41.0...v1.42.0) (2025-07-31)
+
+
+### Bug Fixes
+
+* **search:** correct search option toggle behavior and filter visibility ([88ddf90](https://github.com/CesarScur/reliquary/commit/88ddf907404bcf2d39b800ae6078db3deeaa5f53))
+
+
+### Features
+
+* **search:** improve search bar with expanded functionality and new UI ([4bb8d1c](https://github.com/CesarScur/reliquary/commit/4bb8d1c69852744b2f0b9c3366811fb63126fb6e))
+* **search:** refactor search components and improve localization ([155fd3a](https://github.com/CesarScur/reliquary/commit/155fd3a019c1fa0cf494f41f1904b94a518a388e))
+* **translations:** add language preference support and improve locale switching ([c514e76](https://github.com/CesarScur/reliquary/commit/c514e76249c2127ac27844ef1c88124a79495d78))
+* **ui:** enhance saint list on mobile with clickable cards and improved layout ([5559311](https://github.com/CesarScur/reliquary/commit/5559311afa0f86e0a2ca950030277e31967c9912))
+
 # [1.41.0](https://github.com/CesarScur/reliquary/compare/v1.40.0...v1.41.0) (2025-07-30)
 
 
