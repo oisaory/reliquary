@@ -6,6 +6,7 @@ information: 'Informações do Perfil'
 username: 'Nome de Usuário'
 email: 'E-mail'
 verified: 'E-mail Verificado'
+language: 'Preferência de Idioma'
 image:
   label: 'Imagem de Perfil'
   help: 'Enviar uma imagem de perfil (JPEG, PNG ou WEBP, máx 2MB)'

@@ -49,6 +49,12 @@
                                     <span class="badge bg-danger">{{ 'common.no'|trans({}, 'common') }}</span>
                                 {% endif %}
                             </li>
+                            <li class="list-group-item">
+                                <strong>{{ 'language'|trans({}, 'profile') }}:</strong>
+                                <div class="mt-2">
+                                    {% include '_locale_switcher.html.twig' %}
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

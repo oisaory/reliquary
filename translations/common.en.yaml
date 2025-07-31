@@ -9,6 +9,7 @@ common:
     profile: 'My Profile'
     my_relics: 'My Relics'
     logout: 'Logout'
+    language: 'Language'
   admin:
     user_management: 'User Management'
     system_logs: 'System Logs'

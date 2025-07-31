@@ -1,9 +1,10 @@
-<div class="dropdown">
-    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ app.request.locale|upper }}
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="localeDropdown">
-        <li><a class="dropdown-item {% if app.request.locale == 'en' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'en'}) }}">{{ 'common.languages.english'|trans({}, 'common') }}</a></li>
-        <li><a class="dropdown-item {% if app.request.locale == 'pt_BR' %}active{% endif %}" href="{{ path('app_change_locale', {'locale': 'pt_BR'}) }}">{{ 'common.languages.portuguese_brazil'|trans({}, 'common') }}</a></li>
-    </ul>
+<div class="d-flex flex-column w-100">
+    <div class="btn-group w-100" role="group" aria-label="Language selection">
+        <a href="{{ path('app_change_locale', {'locale': 'en'}) }}" class="btn btn-sm {% if app.request.locale == 'en' %}btn-primary{% else %}btn-outline-secondary{% endif %} flex-grow-1">
+            {{ 'common.languages.english'|trans({}, 'common') }}
+        </a>
+        <a href="{{ path('app_change_locale', {'locale': 'pt_BR'}) }}" class="btn btn-sm {% if app.request.locale == 'pt_BR' %}btn-primary{% else %}btn-outline-secondary{% endif %} flex-grow-1">
+            {{ 'common.languages.portuguese_brazil'|trans({}, 'common') }}
+        </a>
+    </div>
 </div>

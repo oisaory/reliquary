@@ -11,6 +11,7 @@ common:
     profile: 'Meu Perfil'
     my_relics: 'Minhas Relíquias'
     logout: 'Sair'
+    language: 'Idioma'
   admin:
     user_management: 'Gerenciamento de Usuário'
     system_logs: 'Logs do Sistema'
