@@ -1,3 +1,10 @@
+# [1.43.0](https://github.com/CesarScur/reliquary/compare/v1.42.0...v1.43.0) (2025-07-31)
+
+
+### Features
+
+* **saint:** restrict saint creation to admin users ([fed0a29](https://github.com/CesarScur/reliquary/commit/fed0a29bdca6728d98b5fd1ffca8b5a7722e68ea))
+
 # [1.42.0](https://github.com/CesarScur/reliquary/compare/v1.41.0...v1.42.0) (2025-07-31)
 
 
