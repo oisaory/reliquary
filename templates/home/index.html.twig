@@ -30,13 +30,57 @@
                     {% endif %}
                 >
                 </div>
-                {% if searchQuery %}
+            </div>
+            
+            <!-- Search form for home page -->
+            <div class="card mt-4 shadow-sm">
                 <div class="card-body">
-                        <h2 class="mb-0"><i class="fas fa-search me-2"></i>
-                            {{ 'home.search_results'|trans({'%query%': searchQuery}, 'home') }}
-                        </h2>
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-search me-2"></i>
+                        {{ 'home.find_relics'|trans({}, 'home')|default('Find Relics') }}
+                    </h5>
+                    <div class="position-relative"
+                         data-controller="search-expansion"
+                         data-search-expansion-target="container">
+                        <form data-search-expansion-target="form" action="{{ path('app_home') }}" method="get" data-search-type="address">
+                            <div class="input-group input-group-lg">
+                                <input type="search" 
+                                       name="q"
+                                       class="form-control bg-light border-end-0" 
+                                       placeholder="{{ 'common.navigation.search_location'|trans({}, 'common')|default('Search for location...') }}" 
+                                       aria-label="Search"
+                                       data-search-expansion-target="input"
+                                       data-search-type="address"
+                                       data-action="click->search-expansion#toggle focus->search-expansion#closeOptions"
+                                       value="{{ searchQuery }}"
+                                       autocomplete="off">
+                                <button type="submit" class="input-group-text bg-primary text-white" data-action="click->search-expansion#handleIconClick">
+                                    <i class="fas fa-search" data-search-expansion-target="icon"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="d-none search-options position-absolute bg-white border rounded p-3 mt-1 w-100 shadow z-3"
+                             data-search-expansion-target="options">
+                            <h6 class="mb-3">Search by:</h6>
+                            <div class="d-flex flex-column gap-2">
+                                <button class="btn btn-dark btn-sm text-start highlighted"
+                                        data-action="search-expansion#selectOption"
+                                        data-option="saint"
+                                        data-search-expansion-target="optionButton">
+                                    <i class="fas fa-user me-2"></i>
+                                    Saint
+                                </button>
+                                <button class="btn btn-dark btn-sm text-start"
+                                        data-action="search-expansion#selectOption"
+                                        data-option="address"
+                                        data-search-expansion-target="optionButton">
+                                    <i class="fas fa-map-marker-alt me-2"></i>
+                                    Address
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>

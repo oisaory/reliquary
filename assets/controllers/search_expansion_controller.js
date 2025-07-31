@@ -99,20 +99,27 @@ export default class extends Controller {
     toggle(event) {
         event.stopPropagation();
         const isOpening = this.optionsTarget.classList.contains('d-none');
-        this.optionsTarget.classList.toggle('d-none');
-        this.containerTarget.classList.toggle('search-expanded');
-
-        if (this.hasIconTarget) {
-            this.iconTarget.classList.toggle('fa-search');
-            this.iconTarget.classList.toggle('fa-times');
-        }
 
         if (isOpening) {
-            this.inputTarget.focus();
-            this.clearHighlights();
-            this.highlightedIndex = 0;
-            this.highlightOption(this.highlightedIndex);
+            this.openOptions();
+        } else {
+            this.closeOptions();
         }
+    }
+
+    openOptions() {
+        this.optionsTarget.classList.remove('d-none');
+        this.containerTarget.classList.add('search-expanded');
+
+        if (this.hasIconTarget) {
+            this.iconTarget.classList.remove('fa-search');
+            this.iconTarget.classList.add('fa-times');
+        }
+
+        this.inputTarget.focus();
+        this.clearHighlights();
+        this.highlightedIndex = 0;
+        this.highlightOption(this.highlightedIndex);
     }
     
     handleClickOutside(event) {
