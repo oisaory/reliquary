@@ -3,6 +3,7 @@
 namespace App\Twig;
 
 use App\Entity\Saint;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -10,10 +11,12 @@ use Twig\TwigFilter;
 class SaintExtension extends AbstractExtension
 {
     private TranslatorInterface $translator;
+    private RequestStack $requestStack;
     
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->translator = $translator;
+        $this->requestStack = $requestStack;
     }
     
     public function getFilters(): array
@@ -25,18 +28,21 @@ class SaintExtension extends AbstractExtension
     
     /**
      * Formats a saint's name with the appropriate title prefix
+     * and uses translated name if available
      */
     public function formatSaintName(Saint $saint): string
     {
         $canonicalStatus = $saint->getCanonicalStatus();
+        $locale = $this->requestStack->getCurrentRequest()?->getLocale() ?? 'en';
+        $name = $saint->getTranslatedName($locale);
         
         if ($canonicalStatus === null) {
-            return $saint->getName() ?? '';
+            return $name ?? '';
         }
         
         $titleKey = $canonicalStatus->getTitleTransKey();
         $title = $this->translator->trans($titleKey, [], 'saint');
         
-        return sprintf('%s %s', $title, $saint->getName());
+        return sprintf('%s %s', $title, $name);
     }
 }

@@ -55,7 +55,8 @@ class SaintRepository extends ServiceEntityRepository
 
         if ($searchTerm !== null) {
             $queryBuilder
-                ->andWhere('LOWER(s.name) LIKE LOWER(:searchTerm)')
+                ->leftJoin('s.translations', 't')
+                ->andWhere('LOWER(s.name) LIKE LOWER(:searchTerm) OR LOWER(t.name) LIKE LOWER(:searchTerm) OR LOWER(t.saintPhrase) LIKE LOWER(:searchTerm)')
                 ->setParameter('searchTerm', '%' . $searchTerm . '%');
         }
 
@@ -82,11 +83,18 @@ class SaintRepository extends ServiceEntityRepository
      * @param bool $includeIncomplete Whether to include incomplete saints
      * @return Query The query object
      */
-    public function findByCreatorQuery($user, ?string $canonicalStatus = null, bool $includeIncomplete = false): Query
+    public function findByCreatorQuery($user, ?string $canonicalStatus = null, bool $includeIncomplete = false, string $searchTerm = null): Query
     {
         $queryBuilder = $this->createQueryBuilder('s')
             ->where('s.creator = :user')
             ->setParameter('user', $user);
+            
+        if ($searchTerm !== null) {
+            $queryBuilder
+                ->leftJoin('s.translations', 't')
+                ->andWhere('LOWER(s.name) LIKE LOWER(:searchTerm) OR LOWER(t.name) LIKE LOWER(:searchTerm) OR LOWER(t.saintPhrase) LIKE LOWER(:searchTerm)')
+                ->setParameter('searchTerm', '%' . $searchTerm . '%');
+        }
 
         if (!$includeIncomplete) {
             $queryBuilder

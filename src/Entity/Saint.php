@@ -58,9 +58,16 @@ class Saint
     #[ORM\OneToMany(targetEntity: Relic::class, mappedBy: 'saint')]
     private Collection $relics;
 
+    /**
+     * @var Collection<int, SaintTranslation>
+     */
+    #[ORM\OneToMany(mappedBy: 'saint', targetEntity: SaintTranslation::class, cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
     public function __construct()
     {
         $this->relics = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -247,6 +254,54 @@ class Saint
         $this->is_incomplete = $is_incomplete;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, SaintTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(SaintTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setSaint($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTranslation(SaintTranslation $translation): static
+    {
+        if ($this->translations->removeElement($translation)) {
+            // set the owning side to null (unless already changed)
+            if ($translation->getSaint() === $this) {
+                $translation->setSaint(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTranslation(string $locale): ?SaintTranslation
+    {
+        foreach ($this->translations as $translation) {
+            if ($translation->getLocale() === $locale) {
+                return $translation;
+            }
+        }
+        
+        return null;
+    }
+
+    public function getTranslatedName(string $locale): ?string
+    {
+        $translation = $this->getTranslation($locale);
+        
+        return $translation?->getName() ?? $this->name;
     }
 
     public function __toString(): string
