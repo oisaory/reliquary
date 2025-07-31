@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container py-4" data-controller="filter-toggle">
         {{ include('saint/_header.html.twig') }}
-        <div class="row mb-4 d-none" data-filter-toggle-target="filter">
+        <div class="row mb-4 {% if not app.request.query.get('filter') and not app.request.query.get('q') %}d-none{% endif %}" data-filter-toggle-target="filter">
             <div class="col-md-6">
                 <form method="get" class="d-flex">
                     <div class="input-group">

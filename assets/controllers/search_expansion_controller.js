@@ -131,16 +131,12 @@ export default class extends Controller {
     
     handleIconClick(event) {
         event.stopPropagation();
+        event.preventDefault();
 
         if (!this.optionsTarget.classList.contains('d-none')) {
             this.closeOptions();
-        } else if (this.inputTarget.dataset.searchType === 'address' && this.inputTarget.value.trim() !== '') {
-            // If address search is selected and there's text in the input, submit the form
-            if (this.hasFormTarget) {
-                this.formTarget.submit();
-            }
         } else {
-            this.toggle(event);
+            this.openOptions(event);
         }
     }
 
