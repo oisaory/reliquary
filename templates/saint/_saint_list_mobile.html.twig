@@ -5,8 +5,8 @@
             <div class="list-group-item p-0 mb-3 border rounded overflow-hidden">
                 <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="text-decoration-none" data-turbo-frame="_top">
                     <div class="position-relative">
-                        {% if saint.imageLink %}
-                            <img src="{{ saint.imageLink }}"
+                        {% if saint.images is defined and saint.images|length > 0 %}
+                            <img src="{{ asset('uploads/images/' ~ saint.images.first.filename) }}"
                                  alt="{{ saint|format_saint_name }}"
                                  class="w-100"
                                  style="height: 180px; object-fit: cover;">
@@ -24,7 +24,9 @@
                 <div class="p-3">
                     <div class="mb-2">
                         <strong>{{ 'saint.table.feast_date'|trans({}, 'saint') }}:</strong><br>
-                        <span class="text-muted">{{ saint.feastDate ? saint.feastDate|date('M d') : 'N/A' }}</span>
+                        <span class="text-muted fw-bold">{{ saint.feastDate 
+                            ? saint.feastDate|format_date('medium', pattern=('common.date_formats.feast_date'|trans({}, 'common')))
+                            : 'common.not_available'|trans({}, 'common') }}</span>
                     </div>
                     {% if saint.canonicalStatus %}
                     <div class="mb-2">

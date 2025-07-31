@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SaintRepository::class)]
-class Saint
+class Saint implements ImageOwnerInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -63,11 +63,18 @@ class Saint
      */
     #[ORM\OneToMany(mappedBy: 'saint', targetEntity: SaintTranslation::class, cascade: ['persist', 'remove'])]
     private Collection $translations;
+    
+    /**
+     * @var Collection<int, SaintImage>
+     */
+    #[ORM\OneToMany(mappedBy: 'saint', targetEntity: SaintImage::class, cascade: ['persist', 'remove'])]
+    private Collection $images;
 
     public function __construct()
     {
         $this->relics = new ArrayCollection();
         $this->translations = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -307,5 +314,36 @@ class Saint
     public function __toString(): string
     {
         return $this->name ?? '';
+    }
+    
+    /**
+     * @return Collection<int, SaintImage>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+    
+    public function addImage(AbstractImage $image): self
+    {
+        if (!$this->images->contains($image) && $image instanceof SaintImage) {
+            $this->images->add($image);
+            $image->setSaint($this);
+        }
+        
+        return $this;
+    }
+    
+    public function removeImage(AbstractImage $image): self
+    {
+        if ($this->images->removeElement($image) && $image instanceof SaintImage) {
+            // set the owning side to null (unless already changed)
+            if ($image->getSaint() === $this) {
+                // This would throw an error since setSaint requires a non-null Saint
+                // We can't set it to null, so we just remove the element
+            }
+        }
+        
+        return $this;
     }
 }

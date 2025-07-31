@@ -10,11 +10,5 @@
             {{ 'saint.filter.filter'|trans({}, 'saint') }}
         </button>
         {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_saint_new') }}" class="btn btn-primary">
-            <i class="fas fa-circle-plus me-2"></i>
-            {{ 'saint.add_new'|trans({}, 'saint') }}
-        </a>
-        {% endif %}
     </div>
 </div>

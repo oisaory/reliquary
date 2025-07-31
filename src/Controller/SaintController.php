@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Saint;
 use App\Form\SaintType;
 use App\Repository\SaintRepository;
+use App\Service\ImageService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,7 +64,7 @@ final class SaintController extends AbstractController
     }
 
     #[Route('/new', name: 'app_saint_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
@@ -72,6 +73,13 @@ final class SaintController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('imageFile')->getData();
+            
+            if ($imageFile) {
+                $image = $imageService->createSaintImage($imageFile, $saint, $this->getUser());
+                $saint->addImage($image);
+            }
+            
             $entityManager->persist($saint);
             $entityManager->flush();
 
@@ -98,7 +106,7 @@ final class SaintController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_saint_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Saint $saint, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Saint $saint, EntityManagerInterface $entityManager, ImageService $imageService): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
@@ -106,6 +114,13 @@ final class SaintController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('imageFile')->getData();
+            
+            if ($imageFile) {
+                $image = $imageService->createSaintImage($imageFile, $saint, $this->getUser());
+                $saint->addImage($image);
+            }
+            
             $entityManager->flush();
 
             $this->addFlash('success', 'Saint updated successfully');

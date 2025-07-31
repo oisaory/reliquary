@@ -4,8 +4,10 @@ namespace App\Service;
 
 use App\Entity\AbstractImage;
 use App\Entity\RelicImage;
+use App\Entity\SaintImage;
 use App\Entity\UserImage;
 use App\Entity\Relic;
+use App\Entity\Saint;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -56,6 +58,26 @@ class ImageService
             $image->setUploader($uploader);
         } else {
             $image->setUploader($user);
+        }
+
+        $filename = $this->processUploadedFile($file);
+
+        $image->setFilename($filename);
+
+        return $image;
+    }
+    
+    public function createSaintImage(UploadedFile $file, Saint $saint, User $uploader = null): SaintImage
+    {
+        $image = new SaintImage();
+        $image->setOriginalFilename($file->getClientOriginalName());
+        $image->setMimeType($file->getMimeType());
+        $image->setSize($file->getSize());
+        $image->setSaint($saint);
+
+        // Set the uploader if provided
+        if ($uploader) {
+            $image->setUploader($uploader);
         }
 
         $filename = $this->processUploadedFile($file);

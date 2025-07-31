@@ -8,8 +8,10 @@ use Doctrine\DBAL\Types\StringType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class SaintType extends AbstractType
@@ -128,6 +130,28 @@ class SaintType extends AbstractType
                     'placeholder' => 'Enter the URL for the saint\'s image',
                 ],
                 'help' => 'Web address for an image of the saint',
+                'help_attr' => ['class' => 'form-text text-muted'],
+                'label_attr' => ['class' => 'form-label'],
+            ])
+            ->add('imageFile', FileType::class, [
+                'label' => 'Saint Image',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image (JPEG, PNG, WEBP)',
+                    ])
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'help' => 'Upload an image of the saint (max size: 2MB)',
                 'help_attr' => ['class' => 'form-text text-muted'],
                 'label_attr' => ['class' => 'form-label'],
             ])
