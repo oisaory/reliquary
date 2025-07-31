@@ -3,6 +3,7 @@ saint:
   my_saints: 'My Saints'
   description: 'Manage saints and their information'
   add_new: 'Add New Saint'
+  find_saints: 'Find Saints'
   no_saints: 'No saints found. Click "Add New Saint" to create one.'
   edit_title: 'Edit Saint'
   new_title: 'New Saint'

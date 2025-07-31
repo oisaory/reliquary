@@ -5,6 +5,8 @@ common:
     saints: 'Saints'
     about: 'About'
     search: 'Search...'
+    search_saint: 'Search by saint...'
+    search_location: 'Search for location...'
   user:
     profile: 'My Profile'
     my_relics: 'My Relics'

@@ -7,6 +7,8 @@ common:
     saints: 'Santos'
     about: 'Sobre'
     search: 'Busca...'
+    search_saint: 'Buscar por santo...'
+    search_location: 'Buscar por localização...'
   user:
     profile: 'Meu Perfil'
     my_relics: 'Minhas Relíquias'

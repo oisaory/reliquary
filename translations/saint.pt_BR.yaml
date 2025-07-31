@@ -5,6 +5,7 @@ saint:
   my_saints: 'Meus Santos'
   description: 'Gerenciar os santos e suas informações'
   add_new: 'Adicionar Novo Santo'
+  find_saints: 'Encontrar Santos'
   no_saints: 'Nenhum santo foi encontrado. Clique "Adicionar Novo Santo" para criar um.'
   edit_title: 'Editar Santo'
   new_title: 'Novo Santo'

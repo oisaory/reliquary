@@ -3,47 +3,60 @@
 {% block title %}{{ title ?? 'Saint index' }}{% endblock %}
 
 {% block body %}
-<div class="container py-4" data-controller="filter-toggle">
-    {{ include('saint/_header.html.twig') }}
-
-    <div class="row mb-4 d-none" data-filter-toggle-target="filter">
-        <div class="col-md-6">
-            <form method="get" class="d-flex">
-                <div class="input-group">
-                    <label class="input-group-text" for="filter">{{ 'saint.filter.status'|trans({}, 'saint') }}</label>
-                    <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
-                        <option value="">{{ 'saint.filter.allsaints'|trans({}, 'saint') }}</option>
-                        {% for status in canonical_statuses %}
-                            <option value="{{ status.value }}" {% if filter == status.value %}selected{% endif %}>
-                                {{  status.getTitleTransKey()|trans({}, 'saint') }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                {% if filter %}
-                    <a href="{{ app.request.get('_route') == 'app_my_saints' ? path('app_my_saints') : path('app_saint_index') }}" class="btn btn-outline-secondary ms-2">
-                        <i class="fas fa-circle-xmark"></i>
-                        {{ 'saint.filter.clear'|trans({}, 'saint') }}
-                    </a>
-                {% endif %}
-            </form>
-        </div>
-    </div>
-
-    <!-- Single responsive turbo frame -->
-    <div class="row">
-        <div class="col-12">
-            <turbo-frame id="saints-list" 
-                        data-controller="responsive-frame"
-                         data-responsive-frame-desktop-src-value="{{ path('app_saint_desktop', {'q': app.request.query.get('q'), 'filter': app.request.query.get('filter')}) }}"
-                        data-responsive-frame-mobile-src-value="{{ path('app_saint_mobile', {'q': app.request.query.get('q'), 'filter': app.request.query.get('filter')}) }}">
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status"> 
-                        <span class="visually-hidden">Loading...</span>
+    <div class="container py-4" data-controller="filter-toggle">
+        {{ include('saint/_header.html.twig') }}
+        <div class="row mb-4 d-none" data-filter-toggle-target="filter">
+            <div class="col-md-6">
+                <form method="get" class="d-flex">
+                    <div class="input-group">
+                        <label class="input-group-text"
+                               for="filter">{{ 'saint.filter.status'|trans({}, 'saint') }}</label>
+                        <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
+                            <option value="">{{ 'saint.filter.allsaints'|trans({}, 'saint') }}</option>
+                            {% for status in canonical_statuses %}
+                                <option value="{{ status.value }}" {% if filter == status.value %}selected{% endif %}>
+                                    {{ status.getTitleTransKey()|trans({}, 'saint') }}
+                                </option>
+                            {% endfor %}
+                        </select>
                     </div>
-                </div>
-            </turbo-frame>
+
+                    {% if filter %}
+                        <a href="{{ app.request.get('_route') == 'app_my_saints' ? path('app_my_saints') : path('app_saint_index') }}"
+                           class="btn btn-outline-secondary ms-2">
+                            <i class="fas fa-circle-xmark"></i>
+                            {{ 'saint.filter.clear'|trans({}, 'saint') }}
+                        </a>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="col-md-6">
+                {{ include('_search_card.html.twig', {
+                    'title': 'saint.find_saints',
+                    'domain': 'saint',
+                    'route': 'app_saint_index',
+                    'default_type': 'saint',
+                    'placeholder': 'common.navigation.search_saint',
+                    'query_value': app.request.query.get('q')
+                }) }}
+
+            </div>
+        </div>
+
+        <!-- Single responsive turbo frame -->
+        <div class="row">
+            <div class="col-12">
+                <turbo-frame id="saints-list"
+                             data-controller="responsive-frame"
+                             data-responsive-frame-desktop-src-value="{{ path('app_saint_desktop', {'q': app.request.query.get('q'), 'filter': app.request.query.get('filter')}) }}"
+                             data-responsive-frame-mobile-src-value="{{ path('app_saint_mobile', {'q': app.request.query.get('q'), 'filter': app.request.query.get('filter')}) }}">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </turbo-frame>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
