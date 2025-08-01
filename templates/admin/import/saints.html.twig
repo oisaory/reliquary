@@ -4,68 +4,6 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<style>
-    .terminal-window {
-        background-color: #2b2b2b;
-        border-radius: 6px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-        overflow: hidden;
-    }
-    
-    .terminal-header {
-        background-color: #3c3c3c;
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        border-bottom: 1px solid #1a1a1a;
-    }
-    
-    .terminal-buttons {
-        display: flex;
-        margin-right: 15px;
-    }
-    
-    .terminal-button {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        margin-right: 8px;
-    }
-    
-    .terminal-button-red {
-        background-color: #ff5f56;
-    }
-    
-    .terminal-button-yellow {
-        background-color: #ffbd2e;
-    }
-    
-    .terminal-button-green {
-        background-color: #27c93f;
-    }
-    
-    .terminal-title {
-        color: #ddd;
-        font-size: 14px;
-        font-family: 'Menlo', 'Monaco', monospace;
-    }
-    
-    .terminal-content {
-        padding: 15px;
-        color: #f8f8f8;
-        font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-        font-size: 14px;
-        line-height: 1.5;
-        max-height: 500px;
-        overflow-y: auto;
-    }
-    
-    .terminal-content pre {
-        margin: 0;
-        white-space: pre-wrap;
-        color: #f8f8f8;
-    }
-</style>
 {% endblock %}
 
 {% block body %}
@@ -150,31 +88,16 @@
             </div>
             
             {% if output is not null and output|length > 0 %}
-{#                <div class="card mt-4">#}
-                    <div class="card-header d-flex justify-content-between align-items-center">
-{#                        <h5 class="mb-0">Console Output</h5>#}
-{#                        {% if success is not null %}#}
-{#                        <span class="badge bg-{{ success ? 'success' : 'danger' }}">#}
-{#                            {{ success ? 'Success' : 'Error' }}#}
-{#                        </span>#}
-{#                        {% endif %}#}
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="terminal-window">
-                            <div class="terminal-header">
-                                <div class="terminal-buttons">
-                                    <span class="terminal-button terminal-button-red"></span>
-                                    <span class="terminal-button terminal-button-yellow"></span>
-                                    <span class="terminal-button terminal-button-green"></span>
-                                </div>
-                                <div class="terminal-title">Console Output</div>
-                            </div>
-                            <div class="terminal-content">
-                                <pre>{{ output|raw }}</pre>
-                            </div>
-                        </div>
-                    </div>
-{#                </div>#}
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    {# Header content can be added here if needed #}
+                </div>
+                <div class="card-body p-0">
+                    {% include 'components/_console.html.twig' with {
+                        'title': 'Console Output',
+                        'content': output,
+                        'max_height': 500
+                    } %}
+                </div>
             {% endif %}
         </div>
     </div>
