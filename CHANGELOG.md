@@ -1,3 +1,10 @@
+# [1.45.0](https://github.com/CesarScur/reliquary/compare/v1.44.0...v1.45.0) (2025-08-01)
+
+
+### Features
+
+* **import:** add saint translations import functionality ([aa0542e](https://github.com/CesarScur/reliquary/commit/aa0542e28c8c5a2bdc1308893ecf57ba8189b8aa))
+
 # [1.44.0](https://github.com/CesarScur/reliquary/compare/v1.43.0...v1.44.0) (2025-07-31)
 
 
