@@ -1,122 +1,122 @@
 saints:
   -
-    name: 'Andrea Corsini'
-    saint_phrase: '"Pur essendo nella condizione di Dio, non ritenne un privilegio l’essere come Dio, ma svuotò se stesso assumendo una condizione di servo” (Fil 2,6-7)'
+    name: 'André Corsini'
+    saint_phrase: '"Embora sendo Deus, não considerou o ser igual a Deus como algo a que se apegar ciosamente, mas esvaziou-se a si mesmo, assumindo a forma de servo" (Fl 2,6-7)'
     id: 1
   -
-    name: 'Elisabetta (Isabella) di Portogallo'
-    saint_phrase: '"Sostenne con eroica abnegazione prove e difficoltà, e agì come angelo di pace per appianare gravi dissidi sorti nell''ambito della famiglia e del regno" (Paolo VI)'
+    name: 'Isabel de Portugal'
+    saint_phrase: '"Suportou com heróica abnegação provas e dificuldades, e agiu como anjo da paz para resolver graves conflitos surgidos no âmbito da família e do reino" (Paulo VI)'
     id: 2
   -
-    name: 'Lorenzo Giustiniani'
-    saint_phrase: '"Quante volte leggiamo le Scritture, noi ascoltiamo Cristo che ci parla, e ci conferisce la pazienza e la consolazione"'
+    name: 'Lourenço Justiniano'
+    saint_phrase: '"Quantas vezes lemos as Escrituras, ouvimos Cristo que nos fala, e nos confere a paciência e a consolação"'
     id: 3
   -
-    name: 'Giovanni da San Facondo'
-    saint_phrase: 'Amico della povertà'
+    name: 'João de Sahagún'
+    saint_phrase: 'Amigo da pobreza'
     id: 4
   -
-    name: 'Stanislao Kostka'
-    saint_phrase: '“Il missionario deve avere ottime scarpe di mortificazione, un ampio mantello di amor di Dio e del prossimo, un cappello di pazienza a difesa delle avversità”'
+    name: 'Estanislau Kostka'
+    saint_phrase: '"O missionário deve ter ótimos sapatos de mortificação, um amplo manto de amor a Deus e ao próximo, um chapéu de paciência para se defender das adversidades"'
     id: 5
   -
-    name: 'Luigi Gonzaga'
-    saint_phrase: '“Cerco la salvezza, cercatela anche voi!”'
+    name: 'Luís Gonzaga'
+    saint_phrase: '"Busco a salvação, busquem-na também!"'
     id: 6
   -
-    name: 'Salvatore da Horta'
-    saint_phrase: 'Umile santo, perseguitato perché troppo miracoloso'
+    name: 'Salvador de Horta'
+    saint_phrase: 'Santo humilde, perseguido por ser muito milagroso'
     id: 7
   -
-    name: 'Luigi (Ludovico) Bertran'
-    saint_phrase: '“Signore, qui bruciate, qui tagliate, qui non perdonate, purché mi perdoniate in eterno!”'
+    name: 'Luís (Ludovico) Bertrán'
+    saint_phrase: '"Senhor, aqui queime, aqui corte, aqui não perdoe, contanto que me perdoe na eternidade!"'
     id: 8
   -
-    name: 'Pellegrino Laziosi'
-    saint_phrase: 'Compatrono della città di Forlì, invocato come protettore contro le malattie cancerogene'
+    name: 'Peregrino Laziosi'
+    saint_phrase: 'Copadroeiro da cidade de Forlì, invocado como protetor contra as doenças cancerígenas'
     id: 9
   -
-    name: 'Ignazio di Loyola'
-    saint_phrase: '"Molta sapienza unita a una moderata santità è preferibile a molta santità con poca sapienza"'
+    name: 'Inácio de Loyola'
+    saint_phrase: '"Muita sabedoria unida a uma moderada santidade é preferível a muita santidade com pouca sabedoria"'
     id: 10
   -
-    name: 'Teresa d’Avila'
-    saint_phrase: '"Muoio figlia della Chiesa"'
+    name: 'Teresa de Ávila'
+    saint_phrase: '"Morro filha da Igreja"'
     id: 11
   -
-    name: 'Filippo Neri'
-    saint_phrase: '“Figliuoli, siate umili, state bassi: siate umili, state bassi”'
+    name: 'Felipe Néri'
+    saint_phrase: '"Filhinhos, sejam humildes, permaneçam pequenos: sejam humildes, permaneçam pequenos"'
     id: 12
   -
-    name: 'Pasquale Baylón'
-    saint_phrase: '“Bisogna avere per Dio un cuore di figlio; per il prossimo un cuore di madre; per se stesso un cuore di giudice”.'
+    name: 'Pascoal Bailão'
+    saint_phrase: '"É preciso ter para com Deus um coração de filho; para com o próximo um coração de mãe; para consigo mesmo um coração de juiz"'
     id: 13
   -
-    name: 'Tommaso da Villanova'
+    name: 'Tomás de Vilanova'
     id: 14
   -
-    name: "Isidoro l'agricoltore"
-    saint_phrase: 'Il Santo contadino'
+    name: 'Isidoro Lavrador'
+    saint_phrase: 'O Santo agricultor'
     id: 15
   -
-    name: 'Francesco Saverio'
-    saint_phrase: '“Signore, io ti amo non perché puoi darmi il Paradiso o condannarmi all’Inferno, ma perché sei il mio Dio. Ti amo perché Tu sei Tu”'
+    name: 'Francisco Xavier'
+    saint_phrase: '"Senhor, eu te amo não porque podes me dar o Paraíso ou me condenar ao Inferno, mas porque és meu Deus. Te amo porque Tu és Tu"'
     id: 16
   -
-    name: "Pietro d'Alcántara"
-    saint_phrase: '"Nel Vangelo c''è scritto di avere soltanto una tunica. Ho lavato la mia pochi momenti fa. Appena sarà un po'' asciugata, me la rimetterò addosso"'
+    name: 'Pedro de Alcântara'
+    saint_phrase: '"No Evangelho está escrito para ter somente uma túnica. Lavei a minha há poucos momentos. Assim que estiver um pouco seca, a vestirei novamente"'
     id: 17
   -
     name: 'Alberto Magno'
-    saint_phrase: 'Maestro di Tommaso d’Aquino'
+    saint_phrase: 'Mestre de Tomás de Aquino'
     id: 18
   -
-    name: 'Giacomo della Marca'
-    saint_phrase: 'Le sue ultime parole furono: "Gesù, Maria. Benedetta la Passione di Gesù"'
+    name: 'Tiago de Marca'
+    saint_phrase: 'Suas últimas palavras foram: "Jesus, Maria. Bendita seja a Paixão de Jesus"'
     id: 19
   -
-    name: 'Andrea Avellino'
-    saint_phrase: "Desideroso di giungere al più alto grado di perfezione, aggiunse ai tre voti religiosi altri due voti particolari: di progredire tutti i giorni un po' nella via della perfezione cristiana e di rinnegare sempre in tutto la propria volontà: voti che osservò con eroismo fino alla morte"
+    name: 'André Avelino'
+    saint_phrase: 'Desejoso de alcançar o mais alto grau de perfeição, acrescentou aos três votos religiosos outros dois votos particulares: progredir todos os dias um pouco no caminho da perfeição cristã e renegar sempre em tudo a própria vontade: votos que observou com heroísmo até a morte'
     id: 20
   -
-    name: 'Francesco Borgia'
-    saint_phrase: 'Ex cavaliere di corte, dinanzi al corpo ormai disfatto della imperatrice Isabella, prese coscienza della caducità e della vanità delle cose terrene e scelse il Signore e divenne santo'
+    name: 'Francisco de Borja'
+    saint_phrase: 'Ex-cavaleiro da corte, diante do corpo já desfeito da imperatriz Isabel, tomou consciência da caducidade e da vaidade das coisas terrenas e escolheu o Senhor, tornando-se santo'
     id: 21
   -
-    name: 'Felice da Cantalice'
-    saint_phrase: "\"Se tu non sai la via d'andare in paradiso, vattene a Maria con pietoso viso, ch'è clemente e pia: t'insegnerà la via d'andare in Paradiso\""
+    name: 'Félix de Cantalice'
+    saint_phrase: '"Se não sabes o caminho para ir ao paraíso, vai a Maria com rosto piedoso, pois ela é clemente e piedosa: ela te ensinará o caminho para ir ao Paraíso"'
     id: 22
   -
-    name: "Maria Maddalena de' Pazzi"
-    saint_phrase: '“Per essere sposa e non serva”'
+    name: "Maria Madalena de' Pazzi"
+    saint_phrase: '“Para ser esposa e não serva”'
     id: 23
   -
-    name: 'Rita da Cascia'
-    saint_phrase: 'Santa degli impossibili, Avvocata dei casi disperati'
+    name: 'Rita de Cássia'
+    saint_phrase: 'Santa das causas impossíveis, Advogada dos casos desesperados'
     id: 24
   -
-    name: 'Paolo Miki, Pietro Battista Blasquez e Compagni'
-    saint_phrase: 'Martiri di Nagasaki'
+    name: 'Paulo Miki, Pedro Batista Blasquez e Companheiros'
+    saint_phrase: 'Mártires de Nagasaki'
     id: 25
   -
     name: 'Gaetano Thiene'
-    saint_phrase: '"Non con il fervore dell’affetto, ma con il fervore dell’effetto si purificano le anime”'
+    saint_phrase: '"Não com o fervor do afeto, mas com o fervor do efeito as almas se purificam"'
     id: 26
   -
-    name: 'Giovanni di Dio'
-    saint_phrase: '"Fate (del) bene, fratelli, a voi stessi"'
+    name: 'João de Deus'
+    saint_phrase: '"Fazei (o) bem, irmãos, a vós mesmos"'
     id: 27
   -
-    name: 'Giosafat Kuncewycz'
-    saint_phrase: 'Da eremita ad Apostolo dell’unità'
+    name: 'Josafá Kuncewycz'
+    saint_phrase: 'De eremita a Apóstolo da unidade'
     id: 28
   -
-    name: 'Filippo Benizi'
-    saint_phrase: '"Amatevi a vicenda, rispettatevi a vicenda, sopportatevi a vicenda"'
+    name: 'Filipe Benizi'
+    saint_phrase: '"Amai-vos uns aos outros, respeitai-vos uns aos outros, suportai-vos uns aos outros"'
     id: 29
   -
-    name: 'Giovanni da Capestrano'
-    saint_phrase: 'L’“Apostolo dell’Europa unita”'
+    name: 'João de Capestrano'
+    saint_phrase: 'O “Apóstolo da Europa unida”'
     id: 30
   -
     name: 'Margherita da Cortona'

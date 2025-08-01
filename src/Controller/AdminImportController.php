@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Command\ImportSaintsCommand;
+use App\Command\ImportSaintTranslationsCommand;
 use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
 use SensioLabs\AnsiConverter\Theme\SolarizedXTermTheme;
 use SensioLabs\AnsiConverter\Theme\Theme;
@@ -23,10 +24,14 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class AdminImportController extends AbstractController
 {
     private ImportSaintsCommand $importSaintsCommand;
+    private ImportSaintTranslationsCommand $importSaintTranslationsCommand;
 
-    public function __construct(ImportSaintsCommand $importSaintsCommand)
-    {
+    public function __construct(
+        ImportSaintsCommand $importSaintsCommand,
+        ImportSaintTranslationsCommand $importSaintTranslationsCommand
+    ) {
         $this->importSaintsCommand = $importSaintsCommand;
+        $this->importSaintTranslationsCommand = $importSaintTranslationsCommand;
     }
 
     /**
@@ -90,6 +95,80 @@ class AdminImportController extends AbstractController
         }
 
         return $this->render('admin/import/saints.html.twig', [
+            'output' => $output,
+            'success' => $success,
+            'options' => $options,
+        ]);
+    }
+    
+    /**
+     * Shows the import saint translations form and handles the import process
+     */
+    #[Route('/translations', name: 'app_admin_import_translations')]
+    public function importTranslations(Request $request): Response
+    {
+        $output = null;
+        $success = null;
+        $options = [
+            'locale' => 'pt_BR',
+            'file' => null,
+        ];
+
+        if ($request->isMethod('POST')) {
+            // Get options from the form
+            $options['locale'] = $request->request->get('locale', 'pt_BR');
+            $options['file'] = $request->request->get('file');
+            
+            // If no custom file is provided, use the default with absolute path
+            $filePath = $options['file'];
+            if (!$filePath) {
+                $filePath = $this->getParameter('kernel.project_dir') . '/data/saints_info_' . $options['locale'] . '.yaml';
+            } elseif (!str_starts_with($filePath, '/')) {
+                // If a relative path is provided, make it absolute
+                $filePath = $this->getParameter('kernel.project_dir') . '/' . $filePath;
+            }
+            
+            // Debug log the resolved file path
+            error_log("Resolved file path: " . $filePath);
+            error_log("File exists: " . (file_exists($filePath) ? 'Yes' : 'No'));
+
+            // Set up the command input
+            $input = new ArrayInput([
+                'locale' => $options['locale'],
+                'file' => $filePath,
+            ]);
+
+            // Capture the command output with maximum verbosity
+            $outputBuffer = new BufferedOutput(OutputInterface::VERBOSITY_DEBUG, true);
+
+            // Run the command
+            $returnCode = $this->importSaintTranslationsCommand->run($input, $outputBuffer);
+            $success = ($returnCode === 0);
+
+            // Get the output content
+            $output = $outputBuffer->fetch();
+            $converter = new AnsiToHtmlConverter(new class extends Theme {
+                public function asArray(): array { return [...parent::asArray(), 'black' => '#2b2b2b']; }
+            });
+            $output = $converter->convert($output);
+
+            // Debug output to console
+            error_log("Command output: " . $output);
+            
+            // Debug: Add output to flash message to ensure it's being captured
+            if (empty($output)) {
+                $this->addFlash('warning', 'No output was captured from the command.');
+            }
+
+            // Add a flash message
+            if ($success) {
+                $this->addFlash('success', 'Saint translations imported successfully!');
+            } else {
+                $this->addFlash('danger', 'Error importing saint translations. Check the output for details.');
+            }
+        }
+
+        return $this->render('admin/import/translations.html.twig', [
             'output' => $output,
             'success' => $success,
             'options' => $options,
