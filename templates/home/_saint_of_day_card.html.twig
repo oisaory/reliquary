@@ -39,7 +39,7 @@
                 {% if saintOfDay.saintPhrase %}
                 <div class="mt-3">
                     <p class="fst-italic text-muted">
-                        "{{ saintOfDay.saintPhrase }}"
+                        "{{ saintOfDay.getTranslatedPhrase(app.request.locale) }}"
                     </p>
                 </div>
                 {% endif %}

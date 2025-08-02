@@ -73,7 +73,7 @@
                             <div class="mb-3">
                                 <strong>{{ 'saint.table.saint_phrase'|trans({}, 'saint') }}:</strong><br>
                                 <span class="text-muted fst-italic">
-                                    "{{ saint.saintPhrase }}"
+                                    "{{ saint.getTranslatedPhrase(app.request.locale) }}"
                                 </span>
                             </div>
                             {% endif %}

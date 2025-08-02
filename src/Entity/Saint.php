@@ -310,6 +310,13 @@ class Saint implements ImageOwnerInterface
         
         return $translation?->getName() ?? $this->name;
     }
+    
+    public function getTranslatedPhrase(string $locale): ?string
+    {
+        $translation = $this->getTranslation($locale);
+        
+        return $translation?->getSaintPhrase() ?? $this->saint_phrase;
+    }
 
     public function __toString(): string
     {
