@@ -1,3 +1,10 @@
+# [1.46.0](https://github.com/CesarScur/reliquary/compare/v1.45.0...v1.46.0) (2025-08-02)
+
+
+### Features
+
+* **translations:** update Portuguese translations for saints ([395ec03](https://github.com/CesarScur/reliquary/commit/395ec03c306b4dcea2ccce293354a8b9b0ef2394))
+
 # [1.45.0](https://github.com/CesarScur/reliquary/compare/v1.44.0...v1.45.0) (2025-08-01)
 
 
