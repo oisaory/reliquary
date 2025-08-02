@@ -7,6 +7,7 @@ home:
   no_relics_found: 'No relics found within %radius%km of your location.'
   saint_of_day: 'Saint of the Day'
   view_saint_details: 'View Details'
+  also_celebrated_today: 'Also celebrated today'
   features:
     title: 'Features'
     relic_management: 'Relic Management'

@@ -41,6 +41,7 @@ final class HomeController extends AbstractController
         $today = new \DateTime();
         $saintsOfDay = $saintRepository->findByFeastDate($today);
         $saintOfDay = !empty($saintsOfDay) ? $saintsOfDay[0] : null;
+        $otherSaints = !empty($saintsOfDay) && count($saintsOfDay) > 1 ? array_slice($saintsOfDay, 1) : [];
 
         return $this->render('home/index.html.twig', [
             'relics' => $result['relics'],
@@ -49,6 +50,7 @@ final class HomeController extends AbstractController
             'searchQuery' => $searchQuery,
             'userLocation' => $locationData['location'],
             'saintOfDay' => $saintOfDay,
+            'otherSaints' => $otherSaints,
         ]);
     }
 

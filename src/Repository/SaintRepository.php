@@ -30,37 +30,16 @@ class SaintRepository extends ServiceEntityRepository
     public function findByFeastDate(\DateTimeInterface $date): array
     {
         // Create a fixed date with year 2025 for comparison
-        $fixedDate = new \DateTime('2025-' . $date->format('m-d'));
+        $today = new \DateTime('2025-' . $date->format('m-d'));
+
+        $queryBuilder = $this->createQueryBuilder('s')
+            ->where('s.feast_date = :today')
+            ->setParameter('today', $today)
+            ->addOrderBy('s.canonical_status', 'DESC')
+        ;
+
         
-        // Use native SQL with PostgreSQL functions
-        $conn = $this->getEntityManager()->getConnection();
-        $sql = '
-            SELECT s.* 
-            FROM saint s 
-            WHERE 
-                (CASE 
-                    WHEN s.feast_date IS NOT NULL 
-                    THEN MAKE_DATE(2025, EXTRACT(MONTH FROM s.feast_date)::INTEGER, EXTRACT(DAY FROM s.feast_date)::INTEGER)
-                    ELSE NULL
-                END) = :fixedDate
-            ORDER BY s.name ASC
-        ';
-        
-        $stmt = $conn->prepare($sql);
-        $resultSet = $stmt->executeQuery(['fixedDate' => $fixedDate->format('Y-m-d')]);
-        
-        // Convert the raw database results to Saint entities
-        $saintsData = $resultSet->fetchAllAssociative();
-        $saints = [];
-        
-        foreach ($saintsData as $saintData) {
-            $saint = $this->getEntityManager()->getRepository(Saint::class)->find($saintData['id']);
-            if ($saint) {
-                $saints[] = $saint;
-            }
-        }
-        
-        return $saints;
+        return $queryBuilder->getQuery()->getResult();
     }
 
     //    /**

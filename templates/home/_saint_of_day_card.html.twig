@@ -49,6 +49,19 @@
                         {{ 'home.view_saint_details'|trans({}, 'home')|default('View Details') }}
                     </a>
                 </div>
+                
+                {% if otherSaints is defined and otherSaints|length > 0 %}
+                <div class="mt-2">
+                    <small class="text-muted">
+                        {{ 'home.also_celebrated_today'|trans({}, 'home')|default('Also celebrated today') }}:
+                        {% for saint in otherSaints %}
+                            <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="text-decoration-none">
+                                {{ saint|format_saint_name }}{% if not loop.last %}, {% endif %}
+                            </a>
+                        {% endfor %}
+                    </small>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
