@@ -112,6 +112,27 @@ body {
     font-size: 0.875rem;
 }
 
+/* FAB Styles */
+[data-controller="fab"] .fab {
+    width: 56px;
+    height: 56px;
+    display: none;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+[data-controller="fab"] .fab:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    transform: translateY(-2px);
+}
+
+[data-controller="fab"] .fab:active {
+    transform: translateY(0);
+}
+
 /* Mobile navigation styles */
 @media (max-width: 991.98px) {
     .navbar-collapse {
