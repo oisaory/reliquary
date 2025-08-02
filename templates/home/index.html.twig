@@ -10,6 +10,19 @@
             {{ include('home/_saint_of_day_card.html.twig') }}
         </div>
     </div>
+    
+    <!-- Material Design FAB to reopen the saint card -->
+    <div class="position-relative mb-2">
+        <button id="reopen-saint-card" class="btn btn-primary rounded-circle shadow" 
+                style="width: 56px; height: 56px; display: none; float: right;
+                       transition: box-shadow 0.3s ease, transform 0.3s ease;" 
+                data-bs-toggle="tooltip" data-bs-placement="left" 
+                title="{{ 'home.saint_of_day'|trans({}, 'home')|default('Saint of the Day') }}">
+            <i class="fas fa-calendar-day"></i>
+        </button>
+        <div style="clear: both;"></div>
+    </div>
+    
     <div class="row">
         <div class="col-md-12 mb-4">
             <div class="card">
@@ -88,4 +101,58 @@
 
 {% block javascripts %}
 {{ parent() }}
+
+<style>
+    #reopen-saint-card {
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    }
+    #reopen-saint-card:hover {
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        transform: translateY(-2px);
+    }
+    #reopen-saint-card:active {
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const card = document.getElementById('saint-of-day-card');
+        const closeBtn = document.getElementById('close-saint-card');
+        const reopenBtn = document.getElementById('reopen-saint-card');
+        
+        if (!card || !closeBtn || !reopenBtn) return;
+        
+        // Initialize Bootstrap tooltip safely
+        if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+            new bootstrap.Tooltip(reopenBtn);
+        }
+        
+        // Function to show the FAB with proper styling
+        function showFAB() {
+            reopenBtn.style.display = 'flex';
+            reopenBtn.style.justifyContent = 'center';
+            reopenBtn.style.alignItems = 'center';
+        }
+        
+        // Check if card was previously closed
+        const isClosed = localStorage.getItem('saintCardClosed') === 'true';
+        if (isClosed && card) {
+            card.style.display = 'none';
+            showFAB();
+        }
+        
+        closeBtn.addEventListener('click', function() {
+            card.style.display = 'none';
+            showFAB();
+            localStorage.setItem('saintCardClosed', 'true');
+        });
+        
+        reopenBtn.addEventListener('click', function() {
+            card.style.display = 'block';
+            reopenBtn.style.display = 'none';
+            localStorage.setItem('saintCardClosed', 'false');
+        });
+    });
+</script>
 {% endblock %}
