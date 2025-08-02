@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Import Saint Translations - Admin{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Import Saint Translations</h1>
+
+                <div class="alert alert-info mb-4">
+                    {% if output is null %}
+                    <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Translation Import Tool</h4>
+                    <p class="mb-0">This tool allows you to import translations for saints from YAML files. The import process will:</p>
+                    <ul class="mb-0 mt-2">
+                        <li>Create new translations for saints that don't have them in the specified locale</li>
+                        <li>Update existing translations with new data</li>
+                        <li>Skip translations for saints that don't exist in the database</li>
+                    </ul>
+                    <hr>
+                    <p class="mb-0"><strong>Make sure your translation files follow the correct format.</strong> See the example files in the data directory.</p>
+                    {% else %}
+                        <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Import Process Completed</h4>
+                    {% endif %}
+                </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Import Options</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" data-turbo="false">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="locale" class="form-label">Locale</label>
+                                    <input type="text" id="locale" name="locale" class="form-control" 
+                                           value="{{ options.locale }}" required
+                                           placeholder="e.g., pt_BR, en_US, fr_FR">
+                                    <div class="form-text">The locale code for the translations (e.g., pt_BR)</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="file" class="form-label">File Path (Optional)</label>
+                                    <input type="text" id="file" name="file" class="form-control" 
+                                           value="{{ options.file }}"
+                                           placeholder="Leave empty to use default path">
+                                    <div class="form-text">Custom path to the YAML file (default: data/saints_info_{locale}.yaml)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ path('app_admin_import_saints') }}" class="btn btn-outline-secondary">Back to Saints Import</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-import me-2"></i>Import Translations
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            {% if output is not null and output|length > 0 %}
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    {# Header content can be added here if needed #}
+                </div>
+                <div class="card-body p-0">
+                    {% include 'components/_console.html.twig' with {
+                        'title': 'Console Output',
+                        'content': output,
+                        'max_height': 500
+                    } %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
