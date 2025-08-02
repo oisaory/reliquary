@@ -1,3 +1,11 @@
+# [1.48.0](https://github.com/CesarScur/reliquary/compare/v1.47.0...v1.48.0) (2025-08-02)
+
+
+### Features
+
+* **home:** refactor FAB functionality for saint of the day card ([11b47f0](https://github.com/CesarScur/reliquary/commit/11b47f0298b9dc69fd8dde493947911172c1fd65))
+* **saint:** add locale-based phrase translation support ([7f1b402](https://github.com/CesarScur/reliquary/commit/7f1b40239cf0a6f845699c615c15885febdb3f79))
+
 # [1.47.0](https://github.com/CesarScur/reliquary/compare/v1.46.0...v1.47.0) (2025-08-02)
 
 
