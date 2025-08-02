@@ -120,273 +120,273 @@ saints:
     id: 30
   -
     name: 'Margherita da Cortona'
-    saint_phrase: 'Il Signore le disse: “Non aver timore di tutto ciò che è avvenuto oggi intorno a te e in te, poiché ho fatto di te lo specchio dei peccatori più ostinati, affinché essi vedano, col tuo esempio, quanto volentieri faccio a loro misericordia, e possano così salvarsi”'
+    saint_phrase: 'O Senhor lhe disse: "Não tenhas medo de tudo o que aconteceu hoje ao teu redor e em ti, porque Eu fiz de ti o espelho dos pecadores mais obstinados, para que eles vejam, com o teu exemplo, quão voluntariamente Eu lhes faço misericórdia, e assim possam se salvar"'
     id: 31
   -
-    name: 'Francesco di Sales'
-    saint_phrase: '"Dio è il Dio del cuore umano"'
+    name: 'Francisco de Sales'
+    saint_phrase: '"Deus é o Deus do coração humano"'
     id: 32
   -
-    name: "Pietro d'Arbués"
+    name: 'Pedro de Arbués'
     id: 33
   -
     name: 'Bernardo Tolomei'
-    saint_phrase: 'Eroe di penitenza e martire di carità, iniziatore di un singolare movimento monastico benedettino'
+    saint_phrase: 'Herói da penitência e mártir da caridade, iniciador de um singular movimento monástico beneditino'
     id: 34
   -
-    name: 'Rosa da Lima'
-    saint_phrase: '"Mio Dio, puoi aumentare le sofferenze, purché aumenti il mio amore per te"'
+    name: 'Rosa de Lima'
+    saint_phrase: '"Meu Deus, podeis aumentar os sofrimentos, contanto que aumenteis o meu amor por vós"'
     id: 35
   -
-    name: 'Nicola di Flüe'
-    saint_phrase: '“Se ho umiltà e fede non posso sbagliare rotta”'
+    name: 'Nicolau de Flüe'
+    saint_phrase: '"Se tenho humildade e fé não posso errar o caminho"'
     id: 36
   -
     name: 'Pio V'
-    saint_phrase: '"Vi raccomando la santa Chiesa che ho tanto amato! Cercate di eleggermi un successore zelante, che cerchi soltanto la gloria del Signore, che non abbia altri interessi quaggiù che l’onore della Sede Apostolica e il bene della cristianità"'
+    saint_phrase: '"Recomendo-vos a santa Igreja que tanto amei! Procurai eleger-me um sucessor zeloso, que busque somente a glória do Senhor, que não tenha outros interesses aqui embaixo que a honra da Sé Apostólica e o bem da cristandade"'
     id: 37
   -
-    name: 'Giovanni della Croce'
-    saint_phrase: '“Per giungere dove non sei, devi passare per dove non sei. Per giungere a possedere tutto, non volere possedere niente. Per giungere ad essere tutto, non volere che essere niente”'
+    name: 'João da Cruz'
+    saint_phrase: '"Para chegar onde não estás, deves passar por onde não estás. Para chegar a possuir tudo, não queiras possuir nada. Para chegar a ser tudo, não queiras ser nada"'
     id: 38
   -
-    name: 'Caterina da Genova'
-    saint_phrase: '“Non più mondo, non più peccati”'
+    name: 'Catarina de Gênova'
+    saint_phrase: '"Não mais mundo, não mais pecados"'
     id: 39
   -
-    name: 'Francesco Solano'
-    saint_phrase: 'Patrono di Argentina, Bolivia, Cile, Paraguay e Perù'
+    name: 'Francisco Solano'
+    saint_phrase: 'Padroeiro da Argentina, Bolívia, Chile, Paraguai e Peru'
     id: 40
   -
-    name: 'Martiri di Gorcum in Olanda'
+    name: 'Mártires de Gorcum na Holanda'
     id: 41
   -
-    name: 'Giovanni da Kęty'
-    saint_phrase: 'Il "professore Santo"'
+    name: 'João de Kęty'
+    saint_phrase: 'O "professor Santo"'
     id: 42
   -
-    name: 'Giuliana Falconieri'
-    saint_phrase: 'La ragazza col mantello'
+    name: 'Juliana Falconieri'
+    saint_phrase: 'A moça com o manto'
     id: 43
   -
-    name: 'Turibio de Mogrovejo'
-    saint_phrase: '“Amare gli uomini che ci sono affidati come si ama Cristo, che è Verità, non costume!”'
+    name: 'Turíbio de Mogrovejo'
+    saint_phrase: '"Amar os homens que nos são confiados como se ama a Cristo, que é a Verdade, não o costume!"'
     id: 44
   -
     name: 'Pedro Regalado'
     id: 45
   -
-    name: 'Simone da Lipnica'
-    saint_phrase: '“Predicator ferventissimus”'
+    name: 'Simão de Lipnica'
+    saint_phrase: '"Predicator ferventissimus"'
     id: 46
   -
-    name: 'Angela da Foligno'
-    saint_phrase: '“Il mio posto è nel mondo”'
+    name: 'Ângela de Foligno'
+    saint_phrase: '"O meu lugar é no mundo"'
     id: 47
   -
-    name: 'Caterina da Bologna'
-    saint_phrase: '"Bisogna avere familiarità con la Santa Scrittura, portandola sempre nel cuore perché orienti tutti i pensieri e tutte le azioni."'
+    name: 'Catarina de Bolonha'
+    saint_phrase: '"É preciso ter familiaridade com a Sagrada Escritura, levando-a sempre no coração para que oriente todos os pensamentos e todas as ações."'
     id: 48
   -
-    name: 'Giovanni Francesco Regis'
-    saint_phrase: 'Celebre è la sua grande catechesi compiuta aLe Puy'
+    name: 'João Francisco Régis'
+    saint_phrase: 'Célebre é a sua grande catequese realizada em Le Puy'
     id: 49
   -
-    name: 'Sette Santi Fondatori'
+    name: 'Sete Santos Fundadores'
     id: 50
   -
-    name: 'Giovanni Nepomuceno'
-    saint_phrase: 'Martire del Sacramento'
+    name: 'João Nepomuceno'
+    saint_phrase: 'Mártir do Sacramento'
     id: 51
   -
-    name: 'Giacinta Marescotti'
-    saint_phrase: '“O Dio, ti supplico, dai un senso alla mia vita, dammi la speranza, dammi la salvezza!”'
+    name: 'Jacinta Marescotti'
+    saint_phrase: '"Ó Deus, eu te suplico, dê um sentido à minha vida, dê-me a esperança, dê-me a salvação!"'
     id: 52
   -
-    name: 'Fedele da Sigmaringen'
-    saint_phrase: '“Se mi uccidono accetterò con gioia la morte per amore di Nostro Signore. La riterrò una grande grazia”'
+    name: 'Fidel de Sigmaringen'
+    saint_phrase: '"Se me matarem, aceitarei com alegria a morte por amor a Nosso Senhor. Considerá-la-ei uma grande graça"'
     id: 53
   -
-    name: 'Serafino da Montegranaro'
-    saint_phrase: 'Pregare sempre, senza stancarsi mai (cfr Lc 18,1; 21,36'
+    name: 'Serafim de Montegranaro'
+    saint_phrase: 'Orar sempre, sem jamais se cansar (cf. Lc 18,1; 21,36)'
     id: 54
   -
-    name: "Vincenzo de' Paoli"
-    saint_phrase: '“Amiamo Dio, fratelli miei, ma amiamolo a nostre spese, con la fatica delle nostre braccia, col sudore del nostro volto”'
+    name: 'Vicente de Paulo'
+    saint_phrase: '"Amemos a Deus, meus irmãos, mas amemo-lo às nossas custas, com o trabalho dos nossos braços, com o suor do nosso rosto"'
     id: 55
   -
-    name: 'Pietro Fourier'
+    name: 'Pedro Fourier'
     id: 56
   -
-    name: "Caterina de' Ricci"
-    saint_phrase: '"Il mio cuore d''ora in poi dovete chiamarlo il cuore della gloriosa Vergine Maria"'
+    name: 'Catarina de Ricci'
+    saint_phrase: '"De agora em diante, deveis chamar meu coração de o coração da gloriosa Virgem Maria"'
     id: 57
   -
-    name: 'Chiara da Montefalco'
-    saint_phrase: '"Ho Gesù mio dentro il mio cuore”'
+    name: 'Clara de Montefalco'
+    saint_phrase: '"Tenho Jesus meu dentro do meu coração"'
     id: 58
   -
-    name: 'Giuseppe da Leonessa'
-    saint_phrase: "L'evangelizzatore dei poveri"
+    name: 'José de Leonessa'
+    saint_phrase: 'O evangelizador dos pobres'
     id: 59
   -
-    name: 'Coletta Boylet'
-    saint_phrase: '“I miei occhi li ho riempiti di Gesù che ho fissato all’elevazione dell’Ostia nella Santa Messa e non voglio sovrapporgli nessun’altra immagine”'
+    name: 'Coleta Boylet'
+    saint_phrase: '"Eu enchi meus olhos com Jesus que fixei na elevação da Hóstia na Santa Missa e não quero sobrepor nenhuma outra imagem a Ele"'
     id: 60
   -
-    name: 'Alessandro Sauli'
-    saint_phrase: 'Confessore di Carlo Borromeo'
+    name: 'Alexandre Sauli'
+    saint_phrase: 'Confessor de Carlos Borromeu'
     id: 61
   -
-    name: 'Giovanna di Valois'
-    saint_phrase: '"Ho considerato che ero rimasta con mio marito per 22 anni, durante i quali non avevo potuto fare gran che di bene, ora però potrò prendermi la rivincita"'
+    name: 'Joana de Valois'
+    saint_phrase: '"Considero que fiquei com meu marido por 22 anos, durante os quais não pude fazer grande coisa de bom, mas agora poderei me vingar"'
     id: 62
   -
-    name: 'Camillo de Lellis'
-    saint_phrase: 'Aggiunse ai tre voti abituali di povertà, castità e obbedienza, il quarto voto: quello di “perpetua assistenza corporale e spirituale ai malati, ancorché appestati”'
+    name: 'Camilo de Lellis'
+    saint_phrase: 'Adicionou aos três votos habituais de pobreza, castidade e obediência, o quarto voto: o de "perpétua assistência corporal e espiritual aos doentes, mesmo que sejam pestilentos"'
     id: 63
   -
-    name: 'Benedetto il Moro'
-    saint_phrase: 'il Santo moro'
+    name: 'Benedito, o Mouro'
+    saint_phrase: 'o Santo mouro'
     id: 64
   -
-    name: 'Girolamo Emiliani'
-    saint_phrase: '“Comincia fin d’ora a essere quello che sarai in futuro”'
+    name: 'Jerônimo Emiliani'
+    saint_phrase: '"Começa desde agora a ser o que serás no futuro"'
     id: 65
   -
-    name: 'Giuseppe Calasanzio'
-    saint_phrase: '“È missione nobilissima e fonte di grandi meriti quella di dedicarsi all’educazione dei fanciulli, specialmente poveri, per aiutarli a conseguire la vita eterna. Chi si fa loro maestro e, attraverso la formazione intellettuale, s’impegna a educarli, soprattutto nella fede e nella pietà, compie in qualche modo verso i fanciulli l’ufficio stesso del loro angelo custode, ed è altamente benemerito del loro sviluppo umano e cristiano”'
+    name: 'José de Calasanz'
+    saint_phrase: '"É missão nobilíssima e fonte de grandes méritos dedicar-se à educação das crianças, especialmente das pobres, para ajudá-las a alcançar a vida eterna. Quem se torna seu mestre e, através da formação intelectual, se empenha em educá-las, sobretudo na fé e na piedade, cumpre de certa forma em relação às crianças o ofício do seu anjo da guarda, e é altamente benemérito do seu desenvolvimento humano e cristão"'
     id: 66
   -
-    name: 'Giovanna Francesca di Chantal'
-    saint_phrase: '"Tutto quello che di creato c’è quaggiù non è niente per me se paragonato al mio carissimo Padre"'
+    name: 'Joana Francisca de Chantal'
+    saint_phrase: '"Tudo o que há de criado aqui embaixo não é nada para mim se comparado ao meu queridíssimo Pai"'
     id: 67
   -
-    name: 'Giuseppe da Copertino'
-    saint_phrase: '“Quando ti metti a studiare o a scrivere ripeti: Signor, tu lo Spirito sei / et io la tromba. / Ma senza il fiato tuo / nulla rimbomba”'
+    name: 'José de Cupertino'
+    saint_phrase: '"Quando te pões a estudar ou a escrever, repete: Senhor, tu és o Espírito / e eu a trombeta. / Mas sem o teu sopro / nada ressoa"'
     id: 68
   -
-    name: 'Gregorio Barbarigo'
-    saint_phrase: 'Su di lui: "mangia con la servitù e non lascia mai d’insegnare la dottrina cristiana, di fare missioni e assistenza a’ moribondi"'
+    name: 'Gregório Barbarigo'
+    saint_phrase: 'Sobre ele: "come com a servidão e nunca deixa de ensinar a doutrina cristã, de fazer missões e assistência aos moribundos"'
     id: 69
   -
-    name: 'Simón de Rojas'
-    saint_phrase: '"Che io sia, Signore, tutto vostro, e niente dovrò temere"'
+    name: 'Simão de Rojas'
+    saint_phrase: '"Que eu seja, Senhor, todo teu, e nada deverei temer"'
     id: 70
   -
-    name: 'Angela Merici'
-    saint_phrase: '“Guardatevi dal voler ottenere alcuna cosa per forza, perché Dio ha dato ad ognuno il libero arbitrio e non vuole costringere nessuno, ma solamente propone e consiglia”'
+    name: 'Ângela de Merici'
+    saint_phrase: '"Guardai-vos de querer obter qualquer coisa pela força, porque Deus deu a cada um o livre arbítrio e não quer obrigar ninguém, mas somente propõe e aconselha"'
     id: 71
   -
-    name: 'Bernardo da Corleone'
-    saint_phrase: "Egli sempre stava intento nell'orazione, mai cessava di orare, orava di continuo. Allora il tempo spariva… (Summ., 35)"
+    name: 'Bernardo de Corleone'
+    saint_phrase: 'Ele estava sempre atento à oração, nunca cessava de orar, orava continuamente. Então o tempo desaparecia... (Summ., 35)'
     id: 72
   -
-    name: 'Francesco Caracciolo'
-    saint_phrase: '“Sangue preziosissimo del mio Gesù, tu sei mio, e per te e con te soltanto spero di salvarmi. O sacerdoti, sforzatevi di celebrare la Messa ogni giorno e di inebriarvi con questo sangue!”'
+    name: 'Francisco Caracciolo'
+    saint_phrase: '"Preciosíssimo sangue do meu Jesus, tu és meu, e por ti e contigo somente espero salvar-me. Ó sacerdotes, esforçai-vos por celebrar a Missa todos os dias e por inebriar-vos com este sangue!"'
     id: 73
   -
-    name: 'Antonio Primaldo e compagni'
-    saint_phrase: '"Gesù Cristo è nostro Signore e vero Dio, e piuttosto vogliamo mille volte morire che rinnegarlo e farci Turchi"'
+    name: 'Antônio Primaldo e companheiros'
+    saint_phrase: '"Jesus Cristo é nosso Senhor e verdadeiro Deus, e preferimos mil vezes morrer a renegá-lo e nos tornarmos turcos"'
     id: 74
   -
     name: 'Amato Ronconi'
-    saint_phrase: 'Si spogliò di ogni suo avere, La sua casa, trasformata in ospizio per i pellegrini, era sostenuta dal suo lavoro nei campi'
+    saint_phrase: 'Despojou-se de todos os seus bens. Sua casa, transformada em hospício para os peregrinos, era sustentada pelo seu trabalho nos campos'
     id: 75
   -
-    name: 'Michele dei Santi (Miguel de los Santos)'
+    name: 'Miguel dos Santos'
     id: 76
   -
-    name: 'Eustochia Smeralda Calafato'
-    saint_phrase: '"Prendete, figlie mie, il Crocifisso per Padre, ed Egli vi ammaestrerà in ogni cosa"'
+    name: 'Eustóquia Esmeralda Calafato'
+    saint_phrase: '"Tomai, minhas filhas, o Crucifixo por Pai, e Ele vos ensinará em todas as coisas"'
     id: 77
   -
-    name: 'Lorenzo da Brindisi'
-    saint_phrase: '“Lo Spirito Santo rende dolce il giogo della legge divina e leggero il suo peso, affinché osserviamo i comandamenti di Dio con grandissima facilità, persino con piacevolezza”'
+    name: 'Lourenço de Brindisi'
+    saint_phrase: '"O Espírito Santo torna o jugo da lei divina suave e o seu peso leve, para que observemos os mandamentos de Deus com grandíssima facilidade, até mesmo com prazer"'
     id: 78
   -
-    name: 'Pacifico da San Severino'
+    name: 'Pacífico de San Severino'
     id: 79
   -
-    name: 'Tommaso da Cori'
-    saint_phrase: '"Sono Fra Tommaso da Cori e vengo qui per farmi santo! "'
+    name: 'Tomás de Cori'
+    saint_phrase: '"Sou Frei Tomás de Cori e venho aqui para me fazer santo! "'
     id: 80
   -
-    name: 'Nicola da Longobardi'
-    saint_phrase: 'Esercitò le mansioni più umili: sacrestano, ortolano, dispensiere, cuoco, questuante, portinaio'
+    name: 'Nicolau de Longobardi'
+    saint_phrase: 'Exerceu as tarefas mais humildes: sacristão, jardineiro, dispenseiro, cozinheiro, pedinte, porteiro'
     id: 81
   -
-    name: 'Giovan Giuseppe della Croce'
-    saint_phrase: '“Tutto quello che Dio permette, lo permette per il nostro bene"'
+    name: 'João José da Cruz'
+    saint_phrase: '"Tudo o que Deus permite, ele permite para o nosso bem"'
     id: 82
   -
-    name: "Margherita d'Ungheria"
-    saint_phrase: '“Amare Dio, disprezzare se stessi, non giudicare, né disprezzare alcuno"'
+    name: 'Margarida da Hungria'
+    saint_phrase: '"Amar a Deus, desprezar a si mesmo, não julgar, nem desprezar ninguém"'
     id: 83
   -
-    name: 'Caterina Tomás'
+    name: 'Catarina Tomás'
     saint_phrase: 'Santa Rina'
     id: 84
   -
-    name: 'Leonardo da Porto Maurizio'
-    saint_phrase: '"Confessare  è il maggior bene della missione, e tutto il resto senza questo è una mera apparenza di bene"'
+    name: 'Leonardo de Porto Maurício'
+    saint_phrase: '"Confessar é o maior bem da missão, e todo o resto sem isso é uma mera aparência de bem"'
     id: 85
   -
-    name: 'Giovanni de Ribera'
-    saint_phrase: '"Per una legge naturale dello spirito, chi possiede la santità raccoglie molto spesso la fiducia di tutti"'
+    name: 'João de Ribera'
+    saint_phrase: '"Por uma lei natural do espírito, quem possui a santidade recolhe muitas vezes a confiança de todos"'
     id: 86
   -
-    name: 'Giuseppe Maria Tomasi'
-    saint_phrase: '"La santità è sempre da Dio, non dall’uomo. Nello stesso tempo essa è nell’uomo"'
+    name: 'José Maria Tomasi'
+    saint_phrase: '"A santidade é sempre de Deus, não do homem. Ao mesmo tempo, ela está no homem"'
     id: 87
   -
-    name: 'Veronica Giuliani'
-    saint_phrase: '“Ho trovato l’Amore, l’Amore si è lasciato vedere!”'
+    name: 'Verônica Giuliani'
+    saint_phrase: '"Encontrei o Amor, o Amor se deixou ver!"'
     id: 88
   -
-    name: 'Francesco De Geronimo'
+    name: 'Francisco De Geronimo'
     id: 89
   -
-    name: 'Crispino da Viterbo'
-    saint_phrase: '"La potenza di Dio ci crea, la sapienza ci governa, la misericordia ci salva. Chi ama Dio con purità di cuore vive felice e poi contento muore"'
+    name: 'Crispino de Viterbo'
+    saint_phrase: '"A potência de Deus nos cria, a sabedoria nos governa, a misericórdia nos salva. Quem ama a Deus com pureza de coração vive feliz e depois morre contente"'
     id: 90
   -
-    name: 'Josep Oriol'
+    name: 'José Oriol'
     id: 91
   -
-    name: "Alfonso Maria de' Liguori"
-    saint_phrase: '“I pulcini delle rondini non fanno altro che gridare, cercando con ciò l’aiuto e l’alimento alle loro madri. Così dobbiamo sempre gridare, chiedendo a Dio soccorso per evitare la morte del peccato, e per avanzarci nel suo santo amore”'
+    name: 'Afonso Maria de Ligório'
+    saint_phrase: '"Os filhotes das andorinhas não fazem outra coisa senão gritar, buscando com isso a ajuda e o alimento de suas mães. Assim devemos sempre gritar, pedindo a Deus socorro para evitar a morte do pecado, e para avançar em seu santo amor"'
     id: 92
   -
-    name: 'Giovanni Battista della Concezione'
-    saint_phrase: '"Certo, se ti amo, Signore, in questa vita non ho alcun desiderio di onorare o gloria, ma di soffrire per il tuo amore”'
+    name: 'João Batista da Conceição'
+    saint_phrase: '"Certamente, se te amo, Senhor, nesta vida não tenho qualquer desejo de honra ou glória, mas de sofrer por teu amor"'
     id: 93
   -
     name: 'Alfonso Rodriguez'
-    saint_phrase: '“O Signore se io sapessi e lo potessi fare, vi servirei ed amerei come tutte le creature del cielo e della terra messe insieme”'
+    saint_phrase: '"Ó Senhor, se eu soubesse e pudesse fazer, eu vos serviria e amaria como todas as criaturas do céu e da terra juntas"'
     id: 94
   -
-    name: 'Angelo da Acri'
-    saint_phrase: 'Uno stile di vita santo poggia su cinque gemme: l’austerità, la semplicità, l’esatta osservanza della serafica Regola e delle Costituzioni cappuccine, l’innocenza di vita e la carità inesauribile'
+    name: 'Angelo de Acri'
+    saint_phrase: 'Um estilo de vida santo se apoia em cinco joias: a austeridade, a simplicidade, a exata observância da seráfica Regra e das Constituições capuchinhas, a inocência de vida e a caridade inesgotável'
     id: 95
   -
-    name: 'Juan Macías'
-    saint_phrase: '"Una figura meravigliosa ed attraente, una figura attuale, un esempio luminoso per noi, per la nostra società" (Paolo VI)'
+    name: 'João Macias'
+    saint_phrase: '"Uma figura maravilhosa e atraente, uma figura atual, um exemplo luminoso para nós, para a nossa sociedade" (Paulo VI)'
     id: 96
   -
-    name: 'Martino de Porres'
-    saint_phrase: '"Vendete me come schiavo!"'
+    name: 'Martinho de Porres'
+    saint_phrase: '"Vendei-me como escravo!"'
     id: 97
   -
-    name: 'Battista Camilla da Varano'
-    saint_phrase: '"Entrare nel Sacratissimo Cuore di Gesù e di annegare nell’oceano delle sue acerbissime sofferenze”'
+    name: 'Batista Camila de Varano'
+    saint_phrase: '"Entrar no Sacratíssimo Coração de Jesus e me afogar no oceano de suas amargas sofrimentos"'
     id: 98
   -
-    name: 'Maria Francesca delle Cinque Piaghe'
+    name: 'Maria Francisca das Cinco Chagas'
     id: 99
   -
-    name: 'Pietro Claver'
-    saint_phrase: '"Come posso fare ad amare davvero il Signore? Che debbo fare per piacergli? Insegnamelo. Egli mi dà grandi desideri di essere tutto suo, ma non so come fare”'
+    name: 'Pedro Claver'
+    saint_phrase: '"Como posso fazer para amar verdadeiramente o Senhor? O que devo fazer para agradá-lo? Ensinai-me. Ele me dá grandes desejos de ser todo seu, mas não sei como fazer"'
     id: 100
   -
     name: 'Paolo della Croce'
