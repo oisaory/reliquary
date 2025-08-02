@@ -16,6 +16,52 @@ class SaintRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Saint::class);
     }
+    
+    /**
+     * Find saints by feast date (month and day)
+     * 
+     * Using a native SQL query with PostgreSQL date functions to compare month and day
+     * while setting a fixed year (2025) for both the feast_date and the reference date.
+     * This approach avoids issues with Doctrine DQL's limited support for date functions.
+     * 
+     * @param \DateTimeInterface $date The date to match against feast dates
+     * @return array Returns an array of Saint objects
+     */
+    public function findByFeastDate(\DateTimeInterface $date): array
+    {
+        // Create a fixed date with year 2025 for comparison
+        $fixedDate = new \DateTime('2025-' . $date->format('m-d'));
+        
+        // Use native SQL with PostgreSQL functions
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+            SELECT s.* 
+            FROM saint s 
+            WHERE 
+                (CASE 
+                    WHEN s.feast_date IS NOT NULL 
+                    THEN MAKE_DATE(2025, EXTRACT(MONTH FROM s.feast_date)::INTEGER, EXTRACT(DAY FROM s.feast_date)::INTEGER)
+                    ELSE NULL
+                END) = :fixedDate
+            ORDER BY s.name ASC
+        ';
+        
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery(['fixedDate' => $fixedDate->format('Y-m-d')]);
+        
+        // Convert the raw database results to Saint entities
+        $saintsData = $resultSet->fetchAllAssociative();
+        $saints = [];
+        
+        foreach ($saintsData as $saintData) {
+            $saint = $this->getEntityManager()->getRepository(Saint::class)->find($saintData['id']);
+            if ($saint) {
+                $saints[] = $saint;
+            }
+        }
+        
+        return $saints;
+    }
 
     //    /**
     //     * @return Saint[] Returns an array of Saint objects

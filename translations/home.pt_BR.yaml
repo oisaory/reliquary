@@ -7,6 +7,8 @@ home:
   get_started: 'Começar'
   relics_near_me: 'Relíquias perto de mim'
   no_relics_found: 'Nenhuma relíquia foi encontrada no %radius%km da sua localização.'
+  saint_of_day: 'Santo do Dia'
+  view_saint_details: 'Ver Detalhes'
   features:
     title: 'Recursos'
     relic_management: 'Gerenciamento da Relíquia'

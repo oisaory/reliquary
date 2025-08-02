@@ -1,0 +1,117 @@
+{% if saintOfDay %}
+<div class="card shadow border rounded overflow-hidden mb-4" id="saint-of-day-card">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="fas fa-calendar-day me-2"></i>
+            {{ 'home.saint_of_day'|trans({}, 'home')|default('Saint of the Day') }}
+        </h5>
+        <div>
+            <button class="btn btn-sm btn-outline-light" id="close-saint-card">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body" id="saint-of-day-content">
+        <div class="row">
+            <div class="col-md-4">
+                {% if saintOfDay.images is defined and saintOfDay.images|length > 0 %}
+                    <img src="{{ asset('uploads/images/' ~ saintOfDay.images.first.filename) }}" 
+                         alt="{{ saintOfDay|format_saint_name }}" 
+                         class="img-fluid rounded"
+                         style="max-height: 200px; object-fit: cover;">
+                {% else %}
+                    <img src="{{ asset('/images/relic.png') }}" 
+                         alt="No image available" 
+                         class="img-fluid rounded opacity-25"
+                         style="max-height: 200px; object-fit: contain; filter: grayscale(100%);">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <h4 class="mb-3">{{ saintOfDay|format_saint_name }}</h4>
+                
+                {% if saintOfDay.feastDate %}
+                <div class="mb-2">
+                    <strong>{{ 'saint.table.feast_date'|trans({}, 'saint')|default('Feast Day') }}:</strong>
+                    <span class="text-muted fw-bold">{{ saintOfDay.feastDate|format_date('medium', pattern=('common.date_formats.feast_date'|trans({}, 'common'))) }}</span>
+                </div>
+                {% endif %}
+                
+                {% if saintOfDay.saintPhrase %}
+                <div class="mt-3">
+                    <p class="fst-italic text-muted">
+                        "{{ saintOfDay.saintPhrase }}"
+                    </p>
+                </div>
+                {% endif %}
+                
+                <div class="mt-3">
+                    <a href="{{ path('app_saint_show', {'id': saintOfDay.id}) }}" class="btn btn-sm btn-outline-primary">
+                        {{ 'home.view_saint_details'|trans({}, 'home')|default('View Details') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Material Design FAB to reopen the saint card -->
+<button id="reopen-saint-card" class="btn btn-primary rounded-circle shadow position-fixed" 
+        style="bottom: 30px; right: 30px; width: 56px; height: 56px; z-index: 1050; display: none; 
+               transition: box-shadow 0.3s ease, transform 0.3s ease;" 
+        data-bs-toggle="tooltip" data-bs-placement="left" 
+        title="{{ 'home.saint_of_day'|trans({}, 'home')|default('Saint of the Day') }}">
+    <i class="fas fa-calendar-day"></i>
+</button>
+
+<style>
+    #reopen-saint-card {
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    }
+    #reopen-saint-card:hover {
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        transform: translateY(-2px);
+    }
+    #reopen-saint-card:active {
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const card = document.getElementById('saint-of-day-card');
+        const closeBtn = document.getElementById('close-saint-card');
+        const reopenBtn = document.getElementById('reopen-saint-card');
+        
+        // Initialize Bootstrap tooltip safely
+        if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+            new bootstrap.Tooltip(reopenBtn);
+        }
+        
+        // Function to show the FAB with proper styling
+        function showFAB() {
+            reopenBtn.style.display = 'flex';
+            reopenBtn.style.justifyContent = 'center';
+            reopenBtn.style.alignItems = 'center';
+        }
+        
+        // Check if card was previously closed
+        const isClosed = localStorage.getItem('saintCardClosed') === 'true';
+        if (isClosed) {
+            card.style.display = 'none';
+            showFAB();
+        }
+        
+        closeBtn.addEventListener('click', function() {
+            card.style.display = 'none';
+            showFAB();
+            localStorage.setItem('saintCardClosed', 'true');
+        });
+        
+        reopenBtn.addEventListener('click', function() {
+            card.style.display = 'block';
+            reopenBtn.style.display = 'none';
+            localStorage.setItem('saintCardClosed', 'false');
+        });
+    });
+</script>
+{% endif %}

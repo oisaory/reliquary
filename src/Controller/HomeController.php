@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\RelicRepository;
+use App\Repository\SaintRepository;
 use App\Service\LocationResolverService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ final class HomeController extends AbstractController
     private const DEFAULT_RADIUS_KM = 45;
 
     #[Route('/', name: 'app_home')]
-    public function index(RelicRepository $relicRepository, Request $request, Security $security, LocationResolverService $locationResolver): Response
+    public function index(RelicRepository $relicRepository, SaintRepository $saintRepository, Request $request, Security $security, LocationResolverService $locationResolver): Response
     {
         // Check if there's a search query
         $searchQuery = $request->query->get('q');
@@ -35,6 +36,11 @@ final class HomeController extends AbstractController
         $locationData = $locationResolver->resolveLocation($request, $security, $searchQuery);
         
         $result = $this->getFilteredRelics($relicRepository, $security->getUser(), $locationData, $radius);
+        
+        // Get saint of the day based on current date
+        $today = new \DateTime();
+        $saintsOfDay = $saintRepository->findByFeastDate($today);
+        $saintOfDay = !empty($saintsOfDay) ? $saintsOfDay[0] : null;
 
         return $this->render('home/index.html.twig', [
             'relics' => $result['relics'],
@@ -42,6 +48,7 @@ final class HomeController extends AbstractController
             'locationAvailable' => $locationData['available'],
             'searchQuery' => $searchQuery,
             'userLocation' => $locationData['location'],
+            'saintOfDay' => $saintOfDay,
         ]);
     }
 
