@@ -1,3 +1,13 @@
+# [1.47.0](https://github.com/CesarScur/reliquary/compare/v1.46.0...v1.47.0) (2025-08-02)
+
+
+### Features
+
+* **admin:** add saint translations import template ([7e3a932](https://github.com/CesarScur/reliquary/commit/7e3a932b416ed1f11c3611f43cf4c1bc68bd7172))
+* **home:** add reopen FAB for saint of the day card ([6d6bf66](https://github.com/CesarScur/reliquary/commit/6d6bf66b8b9fe1f9fe86bb991430e157b1bfd14e))
+* **home:** display additional saints celebrated on the same day ([31bc7a3](https://github.com/CesarScur/reliquary/commit/31bc7a3950915ad134280ec2a8a8fa42d2793b42))
+* **home:** display saint of the day card on homepage ([e13735b](https://github.com/CesarScur/reliquary/commit/e13735b74f78030fa8444297ce57c1b51a3b3a53))
+
 # [1.46.0](https://github.com/CesarScur/reliquary/compare/v1.45.0...v1.46.0) (2025-08-02)
 
 
