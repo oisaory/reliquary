@@ -1,3 +1,12 @@
+# [1.54.0](https://github.com/CesarScur/reliquary/compare/v1.53.0...v1.54.0) (2025-08-03)
+
+
+### Features
+
+* **error:** remove debug error templates and associated translations ([7e6c25f](https://github.com/CesarScur/reliquary/commit/7e6c25f17954c69b44fc141dab1969eaba046a36))
+* **translations:** update relic-related templates with i18n keys ([139dd0f](https://github.com/CesarScur/reliquary/commit/139dd0f1680b1b813ab0a370c04ffc7b1ff8113c))
+* **translations:** update saint-related templates with i18n keys ([ed34999](https://github.com/CesarScur/reliquary/commit/ed34999946a7a86d7c36ee90a764224ea954fe12))
+
 # [1.53.0](https://github.com/CesarScur/reliquary/compare/v1.52.0...v1.53.0) (2025-08-03)
 
 
