@@ -5,6 +5,7 @@ saint:
   add_new: 'Add New Saint'
   find_saints: 'Find Saints'
   no_saints: 'No saints found. Click "Add New Saint" to create one.'
+  no_image_available: 'No image available'
   edit_title: 'Edit Saint'
   new_title: 'New Saint'
   show_title: 'Saint Details'

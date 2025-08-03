@@ -70,24 +70,23 @@
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_translations_scan') }}">
                     <i class="fas fa-search me-2"></i>
-                      {{ 'comon.admin.scan_untranslated'|trans({}, 'common') }}
-                    Scan for Untranslated Strings
+                    {{ 'common.admin.scan_untranslated'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_saints_incomplete') }}">
                     <i class="fas fa-triangle-exclamation me-2"></i>
-                    Incomplete Saints
+                    {{ 'common.admin.incomplete_saints'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_pending_relics') }}">
                     <i class="fas fa-circle-exclamation me-2"></i>
-                    Pending Relics
+                    {{ 'common.admin.pending_relics'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_import_saints') }}">
                     <i class="fas fa-file-import me-2"></i>
-                    Import Saints
+                    {{ 'common.admin.import_saints'|trans({}, 'common') }}
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_import_translations') }}">
                     <i class="fas fa-language me-2"></i>
-                    Import Translations
+                    {{ 'common.admin.import_translations'|trans({}, 'common') }}
                   </a></li>
                   {% endif %}
                   <li><hr class="dropdown-divider"></li>

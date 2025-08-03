@@ -7,6 +7,7 @@ saint:
   add_new: 'Adicionar Novo Santo'
   find_saints: 'Encontrar Santos'
   no_saints: 'Nenhum santo foi encontrado. Clique "Adicionar Novo Santo" para criar um.'
+  no_image_available: 'Nenhuma imagem disponível'
   edit_title: 'Editar Santo'
   new_title: 'Novo Santo'
   show_title: 'Detalhes do Santo'

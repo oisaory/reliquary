@@ -37,15 +37,7 @@ error:
     technical_difficulties: 'Estamos enfrentando algumas dificuldades técnicas. Nossa equipe foi automaticamente notificada e está trabalhando para resolver o problema.'
     try_later: 'Por favor, tente novamente mais tarde ou entre em contato com o suporte se o problema persistir.'
     try_again: 'Tentar Novamente'
-  
-  # Debug error page
-  debug:
-    title: 'Gatilhos de Erro para Depuração'
-    heading: 'Gatilhos de Erro para Depuração'
-    description: 'Esta página fornece várias opções para acionar erros para fins de teste e depuração.'
-    warning_label: 'Aviso:'
-    warning_text: 'Estas ações são destinadas apenas para desenvolvimento e teste. Elas gerarão erros nos logs da aplicação.'
-    
+
     # Error types
     php_exception:
       title: 'Exceção PHP'

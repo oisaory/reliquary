@@ -24,7 +24,11 @@ common:
     user_management: 'User Management'
     system_logs: 'System Logs'
     translation_status: 'Translation Status'
-    scan_untranslated: Scan Untranslated strings
+    scan_untranslated: 'Scan Untranslated strings'
+    incomplete_saints: 'Incomplete Saints'
+    pending_relics: 'Pending Relics'
+    import_saints: 'Import Saints'
+    import_translations: 'Import Translations'
   auth:
     login: 'Login'
     signup: 'Sign-up'

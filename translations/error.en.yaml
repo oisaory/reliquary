@@ -38,14 +38,6 @@ error:
     try_later: 'Please try again later or contact support if the problem persists.'
     try_again: 'Try Again'
   
-  # Debug error page
-  debug:
-    title: 'Debug Error Triggers'
-    heading: 'Debug Error Triggers'
-    description: 'This page provides various options to trigger errors for testing and debugging purposes.'
-    warning_label: 'Warning:'
-    warning_text: 'These actions are intended for development and testing only. They will generate errors in the application logs.'
-    
     # Error types
     php_exception:
       title: 'PHP Exception'
