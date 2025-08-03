@@ -47,3 +47,4 @@ common:
     of: 'de'
     items: 'itens'
   reliquary: 'Santas Relíquias'
+  find_relics: 'Encontre Relíquias'
