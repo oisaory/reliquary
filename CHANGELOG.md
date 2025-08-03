@@ -1,3 +1,10 @@
+# [1.49.0](https://github.com/CesarScur/reliquary/compare/v1.48.0...v1.49.0) (2025-08-03)
+
+
+### Features
+
+* **images:** add thumbnail support for better performance ([171793d](https://github.com/CesarScur/reliquary/commit/171793d69e00e2dd20a4ba8dd752c42c2e288a06))
+
 # [1.48.0](https://github.com/CesarScur/reliquary/compare/v1.47.0...v1.48.0) (2025-08-02)
 
 
