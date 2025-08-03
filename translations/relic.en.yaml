@@ -7,6 +7,8 @@ relic:
   edit_title: 'Edit Relic'
   new_title: 'New Relic'
   show_title: 'Relic Details'
+  resubmit_title: 'Resubmit Relic'
+  rejection_reason: 'Rejection Reason'
   additional_images: 'Additional Images'
   image_uploaded_by: 'Uploaded by'
   no_image: 'No image available'
@@ -45,6 +47,8 @@ relic:
     provenance: 'Provenance'
     provenance_placeholder: 'Enter the provenance of the relic'
     provenance_help: 'Describe the origin and history of the relic, including how it was acquired'
+    rejection_reason: 'Rejection Reason'
+    rejection_reason_help: 'Provide a reason why this relic was rejected'
     submit: 'Save'
   actions:
     view: 'View'
@@ -55,6 +59,8 @@ relic:
     approve: 'Approve'
     reject: 'Reject'
     review: 'Review'
+    cancel: 'Cancel'
+    resubmit: 'Resubmit'
   description_options:
     bone_fragment: 'Bone fragment'
     piece_of_cloth: 'Piece of cloth'
@@ -67,6 +73,7 @@ relic:
     pending: 'Pending Approval'
     approved: 'Approved'
     rejected: 'Rejected'
+    not_accepted: 'Not Accepted'
   messages:
     created: 'Relic created successfully'
     updated: 'Relic updated successfully'

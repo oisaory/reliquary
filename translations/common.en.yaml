@@ -1,5 +1,7 @@
 common:
   welcome: 'Welcome!'
+  yes: 'Yes'
+  no: 'No'
   navigation:
     relics: 'Relics'
     saints: 'Saints'

@@ -6,7 +6,9 @@ home:
   description: 'Gerenciar sua coleção de relíquias sagradas'
   get_started: 'Começar'
   relics_near_me: 'Relíquias perto de mim'
+  relics_near_address: 'Relíquias perto do endereço'
   no_relics_found: 'Nenhuma relíquia foi encontrada no %radius%km da sua localização.'
+  no_relics_found_address: 'Nenhuma relíquia foi encontrada perto deste endereço.'
   saint_of_day: 'Santo do Dia'
   view_saint_details: 'Ver Detalhes'
   also_celebrated_today: 'Também celebrado hoje'
@@ -24,3 +26,4 @@ home:
   mobile:
     address: 'Endereço:'
     location: 'Localização Específica:'
+  find_relics: 'Encontre Reliquias'

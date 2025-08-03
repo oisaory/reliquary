@@ -2,6 +2,8 @@
 # It will be populated with actual translations in the future
 common:
   welcome: 'Bem-vindo(a)!'
+  yes: 'Sim'
+  no: 'Não'
   navigation:
     relics: 'Relíquias'
     saints: 'Santos'

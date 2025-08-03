@@ -9,6 +9,8 @@ relic:
   edit_title: 'Editar Relíquia'
   new_title: 'Nova Relíquia'
   show_title: 'Detalhes da Relíquia'
+  resubmit_title: 'Reenviar Relíquia'
+  rejection_reason: 'Motivo da Rejeição'
   additional_images: 'Imagens Adicionais'
   image_uploaded_by: 'Enviado por'
   table:
@@ -45,6 +47,8 @@ relic:
     provenance: 'Procedência'
     provenance_placeholder: 'Informe a procedência da relíquia'
     provenance_help: 'Descreva a origem e história da relíquia, incluindo como ela foi adquirida'
+    rejection_reason: 'Motivo da Rejeição'
+    rejection_reason_help: 'Forneça um motivo pelo qual esta relíquia foi rejeitada'
     submit: 'Salvar'
   description_options:
     bone_fragment: 'Fragmento de Osso'
@@ -60,6 +64,16 @@ relic:
     delete: 'Excluir'
     back: 'Voltar à lista'
     confirm_delete: 'Tem certeza de que deseja deletar esta relíquia?'
+    approve: 'Aprovar'
+    reject: 'Rejeitar'
+    review: 'Revisar'
+    cancel: 'Cancelar'
+    resubmit: 'Reenviar'
+  status:
+    pending: 'Aguardando Aprovação'
+    approved: 'Aprovado'
+    rejected: 'Rejeitado'
+    not_accepted: 'Não Aceito'
   messages:
     created: 'Relíquia criada com sucesso'
     updated: 'Relíquia atualizada com sucesso'
