@@ -1,0 +1,28 @@
+# This is a translation file for Portuguese Brazil
+about:
+  title: 'Sobre o Santas Relíquias'
+  subtitle: 'Explore o mundo dos artefatos sagrados e da história religiosa'
+  what_is_reliquary:
+    title: 'O que é o Santas Relíquias?'
+    description: 'Santas Relíquias é uma plataforma dedicada a catalogar e explorar relíquias religiosas de todo o mundo. Nossa missão é documentar esses artefatos sagrados e tornar suas informações acessíveis a pesquisadores, estudiosos religiosos e indivíduos interessados.'
+  features:
+    title: 'Recursos'
+    comprehensive_database:
+      title: 'Banco de Dados Abrangente'
+      description: 'Extensa coleção de relíquias religiosas'
+    saint_information:
+      title: 'Informações sobre Santos'
+      description: 'Detalhes sobre santos e suas relíquias'
+    geolocation_search:
+      title: 'Busca por Geolocalização'
+      description: 'Encontre relíquias próximas à sua localização'
+    user_contributions:
+      title: 'Contribuições dos Usuários'
+      description: 'Expansão de conteúdo impulsionada pela comunidade'
+    multilingual_support:
+      title: 'Suporte Multilíngue'
+      description: 'Acesse o conteúdo em vários idiomas'
+  contact:
+    title: 'Contato'
+    description: 'Para mais informações sobre o projeto Relicário, visite nosso'
+    github_repository: 'repositório no GitHub'

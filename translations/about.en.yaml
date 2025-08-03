@@ -1,0 +1,27 @@
+about:
+  title: 'About Reliquary'
+  subtitle: 'Explore the world of sacred artifacts and religious history'
+  what_is_reliquary:
+    title: 'What is Reliquary?'
+    description: 'Reliquary is a platform dedicated to cataloging and exploring religious relics from around the world. Our mission is to document these sacred artifacts and make their information accessible to researchers, religious scholars, and interested individuals.'
+  features:
+    title: 'Features'
+    comprehensive_database:
+      title: 'Comprehensive Database'
+      description: 'Extensive collection of religious relics'
+    saint_information:
+      title: 'Saint Information'
+      description: 'Details about saints and their relics'
+    geolocation_search:
+      title: 'Geolocation Search'
+      description: 'Find relics near your location'
+    user_contributions:
+      title: 'User Contributions'
+      description: 'Community-driven content expansion'
+    multilingual_support:
+      title: 'Multilingual Support'
+      description: 'Access content in multiple languages'
+  contact:
+    title: 'Contact'
+    description: 'For more information about the Reliquary project, please visit our'
+    github_repository: 'GitHub repository'
