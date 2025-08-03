@@ -95,8 +95,8 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="https://santasreliquias.com.br/images/relic.png" alt="Reliquary Logo">
-                <span class="logo-text">Reliquary</span>
+                <img src="https://santasreliquias.com.br/images/relic.png" alt="{{ 'common.logo'|trans({}, 'common') }}">
+                <span class="logo-text">{{ 'common.reliquary'|trans({}, 'common') }}</span>
             </div>
         </div>
         <div class="content">
@@ -122,7 +122,7 @@
             <p>{{ 'security.reset_password.thank_you'|trans }}<br>{{ 'security.reset_password.team'|trans }}</p>
         </div>
         <div class="footer">
-            <p>&copy; {{ "now"|date("Y") }} Reliquary. {{ 'security.reset_password.all_rights_reserved'|trans }}</p>
+            <p>&copy; {{ "now"|date("Y") }} {{ 'common.reliquary'|trans({}, 'common') }}. {{ 'security.reset_password.all_rights_reserved'|trans }}</p>
         </div>
     </div>
 </body>

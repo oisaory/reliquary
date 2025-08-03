@@ -12,7 +12,7 @@
                                  style="height: 180px; object-fit: cover;">
                         {% else %}
                             <img src="{{ asset('/images/relic.png') }}"
-                                 alt="No image available"
+                                 alt="{{ 'saint.no_image_available'|trans({}, 'saint') }}"
                                  class="w-100 opacity-25"
                                  style="height: 180px; object-fit: contain; filter: grayscale(100%);">
                         {% endif %}
