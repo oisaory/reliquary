@@ -4,6 +4,9 @@ relic:
   title: 'Relíquias'
   my_relics: 'Minhas Relíquias'
   description: 'Gerencie sua coleção de relíquias sagradas'
+  filter:
+    by_degree: 'Filtrar por Grau'
+    all_relics: 'Todas as Relíquias'
   add_new: 'Adicionar Nova Relíquia'
   no_relics: 'Nenhuma relíquia foi encontrada. Clique "Adicionar Nova Relíquia" para criar uma.'
   edit_title: 'Editar Relíquia'
@@ -63,6 +66,7 @@ relic:
     edit: 'Editar'
     delete: 'Excluir'
     back: 'Voltar à lista'
+    clear: 'Limpar'
     confirm_delete: 'Tem certeza de que deseja deletar esta relíquia?'
     approve: 'Aprovar'
     reject: 'Rejeitar'

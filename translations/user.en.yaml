@@ -6,6 +6,7 @@ user:
   edit_title: 'Edit User'
   new_title: 'New User'
   show_title: 'User Details'
+  profile_image: 'Profile Image'
   table:
     email: 'Email'
     roles: 'Roles'

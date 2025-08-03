@@ -2,6 +2,9 @@ common:
   welcome: 'Welcome!'
   yes: 'Yes'
   no: 'No'
+  logo: 'Reliquary Logo'
+  ui:
+    loading: 'Loading...'
   navigation:
     relics: 'Relics'
     saints: 'Saints'
@@ -9,6 +12,9 @@ common:
     search: 'Search...'
     search_saint: 'Search by saint...'
     search_location: 'Search for location...'
+    search_by: 'Search by:'
+    saint: 'Saint'
+    address: 'Address'
   user:
     profile: 'My Profile'
     my_relics: 'My Relics'
@@ -18,6 +24,7 @@ common:
     user_management: 'User Management'
     system_logs: 'System Logs'
     translation_status: 'Translation Status'
+    scan_untranslated: Scan Untranslated strings
   auth:
     login: 'Login'
     signup: 'Sign-up'
@@ -30,3 +37,7 @@ common:
   date_formats:
     feast_date: 'MMM d'
     canonization_date: 'MMM d, y'
+  reliquary: 'Holy Relics'
+  pagination:
+    of: 'of'
+    items: 'items'

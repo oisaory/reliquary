@@ -4,6 +4,9 @@ common:
   welcome: 'Bem-vindo(a)!'
   yes: 'Sim'
   no: 'Não'
+  logo: 'Logo do Santas Relíquias'
+  ui:
+    loading: 'Carregando...'
   navigation:
     relics: 'Relíquias'
     saints: 'Santos'
@@ -11,6 +14,9 @@ common:
     search: 'Busca...'
     search_saint: 'Buscar por santo...'
     search_location: 'Buscar por localização...'
+    search_by: 'Buscar por:'
+    saint: 'Santo'
+    address: 'Endereço'
   user:
     profile: 'Meu Perfil'
     my_relics: 'Minhas Relíquias'
@@ -20,6 +26,7 @@ common:
     user_management: 'Gerenciamento de Usuário'
     system_logs: 'Logs do Sistema'
     translation_status: 'Status de Tradução'
+    scan_untranslated: 'Listar strings não traduzidas'
   auth:
     login: 'Entrar'
     signup: 'Cadastre-se'
@@ -32,3 +39,7 @@ common:
   date_formats:
     feast_date: d 'de' MMMM
     canonization_date: d 'de' MMMM 'de' y
+  pagination:
+    of: 'de'
+    items: 'itens'
+  reliquary: 'Santas Relíquias'

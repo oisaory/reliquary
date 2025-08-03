@@ -1,0 +1,74 @@
+admin:
+  # Common admin elements
+  title: 'Admin'
+  back_to_admin: 'Voltar para Admin'
+  
+  # Saints section
+  saints:
+    incomplete:
+      title: 'Santos Incompletos'
+      description: 'Santos que foram criados automaticamente ao adicionar relíquias e precisam ser completados com informações adicionais'
+      no_saints: 'Nenhum santo incompleto encontrado.'
+      not_set: 'Não Definido'
+      mark_complete: 'Marcar como Completo'
+  
+  # Import section
+  import:
+    saints:
+      title: 'Importar Santos'
+      warning:
+        heading: 'AVISO: Proceda com Cautela!'
+        description: 'Esta ferramenta de importação pode fazer alterações significativas no banco de dados que não podem ser facilmente desfeitas. O uso inadequado pode resultar em:'
+        data_corruption: 'Corrupção de dados'
+        duplicate_entries: 'Entradas duplicadas de santos'
+        data_loss: 'Perda de dados existentes'
+        sequence_issues: 'Problemas de sequência no banco de dados'
+        proceed_warning: 'Só prossiga se você entender completamente as consequências desta operação.'
+        dry_run_suggestion: 'Considere usar a opção "Simulação" primeiro para visualizar as alterações.'
+        too_late: 'AVISO: Bem, agora já é tarde demais.'
+      options:
+        title: 'Opções de Importação'
+        limit:
+          label: 'Limite'
+          help: 'Número máximo de santos para importar (opcional)'
+          placeholder: 'Deixe vazio para importar todos os santos'
+        batch_size:
+          label: 'Tamanho do Lote'
+          help: 'Número de santos a serem processados em cada lote'
+        reset_sequence:
+          label: 'Redefinir Sequência'
+          help: 'Redefinir a sequência de ID antes de importar'
+        dry_run:
+          label: 'Simulação'
+          help: 'Executar sem fazer alterações reais no banco de dados'
+      buttons:
+        import_saints: 'Importar Santos'
+        import_translations: 'Importar Traduções'
+      output:
+        title: 'Saída do Console'
+    translations:
+      title: 'Importar Traduções de Santos'
+      info:
+        heading: 'Ferramenta de Importação de Traduções'
+        description: 'Esta ferramenta permite importar traduções para santos a partir de arquivos YAML. O processo de importação irá:'
+        create_new: 'Criar novas traduções para santos que não as possuem no idioma especificado'
+        update_existing: 'Atualizar traduções existentes com novos dados'
+        skip_missing: 'Ignorar traduções para santos que não existem no banco de dados'
+        format_warning: 'Certifique-se de que seus arquivos de tradução seguem o formato correto.'
+        example_files: 'Veja os arquivos de exemplo no diretório de dados.'
+        completed: 'Processo de Importação Concluído'
+      options:
+        title: 'Opções de Importação'
+        locale:
+          label: 'Idioma'
+          help: 'O código do idioma para as traduções (ex: pt_BR)'
+          placeholder: 'ex: pt_BR, en_US, fr_FR'
+        file:
+          label: 'Caminho do Arquivo (Opcional)'
+          help: 'Caminho personalizado para o arquivo YAML (padrão: data/saints_info_{locale}.yaml)'
+          placeholder: 'Deixe vazio para usar o caminho padrão'
+      buttons:
+        back_to_saints: 'Voltar para Importação de Santos'
+        import_translations: 'Importar Traduções'
+      output:
+        title: 'Saída do Console'

@@ -18,21 +18,21 @@
   </form>
   <div class="d-none search-options position-absolute bg-dark border border-secondary rounded p-3 mt-1 w-100 shadow"
        data-search-expansion-target="options">
-    <h6 class="text-white mb-3">Search by:</h6>
+    <h6 class="text-white mb-3">{{ 'common.navigation.search_by'|trans({}, 'common') }}</h6>
     <div class="d-flex flex-column gap-2">
       <button class="btn btn-outline-light btn-sm text-start" 
               data-action="search-expansion#selectOption"
               data-option="saint"
               data-search-expansion-target="optionButton">
         <i class="fas fa-user me-2"></i>
-        Saint
+        {{ 'common.navigation.saint'|trans({}, 'common') }}
       </button>
       <button class="btn btn-outline-light btn-sm text-start" 
               data-action="search-expansion#selectOption"
               data-option="address"
               data-search-expansion-target="optionButton">
         <i class="fas fa-map-marker-alt me-2"></i>
-        Address
+        {{ 'common.navigation.address'|trans({}, 'common') }}
       </button>
     </div>
   </div>

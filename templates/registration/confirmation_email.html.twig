@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Confirm your email - Reliquary</title>
+    <title>{{ 'registration.email.title'|trans }}</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -95,34 +95,34 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="https://santasreliquias.com.br/images/relic.png" alt="Reliquary Logo">
-                <span class="logo-text">Reliquary</span>
+                <img src="https://santasreliquias.com.br/images/relic.png" alt="{{ 'registration.brand.logo_alt'|trans }}">
+                <span class="logo-text">{{ 'registration.brand.name'|trans }}</span>
             </div>
         </div>
         <div class="content">
-            <h1>Welcome to Reliquary!</h1>
+            <h1>{{ 'registration.email.welcome'|trans }}</h1>
 
             <div class="card">
                 <div class="card-header">
-                    <h3 style="margin: 0;">Email Confirmation</h3>
+                    <h3 style="margin: 0;">{{ 'registration.email.header'|trans }}</h3>
                 </div>
                 <div class="card-body">
-                    <p>Thank you for registering with Reliquary. To complete your registration, please confirm your email address by clicking the button below:</p>
+                    <p>{{ 'registration.email.message'|trans }}</p>
 
                     <p style="text-align: center; margin: 30px 0;">
-                        <a href="{{ signedUrl|raw }}" class="btn btn-primary">Confirm my Email</a>
+                        <a href="{{ signedUrl|raw }}" class="btn btn-primary">{{ 'registration.email.confirm'|trans }}</a>
                     </p>
 
-                    <p>This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
+                    <p>{{ 'registration.email.expiry_notice'|trans }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
 
-                    <p>If you did not create an account, you can ignore this email.</p>
+                    <p>{{ 'registration.email.ignore_notice'|trans }}</p>
                 </div>
             </div>
 
-            <p>Thank you,<br>The Reliquary Team</p>
+            <p>{{ 'registration.email.thank_you'|trans }}<br>{{ 'registration.email.team'|trans }}</p>
         </div>
         <div class="footer">
-            <p>&copy; {{ "now"|date("Y") }} Reliquary. All rights reserved.</p>
+            <p>&copy; {{ "now"|date("Y") }} {{ 'registration.brand.name'|trans }}. {{ 'registration.email.all_rights_reserved'|trans }}</p>
         </div>
     </div>
 </body>

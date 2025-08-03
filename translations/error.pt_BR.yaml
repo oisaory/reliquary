@@ -1,0 +1,73 @@
+error:
+  # Common elements across error pages
+  logo_alt: 'Logo do Santas Relíquias'
+  return_home: 'Voltar para Início'
+  go_back: 'Voltar'
+  
+  # Generic error page
+  generic:
+    title: 'Erro'
+    heading: 'Ops! Ocorreu um Erro'
+    server_returned: 'O servidor retornou um "{{ status_code }} {{ status_text }}".'
+    broken: 'Algo está quebrado. Fomos notificados e vamos corrigir o mais rápido possível.'
+    try_later: 'Por favor, tente novamente mais tarde ou entre em contato com o administrador se o problema persistir.'
+  
+  # 403 error page
+  forbidden:
+    title: 'Acesso Negado'
+    heading: '403 - Acesso Negado'
+    no_permission: 'Você não tem permissão para acessar esta página.'
+    contact_admin: 'Se você acredita que isso é um erro, entre em contato com o administrador ou tente fazer login com uma conta que tenha as permissões necessárias.'
+    login: 'Entrar'
+  
+  # 404 error page
+  not_found:
+    title: 'Página Não Encontrada'
+    heading: '404 - Página Não Encontrada'
+    removed: 'A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível.'
+    check_url: 'Por favor, verifique a URL ou tente um dos links abaixo:'
+    view_relics: 'Ver Relíquias'
+    view_saints: 'Ver Santos'
+  
+  # 500 error page
+  server_error:
+    title: 'Erro no Servidor'
+    heading: '500 - Erro no Servidor'
+    oops: 'Ops! Algo deu errado do nosso lado.'
+    technical_difficulties: 'Estamos enfrentando algumas dificuldades técnicas. Nossa equipe foi automaticamente notificada e está trabalhando para resolver o problema.'
+    try_later: 'Por favor, tente novamente mais tarde ou entre em contato com o suporte se o problema persistir.'
+    try_again: 'Tentar Novamente'
+  
+  # Debug error page
+  debug:
+    title: 'Gatilhos de Erro para Depuração'
+    heading: 'Gatilhos de Erro para Depuração'
+    description: 'Esta página fornece várias opções para acionar erros para fins de teste e depuração.'
+    warning_label: 'Aviso:'
+    warning_text: 'Estas ações são destinadas apenas para desenvolvimento e teste. Elas gerarão erros nos logs da aplicação.'
+    
+    # Error types
+    php_exception:
+      title: 'Exceção PHP'
+      description: 'Aciona uma exceção PHP padrão que será capturada e registrada.'
+      button: 'Acionar Exceção'
+    
+    not_found:
+      title: '404 Não Encontrado'
+      description: 'Aciona uma exceção HTTP 404 Não Encontrado que será capturada e registrada.'
+      button: 'Acionar 404'
+    
+    php_error:
+      title: 'Erro PHP'
+      description: 'Aciona um erro PHP (divisão por zero) que será capturado e registrado.'
+      button: 'Acionar Erro PHP'
+    
+    memory_limit:
+      title: 'Limite de Memória'
+      description: 'Tenta acionar um erro de limite de memória alocando um grande array.'
+      button: 'Testar Limite de Memória'
+    
+    php_warning:
+      title: 'Aviso PHP'
+      description: 'Aciona um aviso PHP que será registrado, mas não exibido ao usuário.'
+      button: 'Acionar Aviso'

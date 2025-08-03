@@ -1,15 +1,28 @@
 registration:
   title: 'Register'
   form:
+    username: 'Username'
     email: 'Email'
     password: 'Password'
     agree_terms: 'I agree to the terms'
     submit: 'Register'
+    already_have_account: 'Already have an account?'
+    sign_in: 'Sign in'
+  brand:
+    name: 'Reliquary'
+    logo_alt: 'Reliquary Logo'
   email:
     subject: 'Please Confirm your Email'
+    title: 'Confirm your email - Reliquary'
+    welcome: 'Welcome to Reliquary!'
+    header: 'Email Confirmation'
     confirm: 'Confirm my Email'
-    hello: 'Hello'
-    message: 'Please confirm your email address by clicking the following link'
+    message: 'Thank you for registering with Reliquary. To complete your registration, please confirm your email address by clicking the button below:'
+    expiry_notice: 'This link will expire in'
+    ignore_notice: 'If you did not create an account, you can ignore this email.'
+    thank_you: 'Thank you,'
+    team: 'The Reliquary Team'
+    all_rights_reserved: 'All rights reserved.'
   messages:
     check_email: 'A confirmation email has been sent to your email address. Please check your inbox and confirm your registration.'
     email_confirmed: 'Your email address has been verified.'

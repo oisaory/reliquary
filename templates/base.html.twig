@@ -17,8 +17,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark p-0">
       <div class="container-fluid p-0">
         <a href="/" class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <img src="{{ asset('/images/relic.png') }}" width="40" height="40" class="me-2" alt="Reliquary Logo">
-          <span class="fs-4">Santas Reliquias</span>
+          <img src="{{ asset('/images/relic.png') }}" width="40" height="40" class="me-2" alt="{{ 'common.logo'|trans({}, 'common') }}">
+          <span class="fs-4">{{ 'common.reliquary'|trans({}, 'common') }}</span>
         </a>
 
         <!-- Burger menu button for mobile -->
@@ -43,7 +43,7 @@
                 <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                   {% if app.user.profileImage %}
                     <img src="{{ asset('uploads/images/' ~ app.user.profileImage.filename) }}" 
-                         alt="Profile Image" 
+                         alt="{{ 'profile_image'|trans({}, 'user') }}" 
                          class="rounded-circle me-2" 
                          style="width: 24px; height: 24px; object-fit: cover;">
                   {% else %}
@@ -70,6 +70,7 @@
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_translations_scan') }}">
                     <i class="fas fa-search me-2"></i>
+                      {{ 'comon.admin.scan_untranslated'|trans({}, 'common') }}
                     Scan for Untranslated Strings
                   </a></li>
                   <li><a class="dropdown-item" href="{{ path('app_admin_saints_incomplete') }}">

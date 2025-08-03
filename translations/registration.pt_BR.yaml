@@ -3,15 +3,28 @@
 registration:
   title: 'Cadastrar-se'
   form:
+    username: 'Nome de usuário'
     email: 'Email'
     password: 'Senha'
     agree_terms: 'Eu concordo com os termos'
     submit: 'Cadastrar-se'
+    already_have_account: 'Já tem uma conta?'
+    sign_in: 'Entrar'
+  brand:
+    name: 'Reliquary'
+    logo_alt: 'Reliquary Logo'
   email:
     subject: 'Por favor confirme seu Email'
+    title: 'Confirme seu email - Reliquary'
+    welcome: 'Bem-vindo ao Reliquary!'
+    header: 'Confirmação de Email'
     confirm: 'Confirmar meu Email'
-    hello: 'Olá'
-    message: 'Por favor confirme seu endereço de email acessando o seguinte link'
+    message: 'Obrigado por se cadastrar no Reliquary. Para completar seu cadastro, por favor confirme seu endereço de email clicando no botão abaixo:'
+    expiry_notice: 'Este link expirará em'
+    ignore_notice: 'Se você não criou uma conta, você pode ignorar este email.'
+    thank_you: 'Obrigado,'
+    team: 'A Equipe Reliquary'
+    all_rights_reserved: 'Todos os direitos reservados.'
   messages:
     check_email: 'Um email de confirmação foi enviado para o seu endereço de email. Por favor verifique sua caixa de entrada e confirme seu cadastro.'
     email_confirmed: 'Seu endereço de email foi verificado.'

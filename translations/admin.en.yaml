@@ -1,0 +1,74 @@
+admin:
+  # Common admin elements
+  title: 'Admin'
+  back_to_admin: 'Back to Admin'
+  
+  # Saints section
+  saints:
+    incomplete:
+      title: 'Incomplete Saints'
+      description: 'Saints that were automatically created when adding relics and need to be completed with additional information'
+      no_saints: 'No incomplete saints found.'
+      not_set: 'Not Set'
+      mark_complete: 'Mark Complete'
+  
+  # Import section
+  import:
+    saints:
+      title: 'Import Saints'
+      warning:
+        heading: 'WARNING: Proceed with Caution!'
+        description: 'This import tool can make significant changes to the database that cannot be easily undone. Improper use may result in:'
+        data_corruption: 'Data corruption'
+        duplicate_entries: 'Duplicate saints entries'
+        data_loss: 'Loss of existing data'
+        sequence_issues: 'Database sequence issues'
+        proceed_warning: 'Only proceed if you fully understand the consequences of this operation.'
+        dry_run_suggestion: 'Consider using the "Dry Run" option first to preview changes.'
+        too_late: 'WARNING: Well, guess now is too late.'
+      options:
+        title: 'Import Options'
+        limit:
+          label: 'Limit'
+          help: 'Maximum number of saints to import (optional)'
+          placeholder: 'Leave empty to import all saints'
+        batch_size:
+          label: 'Batch Size'
+          help: 'Number of saints to process in each batch'
+        reset_sequence:
+          label: 'Reset Sequence'
+          help: 'Reset the ID sequence before importing'
+        dry_run:
+          label: 'Dry Run'
+          help: 'Run without making any actual changes to the database'
+      buttons:
+        import_saints: 'Import Saints'
+        import_translations: 'Import Translations'
+      output:
+        title: 'Console Output'
+    translations:
+      title: 'Import Saint Translations'
+      info:
+        heading: 'Translation Import Tool'
+        description: 'This tool allows you to import translations for saints from YAML files. The import process will:'
+        create_new: 'Create new translations for saints that don''t have them in the specified locale'
+        update_existing: 'Update existing translations with new data'
+        skip_missing: 'Skip translations for saints that don''t exist in the database'
+        format_warning: 'Make sure your translation files follow the correct format.'
+        example_files: 'See the example files in the data directory.'
+        completed: 'Import Process Completed'
+      options:
+        title: 'Import Options'
+        locale:
+          label: 'Locale'
+          help: 'The locale code for the translations (e.g., pt_BR)'
+          placeholder: 'e.g., pt_BR, en_US, fr_FR'
+        file:
+          label: 'File Path (Optional)'
+          help: 'Custom path to the YAML file (default: data/saints_info_{locale}.yaml)'
+          placeholder: 'Leave empty to use default path'
+      buttons:
+        back_to_saints: 'Back to Saints Import'
+        import_translations: 'Import Translations'
+      output:
+        title: 'Console Output'

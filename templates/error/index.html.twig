@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Debug Error Triggers{% endblock %}
+{% block title %}{{ 'error.debug.title'|trans({}, 'error') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
     <div class="row mb-4">
         <div class="col">
-            <h1 class="display-5 fw-bold">Debug Error Triggers</h1>
-            <p class="lead">This page provides various options to trigger errors for testing and debugging purposes.</p>
+            <h1 class="display-5 fw-bold">{{ 'error.debug.heading'|trans({}, 'error') }}</h1>
+            <p class="lead">{{ 'error.debug.description'|trans({}, 'error') }}</p>
             <div class="alert alert-warning">
                 <i class="fas fa-circle-exclamation me-2"></i>
-                <strong>Warning:</strong> These actions are intended for development and testing only. They will
-                generate errors in the application logs.
+                <strong>{{ 'error.debug.warning_label'|trans({}, 'error') }}</strong> {{ 'error.debug.warning_text'|trans({}, 'error') }}
             </div>
         </div>
     </div>
@@ -20,13 +19,13 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-header bg-danger text-white">
-                    <h5 class="card-title mb-0">PHP Exception</h5>
+                    <h5 class="card-title mb-0">{{ 'error.debug.php_exception.title'|trans({}, 'error') }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Triggers a standard PHP exception that will be caught and logged.</p>
+                    <p class="card-text">{{ 'error.debug.php_exception.description'|trans({}, 'error') }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ path('app_debug_error_exception') }}" class="btn btn-outline-danger">Trigger Exception</a>
+                    <a href="{{ path('app_debug_error_exception') }}" class="btn btn-outline-danger">{{ 'error.debug.php_exception.button'|trans({}, 'error') }}</a>
                 </div>
             </div>
         </div>
@@ -34,13 +33,13 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-header bg-warning text-dark">
-                    <h5 class="card-title mb-0">404 Not Found</h5>
+                    <h5 class="card-title mb-0">{{ 'error.debug.not_found.title'|trans({}, 'error') }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Triggers a 404 Not Found HTTP exception that will be caught and logged.</p>
+                    <p class="card-text">{{ 'error.debug.not_found.description'|trans({}, 'error') }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ path('app_debug_error_not_found') }}" class="btn btn-outline-warning">Trigger 404</a>
+                    <a href="{{ path('app_debug_error_not_found') }}" class="btn btn-outline-warning">{{ 'error.debug.not_found.button'|trans({}, 'error') }}</a>
                 </div>
             </div>
         </div>
@@ -48,13 +47,13 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-header bg-danger text-white">
-                    <h5 class="card-title mb-0">PHP Error</h5>
+                    <h5 class="card-title mb-0">{{ 'error.debug.php_error.title'|trans({}, 'error') }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Triggers a PHP error (division by zero) that will be caught and logged.</p>
+                    <p class="card-text">{{ 'error.debug.php_error.description'|trans({}, 'error') }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ path('app_debug_error_php_error') }}" class="btn btn-outline-danger">Trigger PHP Error</a>
+                    <a href="{{ path('app_debug_error_php_error') }}" class="btn btn-outline-danger">{{ 'error.debug.php_error.button'|trans({}, 'error') }}</a>
                 </div>
             </div>
         </div>
@@ -62,13 +61,13 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-header bg-danger text-white">
-                    <h5 class="card-title mb-0">Memory Limit</h5>
+                    <h5 class="card-title mb-0">{{ 'error.debug.memory_limit.title'|trans({}, 'error') }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Attempts to trigger a memory limit error by allocating a large array.</p>
+                    <p class="card-text">{{ 'error.debug.memory_limit.description'|trans({}, 'error') }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ path('app_debug_error_memory_limit') }}" class="btn btn-outline-danger">Test Memory Limit</a>
+                    <a href="{{ path('app_debug_error_memory_limit') }}" class="btn btn-outline-danger">{{ 'error.debug.memory_limit.button'|trans({}, 'error') }}</a>
                 </div>
             </div>
         </div>
@@ -76,13 +75,13 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-header bg-warning text-dark">
-                    <h5 class="card-title mb-0">PHP Warning</h5>
+                    <h5 class="card-title mb-0">{{ 'error.debug.php_warning.title'|trans({}, 'error') }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Triggers a PHP warning that will be logged but not displayed to the user.</p>
+                    <p class="card-text">{{ 'error.debug.php_warning.description'|trans({}, 'error') }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ path('app_debug_error_warning') }}" class="btn btn-outline-warning">Trigger Warning</a>
+                    <a href="{{ path('app_debug_error_warning') }}" class="btn btn-outline-warning">{{ 'error.debug.php_warning.button'|trans({}, 'error') }}</a>
                 </div>
             </div>
         </div>

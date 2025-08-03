@@ -2,6 +2,9 @@ relic:
   title: 'Relics'
   my_relics: 'My Relics'
   description: 'Manage your sacred relics collection'
+  filter:
+    by_degree: 'Filter by Degree'
+    all_relics: 'All Relics'
   add_new: 'Add New Relic'
   no_relics: 'No relics found. Click "Add New Relic" to create one.'
   edit_title: 'Edit Relic'
@@ -55,6 +58,7 @@ relic:
     edit: 'Edit'
     delete: 'Delete'
     back: 'Back to list'
+    clear: 'Clear'
     confirm_delete: 'Are you sure you want to delete this relic?'
     approve: 'Approve'
     reject: 'Reject'

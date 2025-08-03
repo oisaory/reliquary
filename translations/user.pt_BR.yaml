@@ -8,6 +8,7 @@ user:
   edit_title: 'Editar Usuário'
   new_title: 'Novo Usuário'
   show_title: 'Detalhes de Usuário'
+  profile_image: 'Imagem de Perfil'
   table:
     email: 'Email'
     roles: 'Cargos'

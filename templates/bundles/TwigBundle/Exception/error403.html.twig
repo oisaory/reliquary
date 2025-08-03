@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Access Denied{% endblock %}
+{% block title %}{{ 'error.forbidden.title'|trans({}, 'error') }}{% endblock %}
 
 {% block body %}
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <img src="{{ asset('/images/relic.png') }}" width="100" height="100" class="mb-4" alt="Reliquary Logo">
-            <h1 class="display-4 mb-4">403 - Access Denied</h1>
+            <img src="{{ asset('/images/relic.png') }}" width="100" height="100" class="mb-4" alt="{{ 'error.logo_alt'|trans({}, 'error') }}">
+            <h1 class="display-4 mb-4">{{ 'error.forbidden.heading'|trans({}, 'error') }}</h1>
             <div class="card mb-4">
                 <div class="card-body">
-                    <p class="lead">You don't have permission to access this page.</p>
-                    <p>If you believe this is an error, please contact the administrator or try logging in with an account that has the necessary permissions.</p>
+                    <p class="lead">{{ 'error.forbidden.no_permission'|trans({}, 'error') }}</p>
+                    <p>{{ 'error.forbidden.contact_admin'|trans({}, 'error') }}</p>
                 </div>
             </div>
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                 <a href="{{ path('app_home') }}" class="btn btn-primary btn-lg px-4 gap-3">
                     <i class="fas fa-home me-2"></i>
-                    Return Home
+                    {{ 'error.return_home'|trans({}, 'error') }}
                 </a>
                 {% if not app.user %}
                 <a href="{{ path('app_login') }}" class="btn btn-outline-secondary btn-lg px-4">
-                    Login
+                    {{ 'error.forbidden.login'|trans({}, 'error') }}
                 </a>
                 {% else %}
                 <a href="javascript:history.back()" class="btn btn-outline-secondary btn-lg px-4">
-                    Go Back
+                    {{ 'error.go_back'|trans({}, 'error') }}
                 </a>
                 {% endif %}
             </div>

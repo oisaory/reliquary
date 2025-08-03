@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Incomplete Saints{% endblock %}
+{% block title %}{{ 'admin.saints.incomplete.title'|trans({}, 'admin') }}{% endblock %}
 
 {% block body %}
 <div class="container py-4">
     <div class="row mb-4">
         <div class="col">
-            <h1 class="display-5 fw-bold">Incomplete Saints</h1>
-            <p class="text-muted">Saints that were automatically created when adding relics and need to be completed with additional information</p>
+            <h1 class="display-5 fw-bold">{{ 'admin.saints.incomplete.title'|trans({}, 'admin') }}</h1>
+            <p class="text-muted">{{ 'admin.saints.incomplete.description'|trans({}, 'admin') }}</p>
         </div>
     </div>
 
@@ -16,7 +16,7 @@
             {% if pagination.items is empty %}
                 <div class="text-center py-4 text-muted">
                     <i class="fas fa-circle-check fa-2x mb-2"></i>
-                    <p>No incomplete saints found.</p>
+                    <p>{{ 'admin.saints.incomplete.no_saints'|trans({}, 'admin') }}</p>
                 </div>
             {% else %}
                 <div class="table-responsive">
@@ -24,10 +24,10 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Canonical Status</th>
-                                <th scope="col">Relics</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col">{{ 'saint.table.name'|trans({}, 'saint') }}</th>
+                                <th scope="col">{{ 'saint.table.canonical_status'|trans({}, 'saint') }}</th>
+                                <th scope="col">{{ 'saint.table.relics'|trans({}, 'saint') }}</th>
+                                <th scope="col">{{ 'saint.table.actions'|trans({}, 'saint') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,17 +39,17 @@
                                     {% if saint.canonicalStatus %}
                                         {{ saint.canonicalStatus.value }}
                                     {% else %}
-                                        <span class="badge bg-warning text-dark">Not Set</span>
+                                        <span class="badge bg-warning text-dark">{{ 'admin.saints.incomplete.not_set'|trans({}, 'admin') }}</span>
                                     {% endif %}
                                 </td>
                                 <td>{{ saint.relics|length }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a href="{{ path('app_saint_edit', {'id': saint.id}) }}" class="btn btn-sm btn-outline-primary">
-                                            <i class="fas fa-pencil"></i> Edit
+                                            <i class="fas fa-pencil"></i> {{ 'saint.actions.edit'|trans({}, 'saint') }}
                                         </a>
                                         <a href="{{ path('app_admin_saints_mark_complete', {'id': saint.id}) }}" class="btn btn-sm btn-outline-success">
-                                            <i class="fas fa-circle-check"></i> Mark Complete
+                                            <i class="fas fa-circle-check"></i> {{ 'admin.saints.incomplete.mark_complete'|trans({}, 'admin') }}
                                         </a>
                                     </div>
                                 </td>
@@ -61,7 +61,7 @@
                 
                 <div class="d-flex justify-content-between align-items-center mt-4 px-2">
                     <div class="text-muted small">
-                        {{ ((pagination.getCurrentPageNumber() - 1) * pagination.getItemNumberPerPage() + 1) }}-{{ min(pagination.getCurrentPageNumber() * pagination.getItemNumberPerPage(), pagination.getTotalItemCount) }} of {{ pagination.getTotalItemCount }} items
+                        {{ ((pagination.getCurrentPageNumber() - 1) * pagination.getItemNumberPerPage() + 1) }}-{{ min(pagination.getCurrentPageNumber() * pagination.getItemNumberPerPage(), pagination.getTotalItemCount) }} {{ 'common.pagination.of'|trans({}, 'common') }} {{ pagination.getTotalItemCount }} {{ 'common.pagination.items'|trans({}, 'common') }}
                     </div>
                     <div class="navigation">
                         {{ knp_pagination_render(pagination) }}

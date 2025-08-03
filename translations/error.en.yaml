@@ -1,0 +1,73 @@
+error:
+  # Common elements across error pages
+  logo_alt: 'Reliquary Logo'
+  return_home: 'Return Home'
+  go_back: 'Go Back'
+  
+  # Generic error page
+  generic:
+    title: 'Error'
+    heading: 'Oops! An Error Occurred'
+    server_returned: 'The server returned a "{{ status_code }} {{ status_text }}".'
+    broken: 'Something is broken. We''ve been notified and will fix it as soon as possible.'
+    try_later: 'Please try again later or contact the administrator if the problem persists.'
+  
+  # 403 error page
+  forbidden:
+    title: 'Access Denied'
+    heading: '403 - Access Denied'
+    no_permission: 'You don''t have permission to access this page.'
+    contact_admin: 'If you believe this is an error, please contact the administrator or try logging in with an account that has the necessary permissions.'
+    login: 'Login'
+  
+  # 404 error page
+  not_found:
+    title: 'Page Not Found'
+    heading: '404 - Page Not Found'
+    removed: 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.'
+    check_url: 'Please check the URL or try one of the links below:'
+    view_relics: 'View Relics'
+    view_saints: 'View Saints'
+  
+  # 500 error page
+  server_error:
+    title: 'Server Error'
+    heading: '500 - Server Error'
+    oops: 'Oops! Something went wrong on our end.'
+    technical_difficulties: 'We''re experiencing some technical difficulties. Our team has been automatically notified and is working to fix the issue.'
+    try_later: 'Please try again later or contact support if the problem persists.'
+    try_again: 'Try Again'
+  
+  # Debug error page
+  debug:
+    title: 'Debug Error Triggers'
+    heading: 'Debug Error Triggers'
+    description: 'This page provides various options to trigger errors for testing and debugging purposes.'
+    warning_label: 'Warning:'
+    warning_text: 'These actions are intended for development and testing only. They will generate errors in the application logs.'
+    
+    # Error types
+    php_exception:
+      title: 'PHP Exception'
+      description: 'Triggers a standard PHP exception that will be caught and logged.'
+      button: 'Trigger Exception'
+    
+    not_found:
+      title: '404 Not Found'
+      description: 'Triggers a 404 Not Found HTTP exception that will be caught and logged.'
+      button: 'Trigger 404'
+    
+    php_error:
+      title: 'PHP Error'
+      description: 'Triggers a PHP error (division by zero) that will be caught and logged.'
+      button: 'Trigger PHP Error'
+    
+    memory_limit:
+      title: 'Memory Limit'
+      description: 'Attempts to trigger a memory limit error by allocating a large array.'
+      button: 'Test Memory Limit'
+    
+    php_warning:
+      title: 'PHP Warning'
+      description: 'Triggers a PHP warning that will be logged but not displayed to the user.'
+      button: 'Trigger Warning'

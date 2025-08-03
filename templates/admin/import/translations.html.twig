@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Import Saint Translations - Admin{% endblock %}
+{% block title %}{{ 'admin.import.translations.title'|trans({}, 'admin') }} - {{ 'admin.title'|trans({}, 'admin') }}{% endblock %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -10,55 +10,55 @@
 <div class="container my-4">
     <div class="row">
         <div class="col-12">
-            <h1 class="mb-4">Import Saint Translations</h1>
+            <h1 class="mb-4">{{ 'admin.import.translations.title'|trans({}, 'admin') }}</h1>
 
                 <div class="alert alert-info mb-4">
                     {% if output is null %}
-                    <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Translation Import Tool</h4>
-                    <p class="mb-0">This tool allows you to import translations for saints from YAML files. The import process will:</p>
+                    <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>{{ 'admin.import.translations.info.heading'|trans({}, 'admin') }}</h4>
+                    <p class="mb-0">{{ 'admin.import.translations.info.description'|trans({}, 'admin') }}</p>
                     <ul class="mb-0 mt-2">
-                        <li>Create new translations for saints that don't have them in the specified locale</li>
-                        <li>Update existing translations with new data</li>
-                        <li>Skip translations for saints that don't exist in the database</li>
+                        <li>{{ 'admin.import.translations.info.create_new'|trans({}, 'admin') }}</li>
+                        <li>{{ 'admin.import.translations.info.update_existing'|trans({}, 'admin') }}</li>
+                        <li>{{ 'admin.import.translations.info.skip_missing'|trans({}, 'admin') }}</li>
                     </ul>
                     <hr>
-                    <p class="mb-0"><strong>Make sure your translation files follow the correct format.</strong> See the example files in the data directory.</p>
+                    <p class="mb-0"><strong>{{ 'admin.import.translations.info.format_warning'|trans({}, 'admin') }}</strong> {{ 'admin.import.translations.info.example_files'|trans({}, 'admin') }}</p>
                     {% else %}
-                        <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Import Process Completed</h4>
+                        <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>{{ 'admin.import.translations.info.completed'|trans({}, 'admin') }}</h4>
                     {% endif %}
                 </div>
             
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">Import Options</h5>
+                    <h5 class="mb-0">{{ 'admin.import.translations.options.title'|trans({}, 'admin') }}</h5>
                 </div>
                 <div class="card-body">
                     <form method="POST" data-turbo="false">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="locale" class="form-label">Locale</label>
+                                    <label for="locale" class="form-label">{{ 'admin.import.translations.options.locale.label'|trans({}, 'admin') }}</label>
                                     <input type="text" id="locale" name="locale" class="form-control" 
                                            value="{{ options.locale }}" required
-                                           placeholder="e.g., pt_BR, en_US, fr_FR">
-                                    <div class="form-text">The locale code for the translations (e.g., pt_BR)</div>
+                                           placeholder="{{ 'admin.import.translations.options.locale.placeholder'|trans({}, 'admin') }}">
+                                    <div class="form-text">{{ 'admin.import.translations.options.locale.help'|trans({}, 'admin') }}</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="file" class="form-label">File Path (Optional)</label>
+                                    <label for="file" class="form-label">{{ 'admin.import.translations.options.file.label'|trans({}, 'admin') }}</label>
                                     <input type="text" id="file" name="file" class="form-control" 
                                            value="{{ options.file }}"
-                                           placeholder="Leave empty to use default path">
-                                    <div class="form-text">Custom path to the YAML file (default: data/saints_info_{locale}.yaml)</div>
+                                           placeholder="{{ 'admin.import.translations.options.file.placeholder'|trans({}, 'admin') }}">
+                                    <div class="form-text">{{ 'admin.import.translations.options.file.help'|trans({}, 'admin') }}</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="d-flex justify-content-between">
-                            <a href="{{ path('app_admin_import_saints') }}" class="btn btn-outline-secondary">Back to Saints Import</a>
+                            <a href="{{ path('app_admin_import_saints') }}" class="btn btn-outline-secondary">{{ 'admin.import.translations.buttons.back_to_saints'|trans({}, 'admin') }}</a>
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-file-import me-2"></i>Import Translations
+                                <i class="fas fa-file-import me-2"></i>{{ 'admin.import.translations.buttons.import_translations'|trans({}, 'admin') }}
                             </button>
                         </div>
                     </form>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="card-body p-0">
                     {% include 'components/_console.html.twig' with {
-                        'title': 'Console Output',
+                        'title': 'admin.import.translations.output.title'|trans({}, 'admin'),
                         'content': output,
                         'max_height': 500
                     } %}
