@@ -9,6 +9,7 @@ use App\Entity\UserImage;
 use App\Entity\Relic;
 use App\Entity\Saint;
 use App\Entity\User;
+use Intervention\Image\ImageManager;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -16,11 +17,13 @@ class ImageService
 {
     private string $uploadDir;
     private SluggerInterface $slugger;
+    private ImageManager $imageManager;
 
-    public function __construct(string $uploadDir, SluggerInterface $slugger)
+    public function __construct(string $uploadDir, SluggerInterface $slugger, ImageManager $imageManager)
     {
         $this->uploadDir = $uploadDir;
         $this->slugger = $slugger;
+        $this->imageManager = $imageManager;
     }
 
     public function createRelicImage(UploadedFile $file, Relic $relic, User $uploader = null): RelicImage
@@ -38,9 +41,10 @@ class ImageService
             $image->setUploader($relic->getCreator());
         }
 
-        $filename = $this->processUploadedFile($file);
+        $fileData = $this->processUploadedFile($file);
 
-        $image->setFilename($filename);
+        $image->setFilename($fileData['filename']);
+        $image->setThumbnailFilename($fileData['thumbnailFilename']);
 
         return $image;
     }
@@ -60,9 +64,10 @@ class ImageService
             $image->setUploader($user);
         }
 
-        $filename = $this->processUploadedFile($file);
+        $fileData = $this->processUploadedFile($file);
 
-        $image->setFilename($filename);
+        $image->setFilename($fileData['filename']);
+        $image->setThumbnailFilename($fileData['thumbnailFilename']);
 
         return $image;
     }
@@ -80,19 +85,28 @@ class ImageService
             $image->setUploader($uploader);
         }
 
-        $filename = $this->processUploadedFile($file);
+        $fileData = $this->processUploadedFile($file);
 
-        $image->setFilename($filename);
+        $image->setFilename($fileData['filename']);
+        $image->setThumbnailFilename($fileData['thumbnailFilename']);
 
         return $image;
     }
 
     public function deleteImage(AbstractImage $image): void
     {
+        // Delete original file
         $fullPath = $this->uploadDir . '/' . $image->getFilename();
-
         if (file_exists($fullPath)) {
             unlink($fullPath);
+        }
+        
+        // Delete thumbnail file if it exists
+        if ($image->getThumbnailFilename()) {
+            $fullThumbnailPath = $this->uploadDir . '/' . $image->getThumbnailFilename();
+            if (file_exists($fullThumbnailPath)) {
+                unlink($fullThumbnailPath);
+            }
         }
 
         // Clean up empty directories
@@ -102,11 +116,12 @@ class ImageService
         }
     }
 
-    private function processUploadedFile(UploadedFile $file): string
+    private function processUploadedFile(UploadedFile $file): array
     {
         $originalFilename = $file->getClientOriginalName();
         $safeFilename = $this->slugger->slug(pathinfo($originalFilename, PATHINFO_FILENAME));
         $newFilename = $safeFilename . '-' . uniqid() . '.' . $file->guessExtension();
+        $thumbnailFilename = 'thumb_' . $newFilename;
 
         $subDir = $this->getUploadPath($file);
         $fullDir = $this->uploadDir . '/' . $subDir;
@@ -116,8 +131,22 @@ class ImageService
         }
 
         $file->move($fullDir, $newFilename);
+        
+        // Generate thumbnail
+        $fullPath = $fullDir . '/' . $newFilename;
+        $fullThumbnailPath = $fullDir . '/' . $thumbnailFilename;
+        
+        $this->imageManager->read($fullPath)
+            ->resize(200, 200, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })
+            ->save($fullThumbnailPath);
 
-        return $subDir . '/' . $newFilename;
+        return [
+            'filename' => $subDir . '/' . $newFilename,
+            'thumbnailFilename' => $subDir . '/' . $thumbnailFilename
+        ];
     }
 
     private function getUploadPath(UploadedFile $file): string

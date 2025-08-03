@@ -17,6 +17,9 @@ abstract class AbstractImage
 
     #[ORM\Column(length: 255, nullable: true)]
     protected ?string $originalFilename = null;
+    
+    #[ORM\Column(length: 255, nullable: true)]
+    protected ?string $thumbnailFilename = null;
 
     #[ORM\Column(length: 255)]
     protected string $mimeType;
@@ -86,6 +89,17 @@ abstract class AbstractImage
     public function setUploader(?User $uploader): self
     {
         $this->uploader = $uploader;
+        return $this;
+    }
+
+    public function getThumbnailFilename(): ?string
+    {
+        return $this->thumbnailFilename;
+    }
+
+    public function setThumbnailFilename(?string $thumbnailFilename): self
+    {
+        $this->thumbnailFilename = $thumbnailFilename;
         return $this;
     }
 }

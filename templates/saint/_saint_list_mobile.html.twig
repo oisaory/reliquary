@@ -6,7 +6,7 @@
                 <a href="{{ path('app_saint_show', {'id': saint.id}) }}" class="text-decoration-none" data-turbo-frame="_top">
                     <div class="position-relative">
                         {% if saint.images is defined and saint.images|length > 0 %}
-                            <img src="{{ asset('uploads/images/' ~ saint.images.first.filename) }}"
+                            <img src="{{ asset('uploads/images/' ~ saint.images.first.thumbnailFilename ?? saint.images.first.filename) }}"
                                  alt="{{ saint|format_saint_name }}"
                                  class="w-100"
                                  style="height: 180px; object-fit: cover;">

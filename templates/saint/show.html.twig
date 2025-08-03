@@ -87,7 +87,7 @@
                             <div class="row">
                                 {% for image in saint.images %}
                                     <div class="col-md-4 mb-3">
-                                        <img src="{{ asset('uploads/images/' ~ image.filename) }}" 
+                                        <img src="{{ asset('uploads/images/' ~ (image.thumbnailFilename ?? image.filename)) }}"
                                              alt="Image of {{ saint|format_saint_name }}" 
                                              class="img-fluid rounded">
                                     </div>

@@ -22,7 +22,7 @@
                                 <td>
                                     <div class="me-3">
                                         {% if saint.images is defined and saint.images|length > 0 %}
-                                            <img src="{{ asset('uploads/images/' ~ saint.images.first.filename) }}"
+                                            <img src="{{ asset('uploads/images/' ~ saint.images.first.thumbnailFilename ?? saint.images.first.filename ) }}"
                                                  alt="{{ saint|format_saint_name }}"
                                                  class="img-thumbnail"
                                                  style="width: 100px; height: 100px; object-fit: cover;">
