@@ -1,3 +1,10 @@
+# [1.50.0](https://github.com/CesarScur/reliquary/compare/v1.49.0...v1.50.0) (2025-08-03)
+
+
+### Features
+
+* **images:** improve thumbnail generation and add force option ([571cfc1](https://github.com/CesarScur/reliquary/commit/571cfc1d4161e983ed75635f8622ec56a0800d80))
+
 # [1.49.0](https://github.com/CesarScur/reliquary/compare/v1.48.0...v1.49.0) (2025-08-03)
 
 
