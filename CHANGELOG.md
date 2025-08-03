@@ -1,3 +1,10 @@
+# [1.53.0](https://github.com/CesarScur/reliquary/compare/v1.52.0...v1.53.0) (2025-08-03)
+
+
+### Features
+
+* **saint:** enable image removal and improve form UI ([88a63e6](https://github.com/CesarScur/reliquary/commit/88a63e6dc906b2666cc522b249560da2101a5732))
+
 # [1.52.0](https://github.com/CesarScur/reliquary/compare/v1.51.0...v1.52.0) (2025-08-03)
 
 
