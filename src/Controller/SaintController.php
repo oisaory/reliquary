@@ -114,6 +114,19 @@ final class SaintController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Handle image removal
+            $imagesToRemove = $request->request->all('remove_images');
+            if (!empty($imagesToRemove)) {
+                foreach ($imagesToRemove as $imageId) {
+                    $image = $entityManager->getRepository(\App\Entity\SaintImage::class)->find($imageId);
+                    if ($image && $image->getSaint() === $saint) {
+                        $imageService->deleteImage($image);
+                        $saint->removeImage($image);
+                        $entityManager->remove($image);
+                    }
+                }
+            }
+            
             $imageFile = $form->get('imageFile')->getData();
             
             if ($imageFile) {

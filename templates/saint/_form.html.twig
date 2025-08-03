@@ -64,6 +64,33 @@
                 </div>
             </div>
 
+            {% if saint.images|length > 0 %}
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label">Current Images</label>
+                    <div class="d-flex flex-wrap" data-controller="image-removal">
+                        {% for image in saint.images %}
+                            <div class="position-relative me-3 mb-3" data-image-removal-target="imageContainer" data-image-id="{{ image.id }}">
+                                <div class="position-absolute top-0 end-0">
+                                    <button type="button" class="btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center" 
+                                            style="width: 32px; height: 32px;"
+                                            data-action="image-removal#markForRemoval"
+                                            data-image-removal-target="removeButton">
+                                        <i class="fas fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                                <img src="{{ asset('uploads/images/' ~ (image.thumbnailFilename ?? image.filename)) }}" 
+                                     alt="Image of saint" 
+                                     class="img-thumbnail" 
+                                     style="width: 150px; height: 150px; object-fit: cover;">
+                                <input type="hidden" name="remove_images[]" value="{{ image.id }}" disabled data-image-removal-target="removeInput">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <div class="row mb-3">
                 <div class="col-md-12">
                     {{ form_row(form.imageFile) }}
