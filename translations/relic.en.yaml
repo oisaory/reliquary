@@ -5,6 +5,7 @@ relic:
   filter:
     by_degree: 'Filter by Degree'
     all_relics: 'All Relics'
+    button: 'Filter'
   add_new: 'Add New Relic'
   no_relics: 'No relics found. Click "Add New Relic" to create one.'
   edit_title: 'Edit Relic'
@@ -13,6 +14,7 @@ relic:
   resubmit_title: 'Resubmit Relic'
   rejection_reason: 'Rejection Reason'
   additional_images: 'Additional Images'
+  additional_image: 'Additional image'
   image_uploaded_by: 'Uploaded by'
   no_image: 'No image available'
   table:
@@ -23,6 +25,7 @@ relic:
     degree: 'Degree'
     added_by: 'Added by'
     status: 'Status'
+    thumbnail: 'Thumbnail'
   degree:
     unknown: 'Unknown'
     first_class: 'First-Class'
@@ -53,6 +56,8 @@ relic:
     rejection_reason: 'Rejection Reason'
     rejection_reason_help: 'Provide a reason why this relic was rejected'
     submit: 'Save'
+    current_images: 'Current Images'
+    image_of_relic: 'Image of relic'
   actions:
     view: 'View'
     edit: 'Edit'

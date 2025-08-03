@@ -7,6 +7,7 @@ relic:
   filter:
     by_degree: 'Filtrar por Grau'
     all_relics: 'Todas as Relíquias'
+    button: 'Filtrar'
   add_new: 'Adicionar Nova Relíquia'
   no_relics: 'Nenhuma relíquia foi encontrada. Clique "Adicionar Nova Relíquia" para criar uma.'
   edit_title: 'Editar Relíquia'
@@ -15,7 +16,9 @@ relic:
   resubmit_title: 'Reenviar Relíquia'
   rejection_reason: 'Motivo da Rejeição'
   additional_images: 'Imagens Adicionais'
+  additional_image: 'Imagem adicional'
   image_uploaded_by: 'Enviado por'
+  no_image: 'Nenhuma imagem disponível'
   table:
     saint: 'Santo'
     address: 'Endereço'
@@ -23,6 +26,8 @@ relic:
     actions: 'Ações'
     degree: 'Grau'
     added_by: 'Adicionado por'
+    thumbnail: 'Miniatura'
+    status: 'Status'
   degree:
     unknown: 'Desconhecido'
     first_class: 'Primeira-Classe'
@@ -53,6 +58,8 @@ relic:
     rejection_reason: 'Motivo da Rejeição'
     rejection_reason_help: 'Forneça um motivo pelo qual esta relíquia foi rejeitada'
     submit: 'Salvar'
+    current_images: 'Imagens Atuais'
+    image_of_relic: 'Imagem da relíquia'
   description_options:
     bone_fragment: 'Fragmento de Osso'
     piece_of_cloth: 'Pedaço de roupa'

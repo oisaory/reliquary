@@ -33,7 +33,7 @@
                                     <div class="me-3">
                                         {% if relic.images|length > 0 %}
                                             <img src="{{ asset('uploads/images/' ~ relic.images[0].filename) }}"
-                                                 alt="Thumbnail"
+                                                 alt="{{ 'relic.table.thumbnail'|trans({}, 'relic') }}"
                                                  class="img-thumbnail"
                                                  style="width: 100px; height: 100px; object-fit: cover;">
                                         {% else %}

@@ -11,6 +11,7 @@ saint:
   edit_title: 'Editar Santo'
   new_title: 'Novo Santo'
   show_title: 'Detalhes do Santo'
+  create_title: 'Criar Novo Santo'
   autocomplete:
     placeholder: 'Digite para buscar um santo...'
   canonical_status_titles:
@@ -43,11 +44,15 @@ saint:
     biography: 'Biografia'
     image_link: 'Imagem'
     submit: 'Salvar'
+    information: 'Informações do Santo'
+    current_images: 'Imagens Atuais'
+    image_of_saint: 'Imagem do santo'
   actions:
     view: 'Ver'
     edit: 'Editar'
     delete: 'Excluir'
     back: 'Voltar à lista'
+    update: 'Atualizar'
     confirm_delete: 'Tem certeza de que deseja excluir este santo?'
   messages:
     created: 'Santo criado com sucesso'

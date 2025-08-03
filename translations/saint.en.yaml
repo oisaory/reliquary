@@ -9,6 +9,7 @@ saint:
   edit_title: 'Edit Saint'
   new_title: 'New Saint'
   show_title: 'Saint Details'
+  create_title: 'Create New Saint'
   autocomplete:
     placeholder: 'Start typing to search for a saint...'
   canonical_status_titles:
@@ -43,11 +44,15 @@ saint:
     biography: 'Biography'
     image_link: 'Image'
     submit: 'Save'
+    information: 'Saint Information'
+    current_images: 'Current Images'
+    image_of_saint: 'Image of saint'
   actions:
     view: 'View'
     edit: 'Edit'
     delete: 'Delete'
     back: 'Back to list'
+    update: 'Update'
     confirm_delete: 'Are you sure you want to delete this saint?'
   messages:
     created: 'Saint created successfully'
