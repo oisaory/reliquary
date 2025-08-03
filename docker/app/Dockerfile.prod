@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev \
     libzip-dev \
-    libgd-dev
+    libmagickwand-dev
 
 # Install PHP extensions
 RUN docker-php-ext-install \
@@ -20,8 +20,11 @@ RUN docker-php-ext-install \
     intl \
     zip \
     ctype \
-    iconv \
-    gd
+    iconv
+
+# Install Imagick extension
+RUN pecl install imagick && \
+    docker-php-ext-enable imagick
 
 # Enable Apache modules
 RUN a2enmod rewrite ssl headers
@@ -49,7 +52,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev \
     libzip-dev \
-    libgd-dev \
+    libmagickwand-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -60,8 +63,11 @@ RUN docker-php-ext-install \
     intl \
     zip \
     ctype \
-    iconv \
-    gd
+    iconv
+
+# Install Imagick extension
+RUN pecl install imagick && \
+    docker-php-ext-enable imagick
 
 # Enable Apache modules
 RUN a2enmod rewrite ssl headers

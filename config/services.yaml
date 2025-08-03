@@ -32,7 +32,7 @@ services:
             $appVersion: '%app.version%'
 
     Intervention\Image\ImageManager:
-        factory: ['Intervention\Image\ImageManager', 'gd']
+        factory: ['Intervention\Image\ImageManager', 'imagick']
             
     App\Service\ImageService:
         arguments:

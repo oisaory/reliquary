@@ -116,6 +116,20 @@ class ImageService
         }
     }
 
+    /**
+     * Generate a thumbnail for an image
+     * 
+     * @param string $sourcePath Full path to the source image
+     * @param string $destinationPath Full path where the thumbnail should be saved
+     */
+    public function generateThumbnail(string $sourcePath, string $destinationPath): void
+    {
+        $this->imageManager->read($sourcePath)
+            ->orient()
+            ->coverDown(200, 200)
+            ->save($destinationPath);
+    }
+
     private function processUploadedFile(UploadedFile $file): array
     {
         $originalFilename = $file->getClientOriginalName();
@@ -135,13 +149,8 @@ class ImageService
         // Generate thumbnail
         $fullPath = $fullDir . '/' . $newFilename;
         $fullThumbnailPath = $fullDir . '/' . $thumbnailFilename;
-        
-        $this->imageManager->read($fullPath)
-            ->resize(200, 200, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })
-            ->save($fullThumbnailPath);
+        $this->generateThumbnail($fullPath, $fullThumbnailPath);
+
 
         return [
             'filename' => $subDir . '/' . $newFilename,
