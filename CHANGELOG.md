@@ -1,3 +1,10 @@
+# [1.51.0](https://github.com/CesarScur/reliquary/compare/v1.50.0...v1.51.0) (2025-08-03)
+
+
+### Features
+
+* **translations:** improve i18n support and add translations for relics and about page ([72c00da](https://github.com/CesarScur/reliquary/commit/72c00da79b6ab5c0b5b8788c7aa8e50fba668ea3))
+
 # [1.50.0](https://github.com/CesarScur/reliquary/compare/v1.49.0...v1.50.0) (2025-08-03)
 
 
