@@ -1,3 +1,11 @@
+# [1.52.0](https://github.com/CesarScur/reliquary/compare/v1.51.0...v1.52.0) (2025-08-03)
+
+
+### Features
+
+* **translations:** add English and Brazilian Portuguese translations for about page ([fe3f351](https://github.com/CesarScur/reliquary/commit/fe3f351235197d99533c63564c37a967cbb55dec))
+* **translations:** enhance i18n coverage across templates and add new keys ([c072687](https://github.com/CesarScur/reliquary/commit/c072687e7b0583af5c59e9ea012027bab1bfef7d))
+
 # [1.51.0](https://github.com/CesarScur/reliquary/compare/v1.50.0...v1.51.0) (2025-08-03)
 
 
