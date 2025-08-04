@@ -14,7 +14,7 @@
                             <img src="{{ asset('uploads/images/' ~ relic.images[0].filename) }}" 
                                  alt="Image of {{ relic.saint ? relic.saint ~ '\'s' : '' }} relic" 
                                  class="w-100"
-                                 style="height: 280px; object-fit: cover;">
+                                 style="height: 480px; object-fit: cover; object-position: 0 40%">
                             <div class="position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h4 class="mb-0">{{ relic.saint ? relic.saint|format_saint_name : 'Unknown Saint' }}</h4>
