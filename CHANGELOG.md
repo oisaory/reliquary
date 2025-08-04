@@ -1,3 +1,12 @@
+# [1.55.0](https://github.com/CesarScur/reliquary/compare/v1.54.0...v1.55.0) (2025-08-04)
+
+
+### Features
+
+* **relic:** add "Visit Maps" button with translations ([eb567c7](https://github.com/CesarScur/reliquary/commit/eb567c77b3ceaf018c2a0291e3846e985869d21c))
+* **translations:** improve translation domain usage across templates ([bf61eab](https://github.com/CesarScur/reliquary/commit/bf61eabb4ec42fe1b4b43b07dcdb9e36d907ad4e))
+* **translations:** update common translations and improve dynamic domain usage ([61ff740](https://github.com/CesarScur/reliquary/commit/61ff740c952b306b66de0dc985c41e765c2128d1))
+
 # [1.54.0](https://github.com/CesarScur/reliquary/compare/v1.53.0...v1.54.0) (2025-08-03)
 
 
