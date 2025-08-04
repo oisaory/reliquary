@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'registration.title'|trans }}{% endblock %}
+{% block title %}{{ 'registration.title'|trans({}, 'registration') }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -9,27 +9,27 @@
                 <div class="card mt-5">
                     <div class="card-body">
 
-                        <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'registration.title'|trans }}</h1>
+                        <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'registration.title'|trans({}, 'registration') }}</h1>
 
                         {{ form_errors(registrationForm) }}
 
                         {{ form_start(registrationForm) }}
                             <div class="mb-3">
-                                {{ form_label(registrationForm.username, 'registration.form.username'|trans, {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_label(registrationForm.username, 'registration.form.username'|trans({}, 'registration'), {'label_attr': {'class': 'form-label'}}) }}
                                 {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_help(registrationForm.username) }}
                                 {{ form_errors(registrationForm.username) }}
                             </div>
 
                             <div class="mb-3">
-                                {{ form_label(registrationForm.email, 'registration.form.email'|trans, {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_label(registrationForm.email, 'registration.form.email'|trans({}, 'registration'), {'label_attr': {'class': 'form-label'}}) }}
                                 {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_help(registrationForm.email) }}
                                 {{ form_errors(registrationForm.email) }}
                             </div>
 
                         <div class="mb-3">
-                                {{ form_label(registrationForm.plainPassword, 'registration.form.password'|trans, {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_label(registrationForm.plainPassword, 'registration.form.password'|trans({}, 'registration'), {'label_attr': {'class': 'form-label'}}) }}
                                 <div class="input-group" data-controller="password-toggle">
                                     {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'data-password-toggle-target': 'input'}}) }}
                                     <button class="btn btn-outline-secondary" type="button" data-action="password-toggle#toggle">
@@ -42,16 +42,16 @@
 
                             <div class="mb-3 form-check">
                                 {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
-                                {{ form_label(registrationForm.agreeTerms, 'registration.form.agree_terms'|trans, {'label_attr': {'class': 'form-check-label'}}) }}
+                                {{ form_label(registrationForm.agreeTerms, 'registration.form.agree_terms'|trans({}, 'registration'), {'label_attr': {'class': 'form-check-label'}}) }}
                                 {{ form_errors(registrationForm.agreeTerms) }}
                             </div>
 
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ 'registration.form.submit'|trans }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ 'registration.form.submit'|trans({}, 'registration') }}</button>
                             </div>
 
                             <div class="mt-3 text-center">
-                                <p>{{ 'registration.form.already_have_account'|trans }} <a href="{{ path('app_login') }}">{{ 'registration.form.sign_in'|trans }}</a></p>
+                                <p>{{ 'registration.form.already_have_account'|trans({}, 'registration') }} <a href="{{ path('app_login') }}">{{ 'registration.form.sign_in'|trans({}, 'registration') }}</a></p>
                             </div>
                         {{ form_end(registrationForm) }}
                     </div>

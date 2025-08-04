@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'security.reset_password.email_sent_title'|trans }}{% endblock %}
+{% block title %}{{ 'security.reset_password.email_sent_title'|trans({}, 'security') }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -8,18 +8,18 @@
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'security.reset_password.email_sent_title'|trans }}</h1>
+                        <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'security.reset_password.email_sent_title'|trans({}, 'security') }}</h1>
 
                         <div class="alert alert-info mb-3">
                             <p>
-                                {{ 'security.reset_password.email_sent_message'|trans }}
+                                {{ 'security.reset_password.email_sent_message'|trans({}, 'security') }}
                                 {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
                             </p>
                         </div>
 
                         <div class="text-center">
-                            <p>{{ 'security.reset_password.check_spam'|trans }} <a href="{{ path('app_forgot_password_request') }}">{{ 'security.reset_password.try_again'|trans }}</a>.</p>
-                            <p><a href="{{ path('app_login') }}" class="btn btn-secondary mt-2">{{ 'security.login.back_to_login'|trans }}</a></p>
+                            <p>{{ 'security.reset_password.check_spam'|trans({}, 'security') }} <a href="{{ path('app_forgot_password_request') }}">{{ 'security.reset_password.try_again'|trans({}, 'security') }}</a>.</p>
+                            <p><a href="{{ path('app_login') }}" class="btn btn-secondary mt-2">{{ 'security.login.back_to_login'|trans({}, 'security') }}</a></p>
                         </div>
                     </div>
                 </div>

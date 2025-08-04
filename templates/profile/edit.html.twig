@@ -14,7 +14,7 @@
                         {% set user = form.vars.data %}
                         {% if user.profileImage %}
                             <img src="{{ asset('uploads/images/' ~ user.profileImage.filename) }}" 
-                                 alt="{{ 'profile_image'|trans({}, 'user') }}" 
+                                 alt="{{ 'user.profile_image'|trans({}, 'user') }}" 
                                  class="img-fluid rounded-circle mb-3" 
                                  style="width: 150px; height: 150px; object-fit: cover;">
                         {% else %}

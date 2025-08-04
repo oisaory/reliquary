@@ -23,7 +23,7 @@
                                         <small class="me-2">{{ 'relic.image_uploaded_by'|trans({}, 'relic') }}:</small>
                                         {% if relic.images[0].uploader.profileImage %}
                                             <img src="{{ asset('uploads/images/' ~ (relic.images[0].uploader.profileImage.thumbnailFilename ?? relic.images[0].uploader.profileImage.filename)) }}" 
-                                                 alt="{{ 'profile_image'|trans({}, 'user') }}" 
+                                                 alt="{{ 'user.profile_image'|trans({}, 'user') }}" 
                                                  class="rounded-circle me-2" 
                                                  style="width: 24px; height: 24px; object-fit: cover;">
                                         {% else %}
@@ -72,7 +72,7 @@
                                                         <div class="d-flex align-items-center mt-1">
                                                             {% if image.uploader.profileImage %}
                                                                 <img src="{{ asset('uploads/images/' ~ (image.uploader.profileImage.thumbnailFilename ?? image.uploader.profileImage.filename)) }}" 
-                                                                     alt="{{ 'profile_image'|trans({}, 'user') }}" 
+                                                                     alt="{{ 'user.profile_image'|trans({}, 'user') }}" 
                                                                      class="rounded-circle me-2" 
                                                                      style="width: 24px; height: 24px; object-fit: cover;">
                                                             {% else %}
@@ -155,7 +155,7 @@
                                 <div class="d-flex align-items-center mt-1">
                                     {% if relic.creator.profileImage %}
                                         <img src="{{ asset('uploads/images/' ~ (relic.creator.profileImage.thumbnailFilename ?? relic.creator.profileImage.filename)) }}" 
-                                             alt="{{ 'profile_image'|trans({}, 'user') }}" 
+                                             alt="{{ 'user.profile_image'|trans({}, 'user') }}" 
                                              class="rounded-circle me-2" 
                                              style="width: 32px; height: 32px; object-fit: cover;">
                                     {% else %}

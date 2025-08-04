@@ -43,7 +43,7 @@
                 <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                   {% if app.user.profileImage %}
                     <img src="{{ asset('uploads/images/' ~ app.user.profileImage.filename) }}" 
-                         alt="{{ 'profile_image'|trans({}, 'user') }}" 
+                         alt="{{ 'user.profile_image'|trans({}, 'user') }}" 
                          class="rounded-circle me-2" 
                          style="width: 24px; height: 24px; object-fit: cover;">
                   {% else %}

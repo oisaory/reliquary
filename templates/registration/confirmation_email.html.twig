@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ 'registration.email.title'|trans }}</title>
+    <title>{{ 'registration.email.title'|trans({}, 'registration') }}</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -95,34 +95,34 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="https://santasreliquias.com.br/images/relic.png" alt="{{ 'registration.brand.logo_alt'|trans }}">
-                <span class="logo-text">{{ 'registration.brand.name'|trans }}</span>
+                <img src="https://santasreliquias.com.br/images/relic.png" alt="{{ 'registration.brand.logo_alt'|trans({}, 'registration') }}">
+                <span class="logo-text">{{ 'registration.brand.name'|trans({}, 'registration') }}</span>
             </div>
         </div>
         <div class="content">
-            <h1>{{ 'registration.email.welcome'|trans }}</h1>
+            <h1>{{ 'registration.email.welcome'|trans({}, 'registration') }}</h1>
 
             <div class="card">
                 <div class="card-header">
-                    <h3 style="margin: 0;">{{ 'registration.email.header'|trans }}</h3>
+                    <h3 style="margin: 0;">{{ 'registration.email.header'|trans({}, 'registration') }}</h3>
                 </div>
                 <div class="card-body">
-                    <p>{{ 'registration.email.message'|trans }}</p>
+                    <p>{{ 'registration.email.message'|trans({}, 'registration') }}</p>
 
                     <p style="text-align: center; margin: 30px 0;">
-                        <a href="{{ signedUrl|raw }}" class="btn btn-primary">{{ 'registration.email.confirm'|trans }}</a>
+                        <a href="{{ signedUrl|raw }}" class="btn btn-primary">{{ 'registration.email.confirm'|trans({}, 'registration') }}</a>
                     </p>
 
-                    <p>{{ 'registration.email.expiry_notice'|trans }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
+                    <p>{{ 'registration.email.expiry_notice'|trans({}, 'registration') }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
 
-                    <p>{{ 'registration.email.ignore_notice'|trans }}</p>
+                    <p>{{ 'registration.email.ignore_notice'|trans({}, 'registration') }}</p>
                 </div>
             </div>
 
-            <p>{{ 'registration.email.thank_you'|trans }}<br>{{ 'registration.email.team'|trans }}</p>
+            <p>{{ 'registration.email.thank_you'|trans({}, 'registration') }}<br>{{ 'registration.email.team'|trans({}, 'registration') }}</p>
         </div>
         <div class="footer">
-            <p>&copy; {{ "now"|date("Y") }} {{ 'registration.brand.name'|trans }}. {{ 'registration.email.all_rights_reserved'|trans }}</p>
+            <p>&copy; {{ "now"|date("Y") }} {{ 'registration.brand.name'|trans({}, 'registration') }}. {{ 'registration.email.all_rights_reserved'|trans({}, 'registration') }}</p>
         </div>
     </div>
 </body>
