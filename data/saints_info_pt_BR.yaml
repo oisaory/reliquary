@@ -161,7 +161,7 @@ saints:
     name: 'Mártires de Gorcum na Holanda'
     id: 41
   -
-    name: 'João de Kęty'
+    name: 'João Câncio'
     saint_phrase: 'O "professor Santo"'
     id: 42
   -
@@ -428,84 +428,84 @@ saints:
     saint_phrase: 'Soprannominado "o vagabundo de Deus"'
     id: 110
   -
-    name: 'Giovanni Leonardi'
-    saint_phrase: '"Di Cristo l''umanità ha estremo bisogno, perché Lui è la nostra misura"'
+    name: 'João Leonardo'
+    saint_phrase: '"De Cristo a humanidade tem extrema necessidade, porque Ele é a nossa medida."'
     id: 111
   -
-    name: 'Margherita Maria Alacoque'
-    saint_phrase: '"Il mio cuore si dilaterà per spandere con abbondanza i frutti del suo amore su quelli che mi onorano"'
+    name: 'Margarida Maria Alacoque'
+    saint_phrase: '"Meu coração se dilatará para espalhar com abundância os frutos do seu amor sobre aqueles que me honram."'
     id: 112
   -
-    name: 'Pietro Canisio'
-    saint_phrase: '“Tu conosci, Signore, in quanti modi e quante volte in quello stesso giorno mi hai affidato la Germania per la quale in seguito avrei continuato ad essere sollecito, per la quale avrei desiderato vivere e morire”'
+    name: 'Pedro Canísio'
+    saint_phrase: '“Tu sabes, Senhor, de quantas maneiras e quantas vezes naquele mesmo dia me confiaste a Alemanha, pela qual, depois, continuei a ser solícito, pela qual desejei viver e morrer.”'
     id: 113
   -
-    name: 'Giovanni Berchmans'
-    saint_phrase: '“Fai bene quello che stai facendo e rendi il massimo facendo le minime cose”'
+    name: 'João Berchmans'
+    saint_phrase: '“Faça bem o que você está fazendo e dê o máximo de si fazendo as coisas mínimas.”'
     id: 114
   -
-    name: 'Pierre Favre'
-    saint_phrase: 'Grande maestro del discernimento spirituale, maestro dell’autentico dialogo ecumenico'
+    name: 'Pedro Fabro'
+    saint_phrase: 'Grande mestre do discernimento espiritual, mestre do autêntico diálogo ecumênico.'
     id: 115
   -
-    name: 'Agnese di Boemia'
-    saint_phrase: 'Fin dalla più tenera età ella orientò la propria esistenza alla ricerca dei beni celesti'
+    name: 'Inês da Boêmia'
+    saint_phrase: 'Desde a mais tenra idade, ela orientou sua existência para a busca dos bens celestes.'
     id: 116
   -
-    name: 'Alonso de Orozco'
-    saint_phrase: 'La sua dedizione pastorale al servizio dei pù poveri negli ospedali e nelle prigioni fa di lui un modello'
+    name: 'Afonso de Orozco'
+    saint_phrase: 'Sua dedicação pastoral a serviço dos mais pobres em hospitais e prisões faz dele um modelo.'
     id: 117
   -
-    name: 'Umile da Bisignano'
-    saint_phrase: '"Signore, perdona i miei peccati e fa'' che io ti ami come sono obbligato ad amarti; e perdona i peccati a tutto il genere umano, e fa'' che tutti ti amino come sono obbligati ad amarti!"'
+    name: 'Humilde de Bisignano'
+    saint_phrase: '"Senhor, perdoa os meus pecados e fazei com que eu te ame como sou obrigado a te amar; e perdoa os pecados de toda a humanidade, e fazei com que todos te amem como são obrigados a te amar!"'
     id: 118
   -
-    name: 'Carlo da Sezze'
-    saint_phrase: '"Sia benedetto Dio! Sia benedetto Dio” Sia benedetto Dio!"'
+    name: 'Carlos de Sezze'
+    saint_phrase: '"Seja Deus bendito! Seja Deus bendito! Seja Deus bendito!"'
     id: 119
   -
-    name: 'John Fisher'
-    saint_phrase: '“Popolo cristiano, sono venuto qui a morire per la fede nella Santa Chiesa cattolica di Cristo”'
+    name: 'João Fisher'
+    saint_phrase: '“Povo cristão, vim aqui para morrer pela fé na Santa Igreja Católica de Cristo.”'
     id: 120
   -
     name: 'Thomas More'
-    saint_phrase: '"Muoio da suddito fedele al re, ma innanzitutto a Dio"'
+    saint_phrase: '"Morro como um súdito fiel ao rei, mas, em primeiro lugar, a Deus."'
     id: 121
   -
-    name: 'Luigi Maria Grignion da Montfort'
-    saint_phrase: '"Non credo che una persona possa acquistare un''unione intima con Nostro Signore e una perfetta fedeltà allo Spirito Santo, senza una grandissima unione con la santissima Vergine"'
+    name: 'Luís Maria Grignion de Montfort'
+    saint_phrase: '"Não creio que uma pessoa possa adquirir uma união íntima com Nosso Senhor e uma perfeita fidelidade ao Espírito Santo sem uma grandíssima união com a Santíssima Virgem."'
     id: 122
   -
     name: 'Clemente Maria Hofbauer'
-    saint_phrase: 'Panettiere mancato ed eremita fallito: dedicò tutta la sua vita agli orfani, ai giovani e agli studenti'
+    saint_phrase: 'Padeiro frustrado e eremita fracassado: dedicou toda a sua vida aos órfãos, aos jovens e aos estudantes.'
     id: 123
   -
-    name: 'Egidio Maria di San Giuseppe'
-    saint_phrase: 'Cuoco, portinaio e questuante, la sua aspirazione: poter pensare e lavorare soltanto per il Signore'
+    name: 'Egídio Maria de São José'
+    saint_phrase: 'Cozinheiro, porteiro e pedinte, sua aspiração: poder pensar e trabalhar somente para o Senhor.'
     id: 124
   -
-    name: 'Felice da Nicosia'
-    saint_phrase: 'Amava ripetere in tutte le circostanze, gioiose o tristi: "Sia per amore di Dio"'
+    name: 'Félix de Nicosia'
+    saint_phrase: 'Ele amava repetir em todas as circunstâncias, alegres ou tristes: "Seja por amor de Deus"'
     id: 125
   -
-    name: 'Giovanni Battista de La Salle'
-    saint_phrase: '“Se il nostro istituto è opera di uomo non può non cadere; ma se è opera di Dio riuscirà vano ogni sforzo per distruggerlo”'
+    name: 'João Batista de La Salle'
+    saint_phrase: '“Se o nosso instituto é obra de homem, não pode deixar de cair; mas se é obra de Deus, será vão todo esforço para destruí-lo.”'
     id: 126
   -
-    name: 'Jean Gabriel Perboyre'
-    saint_phrase: '"Non so cosa mi aspetta nel cammino che si apre davanti a me: senza dubbio la croce, che è il pane quotidiano del missionario. Cosa ci si può augurare di meglio, andando a predicare un Dio crocifisso?"'
+    name: 'João Gabriel Perboyre'
+    saint_phrase: '"Não sei o que me espera no caminho que se abre à minha frente: sem dúvida, a cruz, que é o pão diário do missionário. O que se pode desejar de melhor, indo pregar um Deus crucificado?"'
     id: 127
   -
-    name: 'Pietro Chanel'
-    saint_phrase: 'Il primo martire dell’Oceania'
+    name: 'Pedro Chanel'
+    saint_phrase: 'O primeiro mártir da Oceania.'
     id: 128
   -
-    name: 'Pompilio Maria Pirrotti'
-    saint_phrase: '“Addio in Paradiso!”'
+    name: 'Pompílio Maria Pirrotti'
+    saint_phrase: '“Adeus no Paraíso!”'
     id: 129
   -
-    name: 'Antonio Maria Zaccaria'
-    saint_phrase: 'A lui si devono anche le Quarantore pubbliche, con esposizione del Santissimo Sacramento, e i tocchi di campana ogni venerdì alle 15, che ricordano l’ora della morte di Cristo'
+    name: 'Antônio Maria Zaccaria'
+    saint_phrase: 'A ele também se devem as Quarenta Horas públicas, com a exposição do Santíssimo Sacramento, e os toques do sino toda sexta-feira às 15h, que lembram a hora da morte de Cristo.'
     id: 130
   -
     name: 'Francesco Saverio Bianchi'
