@@ -389,43 +389,43 @@ saints:
     saint_phrase: '"Como posso fazer para amar verdadeiramente o Senhor? O que devo fazer para agradá-lo? Ensinai-me. Ele me dá grandes desejos de ser todo seu, mas não sei como fazer"'
     id: 100
   -
-    name: 'Paolo della Croce'
-    saint_phrase: 'Fondatore della Congregazione Passionista'
+    name: 'Paulo da Cruz'
+    saint_phrase: 'Congregação da Paixão de Jesus Cristo, também conhecida como Passionistas'
     id: 101
   -
-    name: 'Andrea Bobola'
-    saint_phrase: '"Sono sacerdote cattolico, nato nella fede cattolica, nella stessa fede voglio morire; la mia fede è la vera e porta alla salvezza"'
+    name: 'André Bobola'
+    saint_phrase: '"Sou padre católico, nasci na fé católica, e quero morrer nela; a minha fé é a verdadeira e conduz à salvação."'
     id: 102
   -
-    name: 'Juan Grande Román'
-    saint_phrase: 'Nella sua vita ospedaliera, i Fratelli dovevano trascinarlo fuori dalla cappella per condurlo alla sua cella e dare per conclusa la preghiera della notte'
+    name: 'João Grande Román'
+    saint_phrase: 'Durante sua vida hospitalar, os Irmãos precisavam arrastá-lo para fora da capela para levá‑lo até à sua cela e dar por encerrada a oração da noite.'
     id: 103
   -
-    name: 'Maria Anna di Gesù de Paredes'
-    saint_phrase: 'Il "Giglio di Quito"'
+    name: 'Maria Ana de Jesus de Paredes'
+    saint_phrase: 'O lirio de Quito"'
     id: 104
   -
-    name: 'Germana Cousin'
-    saint_phrase: 'Patrona dei pastori e della gioventù "a rischio"'
+    name: 'Germana de Pibrac'
+    saint_phrase: 'Padroeira dos pastores e da juventude ‘em risco’.'
     id: 105
   -
-    name: 'Inácio de Azevedo e 39 compagni'
+    name: 'Inácio de Azevedo e 39 companheiros'
     id: 106
   -
-    name: 'Giovanni de Britto'
-    saint_phrase: '"Io amo più il cielo che la terra, più le boscaglie di Madurai che il palazzo del Portogallo"'
+    name: 'João de Brito'
+    saint_phrase: '"Eu amo mais o céu que a terra, mais os matagais de Madurai que o palácio de Portugal."'
     id: 107
   -
-    name: 'Jan Sarkander'
-    saint_phrase: '"La sua canonizzazione va ad onore di chi ha preferito la privazione dei beni, l’emarginazione, la morte, piuttosto che piegarsi all’oppressione e alla violenza" (Giovanni Paolo II)'
+    name: 'João Sarkander'
+    saint_phrase: '"Sua canonização honra aqueles que preferiram a privação de bens, a marginalização ou mesmo a morte, antes de se curvarem à opressão e à violência." (João Paulo II)'
     id: 108
   -
-    name: "Giovanni Battista de' Rossi"
-    saint_phrase: 'La sua vita vorticosa e la sua inarrestabile carità rappresentano il trionfo della volontà sulla fragilità fisica'
+    name: "João Batista de Rossi"
+    saint_phrase: 'Sua vida frenética e sua caridade inabalável representam o triunfo da vontade sobre a fragilidade física.'
     id: 109
   -
-    name: 'Benedetto Giuseppe Labre'
-    saint_phrase: 'Soprannominato “il vagabondo di Dio”'
+    name: 'Benedito José Labre'
+    saint_phrase: 'Soprannominado "o vagabundo de Deus"'
     id: 110
   -
     name: 'Giovanni Leonardi'
