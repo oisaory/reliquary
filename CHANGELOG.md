@@ -1,3 +1,10 @@
+# [1.58.0](https://github.com/CesarScur/reliquary/compare/v1.57.0...v1.58.0) (2025-08-05)
+
+
+### Features
+
+* **translations:** improve saints translation ([f398469](https://github.com/CesarScur/reliquary/commit/f3984695d9614e853bc7205788e6f33c9535b286))
+
 # [1.57.0](https://github.com/CesarScur/reliquary/compare/v1.56.0...v1.57.0) (2025-08-05)
 
 
