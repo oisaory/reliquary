@@ -83,8 +83,22 @@ class AdminTranslationController extends AbstractController
     private function findIdenticalTranslations(array $flattenedSource, array $flattenedTarget): array
     {
         $identical = [];
+        $exceptionValues = [
+            'Admin',
+            'Português (Brasil)',
+            'Logs',
+            'Email',
+            'Reliquary',
+            'Reliquary Logo',
+            'Status'
+        ];
+        
         foreach ($flattenedSource as $key => $value) {
             if (array_key_exists($key, $flattenedTarget) && $flattenedTarget[$key] === $value) {
+                // Skip if the value is in the exception list (ignore keys)
+                if (in_array($value, $exceptionValues)) {
+                    continue;
+                }
                 $identical[$key] = $value;
             }
         }
