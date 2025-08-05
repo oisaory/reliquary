@@ -15,7 +15,7 @@
                         <option value="">{{ 'relic.filter.all_relics'|trans({}, 'relic') }}</option>
                         {% for degree in relic_degrees %}
                             <option value="{{ degree.value }}" {% if filter == degree.value %}selected{% endif %}>
-                                {{ degree.label }}
+                                {{ degree.getTitleTransKey|trans({}, 'relic') }}
                             </option>
                         {% endfor %}
                     </select>

@@ -80,7 +80,7 @@ relic:
     review: 'Revisar'
     cancel: 'Cancelar'
     resubmit: 'Reenviar'
-    visit_maps: 'Visitar! (abrir no google maps)'
+    visit_maps: 'Visitar!'
     visit_maps_tooltip: 'Clique para ver esta localização no Google Maps'
   status:
     pending: 'Aguardando Aprovação'

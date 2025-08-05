@@ -15,13 +15,13 @@ saint:
   autocomplete:
     placeholder: 'Digite para buscar um santo...'
   canonical_status_titles:
-    canonization: 'Santo'
-    beatification: 'Beato'
+    canonization: 'Santo(a)'
+    beatification: 'Beato(a)'
     veneration: 'Venerável'
     servant_of_god: 'Servo de Deus'
   table:
     name: 'Nome'
-    url: 'URL'
+    url: 'Fonte'
     file: 'Arquivo'
     canonical_status: 'Status Canônico'
     canonization_date: 'Data de Canonização'
@@ -32,12 +32,14 @@ saint:
     image_link: 'Imagem'
     relics: 'Relíquias'
     actions: 'Ações'
+    feast_date: 'Data da Festa'
   form:
     name: 'Nome'
-    url: 'URL'
+    url: 'Fonte'
     file: 'Arquivo'
     canonical_status: 'Status Canônico'
     canonization_date: 'Data de Canonização'
+    feast_date: 'Data da Festa'
     canonizing_pope: 'Papa Canonizante'
     saint_phrase: 'Frase do Santo'
     abstract: 'Abstrato'

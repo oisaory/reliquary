@@ -12,6 +12,7 @@ home:
   saint_of_day: 'Santo do Dia'
   view_saint_details: 'Ver Detalhes'
   also_celebrated_today: 'Também celebrado hoje'
+  search_results: 'Busca: %query%'
   features:
     title: 'Recursos'
     relic_management: 'Gerenciamento da Relíquia'

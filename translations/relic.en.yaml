@@ -70,7 +70,7 @@ relic:
     review: 'Review'
     cancel: 'Cancel'
     resubmit: 'Resubmit'
-    visit_maps: 'Visit It! (open in google maps)'
+    visit_maps: 'Visit It!'
     visit_maps_tooltip: 'Click to view this location in Google Maps'
   description_options:
     bone_fragment: 'Bone fragment'
