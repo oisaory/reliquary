@@ -1,3 +1,15 @@
+# [1.57.0](https://github.com/CesarScur/reliquary/compare/v1.56.0...v1.57.0) (2025-08-05)
+
+
+### Bug Fixes
+
+* **translations:** exclude specific values from identical translations detection ([0083faf](https://github.com/CesarScur/reliquary/commit/0083faf32126f97f7afc3a7c3391da3ae3944fb8))
+
+
+### Features
+
+* **translations:** update relic and saint templates with improved i18n keys ([f6dc1d0](https://github.com/CesarScur/reliquary/commit/f6dc1d07a8542acd30e8569cc6f660c4135ac8c0))
+
 # [1.56.0](https://github.com/CesarScur/reliquary/compare/v1.55.0...v1.56.0) (2025-08-05)
 
 
