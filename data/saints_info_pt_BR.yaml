@@ -508,317 +508,317 @@ saints:
     saint_phrase: 'A ele também se devem as Quarenta Horas públicas, com a exposição do Santíssimo Sacramento, e os toques do sino toda sexta-feira às 15h, que lembram a hora da morte de Cristo.'
     id: 130
   -
-    name: 'Francesco Saverio Bianchi'
-    saint_phrase: 'Papa Leone XIII lo definì "Apostolo di Napoli"'
+    name: 'Francisco Xavier Bianchi'
+    saint_phrase: 'O Papa Leão XIII o definiu como "Apóstolo de Nápoles"'
     id: 131
   -
-    name: 'Gerardo Maiella'
-    saint_phrase: '"Vado a farmi Santo"'
+    name: 'Geraldo Majela'
+    saint_phrase: '"Vou me fazer de santo"'
     id: 132
+  -
+    name: 'João de Ávila'
+    saint_phrase: '"Cristo nos diz que, se desejamos nos unir a ele, devemos caminhar pela estrada que ele percorreu"'
+    id: 133
+  -
+    name: 'Teófilo de Corte'
+    id: 134
+  -
+    name: 'Bernardino Realino'
+    saint_phrase: 'Tornou-se padroeiro de uma cidade ainda em vida'
+    id: 135
+  -
+    name: 'Maria Crescencia Höss'
+    saint_phrase: '"Honrar a Cristo, o Rei"'
+    id: 136
+  -
+    name: 'Joana de Lestonnac'
+    saint_phrase: '"É melhor usar um pouco de severidade com pessoas individuais do que prejudicar o bem comum por excesso de complacência"'
+    id: 137
+  -
+    name: 'Gaspar Del Bufalo'
+    saint_phrase: '"Gostaria de ter mil línguas para enternecer cada coração pelo Preciosíssimo Sangue de Jesus"'
+    id: 138
+  -
+    name: 'Marco de Križevci'
+    saint_phrase: 'À imagem do Bom Pastor, no momento do perigo, não abandonou o seu rebanho'
+    id: 139
+  -
+    name: 'Estêvão Pongracz'
+    saint_phrase: 'Acreditando que estava morto, na manhã seguinte foi jogado com os corpos de seus companheiros em um poço de esgoto, onde viveu por mais 20 horas, rezando o tempo todo.'
+    id: 140
+  -
+    name: 'Melchior Grodziecki'
+    saint_phrase: 'Em Kosice, foi-lhe permitido selar com o sangue a sua total consagração a Cristo e ao serviço dos irmãos'
+    id: 141
+  -
+    name: 'João Maria Vianney'
+    saint_phrase: '“Se compreendêssemos bem o que é um padre na terra, morreríamos: não de medo, mas de amor”'
+    id: 142
+  -
+    name: 'Júlia Billiart'
+    saint_phrase: '"Como Deus é bom!"'
+    id: 143
+  -
+    name: 'Teresa de Santo Agostinho e 15 companheiras'
+    id: 144
+  -
+    name: 'Zdislava de Lembert'
+    saint_phrase: '"Exemplo de fidelidade conjugal, apoio à espiritualidade doméstica e honestidade nos costumes" (Paulo VI)'
+    id: 145
+  -
+    name: 'Maria Madalena Postel'
+    saint_phrase: '"O religioso que não trabalha não é digno de ser religioso"'
+    id: 146
+  -
+    name: 'Madalena Sofia Barat'
+    saint_phrase: '”Os tempos mudam e nós também devemos mudar a nossa maneira de ser”'
+    id: 147
+  -
+    name: "Gabriel da Virgem Dolorosa"
+    saint_phrase: '"Verdadeiramente, a minha vida é cheia de alegria”'
+    id: 148
+  -
+    name: 'João Eudes'
+    saint_phrase: '"Você nunca deve separar o que Deus uniu tão perfeitamente. Jesus e Maria estão tão intimamente ligados um ao outro que quem vê Jesus, olha para Maria"'
+    id: 149
+  -
+    name: "Joana d'Arc"
+    saint_phrase: "“Se estou na graça de Deus, que Ele me guarde; se não estou, que Deus queira me colocar nela, pois preferiria morrer a não estar no amor de Deus”"
+    id: 150
+  -
+    name: 'José Bento Cottolengo'
+    saint_phrase: '"Eu não sou nada de bom e nem sei o que estou fazendo. A Divina Providência, no entanto, certamente sabe o que quer. Cabe a mim apenas secundá-la"'
+    id: 151
+  -
+    name: 'Nuno de Santa Maria Álvares Pereira'
+    saint_phrase: 'Líder vitorioso, fundador da comunidade carmelita, ao entrar no convento, não quis privilégios, mas escolheu a posição mais humilde de frade doado'
+    id: 152
   -
-    name: 'Giovanni d’Avila'
-    saint_phrase: '"Cristo di dice che se noi desideriamo unirci a lui, dobbiamo camminare sulla strada che egli ha percorso"'
-    id: 133
-  -
-    name: 'Teofilo da Corte'
-    id: 134
-  -
-    name: 'Bernardino Realino'
-    saint_phrase: 'Diventa patrono di una città addirittura da vivo'
-    id: 135
-  -
-    name: 'Maria Crescentia Höss'
-    saint_phrase: '"Rendere onore a Cristo, il Re"'
-    id: 136
-  -
-    name: 'Jeanne de Lestonnac'
-    saint_phrase: '"È meglio usare un po'' di severità verso le persone singole, anziché nuocere al bene comune per troppa condiscendenza"'
-    id: 137
-  -
-    name: 'Gaspare Del Bufalo'
-    saint_phrase: '"Vorrei avere mille lingue per intenerire ogni cuore verso il Sangue Preziosissimo di Gesù"'
-    id: 138
-  -
-    name: 'Marco Križevčanin'
-    saint_phrase: 'Ad immagine del Buon Pastore, nel momento del pericolo non abbandonò il proprio gregge'
-    id: 139
-  -
-    name: 'Stefano Pongracz'
-    saint_phrase: 'Creduto morto, il mattino seguente fu buttato con i corpi dei suoi compagni in un pozzo di scolo, dove visse ancora 20 ore pregando tutto il tempo.'
-    id: 140
-  -
-    name: 'Melchiorre Grodziecki'
-    saint_phrase: 'A Kosice gli fu dato di suggellare col sangue la sua totale consacrazione a Cristo e al servizio dei fratelli'
-    id: 141
-  -
-    name: 'Giovanni Maria Vianney'
-    saint_phrase: '“Se comprendessimo bene che cos’è un prete sulla terra, moriremmo: non di spavento, ma di amore”'
-    id: 142
-  -
-    name: 'Giulia Billiart'
-    saint_phrase: '"Com''è buono il buon Dio!"'
-    id: 143
-  -
-    name: 'Teresa di Sant’Agostino e 15 compagne'
-    id: 144
-  -
-    name: 'Zdislava di Lembert'
-    saint_phrase: '"Esempio di fedeltà coniugale, sostegno di spiritualità domestica e di onestà dei costumi" (Paolo VI)'
-    id: 145
-  -
-    name: 'Maria Maddalena Postel'
-    saint_phrase: '"Il religioso che non lavora non è degno di essere religioso"'
-    id: 146
-  -
-    name: 'Maddalena Sofia Barat'
-    saint_phrase: '”I tempi cambiano ed anche noi dobbiamo cambiare il nostro modo di essere”'
-    id: 147
-  -
-    name: "Gabriele dell'Addolorata"
-    saint_phrase: '"Davvero, la mia vita è piena di gioia”'
-    id: 148
-  -
-    name: 'Giovanni Eudes'
-    saint_phrase: '"Non devi mai separare ciò che Dio ha così perfettamente unito. Gesù e Maria sono così intimamente legati l''uno con l''altro che chi vede Gesù guarda Maria"'
-    id: 149
-  -
-    name: "Giovanna d'Arco"
-    saint_phrase: "“Se sono in grazia d'Iddio egli mi custodisca, se non ci sono, Iddio voglia collocarmici perché preferirei morire che non essere nell’amore di Dio”"
-    id: 150
-  -
-    name: 'Giuseppe Benedetto Cottolengo'
-    saint_phrase: '"Io sono un buono a nulla e non so neppure cosa mi faccio. La Divina Provvidenza però sa certamente ciò che vuole. A me tocca solo assecondarla"'
-    id: 151
-  -
-    name: 'Nuno de Santa Maria Álvares Pereira'
-    saint_phrase: 'Condottiero vittorioso, fondatore della comunità carmelitana, entrando in convento, non volle privilegi, ma scelse il rango più umile di frate donato'
-    id: 152
-  -
-    name: 'Luisa de Marillac'
-    saint_phrase: '“Non abbiate occhi e cuore che per i poveri”'
+    name: 'Luísa de Marillac'
+    saint_phrase: '“Não tenham olhos nem coração a não ser para os pobres”'
     id: 153
   -
-    name: 'Carlo Lwanga, Mattia Maulumba Kalemba e 20 compagni'
-    saint_phrase: '“Io ti prenderò per mano. Se dobbiamo morire per Gesù, moriremo insieme, mano nella mano”'
+    name: 'Carlos Lwanga, Matias Maulumba Kalemba e 20 companheiros'
+    saint_phrase: '“Eu te tomarei pela mão. Se tivermos que morrer por Jesus, morreremos juntos, de mãos dadas”'
     id: 154
   -
     name: 'Teresa do Menino Jesus (de Lisieux, Teresinha)'
-    saint_phrase: '"Non c’è che una cosa da fare: gettare a Gesù i fiori dei piccoli sacrifici”'
+    saint_phrase: '"Há apenas uma coisa a fazer: jogar a Jesus as flores dos pequenos sacrifícios"'
     id: 155
   -
-    name: 'Michele Garicoïts'
-    saint_phrase: '“Non posso fare altro che ammirare, adorare e amare l’iniziativa della Provvidenza divina. Oh, quanto è importante questa posizione! Essere poveri strumenti!”'
+    name: 'Miguel Garicoïts'
+    saint_phrase: '“Não posso fazer outra coisa a não ser admirar, adorar e amar a iniciativa da Providência divina. Oh, quão importante é esta posição! Ser pobres instrumentos!”'
     id: 156
   -
-    name: 'Roberto Bellarmino'
-    saint_phrase: '“Se hai saggezza, comprendi che sei creato per la gloria di Dio e per la tua eterna salvezza"'
+    name: 'Roberto Belarmino'
+    saint_phrase: '“Se tens sabedoria, compreende que foste criado para a glória de Deus e para a tua eterna salvação”'
     id: 157
   -
-    name: 'Vincenzo Maria Strambi'
-    saint_phrase: '“I poveri sono i miei padroni ed io non sono che il loro economo”'
+    name: 'Vicente Maria Strambi'
+    saint_phrase: '“Os pobres são os meus mestres e eu sou apenas o seu ecônomo”'
     id: 158
   -
-    name: 'Antonio Maria Gianelli'
-    saint_phrase: '"La sua vita può dirsi che fosse un atto continuo e perpetuo di fede, di speranza e di carità verso il prossimo. Tutte le sue azioni, come tutte le sue parole, tutti i suoi pensieri, come tutti i suoi affetti, avevano un solo e stesso principio, un solo e stesso fine: la gloria di Dio e la salute delle anime" (Tommaso Reggio, arcivescovo di Genova)'
+    name: 'Antônio Maria Gianelli'
+    saint_phrase: '"A sua vida pode-se dizer que era um ato contínuo e perpétuo de fé, de esperança e de caridade para com o próximo. Todas as suas ações, como todas as suas palavras, todos os seus pensamentos, como todos os seus afetos, tinham um único e mesmo princípio, um único e mesmo fim: a glória de Deus e a salvação das almas" (Tommaso Reggio, arcebispo de Gênova)'
     id: 159
   -
-    name: 'Giuseppe Cafasso'
-    saint_phrase: '“Nel giorno del giudizio il Signore mi chiederà se sono stato un buon prete e non un buon deputato”'
+    name: 'José Cafasso'
+    saint_phrase: '“No dia do julgamento o Senhor me perguntará se fui um bom padre e não um bom deputado”'
     id: 160
   -
-    name: 'Maria Michela del Santissimo Sacramento'
-    saint_phrase: 'La Teresa del secolo XIX'
+    name: 'Maria Micaela do Santíssimo Sacramento'
+    saint_phrase: 'A Teresa do século XIX'
     id: 161
   -
-    name: 'Bernadette Soubirous'
-    saint_phrase: '“Non vivrò un solo istante senza amare”'
+    name: 'Bernadete Soubirous'
+    saint_phrase: '“Não viverei um só instante sem amar”'
     id: 162
   -
-    name: 'Giovanni de Brebeuf'
-    saint_phrase: 'Le Suore Orsoline di Québec lo chiamavano “personificazione della grandezza e del coraggio”'
+    name: 'João de Brébeuf'
+    saint_phrase: 'As Irmãs Ursulinas de Québec o chamavam de “personificação da grandeza e da coragem”'
     id: 163
   -
-    name: 'Pierre-Julien Eymard'
-    saint_phrase: '“Ho sempre riflettuto sui rimedi dell’indifferenza universale che si impossessa di tanti uomini, e ne trovo uno solo: l’Eucarestia, l’amore a Gesù eucaristico La perdita della fede proviene dalla perdita dell’amore”'
+    name: 'Pedro Julião Eymard'
+    saint_phrase: '“Sempre refleti sobre os remédios para a indiferença universal que toma conta de tantos homens, e encontro apenas um: a Eucaristia, o amor a Jesus eucarístico. A perda da fé provém da perda do amor”'
     id: 164
   -
-    name: 'Bartolomea Capitanio'
-    saint_phrase: '"L’amore di Gesù non va disgiunto da un vero amore del prossimo"'
+    name: 'Bartolomeia Capitanio'
+    saint_phrase: '"O amor de Jesus não deve ser separado de um verdadeiro amor ao próximo"'
     id: 165
   -
-    name: 'Giovanna Antida Thouret'
-    saint_phrase: '“Io sono figlia della Chiesa, siatelo anche voi con me”'
+    name: 'Joana Antida Thouret'
+    saint_phrase: '“Eu sou filha da Igreja, sejam-no também vocês comigo”'
     id: 166
   -
-    name: 'Andrea Uberto Fournet'
-    saint_phrase: 'Abbracciò una vita di penitenza e di mortificazione, per avere agio di farsi « tutto a tutti » i suoi parrocchiani'
+    name: 'André Humberto Fournet'
+    saint_phrase: 'Abraçou uma vida de penitência e de mortificação, para ter a oportunidade de se fazer « tudo para todos » os seus paroquianos'
     id: 167
   -
-    name: 'Lucia Filippini'
-    saint_phrase: 'Illuminare le intelligenze e sollevare i cuori, era il suo nobile ideale'
+    name: 'Lúcia Filippini'
+    saint_phrase: 'Iluminar as inteligências e elevar os corações, era o seu nobre ideal'
     id: 168
   -
-    name: 'Beatrice de Silva Meneses'
-    saint_phrase: 'Abbandonò l’inquietudine della corte, fuggendo da essa, per venire a ricevere la legge della conversazione salutare, dopo il cui adempimento entrasse nella terra promessa ai Santi'
+    name: 'Beatriz da Silva Meneses'
+    saint_phrase: 'Abandonou a inquietação da corte, fugindo dela, para vir a receber a lei da conversação salutar, após o cujo cumprimento entrasse na terra prometida aos Santos'
     id: 169
   -
-    name: 'Salomone Leclercq'
-    saint_phrase: '“Soffriamo con gioia e con ringraziamento per le croci e le afflizioni che ci sono inviate”'
+    name: 'Salomão Leclercq'
+    saint_phrase: '“Soframos com alegria e com gratidão pelas cruzes e aflições que nos são enviadas”'
     id: 170
   -
-    name: 'Manuel Ruiz e 7 Compagni, e Francesco, Abdel Mooti e Raffaele Massabki'
-    saint_phrase: '“Lo sceicco Abdallah può prendere il denaro che gli ho prestato e può anche prendere la mia vita; ma nessuno può farmi rinnegare la mia fede. Io sono un cristiano maronita e nella fede di Cristo morirò”'
+    name: 'Manuel Ruiz e 7 Companheiros, e Francisco, Abdel Mooti e Rafael Massabki'
+    saint_phrase: '“O xeque Abdallah pode pegar o dinheiro que lhe emprestei e pode também pegar a minha vida; mas ninguém pode me fazer renegar a minha fé. Eu sou um cristão maronita e na fé de Cristo morrerei”'
     id: 171
   -
     name: 'John Ogilvie'
-    saint_phrase: '" Io muoio dunque, sì, ma soltanto per la mia fede"'
+    saint_phrase: '"Eu morro, portanto, sim, mas apenas pela minha fé"'
     id: 172
   -
-    name: 'Claude La Colombière'
-    saint_phrase: '"Potrei scrivere un libro sulla misericordia di cui Dio mi ha fatto testimone da quando sono qui"'
+    name: 'Cláudio La Colombière'
+    saint_phrase: '"Eu poderia escrever um livro sobre a misericórdia da qual Deus me fez testemunha desde que estou aqui"'
     id: 173
   -
-    name: 'Francesco Maria da Camporosso'
-    saint_phrase: 'il "Padre Santo"'
+    name: 'Francisco Maria de Camporosso'
+    saint_phrase: 'o "Padre Santo"'
     id: 174
   -
-    name: 'Giovanni Bosco'
-    saint_phrase: '“Formare onesti cittadini e buoni cristiani”'
+    name: 'João Bosco'
+    saint_phrase: '“Formar honestos cidadãos e bons cristãos”'
     id: 175
   -
-    name: 'Teresa Margherita Redi'
-    saint_phrase: '"Che bella scala, che scala preziosa, indispensabile è il nostro buon Gesù!"'
+    name: 'Teresa Margarida Redi'
+    saint_phrase: '"Que bela escada, que escada preciosa, indispensável é o nosso bom Jesus!"'
     id: 176
   -
-    name: 'Paola Frassinetti'
-    saint_phrase: '"La Volontà di Dio è l''unica gemma che dobbiamo cercare: volontà di Dio, paradiso mio"'
+    name: 'Paula Frassinetti'
+    saint_phrase: '"A Vontade de Deus é a única gema que devemos procurar: vontade de Deus, meu paraíso"'
     id: 177
   -
-    name: 'Corrado da Parzham'
-    saint_phrase: '"Tutto ciò che si dà ai poveri, ritorna nuovamente dentro con abbondanza”'
+    name: 'Conrado de Parzham'
+    saint_phrase: '"Tudo o que se dá aos pobres, retorna novamente dentro com abundância"'
     id: 178
   -
-    name: "Maria di Sant'Eufrasia Pelletier"
-    saint_phrase: '"L''Amore fa accadere grandi cose"'
+    name: "Maria de Santa Eufrásia Pelletier"
+    saint_phrase: '"O Amor faz acontecer grandes coisas"'
     id: 179
   -
     name: 'Giuseppe Pignatelli'
-    saint_phrase: 'Portò sostegno e consolazione ai condannati a morte guadagnandosi il soprannome di “padre degli impiccati”'
+    saint_phrase: 'Ele levou apoio e consolo aos condenados à morte, ganhando o apelido de "pai dos enforcados"'
     id: 180
   -
     name: 'Vincenza Gerosa'
-    saint_phrase: '“Chi sa il crocifisso sa tutto”'
+    saint_phrase: '"Quem conhece o crucifixo sabe tudo"'
     id: 181
   -
     name: 'Gemma Galgani'
-    saint_phrase: '"Se tutti gli uomini si studiassero di amare e conoscere il vero Iddio, questo mondo si cangerebbe in un paradiso"'
+    saint_phrase: '"Se todos os homens se esforçassem para amar e conhecer o verdadeiro Deus, este mundo se transformaria em um paraíso"'
     id: 182
   -
     name: 'Caterina Labouré'
-    saint_phrase: "Nella più grande umiltà e nel più assoluto silenzio e servì per quarantasei anni i poveri dell'ospizio di Enghien a Parigi"
+    saint_phrase: "Com a maior humildade e no mais absoluto silêncio, serviu por quarenta e seis anos os pobres do asilo de Enghien em Paris"
     id: 183
   -
     name: 'Roque González de Santa Cruz'
-    saint_phrase: '"Il suo cuore incorrotto costituisce un’immagine eloquente dell’amore cristiano, capace di superare tutti i limiti umani, fino alla morte" (Giovanni Paolo II)'
+    saint_phrase: '"Seu coração incorrupto constitui uma imagem eloquente do amor cristão, capaz de superar todos os limites humanos, até a morte" (João Paulo II)'
     id: 184
   -
     name: 'Antonio María Claret'
-    saint_phrase: '“Modesto all’apparenza, ma capacissimo di imporre rispetto ai grandi della terra… e tra tante meraviglie, quale luce soave che tutto illumina, la sua devozione alla Madre di Dio” (Pio XII)'
+    saint_phrase: '"Modesto na aparência, mas muito capaz de impor respeito aos grandes da terra... e entre tantas maravilhas, qual luz suave que tudo ilumina, a sua devoção à Mãe de Deus" (Pio XII)'
     id: 185
   -
     name: 'Giovanna Elisabetta Bichier des Ages'
-    saint_phrase: '"Se abbiamo costituito una congregazione lo abbiamo fatto senza saperlo e senza volerlo"'
+    saint_phrase: '"Se constituímos uma congregação, o fizemos sem saber e sem querer"'
     id: 186
   -
     name: 'Maria Domenica Mazzarello'
-    saint_phrase: '"Vogliatevi bene. Tenetevi sempre unite. Avete abbandonato il mondo. Non fabbricatevene un altro qui dentro. Pensate al perché siete entrate in Congregazione"'
+    saint_phrase: '"Amem-se. Mantenham-se sempre unidas. Abandonaram o mundo. Não construam outro aqui dentro. Pensem no porquê de terem entrado na Congregação"'
     id: 187
   -
     name: 'Maria Giuseppa Rossello'
-    saint_phrase: '"Cuore a Dio, mani al lavoro!"'
+    saint_phrase: '"Coração para Deus, mãos ao trabalho!"'
     id: 188
   -
     name: 'Francesca Saverio Cabrini'
-    saint_phrase: "“Oggi è tempo che l'amore non sia nascosto, ma diventi operoso, vivo e vero”"
+    saint_phrase: '"Hoje é tempo de que o amor não seja escondido, mas se torne operoso, vivo e verdadeiro"'
     id: 189
   -
     name: 'Emilia de Vialar'
-    saint_phrase: '"Il nostro Ordine deve prosperare nella povertà"'
+    saint_phrase: '"Nossa Ordem deve prosperar na pobreza"'
     id: 190
   -
     name: 'Giustino de Jacobis'
-    saint_phrase: '"Figli miei, tutti voi avrete parte del mio affetto, voglio benedirvi!"'
+    saint_phrase: '"Meus filhos, todos vocês terão parte do meu afeto, quero abençoá-los!"'
     id: 191
   -
     name: 'Rose-Philippine Duchesne'
-    saint_phrase: 'La donna che prega sempre'
+    saint_phrase: 'A mulher que reza sempre'
     id: 192
   -
     name: 'Gioacchina de Vedruna de Mas'
-    saint_phrase: '"Iddio paga il cento per uno. Se vogliamo ottenere grazie, bisogna fare il bene"'
+    saint_phrase: '"Deus paga o cêntuplo. Se queremos obter graças, é preciso fazer o bem"'
     id: 193
   -
     name: 'Maria Crocifissa Di Rosa'
-    saint_phrase: '"Gesù mio! Tu solo mi basti. La mia vita sia crocifissa con Te"'
+    saint_phrase: '"Meu Jesus! Tu só me bastas. Que a minha vida seja crucificada contigo"'
     id: 194
   -
     name: 'Ignazio da Laconi'
-    saint_phrase: '“L’uomo più ricordato del Settecento sardo” (Grazia Deledda)'
+    saint_phrase: '"O homem mais lembrado do século XVIII sardo" (Grazia Deledda)'
     id: 195
   -
     name: 'Maria Guglielma Emilia de Rodat'
     id: 196
   -
     name: 'Maddalena di Canossa'
-    saint_phrase: '"Per il fatto di essere nata marchesa, non posso forse aver l’onore di servire Gesù Cristo nei suoi poveri?"'
+    saint_phrase: '"Pelo fato de ter nascido marquesa, não posso talvez ter a honra de servir a Jesus Cristo em seus pobres?"'
     id: 197
   -
     name: 'Teresa Eustochio Verzeri'
-    saint_phrase: '"È giusto che la sposa, dopo aver seguito lo sposo in tutte le sue pene che ne accompagnarono la vita, abbia parte ancora con lui alla più terribile"'
+    saint_phrase: '"É justo que a esposa, depois de ter seguido o esposo em todas as suas penas que acompanharam a vida, tenha parte ainda com ele na mais terrível"'
     id: 198
   -
     name: 'Contardo Ferrini'
-    saint_phrase: 'Nell’educare i giovani, con il suo esempio di fede e di vita cristiana andò ben oltre la scienza umana'
+    saint_phrase: 'Ao educar os jovens, com seu exemplo de fé e de vida cristã, foi muito além da ciência humana'
     id: 199
   -
     name: 'Maria Goretti'
-    saint_phrase: '"Sì, per amore di Gesù, lo perdono e voglio che venga vicino a me in Paradiso"'
+    saint_phrase: '"Sim, por amor de Jesus, eu o perdoo e quero que ele venha para perto de mim no Paraíso"'
     id: 200
   -
     name: 'Jeanne Delanoue'
-    saint_phrase: '"Voglio vivere e morire con i miei cari fratelli: i Poveri"'
+    saint_phrase: '"Quero viver e morrer com os meus queridos irmãos: os Pobres"'
     id: 201
   -
     name: 'Benildo Romançon'
-    saint_phrase: '"Sarei felice se potessi morire completando la volontà divina"'
+    saint_phrase: '"Eu seria feliz se pudesse morrer cumprindo a vontade divina"'
     id: 202
   -
     name: 'Vincenzo Pallotti'
-    saint_phrase: '"L’annuncio del Vangelo non spetta solo al clero ma a tutti i battezzati, uomini e donne"'
+    saint_phrase: '"O anúncio do Evangelho não cabe somente ao clero, mas a todos os batizados, homens e mulheres"'
     id: 203
   -
     name: 'Maria Soledad Torres Acosta'
-    saint_phrase: '"Ebbe una vita semplice e silenziosa, che due grandi parole possono riassumere: umiltà e carità" (Paolo VI)'
+    saint_phrase: '"Teve uma vida simples e silenciosa, que pode ser resumida em duas grandes palavras: humildade e caridade" (Paulo VI)'
     id: 204
   -
     name: 'Vicenta María López y Vicuña'
-    saint_phrase: '"Le ragazze hanno vinto!"'
+    saint_phrase: '"As meninas venceram!"'
     id: 205
   -
     name: 'Paola Elisabetta Cerioli'
-    saint_phrase: '"I figli, per crescere sicuri e forti, hanno bisogno di una famiglia sana e unita, generosa e stabile"'
+    saint_phrase: '"Os filhos, para crescerem seguros e fortes, precisam de uma família saudável e unida, generosa e estável"'
     id: 206
   -
     name: 'Domenico Savio'
-    saint_phrase: '"Don Bosco, mi aiuti a farmi santo!"'
+    saint_phrase: '"Dom Bosco, ajude-me a me tornar santo!"'
     id: 207
   -
     name: 'Maria de Mattias'
-    saint_phrase: 'Sotto lo stendardo del Divin Sangue'
+    saint_phrase: 'Sob o estandarte do Divino Sangue'
     id: 208
   -
     name: 'Marguerite Bourgeoys'
-    saint_phrase: '"Va’, io non ti abbandonerò mai"'
+    saint_phrase: '"Vá, eu nunca te abandonarei"'
     id: 209
   -
     name: 'Francesco Antonio Fasani'
